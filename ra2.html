@@ -66,7 +66,7 @@ df -h /mnt/ra2-lvm</pre><p>Explica la relació PV → VG → LV → ext4 → dir
 <div id="r2-mdadm"><h3>RAID amb mdadm · 2.3</h3><p>En una altra VM preparada, utilitza dos discos virtuals buits de la mateixa mida. Confirma amb <code>lsblk</code> que <code>/dev/sdb</code> i <code>/dev/sdc</code> són els discos de pràctica, sense dades ni muntatges. No reutilitzis el disc de LVM sense restablir el laboratori.</p><pre>sudo mdadm --create /dev/md0 --level=1 --raid-devices=2 /dev/sdb /dev/sdc
 cat /proc/mdstat
 sudo mdadm --detail /dev/md0</pre><p>Espera que finalitzi la sincronització i comprova els dos membres actius. Compara la mida útil amb la suma de les mides físiques. En una VM diferent o restablerta, repeteix el muntatge amb <code>--level=0</code> i compara capacitat i tolerància a fallades. No executis les dues creacions consecutives sobre els mateixos discos actius.</p><p><strong>Evidència:</strong> estat, membres, capacitat i explicació de què es perd si falla un disc en cada nivell. Dos discos virtuals sobre el mateix suport físic no demostren redundància física real. Font local: <code>man mdadm</code>.</p></div>
-<details class="extension"><summary>Ampliació opcional · RAID 6 i RAID 10</summary><p><strong>Exemple resolt:</strong> amb quatre discos de 2 TB, RAID 5 ofereix aproximadament 6 TB i tolera una fallada. RAID 6 ofereix 4 TB i tolera dues fallades. RAID 10 ofereix 4 TB; dues fallades només es toleren si afecten parelles diferents. Durant la reconstrucció pot disminuir el rendiment i cal vigilar els discos restants.</p><p>Fora del contingut base de la prova. El nucli de la taula actual és RAID 0, 1 i 5.</p><div class="table-wrap"><table><thead><tr><th>Nivell</th><th>Mínim</th><th>Capacitat</th><th>Tolerància</th></tr></thead><tbody><tr><td>RAID 6 · paritat doble</td><td>4</td><td>(N − 2) × S</td><td>2.</td></tr><tr><td>RAID 10 · bandes de miralls</td><td>4, nombre parell</td><td>(N / 2) × S</td><td>Una per parella; perdre una parella completa compromet el conjunt.</td></tr></tbody></table></div></details></article>
+</article>
 <article id="r2-copies"><div class="eyebrow">Continguts 2.5 i 2.7 · Criteris 2.e, 2.g</div><h2>04 · Estratègies de còpia</h2>
 <p>Una còpia de seguretat conserva un estat recuperable. Cal definir què inclou, què exclou i com comprovarem la restauració. Una còpia completa de documents no és necessàriament una imatge arrencable del sistema.</p>
 <div class="table-wrap"><table><thead><tr><th>Estratègia</th><th>Què desa?</th><th>Què cal per restaurar?</th></tr></thead><tbody><tr><td>Completa</td><td>Tot el conjunt seleccionat.</td><td>La completa escollida.</td></tr><tr><td>Incremental</td><td>Canvis des de l’última còpia de la cadena.</td><td>La completa inicial i els increments necessaris, segons l’eina.</td></tr><tr><td>Diferencial</td><td>Canvis des de la completa inicial.</td><td>La completa i la diferencial de la data escollida.</td></tr></tbody></table></div>
@@ -84,14 +84,7 @@ printf 'Versio 2\n' &gt; ~/ra2-sync/dades/informe.txt
 rsync -av --link-dest=../dia1 ~/ra2-sync/dades/ ~/ra2-sync/copies/dia2/
 rsync -av ~/ra2-sync/copies/dia1/ ~/ra2-sync/recuperat/
 cat ~/ra2-sync/recuperat/informe.txt</pre><p>La restauració mostra «Versio 1». La barra final de l’origen significa copiar-ne el contingut. No editis fitxers directament dins de les versions guardades: els no modificats poden compartir el mateix inode. <code>-a</code> no inclou automàticament ACL ni atributs estesos; quan siguin necessaris, cal valorar <code>-A</code> i <code>-X</code> i la compatibilitat del destí.</p><p>Font: <a href="https://download.samba.org/pub/rsync/rsync.1">Manual oficial de rsync</a>.</p></div>
-<details class="extension"><summary>Ampliació opcional · Còpia amb GNU tar</summary><h3>Primera còpia de fitxers amb GNU tar</h3><p>En una carpeta nova de laboratori, crea dades de prova i una completa. És un exercici local del procediment; a T6 i a l’exercici de suports també s’utilitza un destí separat.</p>
-<pre>mkdir -p ~/ra2-lab/dades ~/ra2-lab/copies ~/ra2-lab/restaurat
-printf 'Informe de prova\n' &gt; ~/ra2-lab/dades/informe.txt
-tar -cf ~/ra2-lab/copies/completa.tar -C ~/ra2-lab/dades .
-tar -tf ~/ra2-lab/copies/completa.tar
-tar -xf ~/ra2-lab/copies/completa.tar -C ~/ra2-lab/restaurat
-sha256sum ~/ra2-lab/dades/informe.txt ~/ra2-lab/restaurat/informe.txt</pre>
-<p>Els dos resums han de coincidir. Obre també el fitxer. En una còpia real, decideix si cal preservar propietaris, permisos i ACL, i comprova que l’eina i el destí ho permeten.</p></details></article>
+</article>
 <article id="r2-rotacio"><div class="eyebrow">Contingut 2.4 · Criteris 2.a, 2.e, 2.f</div><h2>05 · Programació temporal i rotació</h2>
 <p><strong>RPO</strong> és la pèrdua temporal de dades que l’organització accepta. Si es fa una còpia diària, es poden perdre gairebé 24 hores de canvis. <strong>RTO</strong> és el temps objectiu per recuperar el servei. Una còpia cada hora no garanteix una restauració en una hora.</p>
 <p>La finestra de còpia és el període disponible per executar-la sense perjudicar massa el servei. Cal incloure volum, velocitat del destí, xarxa i fitxers oberts. Un calendari sense comprovació d’errors pot fallar durant dies sense que ningú ho detecti.</p>
@@ -120,7 +113,7 @@ echo "Copia completada: $marca"</pre><p>Dona permís d’execució amb <code>chm
 <pre># PowerShell: resum del fitxer restaurat
 Get-FileHash -Algorithm SHA256 C:\RA2\restaurat\informe.txt
 # Linux: resum del fitxer restaurat
-sha256sum ~/ra2-lab/restaurat/informe.txt</pre>
+sha256sum ~/ra2-sync/recuperat/informe.txt</pre>
 <p><strong>Exemple:</strong> transferir 2.000 MB en 40 s dona una mitjana de 50 MB/s. Un ping mesura resposta de xarxa, però no mesura aquesta transferència ni el rendiment del disc.</p>
 <h3>Catàleg i prova de recuperació</h3>
 <p>El catàleg permet trobar una versió sense haver d’obrir totes les còpies. Registra identificador del treball, origen, data, estratègia, destí, dependències, resultat, retenció i última restauració de prova. Conserva accessible el procediment de recuperació encara que l’equip original no arrenqui.</p>
