@@ -11,3 +11,21 @@ nav details{margin:5px 0}nav summary{font-size:15px;cursor:pointer;padding:9px 1
 #programacio-ra-curriculum h3{font-size:1.2rem}#programacio-ra-curriculum h4{font-size:1rem;margin:1.5rem 0 .5rem}.curriculum-contents{list-style:none;padding-left:0}#programacio-notes-modul .formula{overflow-wrap:anywhere;font-size:1.05rem}#programacio-recuperacio .notice h3{margin-top:0}
 
 .ca-letter-list{list-style:none;padding-left:0}.ca-letter-list li{padding-left:0;margin:.8rem 0}.ca-letter-list li>strong{display:inline-block;min-width:2.5rem}#programacio-ra-curriculum [aria-selected="true"]{background:#006b69;color:white;border-color:#006b69}.grade-equation{margin:1.5rem 0;padding:1.4rem;background:#eff8f7;border-left:3px solid #128580;overflow-x:auto;max-width:100%;font-size:1.2rem}.grade-equation math{font-family:math;font-size:1.1em;min-width:max-content}.digital-criterion{border-left:3px solid #006b69;padding-left:1rem}@media print{#programacio-ra-curriculum>article{break-before:auto}.grade-equation{font-size:10pt;padding:.5rem}.grade-equation math{font-size:1em}}
+
+/* Course landing and digital competency tabs */
+.course-cover{border-top:6px solid #22708c;padding-top:1.5rem;margin-bottom:2rem}
+.course-cover h1{font-size:clamp(2.4rem,4.6vw,4.5rem);line-height:1.08;max-width:20ch;letter-spacing:-.035em;margin:.6rem 0 1.4rem;overflow-wrap:break-word}
+.course-module{font-size:clamp(1.35rem,2.4vw,2rem);font-weight:700;color:#22708c;margin:0 0 2rem}
+.course-hours{width:100%;table-layout:fixed}
+.course-hours caption{text-align:left;font-weight:700;margin-bottom:.6rem}
+.course-hours th,.course-hours td{white-space:normal;overflow-wrap:anywhere}
+.course-hours td strong{display:block;font-size:clamp(1.6rem,3vw,2.6rem);color:#102c3b;line-height:1.3}
+.course-hours td span{display:block;font-size:.9rem;margin-top:.35rem}
+#digital-ra-tabs > [hidden]{display:none!important}
+#digital-ra-tabs [role="tabpanel"]{padding-top:.6rem}
+#digital-ra-tabs article{border-top:1px solid #cbd9e0;padding-top:1.2rem;margin-top:1.5rem}
+#digital-ra-tabs article h2{font-size:1.3rem}
+.digital-empty{padding:1.5rem;border-left:4px solid #22708c;background:#eaf3f8}
+.digital-record{border-top:1px solid #cbd9e0;margin-top:2rem;padding-top:1rem}
+@media(max-width:600px){.course-cover h1{font-size:2.25rem}.course-hours th,.course-hours td{padding:.65rem .4rem}.course-hours th{font-size:.875rem}.course-hours td span{font-size:.875rem}}
+#digital-ra-tabs [aria-selected="true"]{background:#006b69;color:white;border-color:#006b69}
