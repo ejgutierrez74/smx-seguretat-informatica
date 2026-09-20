@@ -1,0 +1,866 @@
+<!doctype html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>RA1 · Seguretat passiva · M0226</title>
+<meta name="description" content="RA1 · Seguretat passiva · M0226. Apunts, pràctiques i criteris del currículum actual de primer curs de CFGM SMX.">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Crect%20width='64'%20height='64'%20rx='12'%20fill='%23102c3b'/%3E%3Ctext%20x='32'%20y='43'%20text-anchor='middle'%20font-size='38'%20fill='white'%20font-family='sans-serif'%3ES%3C/text%3E%3C/svg%3E">
+</head>
+<body data-default-panel="ra1">
+<a class="skip" href="#ra1">Ves al contingut</a><aside><div class="brand">CFGM · SMX<strong>Seguretat<br>informàtica</strong>
+</div>
+<p>M0226 · Curs 2026–2027</p>
+<nav aria-label="Mòdul, resultats d’aprenentatge i continguts"><a href="index.html#inici">Presentació del mòdul</a><a href="index.html#programacio">Programació i avaluació</a><details id="nav-planificacio"><summary>Planificació docent</summary><div class="nav-children"><a href="index.html#planificacio-docent">Visió general</a><a href="index.html#planificacio-ra1">Planificació RA1 · 18 h</a><a href="index.html#planificacio-ra2">Planificació RA2 · 20 h</a><a href="index.html#planificacio-ra3">Planificació RA3 · 18 h</a><a href="index.html#planificacio-ra4">Planificació RA4 · 31 h</a><a href="index.html#planificacio-ra5">Planificació RA5 · 12 h</a></div></details><details id="nav-ra1"><summary>RA1 · Seguretat passiva</summary><div class="nav-children">
+<a href="#ra1">Presentació del RA1</a><details id="nav-apunts"><summary>Apunts RA1</summary><div class="nav-children">
+<a href="#teoria">Índex dels apunts</a><a href="#teoria/fonaments">01 Fonaments</a><a href="#teoria/fisica">02 Entorn físic</a><a href="#teoria/sai">03 SAI</a><a href="#teoria/acl">04 ACL i permisos</a><a href="#teoria/identitat">05 Identitat</a><a href="#teoria/contrasenyes">06 Contrasenyes</a><a href="#teoria/biometria">07 Biometria</a><a href="#teoria/registres">08 Registres</a>
+</div></details><a href="#practiques">Pràctiques RA1</a><a href="#avaluacio">Criteris RA1</a>
+</div></details><details id="nav-ra2"><summary>RA2 · Emmagatzematge</summary><div class="nav-children"><a href="ra2.html#ra2">Presentació del RA2</a><details><summary>Apunts RA2</summary><div class="nav-children"><a href="ra2.html#ra2-apunts">Índex dels apunts</a><a href="ra2.html#ra2-apunts/r2-politica">01 Política i dispositius</a><a href="ra2.html#ra2-apunts/r2-xarxa">02 Local i en xarxa</a><a href="ra2.html#ra2-apunts/r2-raid">03 Redundància i distribució</a><a href="ra2.html#ra2-apunts/r2-copies">04 Estratègies de còpia</a><a href="ra2.html#ra2-apunts/r2-rotacio">05 Programació i rotació</a><a href="ra2.html#ra2-apunts/r2-imatges">06 Imatges i restauració</a><a href="ra2.html#ra2-apunts/r2-verificacio">07 Verificació i custòdia</a></div></details><a href="ra2.html#ra2-practiques">Pràctiques RA2</a><a href="ra2.html#ra2-criteris">Criteris RA2</a></div></details><a href="index.html#competencia-digital">Avaluació de competències digitals</a><details id="nav-ra3"><summary>RA3 · Seguretat activa</summary><div class="nav-children"><a href="ra3.html#ra3">Presentació del RA3</a><details><summary>Apunts RA3</summary><div class="nav-children"><a href="ra3.html#ra3-apunts">Índex dels apunts</a><a href="ra3.html#ra3-apunts/r3-contingencia">01 Plans de contingència</a><a href="ra3.html#ra3-apunts/r3-malware">02 Virus i malware</a><a href="ra3.html#ra3-apunts/r3-actualitzacions">03 Actualitzacions</a><a href="ra3.html#ra3-apunts/r3-autenticitat">04 Origen i autenticitat</a><a href="ra3.html#ra3-apunts/r3-antimalware">05 Protecció i desinfecció</a><a href="ra3.html#ra3-apunts/r3-recuperacio">06 Recuperació de dades</a><a href="ra3.html#ra3-apunts/r3-signatura">07 Certificats i signatura</a><a href="ra3.html#ra3-apunts/r3-incidencies">08 Documentació i incidències</a></div></details><a href="ra3.html#ra3-practiques">Pràctiques RA3</a><a href="ra3.html#ra3-criteris">Criteris RA3</a></div></details><details id="nav-ra4"><summary>RA4 · Privacitat en xarxes</summary><div class="nav-children"><a href="ra4.html#ra4">Presentació del RA4</a><details><summary>Apunts RA4</summary><div class="nav-children"><a href="ra4.html#ra4-apunts">Índex dels apunts</a><a href="ra4.html#ra4-apunts/r4-privacitat">01 Privacitat i serveis de xarxa</a><a href="ra4.html#ra4-apunts/r4-fraus">02 Enginyeria social, publicitat i correu brossa</a><a href="ra4.html#ra4-apunts/r4-cablejades">03 Protecció de xarxes cablejades</a><a href="ra4.html#ra4-apunts/r4-wifi">04 Seguretat Wi-Fi</a><a href="ra4.html#ra4-apunts/r4-identificacio">05 Certificats i signatura digital</a><a href="ra4.html#ra4-apunts/r4-tallafocs">06 Tallafocs en equips i servidors</a></div></details><a href="ra4.html#ra4-practiques">Pràctiques RA4</a><a href="ra4.html#ra4-criteris">Criteris RA4</a></div></details><details id="nav-ra5"><summary>RA5 · Legislació i dades</summary><div class="nav-children"><a href="ra5.html#ra5">Presentació del RA5</a><details><summary>Apunts RA5</summary><div class="nav-children"><a href="ra5.html#ra5-apunts">Índex dels apunts</a><a href="ra5.html#ra5-apunts/r5-dades">01 Dades personals i legislació</a><a href="ra5.html#ra5-apunts/r5-persones">02 Responsabilitats, accessos i drets</a><a href="ra5.html#ra5-apunts/r5-serveis">03 Webs, comerç i correu electrònic</a><a href="ra5.html#ra5-apunts/r5-gestio">04 Normes i gestió de la seguretat</a></div></details><a href="ra5.html#ra5-practiques">Pràctiques RA5</a><a href="ra5.html#ra5-criteris">Criteris RA5</a></div></details><a href="index.html#professorat">Professorat · Accés privat</a><a href="index.html#fonts">Fonts</a></nav><div class="nav-foot">M0226 · 99 h al centre + 33 h a l’empresa<br>RA1 · 18 hores<br>RA2 · 20 hores<br><br>Material de preparació docent</div></aside><main id="main"><div class="topline">
+<span>M0226 · Seguretat informàtica</span><button id="print" class="print">Imprimeix la secció</button>
+</div>
+<section class="panel" id="ra1" data-title="RA1 · Seguretat passiva"><div class="eyebrow">M0226 · Seguretat informàtica</div>
+<h1>RA1 · Seguretat passiva</h1>
+<p><strong>18 hores lectives.</strong> La distribució de sessions es consulta a <a href="index.html#planificacio-ra1">Planificació docent</a>.</p><p class="lead">Protegir els equips davant d’incidents físics i controlar qui pot accedir al sistema i a la informació.</p>
+<div class="notice">
+<h3>Què és Taller Bit?</h3>
+<p><strong>Taller Bit és una petita empresa fictícia de suport informàtic</strong> que utilitzarem com a fil conductor. Té sis persones que treballen amb portàtils, comparteixen fitxers en un NAS i es connecten mitjançant un switch i un router. No és un equip ni un programa. Els casos ens ajuden a decidir qui pot veure un document, què cal alimentar amb un SAI i com protegir els dispositius.</p>
+<p>En Pau, la Laia i l’Àlex són personatges dels exemples. Quan un exercici canviï equips, persones o consums, ho indicarà expressament.</p>
+</div>
+<h2>Què has de saber fer?</h2>
+<p>Identificar riscos, escollir una ubicació adequada, protegir físicament els equips, seleccionar i verificar un SAI, definir una política d’accés i comprovar permisos, contrasenyes i registres.</p>
+<div class="grid">
+<a class="card" href="#teoria"><h3>Apunts de teoria</h3>
+<p>Vuit blocs breus amb esquemes i exemples resolts.</p></a><a class="card" href="#practiques"><h3>Pràctiques i exercicis</h3>
+<p>T1 · CPD, T2 · SAI i T3 · MFA i permisos, amb activitats de consolidació.</p></a>
+<a class="card" href="#avaluacio"><h3>Criteris i continguts</h3><p>Què treballem i què s’avalua al RA1.</p></a></div>
+<h2>Recorregut de l’AEA1</h2>
+<p>Conceptes bàsics → ubicació i protecció física → funcionament del SAI → exemple de dimensionament → comprovació pràctica.</p>
+<h2>Recorregut de l’AEA2</h2>
+<p>Política d’accés → identitat → contrasenyes i biometria → permisos → registres i privacitat.</p>
+<p>Una <strong>AEA</strong> és una activitat d’ensenyament i aprenentatge: agrupa explicacions, exercicis i pràctiques amb un objectiu comú.</p>
+<p><a href="#avaluacio">Consulta què s’avaluarà al RA1</a>.</p></section><section class="panel" id="teoria" data-title="Apunts de teoria"><div class="eyebrow">Apunts per explicar i estudiar</div>
+<h1>La teoria del RA1.</h1>
+<p class="lead">Conceptes, exemples i decisions tècniques al nivell de CFGM. Cada bloc s’enllaça amb les sessions i els criteris que treballa.</p>
+<div class="toc">
+<a href="#teoria/fonaments">01 Fonaments</a><a href="#teoria/fisica">02 Entorn físic</a><a href="#teoria/sai">03 SAI</a><a href="#teoria/acl">04 ACL i permisos</a><a href="#teoria/identitat">05 Identitat</a><a href="#teoria/contrasenyes">06 Contrasenyes</a><a href="#teoria/biometria">07 Biometria i MFA</a><a href="#teoria/registres">08 Registres</a>
+</div>
+<article id="fonaments"><div class="eyebrow">S1–S2 · Criteris 1.a, 1.b</div>
+<h2>01 · Què protegim i de què?</h2>
+<p><strong>Cas conductor:</strong> Taller Bit és una empresa fictícia de suport informàtic amb sis persones. Els exemples del RA1 plantegen com protegir-ne els equips i els fitxers. <a href="#ra1">Consulta la presentació del cas</a>.</p>
+<p>La seguretat informàtica busca reduir la probabilitat i les conseqüències dels incidents que afecten els equips, els serveis i la informació. Un ordinador pot funcionar perfectament i, alhora, estar exposant documents privats. Per això protegir només el maquinari és insuficient.</p>
+<h3>La tríada CID</h3>
+<div class="table-wrap"><table class="">
+<thead><tr>
+<th>Propietat</th>
+<th>Significat</th>
+<th>Exemple a Taller Bit</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Confidencialitat</td>
+<td>Només hi accedeix qui està autoritzat.</td>
+<td>Les nòmines només les llegeixen les persones de gestió autoritzades.</td>
+</tr>
+<tr>
+<td>Integritat</td>
+<td>Les dades es mantenen correctes i els canvis estan autoritzats.</td>
+<td>Un pressupost no canvia sense que el responsable ho aprovi.</td>
+</tr>
+<tr>
+<td>Disponibilitat</td>
+<td>Els usuaris autoritzats poden utilitzar la informació quan la necessiten.</td>
+<td>El servidor continua operatiu durant un tall breu de llum.</td>
+</tr>
+</tbody>
+</table></div>
+<p>Un incident pot afectar més d’una propietat. Si algú roba un portàtil sense xifrar, es pot perdre disponibilitat i confidencialitat. Si també modifica arxius abans de retornar-lo, queda afectada la integritat.</p>
+<h3>Actiu, amenaça, vulnerabilitat i risc</h3>
+<p>Un <strong>actiu</strong> és allò que té valor: el NAS, els pressupostos o el servei de facturació. Una <strong>amenaça</strong> és una possible causa de dany, com un robatori o una fuita d’aigua. Una <strong>vulnerabilitat</strong> és una feblesa que facilita el dany, com una porta sense pany o un servidor sota una canonada. El <strong>risc</strong> combina la probabilitat que passi amb l’impacte que tindria.</p>
+<p>Una matriu senzilla de probabilitat i impacte ajuda a prioritzar. Assignar valors d’1 a 3 a cada dimensió és una eina didàctica, no una mesura exacta. Cal justificar els valors. Una avaria poc probable però capaç d’aturar tota l’empresa pot exigir una actuació prioritària.</p>
+<h3>Física/lògica i activa/passiva</h3>
+<p>La <strong>seguretat física</strong> actua sobre l’entorn i l’accés material: portes, racks, electricitat i climatització. La <strong>seguretat lògica</strong> actua sobre l’accés i el tractament digital: comptes, permisos i autenticació.</p>
+<p>Activa i passiva descriuen una altra dimensió. En la classificació didàctica habitual, les mesures actives prevenen o detecten atacs, i les passives limiten els danys i faciliten la continuïtat o recuperació. Les classificacions poden variar segons el context. Un SAI és físic i protegeix la continuïtat; una ACL és lògica i preventiva. El currículum d’aquest RA inclou explícitament ACL i contrasenyes dins del bloc de seguretat passiva.</p>
+<p><strong>Idea per a classe:</strong> «Una porta tancada protegeix el servidor. Què protegeix els fitxers quan l’usuari ja ha iniciat sessió?» Aquesta pregunta connecta les dues AEA.</p></article>
+<article id="fisica"><div class="eyebrow">S3–S5 · Criteris 1.c, 1.d · Continguts 1.1–1.2</div>
+<h2>02 · Ubicació i protecció física</h2>
+<p>Un CPD és un espai preparat per allotjar equips que processen o emmagatzemen dades i la infraestructura que els dona servei. En una empresa petita pot ser una sala amb un rack. La mida no elimina la necessitat de controlar l’entorn i les persones que hi entren.</p>
+<h3>Escollir la ubicació</h3>
+<p>Primer s’identifiquen riscos de l’edifici: aigua, incendi, accés des del carrer, obres, vibracions i serveis propers. Després es comproven l’alimentació elèctrica, la ventilació, la resistència del terra i l’espai de manteniment. S’eviten zones inundables, pas innecessari de persones i emmagatzematge de materials combustibles. La planta adequada depèn de l’avaluació de l’edifici, no d’una regla universal.</p>
+<p>El rack s’ha de situar de manera que es puguin obrir portes, retirar equips i accedir al cablejat. Cal identificar els cables, protegir-los del pas de persones i separar adequadament les canalitzacions de dades i energia. El terra tècnic pot ser útil, però no és imprescindible en qualsevol CPD.</p>
+<h3>Condicions ambientals</h3>
+<div class="table-wrap"><table class="">
+<thead><tr>
+<th>Factor</th>
+<th>Risc</th>
+<th>Mesura i comprovació</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Temperatura</td>
+<td>Sobreescalfament i apagades.</td>
+<td>Mesurar a l’entrada d’aire dels equips, mantenir ventilació i usar els límits del fabricant.</td>
+</tr>
+<tr>
+<td>Humitat</td>
+<td>Condensació o descàrregues electroestàtiques.</td>
+<td>Monitoratge i control dins del rang dels equips. Evitar canvis bruscos i condensació.</td>
+</tr>
+<tr>
+<td>Pols</td>
+<td>Filtres obstruïts i pitjor refrigeració.</td>
+<td>Neteja planificada, filtres i revisió visual.</td>
+</tr>
+<tr>
+<td>Aigua</td>
+<td>Curtcircuits i pèrdua de servei.</td>
+<td>Evitar conduccions de risc, detectar fuites i elevar equips si l’avaluació ho requereix.</td>
+</tr>
+<tr>
+<td>Vibracions i cops</td>
+<td>Dany físic o connexions despreses.</td>
+<td>Fixació del rack i protecció davant de cops.</td>
+</tr>
+<tr>
+<td>Electricitat estàtica</td>
+<td>Dany de components durant manipulacions.</td>
+<td>Procediment ESD, superfície i polsera adequades quan correspongui.</td>
+</tr>
+</tbody>
+</table></div>
+<p>La temperatura i la humitat s’han de registrar i relacionar amb els manuals. A T1 utilitzarem 22 °C i 45% d’humitat relativa com a dades fictícies d’un cas, no com una exigència normativa. Una única lectura al termòstat no descriu tots els punts calents d’un rack.</p>
+<p>En files de racks, els passadissos freds alimenten les entrades d’aire i els calents recullen les sortides. Evitar que l’aire calent torni a l’entrada millora la refrigeració. Els panells de tancament ajuden a controlar el recorregut de l’aire.</p>
+<h3>Accés físic i emergències</h3>
+<p>La protecció es pot organitzar per capes: edifici, sala i rack. Es defineixen persones autoritzades, registre de visites, acompanyament de proveïdors i retorn de claus o targetes en les baixes. Cal evitar que una persona entri darrere d’una altra sense identificar-se.</p>
+<p>La detecció de fum, els sistemes d’extinció i les sortides d’emergència formen part del pla del centre. Les instal·lacions elèctriques i contra incendis les determina personal competent. En classe s’identifiquen i es documenten, sense obrir quadres ni provar sistemes d’extinció. Cap control d’accés pot impedir l’evacuació segura.</p>
+<p><strong>Disponibilitat:</strong> afegir redundància redueix alguns punts únics de fallada, però no garanteix disponibilitat absoluta. Dos servidors connectats al mateix endoll continuen compartint un risc elèctric.</p>
+<figure class="scheme"><svg viewbox="0 0 760 130" role="img" aria-label="Protecció física: cada mesura respon a un risc i necessita una comprovació"><title>Protecció física: cada mesura respon a un risc i necessita una comprovació</title>
+<rect x="15" y="15" width="215" height="88" rx="10" fill="#eaf3f8" stroke="#22708c"></rect><text x="122" y="48" text-anchor="middle" font-size="19" fill="#102c3b">Calor excessiva</text><text x="122" y="77" text-anchor="middle" font-size="14" fill="#102c3b">Ventilació i climatització</text><path d="M235 58h30m-7-7 7 7-7 7" fill="none" stroke="#22708c" stroke-width="2"></path><rect x="270" y="15" width="215" height="88" rx="10" fill="#eaf3f8" stroke="#22708c"></rect><text x="377" y="48" text-anchor="middle" font-size="19" fill="#102c3b">Control ambiental</text><text x="377" y="77" text-anchor="middle" font-size="14" fill="#102c3b">Sensor i registre</text><path d="M490 58h30m-7-7 7 7-7 7" fill="none" stroke="#22708c" stroke-width="2"></path><rect x="525" y="15" width="215" height="88" rx="10" fill="#eaf3f8" stroke="#22708c"></rect><text x="632" y="48" text-anchor="middle" font-size="19" fill="#102c3b">Alarma</text><text x="632" y="77" text-anchor="middle" font-size="14" fill="#102c3b">Revisar i actuar</text></svg><figcaption>Protecció física: cada mesura respon a un risc i necessita una comprovació</figcaption></figure></article>
+<article id="sai"><div class="eyebrow">S6–S9 · Criteris 1.e, 1.f · Continguts 1.3–1.4</div>
+<h2>03 · Sistemes d’alimentació ininterrompuda</h2>
+<p>Un SAI proporciona energia temporal quan falla el subministrament i, segons el disseny, també regula o condiciona l’alimentació. Permet mantenir el servei durant talls breus o apagar els equips de forma ordenada. No substitueix una còpia de seguretat ni protegeix de tots els problemes elèctrics.</p>
+<p>La bateria emmagatzema energia en corrent continu. El carregador la recarrega i l’inversor produeix el corrent altern que necessiten els equips. Els indicadors i el programari informen de càrrega, bateria i alarmes. Un bypass, quan existeix, permet una ruta alternativa, amb protecció diferent segons el mode.</p>
+<div class="table-wrap"><table class="">
+<thead><tr>
+<th>Tipus</th>
+<th>Funcionament</th>
+<th>Aplicació i límit</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Offline o standby</td>
+<td>Alimenta habitualment des de la xarxa i commuta a bateria quan cal.</td>
+<td>Càrregues compatibles amb el temps de commutació indicat pel fabricant.</td>
+</tr>
+<tr>
+<td>Línia interactiva</td>
+<td>Incorpora regulació de tensió i commuta a bateria quan és necessari.</td>
+<td>Petits servidors, xarxa o llocs de treball segons requisits.</td>
+</tr>
+<tr>
+<td>Online de doble conversió</td>
+<td>Rectifica i torna a generar la sortida en funcionament normal.</td>
+<td>Càrregues exigents; en doble conversió no necessita commutar la sortida en passar a bateria. Els modes bypass/ECO s’han d’analitzar a part.</td>
+</tr>
+</tbody>
+</table></div>
+<p>Un SAI online no té necessàriament més autonomia: aquesta depèn de la bateria, la càrrega, l’estat i les condicions de treball. La topologia descriu com funciona, no quants minuts durarà.</p>
+<h3>Potència: W i VA</h3>
+<p><strong>FP vol dir factor de potència:</strong> FP = P / S. P és la potència activa, en watts (W), i S l’aparent, en voltamperes (VA). Si un equip necessita 100 W i té FP = 0,5, exigeix 200 VA. Amb FP = 1 exigiria 100 VA. El FP no és el rendiment ni el percentatge d’energia perduda: indica la relació entre aquestes dues potències.</p>
+<p>Els <strong>W</strong> expressen potència activa i els <strong>VA</strong>, potència aparent. En corrent altern monofàsic, amb valors eficaços, S = V × I i P = S × FP. El factor de potència FP és una propietat de la càrrega. No s’ha de deduir simplement de la gamma comercial del SAI.</p>
+<div class="formula">S (VA) = P (W) / FP<br>P (W) = V × I × FP</div>
+<p>Cal comprovar <strong>tots dos límits de sortida</strong> del SAI. Un model de 1.000 VA i 600 W no admet una càrrega de 700 W encara que la càrrega aparent sigui inferior a 1.000 VA. La potència màxima escrita a una font d’alimentació tampoc és necessàriament el consum real de l’ordinador.</p>
+<h3>Exemple resolt · AEA1</h3>
+<div>
+<p><strong>Situació:</strong> sis persones treballen amb portàtils i comparteixen fitxers en un NAS. El NAS és un petit servidor d’emmagatzematge connectat a la xarxa. El switch uneix els equips per cable; el router connecta xarxes i proporciona accés a Internet.</p>
+<figure class="scheme"><svg viewbox="0 0 760 130" role="img" aria-label="Connexió de dades: el SAI ha d’alimentar els equips necessaris per al servei"><title>Connexió de dades: el SAI ha d’alimentar els equips necessaris per al servei</title>
+<rect x="15" y="15" width="215" height="88" rx="10" fill="#eaf3f8" stroke="#22708c"></rect><text x="122" y="48" text-anchor="middle" font-size="19" fill="#102c3b">Router</text><text x="122" y="77" text-anchor="middle" font-size="14" fill="#102c3b">Connexió entre xarxes</text><path d="M235 58h30m-7-7 7 7-7 7" fill="none" stroke="#22708c" stroke-width="2"></path><rect x="270" y="15" width="215" height="88" rx="10" fill="#eaf3f8" stroke="#22708c"></rect><text x="377" y="48" text-anchor="middle" font-size="19" fill="#102c3b">Switch</text><text x="377" y="77" text-anchor="middle" font-size="14" fill="#102c3b">Connexions Ethernet</text><path d="M490 58h30m-7-7 7 7-7 7" fill="none" stroke="#22708c" stroke-width="2"></path><rect x="525" y="15" width="215" height="88" rx="10" fill="#eaf3f8" stroke="#22708c"></rect><text x="632" y="48" text-anchor="middle" font-size="19" fill="#102c3b">NAS</text><text x="632" y="77" text-anchor="middle" font-size="14" fill="#102c3b">Fitxers compartits</text></svg><figcaption>Connexió de dades: el SAI ha d’alimentar els equips necessaris per al servei</figcaption></figure><div class="table-wrap"><table>
+<thead><tr>
+<th>Equip real de referència</th>
+<th>Característiques i dada disponible</th>
+<th>Com interpretem la dada</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Synology DS223j</td>
+<td>2 badies, 1 port Gigabit. 16,31 W en accés i 4 W en hibernació, segons les condicions de prova del fabricant.</td>
+<td>El consum varia amb discs i activitat. La font de 60 W no significa un consum constant de 60 W.</td>
+</tr>
+<tr>
+<td>TP-Link Archer AX55</td>
+<td>Router Wi-Fi 6. Adaptador de 12 V i 2 A.</td>
+<td>12 × 2 = 24 W és la capacitat de sortida de l’adaptador, no una mesura del consum de xarxa.</td>
+</tr>
+<tr>
+<td>TP-Link TL-SG108</td>
+<td>Switch de 8 ports Gigabit. La fitxa espanyola consultada indica 2,77 W màxim a 220 V / 50 Hz.</td>
+<td>Cal comprovar la revisió exacta del model; altres versions poden tenir dades diferents.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="small">Fonts: <a href="https://www.synology.com/es-es/products/DS223j">Synology DS223j</a>, <a href="https://www.tp-link.com/es/home-networking/wifi-router/archer-ax55/">Archer AX55</a> i <a href="https://www.tp-link.com/es/business-networking/soho-switch-unmanaged/tl-sg108/">TL-SG108</a>. Catàleg per consultar equips: <a href="https://www.pccomponentes.com/tp-link-archer-ax55-router-doble-banda-wifi-6">router a PcComponentes</a> i <a href="https://www.pccomponentes.com/tp-link-tl-sg108-switch-8-puertos-gigabit">switch a PcComponentes</a>.</p>
+<h4>Resolució pas a pas</h4>
+<ol>
+<li>
+<strong>Decidim què protegim.</strong> NAS, switch i router. Els portàtils utilitzen la seva bateria. Si hi ha una ONT separada (l’equip que termina la fibra), caldrà incloure-la per mantenir la connexió a Internet, i l’operador també haurà de continuar funcionant.</li>
+<li>
+<strong>Obtenim el consum.</strong> En una instal·lació real mesurem W i VA amb un instrument adequat. Per practicar utilitzem dades <em>simulades</em>, no mesures dels models anteriors: NAS 22 W, router 12 W i switch 3 W. Total: <strong>37 W</strong>.</li>
+<li>
+<strong>Passem a VA.</strong> Donem un FP agregat de 0,65 com a hipòtesi de l’exercici: S = 37 / 0,65 = <strong>56,9 VA</strong>.</li>
+<li>
+<strong>Deixem marge.</strong> Si volem el 30% de capacitat lliure, ocuparem com a màxim el 70%: mínim 37 / 0,70 = <strong>52,9 W</strong> i 56,9 / 0,70 = <strong>81,3 VA</strong>. Aquest marge és una decisió del cas.</li>
+<li>
+<strong>Comprovem autonomia.</strong> Un SAI fictici de 650 VA / 360 W supera tots dos mínims. Però no podem afirmar que duri 8 minuts: cal consultar la seva corba d’autonomia a 37 W o verificar-ho. W i VA no són minuts.</li>
+</ol>
+</div>
+<div class="calc">
+<label>Càrrega total (W)<input id="watts" type="number" min="1" value="37"></label><label>FP de la càrrega<input id="pf" type="number" min="0.01" max="1" step="0.01" value="0.65"></label><label>Capacitat lliure (%)<input id="reserve" type="number" min="0" max="50" value="30"></label>
+</div>
+<div class="result" id="result" role="status" aria-live="polite"></div>
+<p class="small">Calculadora didàctica de dimensionament. No estima minuts d’autonomia. El marge és una decisió del cas, no una norma universal.</p>
+<h3>Quins equips hi connectem?</h3>
+<p>Es prioritza la cadena de servei: servidor, emmagatzematge i elements de xarxa necessaris. Mantenir el servidor però deixar el switch sense alimentació pot fer inaccessible el servei. Una impressora làser pot tenir pics elevats: no es connecta a les sortides de bateria d’un SAI informàtic sense comprovar explícitament la compatibilitat i el dimensionament. <a href="https://www.se.com/us/en/faqs/FA158812/">Recomanació del fabricant APC</a>.</p>
+<h3>Autonomia i verificació</h3>
+<p>La selecció es completa amb la corba d’autonomia del model a la càrrega prevista, els connectors, les comunicacions i el temps d’apagada ordenada. Per exemple, si calen quatre minuts per aturar el servei i es decideix un marge operatiu de tres, l’objectiu del cas és almenys set minuts. No es calcula l’autonomia només amb VA.</p>
+<p>La prova comprova estat inicial, càrrega, avís de bateria, continuïtat, ordre d’apagada si correspon i retorn a xarxa. Registrar una prova de tres minuts només acredita que ha suportat aquests tres minuts. No acredita l’autonomia màxima. El manteniment inclou autotests segons manual, alarmes, estat de bateria i substitució autoritzada.</p></article>
+<article id="acl"><div class="eyebrow">S10 i S12 · Criteris 1.g · Continguts 1.5 i 1.8</div>
+<h2>04 · Polítiques d’accés, permisos i ACL</h2>
+<p>Una política d’accés defineix quins subjectes poden fer quines accions sobre quins recursos i qui aprova els canvis. Una ACL és una llista associada a un recurs que concreta permisos per a usuaris o grups. La política s’escriu abans de configurar-la: si no sabem qui necessita llegir una carpeta, una ordre tècnica no resol el problema.</p>
+<p>El <strong>mínim privilegi</strong> consisteix a donar només els permisos necessaris per a la feina. El criteri de partida és no concedir accés fins que existeixi una necessitat autoritzada. Els grups permeten gestionar rols sense repetir permisos per a cada persona. Les altes, canvis de funció i baixes han de revisar aquests permisos.</p>
+<div class="table-wrap"><table class="">
+<thead><tr>
+<th>Grup</th>
+<th>Projectes</th>
+<th>Facturació</th>
+<th>Administració del sistema</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Tècnics</td>
+<td>Llegir i modificar</td>
+<td>Sense accés</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Gestió</td>
+<td>Llegir</td>
+<td>Llegir i modificar</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Administradors</td>
+<td>Segons tasca autoritzada</td>
+<td>Segons tasca autoritzada</td>
+<td>Sí, amb compte específic</td>
+</tr>
+</tbody>
+</table></div>
+<p>Administrar el sistema no implica una autorització organitzativa per consultar qualsevol dada. Les capacitats tècniques elevades exigeixen responsabilitat, traçabilitat i comptes separats per a tasques quotidianes i administratives.</p>
+<h3>Linux: permisos bàsics</h3>
+<p>Els permisos POSIX distingeixen propietari, grup i altres. En un fitxer, <code>r</code> permet llegir, <code>w</code> escriure i <code>x</code> executar. En un directori, <code>r</code> permet llistar noms, <code>w</code> modificar les entrades i <code>x</code> travessar-lo o accedir a elements coneguts. Per accedir a un fitxer també cal poder travessar els directoris del camí.</p>
+<p><code>chmod 750 carpeta</code> dona rwx al propietari, r-x al grup i cap permís als altres. <code>chmod 640 fitxer</code> dona rw- al propietari i r-- al grup. <code>chown</code> canvia propietari i, opcionalment, grup. Esborrar un fitxer depèn principalment dels permisos del directori que el conté i d’altres restriccions, no només del permís d’escriptura del fitxer.</p>
+<h3>ACL POSIX</h3>
+<p>Una ACL afegeix permisos per a usuaris o grups concrets. La màscara limita els permisos efectius dels usuaris amb nom i dels grups, sense limitar el propietari ni «altres». Una ACL per defecte d’un directori serveix de base als nous elements, amb els límits del mode de creació. No modifica retroactivament els elements existents. <a href="https://man7.org/linux/man-pages/man5/acl.5.html">Manual Linux d’ACL</a>.</p>
+<pre>getfacl /srv/ra1/projecte
+sudo setfacl -m u:ra1lectora:rx /srv/ra1/projecte
+getfacl /srv/ra1/projecte</pre>
+<p>La comprovació final es fa amb el compte destinatari, mai només amb root. Veure una ACL configurada és una evidència parcial: també hem de demostrar una operació permesa i una altra de denegada.</p>
+<h3>Windows: permisos NTFS</h3>
+<p>Des de Propietats → Seguretat es consulten usuaris, grups i permisos. «Modificar» i «Control total» no són equivalents: el segon també permet gestionar permisos i propietat. L’herència propaga entrades des de les carpetes pare. Abans de trencar-la, cal entendre quines entrades es mantindran.</p>
+<p>Els permisos efectius depenen de totes les pertinences i entrades aplicables. Les denegacions i l’ordre de les entrades poden alterar el resultat; és preferible evitar denegacions innecessàries i verificar amb «Accés efectiu» i una prova real. En un recurs SMB també intervenen els permisos de compartició: l’accés ha de ser possible en les dues capes.</p>
+<p><strong>Permís i dret:</strong> llegir un fitxer és un permís sobre un objecte. Iniciar sessió localment o fer determinades tasques administratives són drets o privilegis del sistema. Ser capaç d’iniciar sessió no garanteix accés a totes les carpetes.</p>
+<div>
+<h3>Exemple resolt · AEA2 · Una carpeta compartida</h3>
+<p>Al Taller Bit, la Laia consulta els manuals, en Pau els actualitza i l’Àlex administra els permisos. Volem donar a cadascú només l’accés necessari.</p>
+<div class="table-wrap"><table>
+<thead><tr>
+<th>Persona / grup</th>
+<th>Llegir</th>
+<th>Modificar fitxers</th>
+<th>Canviar permisos</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Laia · Consulta</td>
+<td>Sí</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Pau · Edició</td>
+<td>Sí</td>
+<td>Sí</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Àlex · Administració</td>
+<td>Sí</td>
+<td>Sí</td>
+<td>Sí</td>
+</tr>
+</tbody>
+</table></div>
+<ol>
+<li>
+<strong>Escrivim la política.</strong> Consulta només llegeix; Edició pot treballar amb els fitxers; Administració gestiona l’accés. Una ACL és la llista d’entrades que concreta aquests permisos.</li>
+<li>
+<strong>Creem grups i hi assignem comptes.</strong> Això evita repetir la política persona per persona. Comprovem que la Laia no pertanyi també al grup Edició.</li>
+<li>
+<strong>Apliquem permisos en una carpeta NTFS de prova.</strong> A «Seguretat», Consulta rep «Lectura i execució»; Edició, «Modificar»; Administració, «Control total». Conservem SYSTEM i Administradors. Revisem les entrades heretades que podrien donar més accés.</li>
+<li>
+<strong>Provem amb cada compte.</strong> La Laia obre un manual però no en pot crear ni canviar un. En Pau el pot modificar però no administrar-ne els permisos. L’Àlex pot gestionar els permisos.</li>
+<li>
+<strong>Si el resultat no coincideix, revisem.</strong> Mirem grups, herència i permisos efectius. Si l’accés és per xarxa, també intervenen els permisos de compartició. Provar-ho com a administrador no demostra què pot fer la Laia.</li>
+</ol>
+<p><strong>Evidència:</strong> matriu de permisos i una taula amb l’acció, el resultat esperat i el resultat observat. En Linux, <code>r</code> és lectura, <code>w</code> escriptura i <code>x</code> execució; en un directori, <code>x</code> permet travessar-lo. A E4 ho comprovarem amb ordres.</p>
+</div>
+<div id="windows-guia"><h3>Windows: permisos NTFS i compartició</h3><p>Els permisos s’assignen a usuaris o grups sobre fitxers i carpetes. <strong>Lectura</strong> permet consultar el contingut; <strong>Modificar</strong> permet treballar amb els fitxers i eliminar-los; <strong>Control total</strong> també permet gestionar-ne els permisos. Un compte editor no necessita control total per editar documents.</p>
+<h4>Herència i permisos efectius</h4><p>Una carpeta pot heretar entrades de la carpeta pare. Abans d’afegir permisos revisa les entrades existents i els grups del compte: una altra pertinença pot donar més accés del previst. Les denegacions, les entrades explícites i les heretades influeixen en el resultat. Utilitza la pestanya <strong>Accés efectiu</strong> i una prova real amb l’usuari, en lloc de deduir-lo d’una sola entrada.</p>
+<p>Per accedir per xarxa, s’han de permetre l’operació tant als permisos de compartició com als NTFS. Si la compartició només dona lectura i NTFS dona modificació, l’accés a través d’aquella compartició queda limitat a lectura. L’accés local no passa pels permisos de compartició.</p>
+<h4>Demostració guiada</h4><ol><li>En una màquina de laboratori, crea <code>C:\RA1-Lab</code> en un volum NTFS i un fitxer <code>manual.txt</code>. Prepara els grups locals <code>RA1_Consulta</code> i <code>RA1_Edicio</code>, amb comptes de prova diferents.</li><li>A Propietats → Seguretat → Opcions avançades, revisa l’herència. Si cal aïllar la carpeta de prova, converteix els permisos heretats en explícits i ajusta només les entrades que donen accés excessiu. Conserva SYSTEM i Administradors.</li><li>Assigna «Lectura i execució» a Consulta i «Modificar» a Edició, amb aplicació a aquesta carpeta, subcarpetes i fitxers.</li><li>Consulta Accés efectiu per a cada usuari. Si acabes de modificar els grups, inicia una sessió nova amb el compte de prova.</li><li>Comprova que el lector pot obrir el fitxer però no desar-hi canvis, i que l’editor pot crear i modificar un fitxer sense administrar els permisos. Fes les proves en sessions no elevades.</li><li>Si comparteixes la carpeta, repeteix-les a través de la ruta de xarxa i anota també els permisos de compartició.</li></ol>
+<h4>Consulta amb icacls</h4><p>Al símbol del sistema, aquestes ordres mostren les ACL sense modificar-les:</p><pre>icacls "C:\RA1-Lab"
+icacls "C:\RA1-Lab\manual.txt"</pre><p><code>(I)</code> indica una entrada heretada; <code>(OI)</code> i <code>(CI)</code> indiquen herència cap a fitxers i carpetes; <code>F</code>, <code>M</code> i <code>RX</code> són control total, modificació i lectura/execució. Registra la configuració i el resultat observat per a cada compte.</p><p class="small">Fonts: <a href="https://learn.microsoft.com/en-us/windows/security/identity-protection/access-control/access-control">Microsoft · Control d’accés</a> i <a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/icacls">icacls</a>. Aquesta guia amplia l’exemple de permisos dins les 18 hores del RA1.</p></div>
+<div id="linux-guia">
+<h3>Linux: primer els permisos bàsics, després les ACL</h3>
+<p>Treballarem amb fitxers de prova de <strong>Taller Bit</strong>. En Pau redacta informes; el grup <code>ra1equip</code> els consulta. La Laia és una col·laboradora que després necessitarà llegir un informe concret sense formar part del grup.</p>
+<h4>1 · Propietari, grup i altres</h4>
+<p>Cada fitxer té un <strong>propietari</strong> (un usuari) i un <strong>grup propietari</strong>. Els permisos bàsics distingeixen tres classes. «Altres» no és un grup que haguem de crear.</p>
+<div class="table-wrap"><table>
+<thead><tr>
+<th>Classe</th>
+<th>Lletra</th>
+<th>A qui correspon?</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Propietari</td>
+<td><code>u</code></td>
+<td>L’usuari propietari del fitxer.</td>
+</tr>
+<tr>
+<td>Grup</td>
+<td><code>g</code></td>
+<td>Els membres del grup propietari, si no són el propietari.</td>
+</tr>
+<tr>
+<td>Altres</td>
+<td><code>o</code></td>
+<td>Els usuaris que no encaixen en les dues classes anteriors.</td>
+</tr>
+</tbody>
+</table></div>
+<p>Sense ACL estesa, el sistema selecciona la classe que correspon a l’usuari. Els permisos de les tres classes <strong>no se sumen</strong>. Un compte pot pertànyer a diversos grups; ho veiem amb <code>id nom_usuari</code>.</p>
+<h4>2 · Lectura, escriptura i execució</h4>
+<div class="table-wrap"><table>
+<thead><tr>
+<th>Permís</th>
+<th>Valor</th>
+<th>En un fitxer</th>
+<th>En un directori</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+<code>r</code> · lectura</td>
+<td>4</td>
+<td>Llegir-ne el contingut.</td>
+<td>Llistar-ne els noms.</td>
+</tr>
+<tr>
+<td>
+<code>w</code> · escriptura</td>
+<td>2</td>
+<td>Modificar-ne el contingut.</td>
+<td>Afegir o eliminar entrades, habitualment amb x.</td>
+</tr>
+<tr>
+<td>
+<code>x</code> · execució</td>
+<td>1</td>
+<td>Executar-lo si és un programa vàlid.</td>
+<td>Travessar-lo i accedir als elements coneguts.</td>
+</tr>
+<tr>
+<td>
+<code>-</code> · absent</td>
+<td>0</td>
+<td>No concedeix aquell permís.</td>
+<td>No concedeix aquell permís.</td>
+</tr>
+</tbody>
+</table></div>
+<p>Per llegir un fitxer cal poder travessar <strong>tots els directoris del camí</strong>. Esborrar un fitxer depèn principalment dels permisos del directori que el conté, no del permís w del fitxer; hi poden intervenir restriccions com el sticky bit. No cal donar x a un document de text.</p>
+<div class="formula">rwx = 4 + 2 + 1 = 7 · rw- = 6 · r-x = 5 · r-- = 4 · --- = 0</div>
+<p>Un mode de tres xifres segueix l’ordre <strong>propietari / grup / altres</strong>. Per exemple, <code>640</code> significa <code>rw- / r-- / ---</code>: el propietari llegeix i escriu, el grup només llegeix i els altres no tenen accés.</p>
+<h4>3 · Preparar el laboratori</h4>
+<p>Utilitza una VM Linux amb instantània i un compte amb sudo. Els noms següents han de ser nous; si ja existeixen, el docent prepararà un altre prefix. <code>sudo</code> executa una ordre amb privilegis d’administració; <code>sudo -u</code> executa la prova com un altre usuari. A Debian/Ubuntu, si falten getfacl i setfacl, el docent instal·larà el paquet <code>acl</code>.</p>
+<pre>sudo groupadd ra1equip
+sudo useradd -m -s /bin/bash ra1pau
+sudo useradd -m -s /bin/bash ra1laia
+sudo usermod -aG ra1equip ra1pau
+id ra1pau
+sudo mkdir /srv/ra1-demo
+sudo chmod 755 /srv/ra1-demo
+sudo sh -c 'printf "Informe de prova\n" &gt; /srv/ra1-demo/informe.txt'</pre>
+<p>Hem creat el grup, dos comptes i un fitxer. <code>-aG</code> afegeix un grup suplementari sense substituir els anteriors. El mode 755 del directori de prova permet travessar-lo; aquí preparem l’exemple del <em>fitxer</em>, no una carpeta confidencial completa. Si es canvien els grups d’una sessió ja oberta, cal tornar a iniciar sessió per actualitzar-los.</p>
+<h4>4 · chown: qui és el propietari?</h4>
+<pre>sudo chown ra1pau:ra1equip /srv/ra1-demo/informe.txt
+ls -l /srv/ra1-demo/informe.txt</pre>
+<p><code>chown</code> canvia la propietat. Abans dels dos punts hi ha l’usuari; després, el grup. La sortida de <code>ls -l</code> ha de mostrar <code>ra1pau ra1equip</code> en les columnes de propietari i grup. Si volguéssim canviar només el grup, utilitzaríem <code>sudo chown :ra1equip /srv/ra1-demo/informe.txt</code>.</p>
+<h4>5 · chmod: què pot fer cadascú?</h4>
+<pre>sudo chmod 640 /srv/ra1-demo/informe.txt
+ls -l /srv/ra1-demo/informe.txt</pre>
+<p>El començament serà <code>-rw-r-----</code>. El primer signe indica el tipus: <code>-</code> és un fitxer ordinari; <code>d</code> seria un directori. Després venen tres blocs: <code>rw-</code> per a en Pau, <code>r--</code> per al grup i <code>---</code> per als altres.</p>
+<p>També podem expressar els canvis amb lletres:</p>
+<pre>sudo chmod g+w /srv/ra1-demo/informe.txt
+# Afegim escriptura al grup: ara és 660.
+sudo chmod g-w /srv/ra1-demo/informe.txt
+# La retirem: tornem a 640.</pre>
+<p><code>+</code> afegeix i <code>-</code> retira un permís. <code>chmod u=rw,g=r,o= fitxer</code> fixa els permisos de les tres classes. <strong>chmod no canvia el propietari; chown no substitueix la política de permisos.</strong></p>
+<h4>6 · Comprovar el resultat</h4>
+<pre>sudo -u ra1pau cat /srv/ra1-demo/informe.txt
+sudo -u ra1pau sh -c 'printf "Revisat\n" &gt;&gt; /srv/ra1-demo/informe.txt'
+sudo -u ra1laia cat /srv/ra1-demo/informe.txt</pre>
+<p>En Pau pot llegir i afegir text. La Laia rep «Permís denegat»: no és propietària ni membre de ra1equip i «altres» té 0. Fem la redirecció dins de <code>sh -c</code> perquè també s’executi amb la identitat que volem provar.</p>
+<h4>7 · getfacl: consultar la llista de control d’accés</h4>
+<p>Ara la Laia necessita llegir <strong>només aquest informe</strong>. Donar lectura a «altres» l’obriria a més persones; afegir-la al grup podria donar-li accés a altres recursos. Una ACL permet afegir una entrada específica.</p>
+<pre>getfacl /srv/ra1-demo/informe.txt</pre>
+<p>Abans d’afegir entrades, la part de permisos mostra:</p>
+<pre>user::rw-
+group::r--
+other::---</pre>
+<p><code>user::</code> és el propietari; <code>group::</code>, el grup propietari; <code>other::</code>, els altres. <code>getfacl</code> consulta els permisos; no els modifica. El nom de l’ordre acaba en <strong>facl</strong>.</p>
+<h4>8 · setfacl: afegir una excepció concreta</h4>
+<pre>sudo setfacl -m u:ra1laia:r /srv/ra1-demo/informe.txt
+getfacl /srv/ra1-demo/informe.txt</pre>
+<p><code>-m</code> modifica o afegeix una entrada; <code>u:ra1laia:r</code> dona lectura a aquest usuari. La sortida esperada inclou:</p>
+<pre>user::rw-
+user:ra1laia:r--
+group::r--
+mask::r--
+other::---</pre>
+<p>La <strong>màscara</strong> limita els permisos efectius dels usuaris amb nom i de les entrades de grup. No limita el propietari ni «altres». Aquí permet lectura. Amb ACL estesa, els bits de grup de ls -l representen la màscara i apareix un <code>+</code>: per interpretar el detall cal getfacl.</p>
+<pre>sudo -u ra1laia cat /srv/ra1-demo/informe.txt
+sudo -u ra1laia sh -c 'printf "Canvi\n" &gt;&gt; /srv/ra1-demo/informe.txt'</pre>
+<p>La lectura funciona i l’escriptura es denega. Aquesta parella de proves demostra la política; una captura de l’ACL, tota sola, no comprova l’ús real.</p>
+<details class="extension"><summary>Ampliació guiada · màscara i retirada de l’entrada</summary>
+<pre>sudo setfacl -m u:ra1laia:rw,m::r /srv/ra1-demo/informe.txt
+getfacl /srv/ra1-demo/informe.txt</pre>
+<p>Tot i haver indicat rw a la Laia, la màscara només permet r. getfacl indica els permisos efectius. Per permetre realment l’escriptura:</p>
+<pre>sudo setfacl -m m::rw /srv/ra1-demo/informe.txt
+sudo -u ra1laia sh -c 'printf "Canvi autoritzat\n" &gt;&gt; /srv/ra1-demo/informe.txt'</pre>
+<p>La màscara és un límit compartit: reviseu totes les entrades després de canviar-la. Si volem retirar l’excepció i tornar al punt inicial:</p>
+<pre>sudo setfacl -x u:ra1laia /srv/ra1-demo/informe.txt
+sudo chmod 640 /srv/ra1-demo/informe.txt
+getfacl /srv/ra1-demo/informe.txt
+sudo -u ra1laia cat /srv/ra1-demo/informe.txt</pre>
+<p>La Laia torna a tenir l’accés denegat. Amb ACL estesa, chmod sobre els bits de grup també pot canviar la màscara. No apliquis chmod sense tornar a revisar getfacl.</p></details>
+<p><strong>Fitxers nous:</strong> una ACL aplicada a un fitxer no s’estén automàticament als futurs fitxers. Les ACL per defecte s’estableixen en directoris; el setgid d’un directori permet heretar-ne el grup. Són mecanismes diferents. A la pràctica E4 es treballa amb ACL de fitxers existents.</p>
+<p class="small">Consulta: <a href="https://man7.org/linux/man-pages/man1/chmod.1.html">chmod</a>, <a href="https://man7.org/linux/man-pages/man1/chown.1.html">chown</a>, <a href="https://man7.org/linux/man-pages/man1/getfacl.1.html">getfacl</a>, <a href="https://man7.org/linux/man-pages/man1/setfacl.1.html">setfacl</a> i <a href="https://man7.org/linux/man-pages/man5/acl.5.html">ACL de Linux</a>.</p>
+<p><strong>Temps del RA1:</strong> els passos són una demostració de referència per a S10–S12 i la pràctica E4. L’ampliació és opcional; no s’afegeixen hores a les 18 previstes.</p>
+</div></article>
+<article id="identitat"><div class="eyebrow">S11 · Criteris 1.g · Contingut 1.7</div>
+<h2>05 · Identificació, autenticació i autorització</h2>
+<p><strong>Identificar-se</strong> és declarar qui ets: escriure un nom d’usuari. <strong>Autenticar-se</strong> és aportar una prova que el sistema accepta per verificar aquesta identitat. <strong>Autoritzar</strong> és decidir quines accions et permet el sistema després. Finalment, el registre d’activitat permet revisar què ha passat.</p>
+<p>La Jana introdueix «jana.gestio», completa la comprovació d’accés i obre el servidor. El sistema li permet consultar factures però denega canviar-ne els permisos. Ha superat l’autenticació i una acció concreta ha estat denegada per autorització.</p>
+<h3>La sessió també s’ha de protegir</h3>
+<p>Un equip desbloquejat pot permetre actuar amb una identitat ja autenticada. El bloqueig de pantalla, la protecció del dispositiu i el tancament de sessions compartides són mesures complementàries. També cal donar de baixa sessions i credencials quan una persona deixa de tenir accés.</p>
+<p>Un mecanisme de recuperació feble pot anul·lar un bon sistema d’accés. La recuperació necessita verificació adequada i codis custodiats. Les preguntes basades en dades personals fàcils d’esbrinar no ofereixen una prova forta.</p>
+<figure class="scheme"><svg viewbox="0 0 760 130" role="img" aria-label="Exemple d’entrada a una carpeta del centre"><title>Exemple d’entrada a una carpeta del centre</title>
+<rect x="15" y="15" width="215" height="88" rx="10" fill="#eaf3f8" stroke="#22708c"></rect><text x="122" y="48" text-anchor="middle" font-size="19" fill="#102c3b">Identificació</text><text x="122" y="77" text-anchor="middle" font-size="14" fill="#102c3b">Declaro: soc la Laia</text><path d="M235 58h30m-7-7 7 7-7 7" fill="none" stroke="#22708c" stroke-width="2"></path><rect x="270" y="15" width="215" height="88" rx="10" fill="#eaf3f8" stroke="#22708c"></rect><text x="377" y="48" text-anchor="middle" font-size="19" fill="#102c3b">Autenticació</text><text x="377" y="77" text-anchor="middle" font-size="14" fill="#102c3b">Demostro la identitat</text><path d="M490 58h30m-7-7 7 7-7 7" fill="none" stroke="#22708c" stroke-width="2"></path><rect x="525" y="15" width="215" height="88" rx="10" fill="#eaf3f8" stroke="#22708c"></rect><text x="632" y="48" text-anchor="middle" font-size="19" fill="#102c3b">Autorització</text><text x="632" y="77" text-anchor="middle" font-size="14" fill="#102c3b">Puc llegir la carpeta?</text></svg><figcaption>Exemple d’entrada a una carpeta del centre</figcaption></figure></article>
+<article id="contrasenyes"><div class="eyebrow">S13 · Criteris 1.h · Contingut 1.6</div>
+<h2>06 · Política de contrasenyes</h2>
+<p>Una política descriu com es creen, utilitzen, recuperen i substitueixen les contrasenyes. Ha de ser aplicable i comprovable. Les contrasenyes úniques redueixen l’efecte d’una filtració en un altre servei, i una longitud suficient dificulta l’endevinació.</p>
+<p>Com a referència tècnica, NIST SP 800-63B-4 exigeix almenys 15 caràcters quan la contrasenya és l’únic factor, admet un mínim de 8 quan forma part d’MFA, desaconsella regles de composició i no estableix canvis periòdics obligatoris sense indicis de compromís. Demana rebutjar contrasenyes comunes o compromeses. És una guia tècnica, no una obligació legal general per al centre. <a href="https://pages.nist.gov/800-63-4/sp800-63b.html">NIST, apartat de contrasenyes</a>.</p>
+<h3>Proposta didàctica per a Taller Bit</h3>
+<ul>
+<li>Contrasenyes llargues i úniques, gestionades amb un gestor aprovat. Objectiu de 15 caràcters o més per als comptes basats en contrasenya.</li>
+<li>MFA quan el servei ho permeti, especialment en accessos sensibles.</li>
+<li>Canvi immediat davant d’exposició o sospita fundada. La caducitat periòdica només s’aplica quan la política vigent la justifica.</li>
+<li>Limitació d’intents i recuperació controlada. Evitar bloquejos que provoquin una denegació de servei fàcil.</li>
+<li>Prohibició de compartir comptes i d’incloure secrets en captures o incidències.</li>
+</ul>
+<h3>Configuració en Windows</h3>
+<p>En un domini de laboratori, la política de comptes del domini s’estableix amb l’abast adequat, normalment a l’arrel del domini. Una GPO de contrasenyes vinculada només a una unitat organitzativa d’usuaris no defineix per si sola la política de contrasenyes dels seus comptes de domini. Les polítiques granulars són un mecanisme específic diferent.</p>
+<p>Es revisen longitud mínima, historial, antiguitat i bloqueig. La capacitat d’exigir més de 14 caràcters pot dependre de la versió i de la configuració addicional. El docent ha de preparar i verificar la imatge. Es documenta qualsevol limitació en lloc de presentar un valor no aplicat com si ho estigués.</p>
+<p>Referències de Microsoft: <a href="https://learn.microsoft.com/en-us/troubleshoot/windows-server/group-policy/password-policy-changes-not-applied">abast de la política de domini</a> i <a href="https://support.microsoft.com/en-us/servicing/os/windows/2020/08/minimum-password-length-auditing-and-enforcement-on-certain-versions-of-windows">límits de longitud segons la versió</a>. La GPO bàsica no resol tots els controls de la política: per exemple, el rebuig de contrasenyes filtrades pot requerir una capacitat addicional. La comprovació usa un compte de prova i l’eina de consulta de política efectiva, a més d’un canvi de contrasenya controlat.</p>
+<h3>Com s’emmagatzemen?</h3>
+<p>Un servei ben dissenyat no hauria de guardar contrasenyes en text pla. Utilitza mecanismes de derivació i verificació amb sal i cost adequats. Un hash és un resum, no un «xifrat que després es desxifra». En aquest RA n’hi ha prou amb entendre la distinció; els algorismes es poden ampliar en un altre bloc.</p></article>
+<article id="biometria"><div class="eyebrow">S14–S16 · Criteris 1.i · Continguts 1.6–1.7</div>
+<h2>07 · Biometria i autenticació multifactor</h2>
+<p>La biometria utilitza característiques fisiològiques o de comportament per comparar una mostra amb un patró. Les empremtes, el rostre i l’iris són exemples. Durant l’alta es crea una plantilla; durant la verificació es compara una nova mostra amb la referència. Una verificació 1:1 i una identificació contra moltes persones 1:N són operacions diferents.</p>
+<p>Pot facilitar l’ús i reduir la necessitat de recordar secrets. També presenta limitacions: errors, lesions, canvis ambientals, possibilitats de suplantació i dificultat de substitució si es compromet la característica. Una mostra no coincident significa que la verificació ha fallat, no que la persona hagi estat autenticada.</p>
+<div class="table-wrap"><table class="">
+<thead><tr>
+<th>Mesura</th>
+<th>Interpretació</th>
+<th>Exemple didàctic</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>FAR · falsa acceptació</td>
+<td>Proporció d’intents d’impostors acceptats.</td>
+<td>2 acceptats de 2.000 intents d’impostor: 0,1%.</td>
+</tr>
+<tr>
+<td>FRR · fals rebuig</td>
+<td>Proporció d’intents legítims rebutjats.</td>
+<td>15 rebutjats de 500 intents legítims: 3%.</td>
+</tr>
+</tbody>
+</table></div>
+<p>Fer més exigent el llindar acostuma a reduir falses acceptacions i pot augmentar falsos rebutjos. Les taxes s’han d’interpretar amb les condicions de la prova i no com una garantia en qualsevol entorn.</p>
+<h3>Privacitat</h3>
+<p>Les dades biomètriques tractades per identificar unívocament una persona tenen protecció especial. La guia de l’AEPD sobre control de presència exigeix analitzar legitimació, necessitat i proporcionalitat, amb avaluació d’impacte prèvia. El consentiment signat no és una solució automàtica, especialment en l’entorn laboral. Cal valorar alternatives menys intrusives. <a href="https://www.aepd.es/guias/guia-control-presencia-biometrico.pdf">Guia de l’AEPD</a>.</p>
+<p>A classe treballem amb dades fictícies i casos. No recollim empremtes ni plantilles facials de l’alumnat. La valoració dels avantatges de la biometria ha d’incloure també accessibilitat, errors i privacitat.</p>
+<h3>Factors d’autenticació</h3>
+<div class="table-wrap"><table class="">
+<thead><tr>
+<th>Factor</th>
+<th>Exemple</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Allò que saps</td>
+<td>Una contrasenya o un PIN.</td>
+</tr>
+<tr>
+<td>Allò que tens</td>
+<td>Una clau de seguretat o un dispositiu amb un autenticador.</td>
+</tr>
+<tr>
+<td>Allò que ets</td>
+<td>Una característica biomètrica.</td>
+</tr>
+</tbody>
+</table></div>
+<p>MFA combina factors de categories diferents. Contrasenya i PIN són dos secrets del mateix tipus i no constitueixen dos factors diferents. Un codi temporal generat per un autenticador prova la possessió del dispositiu o del secret associat. Les claus de seguretat i algunes solucions de passkeys aporten resistència al phishing, segons implementació.</p>
+<p>Activar MFA no elimina tots els riscos: la recuperació del compte, el dispositiu, les sessions i els enganys continuen sent rellevants. En la pràctica cal demostrar una nova autenticació, i no limitar-se a mostrar que el menú diu «activat».</p></article>
+<article id="registres"><div class="eyebrow">Contingut 1.9 · Registres, incidències i alarmes</div>
+<h2>08 · Inventari, incidències i alarmes</h2>
+<p>L’inventari de comptes respon qui té accés, per què i fins quan. Els registres d’activitat documenten esdeveniments. Una alarma assenyala una condició que cal revisar. Una incidència és una situació que requereix gestió. Un avís o un inici de sessió fallit no prova per si sol que existeixi un atac.</p>
+<div class="table-wrap"><table class="">
+<thead><tr>
+<th>Document</th>
+<th>Camps mínims del cas</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Inventari de comptes</td>
+<td>Identificador, responsable, rol, estat, data d’alta, revisió i data de baixa prevista. No conté contrasenyes.</td>
+</tr>
+<tr>
+<td>Registre d’esdeveniments</td>
+<td>Data i hora amb zona, equip, compte, origen, acció, resultat i identificador.</td>
+</tr>
+<tr>
+<td>Fitxa d’incidència</td>
+<td>ID, detecció, fets, impacte, prioritat, responsable, actuacions, evidències, estat i verificació de tancament.</td>
+</tr>
+</tbody>
+</table></div>
+<p>El cicle de vida del compte inclou alta aprovada, assignació a grups, revisió periòdica, canvi de rol i baixa. Un compte inactiu amb privilegis pot mantenir una porta d’accés. La retirada de permisos s’ha de provar, sense eliminar precipitadament evidències o dades que el centre hagi de conservar.</p>
+<h3>Windows i Linux</h3>
+<p>El visor d’esdeveniments de Windows organitza els registres per canals. Amb l’auditoria adequada, el registre de Seguretat pot mostrar l’esdeveniment 4625, corresponent a un inici de sessió fallit. S’han d’interpretar compte, hora, tipus d’inici i causa, i comparar-los amb l’activitat esperada. <a href="https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/security/threat-protection/auditing/event-4625">Documentació de Microsoft</a>.</p>
+<p>A Linux, els registres depenen de la distribució i dels serveis instal·lats. Es poden consultar amb <code>journalctl</code> o en fitxers de <code>/var/log</code>. <code>/var/log/auth.log</code> no existeix en totes les instal·lacions. Si un servei no està instal·lat o no registra l’esdeveniment, el filtre pot no retornar res.</p>
+<h3>Resposta ordenada</h3>
+<p>Primer es recullen els fets i es confirma l’abast. Després es determina la prioritat segons impacte i urgència i s’aplica el procediment autoritzat. Finalment es comprova la recuperació i es documenta el tancament. No s’esborren registres per «netejar l’error» ni es dona per resolt només perquè ha desaparegut una alarma.</p>
+<p><strong>A4C1:</strong> comprovar actualitzacions, bloqueig de pantalla, compte de treball sense privilegis innecessaris i proteccions del dispositiu. <strong>A4C2:</strong> limitar accés a les dades, minimitzar els camps registrats, ocultar informació personal de les evidències i compartir-les només amb les persones autoritzades. El termini de conservació s’ajusta a la política i finalitat, sense inventar un nombre universal de dies.</p></article>
+</section>
+<section class="panel" id="practiques" data-title="Pràctiques i exercicis"><div class="eyebrow">Laboratori i treball a classe</div>
+<h1>Aplicar, comprovar, explicar.</h1>
+<p class="lead">Tres pràctiques avaluables i sis exercicis integrats en les sessions. Els temps formen part del calendari, no s’afegeixen a les 18 hores.</p>
+<div class="toc">
+<a href="#practiques/t1">T1 · CPD</a><a href="#practiques/t2">T2 · SAI</a><a href="#practiques/t3">T3 · MFA i permisos</a><a href="#practiques/e1">E1 · Conceptes</a><a href="#practiques/e2">E2 · Dimensionament</a><a href="#practiques/e3">E3 · Repàs físic</a><a href="#practiques/e4">E4 · Permisos i GPO</a><a href="#practiques/e5">E5 · Biometria</a><a href="#practiques/e6">E6 · Registres</a>
+</div>
+<article id="t1"><div class="eyebrow">T1 · S5 · 60 min · Parelles · Criteris 1.c i 1.d</div>
+<h2>Disseny bàsic del CPD de Taller Bit</h2>
+<p><strong>Encàrrec:</strong> ubicar un rack amb servidor, NAS, switch i SAI per a una empresa de sis persones. Cal poder fer manteniment sense interrompre el pas ni exposar els equips a visites.</p>
+<h3>Dades del cas fictici</h3>
+<div class="table-wrap"><table class="">
+<thead><tr>
+<th>Sala</th>
+<th>Característiques</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>A · Soterrani, 12 m²</td>
+<td>Hi passa una canonada i hi ha antecedents de filtracions. Porta amb pany.</td>
+</tr>
+<tr>
+<td>B · Interior, 10 m²</td>
+<td>22 °C i 45% HR en la lectura inicial. Climatització, porta amb pany, cap conducció d’aigua visible. Cal comprovar potència elèctrica i resistència del terra.</td>
+</tr>
+<tr>
+<td>C · Recepció, 16 m²</td>
+<td>Vidriera amb sol de tarda, accés de visitants i sense climatització pròpia.</td>
+</tr>
+</tbody>
+</table></div>
+<h3>Guió</h3>
+<ol>
+<li>
+<strong>5 min:</strong> llegiu l’encàrrec i repartiu disseny i registre.</li>
+<li>
+<strong>10 min:</strong> compareu les tres sales amb quatre riscos justificats. Escolliu-ne una i indiqueu què queda pendent de verificar.</li>
+<li>
+<strong>15 min:</strong> dibuixeu una planta amb rack, accés de manteniment, circulació de l’aire, entrada elèctrica i cablejat. No cal un plànol constructiu.</li>
+<li>
+<strong>15 min:</strong> proposeu sis mesures amb risc cobert, responsable i forma de comprovació. Incloeu accés, aigua, foc, temperatura i cablejat.</li>
+<li>
+<strong>10 min:</strong> defenseu la decisió davant d’una altra parella i anoteu una millora.</li>
+<li>
+<strong>5 min:</strong> lliureu plànol i informe d’una o dues pàgines.</li>
+</ol>
+<p><strong>Evidència:</strong> comparació de sales, planta llegible i taula de mesures. No cal fotografiar instal·lacions sensibles del centre.</p>
+<div class="table-wrap"><table class="">
+<thead><tr>
+<th>Criteri de correcció</th>
+<th>Punts</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Ubicació justificada i comprovacions pendents</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Entorn, aire i espai de manteniment</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Protecció física i procediment d’accés</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Claredat de l’informe</td>
+<td>1</td>
+</tr>
+</tbody>
+</table></div></article>
+<article id="t2"><div class="eyebrow">T2 · S8 · 60 min · Parelles amb verificació individual · Criteris 1.e, 1.f</div>
+<h2>Comprovació controlada d’un SAI</h2>
+<p><strong>Objectiu:</strong> demostrar que el SAI alimenta una càrrega autoritzada durant una interrupció de prova i que els avisos i el retorn a xarxa funcionen.</p>
+<p><strong>Material:</strong> SAI i manual concret, bateria carregada, equip de prova amb dades fictícies, rellotge, programari de gestió i fitxa de càrrega. El docent ha comprovat compatibilitat, presa de terra i estat.</p>
+<div class="notice amber">
+<strong>Procediment supervisat.</strong> No obriu el SAI, no manipuleu bateries ni quadres elèctrics i no interrompeu equips del centre en servei. Preferiu l’autotest o el procediment de tall previst pel fabricant i executat pel docent preservant la protecció de terra. Si no hi ha condicions adequades, feu anàlisi de registres i deixeu pendent la comprovació real del Criteri 1.e.</div>
+<ol>
+<li>
+<strong>10 min:</strong> identifiqueu model, W/VA, topologia, càrrega i sortides de bateria. Registreu l’estat inicial i el criteri d’aturada acordat.</li>
+<li>
+<strong>30 min:</strong> amb el docent, executeu la prova prevista al manual. Anoteu inici, avís de bateria i funcionament de la càrrega. Atureu la prova en el límit acordat, davant d’alarma anòmala o segons el manual. Proveu l’apagada ordenada només si la càrrega i l’entorn de laboratori ho permeten.</li>
+<li>
+<strong>15 min:</strong> compareu el resultat amb l’objectiu. Cada alumne identifica una alarma, interpreta una lectura i justifica una decisió.</li>
+<li>
+<strong>5 min:</strong> confirmeu retorn a xarxa, absència d’alarmes i càrrega de bateria. Deixeu l’equip en estat segur.</li>
+</ol>
+<div class="table-wrap"><table class="">
+<thead><tr>
+<th>Camp de registre</th>
+<th>Què cal escriure</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Model i càrrega</td>
+<td>Model, límits W/VA, dispositius i consum mesurat o estimat identificat.</td>
+</tr>
+<tr>
+<td>Inici i final</td>
+<td>Hora i motiu de finalització; distingiu temps de suport observat i autonomia màxima.</td>
+</tr>
+<tr>
+<td>Avisos i servei</td>
+<td>Alarma detectada, estat del sistema i incidències.</td>
+</tr>
+<tr>
+<td>Retorn</td>
+<td>Xarxa restablerta, bateria carregant i servei disponible.</td>
+</tr>
+<tr>
+<td>Conclusió</td>
+<td>Objectiu assolit o pendent i limitacions de la prova.</td>
+</tr>
+</tbody>
+</table></div>
+<p>Sense prou SAIs: feu estacions rotatives. Mentre una parella verifica el dispositiu, les altres interpreten un registre. La planificació docent ha de preveure la comprovació individual dins les 18 hores.<strong>Sense prou SAIs:</strong> feu estacions rotatives. Mentre una parella verifica el dispositiu, les altres interpreten un registre. La sessió 20 proposada permet completar evidències individuals pendents.</p>
+<div class="table-wrap"><table class="">
+<thead><tr>
+<th>Criteri de correcció</th>
+<th>Punts</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Preparació, selecció de càrrega i seguretat</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Comprovació observada i interpretació d’avisos</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Mesures i conclusió sense sobreestimar autonomia</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Restitució i registre final</td>
+<td>1</td>
+</tr>
+</tbody>
+</table></div></article>
+<article id="t3"><div class="eyebrow">T3 · S16 · 60 min · Individual amb suport per parelles · Criteris 1.g, 1.i</div>
+<h2>MFA i comprovació de permisos</h2>
+<p><strong>Objectiu:</strong> activar un segon factor en un servei real amb compte de prova autoritzat, verificar l’accés i demostrar que el mínim privilegi es compleix a Windows i Linux.</p>
+<p><strong>Preparació prèvia:</strong> a S15 el docent deixa els comptes de prova operatius i comprova que el servei admet un autenticador o clau compatible. Es reutilitzen les màquines i carpetes d’E4. No es requereix cap compra ni compte personal de l’alumnat.</p>
+<ol>
+<li>
+<strong>5 min:</strong> comproveu el bloqueig de pantalla, les actualitzacions i el compte de treball. Anoteu l’estat sense inventar configuracions.</li>
+<li>
+<strong>20 min:</strong> al servei escollit pel docent, entreu a Seguretat → Autenticació en dos passos o equivalent. Vinculeu l’autenticador, confirmeu un codi i custodieu els codis de recuperació en l’espai autoritzat. Tanqueu sessió i feu una autenticació nova per comprovar el segon factor. No filmeu ni compartiu secrets.</li>
+<li>
+<strong>25 min:</strong> a Linux i Windows, amb el compte de lectura d’E4, obriu el fitxer permès i intenteu crear un fitxer a la carpeta protegida. Ha de poder llegir i no escriure. Amb el compte editor, comproveu que pot crear un fitxer. Si falla, identifiqueu la causa i repetiu la prova després de corregir-la.</li>
+<li>
+<strong>10 min:</strong> lliureu la matriu prevista i real, evidències sense secrets i una explicació de quins factors s’han utilitzat. Expliqueu en quin cas la biometria podria desbloquejar un autenticador i quina alternativa caldria oferir.</li>
+</ol>
+<p><strong>Lliurament:</strong> una captura retallada de MFA activat, confirmació de la nova autenticació observada pel docent, quatre resultats de lectura/escriptura com a mínim (dos per sistema), comprovació del compte editor i una nota de privacitat. Els codis de recuperació no es lliuren.</p>
+<p><strong>Si el servei falla:</strong> feu la demostració docent amb el compte de prova preparat i documenteu el bloqueig. La configuració individual pendent es completa a una comprovació acordada amb el docent. No es presenta la demostració com a activació individual realitzada.</p>
+<div class="table-wrap"><table class="">
+<thead><tr>
+<th>Criteri de correcció</th>
+<th>Punts</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>MFA configurat i autenticació nova comprovada</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Permisos efectius contrastats als dos sistemes</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Interpretació dels factors d’autenticació</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Justificació del mínim privilegi i qualitat de les evidències</td>
+<td>2</td>
+</tr>
+</tbody>
+</table></div></article>
+<article id="e1"><div class="eyebrow">E1 · S1–S2 · 20 min per sessió</div>
+<h2>Conceptes i classificació</h2>
+<p><strong>S1:</strong> per a cada cas identifiqueu actiu, amenaça, vulnerabilitat i propietat CID afectada: (a) portàtil amb dades sense xifrar robat d’un cotxe, (b) pressupost modificat per un compte compartit, (c) servidor apagat per un tall, (d) carpeta de nòmines compartida amb tothom. Proposeu una mesura i un risc residual.</p>
+<p><strong>S2:</strong> classifiqueu com a física o lògica: rack tancat, ACL, sensor de fuita, MFA, SAI, bloqueig de pantalla, permisos NTFS i ventilació. Expliqueu per què física/lògica no és el mateix que activa/passiva.</p></article>
+<article id="e2"><div class="eyebrow">E2 · S7 · 35 min de treball + 15 min de correcció</div>
+<h2>Dimensionament i elecció del SAI</h2>
+<p class="notice">Cas fictici de consolidació, diferent de l’exemple resolt: els consums i les autonomies següents són dades donades per calcular, no característiques dels equips comercials citats als apunts.</p>
+<p>La càrrega és servidor 250 W + NAS 60 W + switch 30 W + router 15 W. FP agregat = 0,90, hipòtesi del problema. Cal deixar lliure el 30% de la capacitat nominal i mantenir el servei durant almenys 7 minuts.</p>
+<div class="table-wrap"><table class="">
+<thead><tr>
+<th>Model fictici</th>
+<th>Capacitat</th>
+<th>Autonomia a 355 W, dada facilitada</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>650 VA / 360 W</td>
+<td>4 min</td>
+</tr>
+<tr>
+<td>B</td>
+<td>1.000 VA / 600 W</td>
+<td>9 min</td>
+</tr>
+<tr>
+<td>C</td>
+<td>1.500 VA / 900 W</td>
+<td>16 min</td>
+</tr>
+</tbody>
+</table></div>
+<ol>
+<li>Calculeu W i VA totals i els dos mínims de selecció.</li>
+<li>Determineu quin és el model mínim suficient. Justifiqueu el rebuig o l’acceptació de cada model.</li>
+<li>El responsable vol afegir una impressora làser. Quines dades falten i per què no la connectaríeu automàticament?</li>
+<li>Una etiqueta diu 230 V i 0,5 A. Quina potència aparent indica? Podeu afirmar els W sense conèixer FP?</li>
+<li>Expliqueu què canviaria si el NAS quedés connectat fora del SAI.</li>
+</ol></article>
+<article id="e3"><div class="eyebrow">E3 · S9 · 35 min de treball + 15 min de correcció</div>
+<h2>Auditoria ràpida de seguretat física</h2>
+<p>Situació: rack obert al costat d’una finestra, una entrada d’aire tapada amb caixes, SAI amb avís de bateria, switch fora del SAI, cable travessant la porta i registre de visites buit.</p>
+<ol>
+<li>Identifiqueu sis riscos i la propietat CID afectada.</li>
+<li>Prioritzeu-los amb probabilitat i impacte d’1 a 3, justificats.</li>
+<li>Proposeu una actuació immediata i una de planificada per als tres primers.</li>
+<li>Indiqueu quines tasques pot fer l’alumnat amb autorització i quines requereixen manteniment especialitzat.</li>
+<li>Prepareu una prova per confirmar cadascuna de les tres correccions.</li>
+</ol></article>
+<article id="e4"><div class="eyebrow">E4 · S12–S13 · Laboratori preparat pel docent</div>
+<h2>Permisos Linux, NTFS i política de contrasenyes</h2>
+<h3>S12 · Linux, 25 minuts</h3>
+<p>Utilitzeu exclusivament una VM de laboratori amb instantània. Si els noms següents ja existeixen, el docent assigna un prefix nou. Els usuaris no necessiten contrasenya per a les proves amb <code>sudo -u</code>. El paquet d’eines ACL ha d’estar preparat.</p>
+<pre>sudo groupadd ra1equip
+sudo useradd -m -s /bin/bash ra1editor
+sudo useradd -m -s /bin/bash ra1lectora
+sudo usermod -aG ra1equip ra1editor
+sudo mkdir -p /srv/ra1/projecte
+sudo chown root:ra1equip /srv/ra1/projecte
+sudo chmod 2770 /srv/ra1/projecte
+sudo setfacl -m u:ra1lectora:rx /srv/ra1/projecte
+sudo -u ra1editor sh -c 'echo "Dades fictícies" &gt; /srv/ra1/projecte/info.txt'
+sudo chmod 640 /srv/ra1/projecte/info.txt
+sudo setfacl -m u:ra1lectora:r /srv/ra1/projecte/info.txt
+getfacl /srv/ra1/projecte/info.txt
+sudo -u ra1lectora cat /srv/ra1/projecte/info.txt
+sudo -u ra1lectora touch /srv/ra1/projecte/prova-lectora.txt
+sudo -u ra1editor touch /srv/ra1/projecte/prova-editor.txt</pre>
+<p>El 2 de 2770 activa setgid al directori perquè els nous elements heretin el grup. Aquest guió dona l’ACL al fitxer existent i no estableix una ACL per defecte. Registreu els resultats esperats i observats de les tres últimes ordres.</p>
+<h3>S12 · Windows, 20 minuts</h3>
+<ol>
+<li>En una VM amb comptes locals de prova ja preparats, creeu <code>C:\RA1\Projecte</code> en un volum NTFS.</li>
+<li>Propietats → Seguretat → Opcions avançades: reviseu les entrades heretades. Manteniu SYSTEM i Administradors. Si hi ha accés ampli heretat, convertiu l’herència a entrades explícites en aquesta carpeta de prova i retireu només les entrades àmplies identificades.</li>
+<li>Assigneu «Modificar» al compte editor i «Lectura i execució» al lector. Creeu un fitxer de dades fictícies.</li>
+<li>Amb cada compte, proveu lectura i creació d’un fitxer. Compareu amb Accés efectiu. No modifiqueu permisos de carpetes del sistema.</li>
+</ol>
+<p><strong>Últims 10 min:</strong> lliureu matriu de permisos i proves, amb noms ficticis. La preparació inicial ocupa els primers 5 min de la sessió.</p>
+<h3>S13 · GPO guiada, 30 minuts + 10 de comprovació</h3>
+<p>Després de 20 minuts de teoria, el docent mostra un domini de laboratori preparat. S’anota la política inicial i es treballa només sobre comptes de prova.</p>
+<ol>
+<li>Obriu la consola d’administració de directives de grup. Identifiqueu la política efectiva de comptes de domini abans d’editar.</li>
+<li>Localitzeu Configuració de l’ordinador → Directives → Configuració de Windows → Configuració de seguretat → Directives de compte.</li>
+<li>Proposeu longitud, historial, caducitat i limitació d’intents. El docent aplica els valors compatibles amb la versió i l’abast de domini.</li>
+<li>Comproveu la política amb <code>Get-ADDefaultDomainPasswordPolicy</code> si el mòdul ActiveDirectory està disponible. Per a comptes amb política granular, consulteu també la resultant.</li>
+<li>Amb un compte de prova sense política granular, proveu una contrasenya massa curta i una de vàlida, sense revelar-les a l’informe. Registreu resultat i hora. Restaureu la configuració acordada.</li>
+</ol>
+<p><strong>Alternativa si no hi ha domini:</strong> demostració docent gravada o política local en una edició compatible. Cal indicar que una política local no demostra configuració d’una GPO de domini. No es força un bloqueig que deixi el laboratori sense accés.</p></article>
+<article id="e5"><div class="eyebrow">E5 · S14 · 20 min + 10 min de debat</div>
+<h2>Errors biomètrics i proporcionalitat</h2>
+<p>Un sistema accepta 2 de 2.000 intents d’impostors i rebutja 15 de 500 intents legítims. Calculeu FAR i FRR. Expliqueu què pot passar si es fa més estricte el llindar.</p>
+<p>Una empresa vol empremtes per entrar a una oficina on ja funciona una targeta. Indiqueu dos avantatges possibles de la biometria, dos inconvenients i tres preguntes que cal resoldre abans d’implantar-la. Proposeu una alternativa per a qui no pugui utilitzar el sensor.</p></article>
+<article id="e6"><div class="eyebrow">E6 · Registres · Contingut 1.9</div>
+<h2>Comptes, registres i informe d’incidència</h2>
+<p>Després d’una demostració docent de 10 minuts, treballeu en VMs amb dades fictícies. Cal distingir inventari de comptes i registre d’activitat.</p>
+<ol>
+<li>
+<strong>10 min:</strong> inventarieu els dos comptes d’E4: rol, estat, responsable de prova, data de revisió i accés justificat. Identifiqueu un accés que s’hauria de retirar en una baixa.</li>
+<li>
+<strong>10 min:</strong> comproveu bloqueig automàtic, compte sense privilegis innecessaris i estat d’actualitzacions. Feu una millora reversible autoritzada, com configurar el bloqueig de pantalla de la VM, i comproveu-la.</li>
+<li>
+<strong>15 min:</strong> examineu un registre local amb el docent. A Windows, filtreu Seguretat per un esdeveniment 4625 si l’auditoria el genera. A Linux, consulteu <code>journalctl --since "15 minutes ago"</code> amb permisos adequats i localitzeu una acció coneguda. No feu atacs ni repetiu contrasenyes fins a bloquejar comptes.</li>
+<li>
+<strong>15 min:</strong> redacteu l’informe a partir del conjunt fictici següent i lliureu evidències anonimitzades de la comprovació del dispositiu.</li>
+</ol>
+<pre>Dades fictícies · 21/10/2026 · Europe/Madrid
+11:42:01 PC-LAB01 ra1lectora inici_local fallit
+11:42:18 PC-LAB01 ra1lectora inici_local fallit
+11:42:46 PC-LAB01 ra1lectora inici_local correcte
+11:47:10 PC-LAB01 ra1lectora carpeta_projecte escriptura_denegada
+11:49:00 INVENTARI compte_exproveidor actiu revisio_pendent</pre>
+<p>Determineu què és un fet i què és una hipòtesi, quin accés s’ha denegat correctament i què cal investigar. Proposeu prioritat, responsable, actuació i comprovació de tancament. El fitxer fictici és una representació didàctica, no el format literal d’un registre del sistema.</p>
+<p><strong>Lliurament:</strong> inventari de dos comptes, evidència inicial/final d’una mesura de protecció i fitxa d’incidència sense dades personals ni secrets.</p></article>
+</section>
+<section class="panel" id="avaluacio" data-title="RA1 · Criteris i continguts"><div class="eyebrow">M0226 · Seguretat informàtica</div><h1>RA1 · Criteris i continguts</h1><p>La qualificació segueix la <a href="index.html#programacio">programació del mòdul</a>: Pt 20%, Pe 70% i Gr 10%, amb les condicions de lliurament i notes mínimes establertes.</p><h2>Criteris d’avaluació del mòdul</h2><div class="table-wrap"><table><thead><tr><th>Criteri</th><th>Descripció</th><th>Evidència</th></tr></thead><tbody><tr><td>1.a</td><td>Valora la importància de mantenir la informació segura.</td><td>E1 i Pe1</td></tr><tr><td>1.b</td><td>Descriu les diferències entre seguretat física i lògica.</td><td>E1 i Pe1</td></tr><tr><td>1.c</td><td>Defineix les característiques de la ubicació física i condicions ambientals dels equips i servidors.</td><td>T1</td></tr><tr><td>1.d</td><td>Identifica la necessitat de protegir físicament els sistemes informàtics.</td><td>T1 i E3</td></tr><tr><td>1.e</td><td>Verifica el funcionament dels sistemes d'alimentació ininterrompuda.</td><td>T2: verificació observada</td></tr><tr><td>1.f</td><td>Selecciona els punts d'aplicació dels sistemes d'alimentació ininterrompuda.</td><td>T2 i E2</td></tr><tr><td>1.g</td><td>Esquematitza les característiques d'una política de seguretat basada en llistes de control d'accés.</td><td>T3 i E4</td></tr><tr><td>1.h</td><td>Valora la importància d'establir una política de contrasenyes.</td><td>E4: política de contrasenyes</td></tr><tr><td>1.i</td><td>Valora els avantatges que suposa la utilització de sistemes biomètrics.</td><td>E5 i reflexió T3</td></tr></tbody></table></div><h2>Continguts</h2><div class="table-wrap"><table><thead><tr><th>Contingut</th><th>Descripció</th></tr></thead><tbody><tr><td>1.1</td><td>Ubicació física i condicions ambientals dels equips i servidors.</td></tr><tr><td>1.2</td><td>Protecció física dels sistemes informàtics.</td></tr><tr><td>1.3</td><td>Els sistemes d'alimentació ininterrompuda.</td></tr><tr><td>1.4</td><td>Aplicació dels sistemes d'alimentació ininterrompuda.</td></tr><tr><td>1.5</td><td>Polítiques de seguretat basades en llistes de control d'accés.</td></tr><tr><td>1.6</td><td>Polítiques de contrasenyes; sistemes biomètrics.</td></tr><tr><td>1.7</td><td>Mecanismes de seguretat d'accés al sistema.</td></tr><tr><td>1.8</td><td>Permisos i drets d'usuaris.</td></tr><tr><td>1.9</td><td>Gestió de l'inventari dels registres d'usuaris, incidències i alarmes.</td></tr></tbody></table></div><h2>Criteris del centre · Activitat independent</h2><div class="table-wrap"><table><thead><tr><th>Criteri</th><th>Descripció</th></tr></thead><tbody><tr><td>*1.j</td><td>Aplica els procediments de la competència digital 4.1 Protegir els dispositius.</td></tr><tr><td>*1.k</td><td>Aplica els procediments de la competència digital 4.2 Protegir les dades personals i la privacitat.</td></tr></tbody></table></div><p>Consulta les <a href="index.html#competencia-digital">activitats de competència digital</a>: feina autònoma, lliurament separat i validació pròpia. No formen part de la prova del RA ni dels seus pesos.</p></section>
+
+<footer id="site-license"><p>Material docent de <a href="https://github.com/ejgutierrez74/smx-seguretat-informatica">SMX · Seguretat informàtica · ejgutierrez74</a>, sota <a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.ca">CC BY 4.0</a>, excepte materials de tercers amb condicions pròpies. <a href="https://github.com/ejgutierrez74/smx-seguretat-informatica/blob/a850f37bd72888fe9e8c61b226cece54fc98d5ca/LICENSE.md">LICENSE.md</a> · <a href="index.html#fonts/llicencia">Autoria i reutilització</a>.</p></footer></main><script src="app.js"></script>
+</body>
+</html>
