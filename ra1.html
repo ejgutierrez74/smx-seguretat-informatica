@@ -130,6 +130,9 @@
 </table></div>
 <p>La temperatura i la humitat s’han de registrar i relacionar amb els manuals. A T1 utilitzarem 22 °C i 45% d’humitat relativa com a dades fictícies d’un cas, no com una exigència normativa. Una única lectura al termòstat no descriu tots els punts calents d’un rack.</p>
 <p>En files de racks, els passadissos freds alimenten les entrades d’aire i els calents recullen les sortides. Evitar que l’aire calent torni a l’entrada millora la refrigeració. Els panells de tancament ajuden a controlar el recorregut de l’aire.</p>
+<h3>Quatre funcions de la protecció física</h3>
+<p>L’IOC diferencia mesures que es complementen. <strong>Dissuadir</strong> és fer visible que l’espai està controlat; <strong>restringir</strong> és permetre l’entrada només a qui correspon; <strong>detectar</strong> és generar un avís davant d’un fet; <strong>valorar</strong> és comprovar què ha passat per decidir la resposta. Una porta amb clau restringeix l’accés, però no substitueix el registre de visites ni l’atenció de les alarmes.</p>
+<p><strong>Cas Taller Bit:</strong> el rack està tancat i les claus tenen responsable. Un sensor avisa que la porta ha quedat oberta. El tècnic comprova si hi ha un manteniment autoritzat, registra el resultat i tanca l’avís quan la situació queda resolta. Instal·lar el sensor sense assignar qui rep l’alarma deixa el procediment incomplet.</p>
 <h3>Accés físic i emergències</h3>
 <p>La protecció es pot organitzar per capes: edifici, sala i rack. Es defineixen persones autoritzades, registre de visites, acompanyament de proveïdors i retorn de claus o targetes en les baixes. Cal evitar que una persona entri darrere d’una altra sense identificar-se.</p>
 <p>La detecció de fum, els sistemes d’extinció i les sortides d’emergència formen part del pla del centre. Les instal·lacions elèctriques i contra incendis les determina personal competent. En classe s’identifiquen i es documenten, sense obrir quadres ni provar sistemes d’extinció. Cap control d’accés pot impedir l’evacuació segura.</p>
@@ -165,6 +168,14 @@
 </tbody>
 </table></div>
 <p>Un SAI online no té necessàriament més autonomia: aquesta depèn de la bateria, la càrrega, l’estat i les condicions de treball. La topologia descriu com funciona, no quants minuts durarà.</p>
+<h3>Quina anomalia elèctrica observem?</h3>
+<div class="table-wrap"><table><thead><tr><th>Anomalia</th><th>Què passa?</th><th>Què cal revisar?</th></tr></thead><tbody>
+<tr><td>Tall de subministrament</td><td>Desapareix l’alimentació de xarxa.</td><td>Continuïtat amb bateria i temps necessari per aturar el servei.</td></tr>
+<tr><td>Baixada de tensió</td><td>La tensió cau per sota del rang esperat.</td><td>Rang d’entrada, regulació i registre del SAI.</td></tr>
+<tr><td>Sobretensió o pic transitori</td><td>La tensió supera el nivell esperat, durant un interval més llarg o molt breu.</td><td>Proteccions especificades i estat de la instal·lació; no tots els SAI ofereixen la mateixa resposta.</td></tr>
+<tr><td>Pertorbacions de la forma d’ona</td><td>El subministrament presenta soroll o distorsió.</td><td>Requisits dels equips i capacitats de filtratge o condicionament del model.</td></tr>
+</tbody></table></div>
+<p>A classe interpretem el manual i els registres: no provoquem sobretensions ni manipulem la instal·lació. Davant una alarma, anotem si correspon a entrada elèctrica, sobrecàrrega, bateria o comunicació. «SAI amb alarma» és una descripció insuficient per decidir què fer.</p>
 <h3>Potència: W i VA</h3>
 <p><strong>FP vol dir factor de potència:</strong> FP = P / S. P és la potència activa, en watts (W), i S l’aparent, en voltamperes (VA). Si un equip necessita 100 W i té FP = 0,5, exigeix 200 VA. Amb FP = 1 exigiria 100 VA. El FP no és el rendiment ni el percentatge d’energia perduda: indica la relació entre aquestes dues potències.</p>
 <p>Els <strong>W</strong> expressen potència activa i els <strong>VA</strong>, potència aparent. En corrent altern monofàsic, amb valors eficaços, S = V × I i P = S × FP. El factor de potència FP és una propietat de la càrrega. No s’ha de deduir simplement de la gamma comercial del SAI.</p>
@@ -563,6 +574,10 @@ sudo -u ra1laia cat /srv/ra1-demo/informe.txt</pre>
 <h3>Windows i Linux</h3>
 <p>El visor d’esdeveniments de Windows organitza els registres per canals. Amb l’auditoria adequada, el registre de Seguretat pot mostrar l’esdeveniment 4625, corresponent a un inici de sessió fallit. S’han d’interpretar compte, hora, tipus d’inici i causa, i comparar-los amb l’activitat esperada. <a href="https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/security/threat-protection/auditing/event-4625">Documentació de Microsoft</a>.</p>
 <p>A Linux, els registres depenen de la distribució i dels serveis instal·lats. Es poden consultar amb <code>journalctl</code> o en fitxers de <code>/var/log</code>. <code>/var/log/auth.log</code> no existeix en totes les instal·lacions. Si un servei no està instal·lat o no registra l’esdeveniment, el filtre pot no retornar res.</p>
+<h3>Exemple de seguiment d’una alarma</h3>
+<p><strong>Cas simulat:</strong> a les 10.15 h el programari del SAI del NAS registra «alimentació amb bateria»; a les 10.17 h registra el retorn a xarxa. L’alumne relaciona els dos esdeveniments, comprova si el servei ha continuat disponible i anota càrrega, estat de bateria i responsable de revisió. Si l’equip s’ha apagat, obre una incidència i documenta l’impacte observat.</p>
+<p>Els registres necessiten hores coherents, permisos de consulta limitats i una política de conservació. Cal comprovar també l’espai disponible i que el mecanisme de registre funciona. Una alarma sense destinatari o un registre que ningú revisa no completen el control.</p>
+<p class="small">Revisió amb IOC · Unitat 1, <em>Seguretat passiva</em>, apartats de protecció física, SAI i seguretat lògica. Els continguts 1.1–1.9 i els criteris de la programació actual determinen el treball del RA1. <a href="index.html#fonts">Fonts i correspondència entre RA i UF</a>.</p>
 <h3>Resposta ordenada</h3>
 <p>Primer es recullen els fets i es confirma l’abast. Després es determina la prioritat segons impacte i urgència i s’aplica el procediment autoritzat. Finalment es comprova la recuperació i es documenta el tancament. No s’esborren registres per «netejar l’error» ni es dona per resolt només perquè ha desaparegut una alarma.</p>
 <p><strong>A4C1:</strong> comprovar actualitzacions, bloqueig de pantalla, compte de treball sense privilegis innecessaris i proteccions del dispositiu. <strong>A4C2:</strong> limitar accés a les dades, minimitzar els camps registrats, ocultar informació personal de les evidències i compartir-les només amb les persones autoritzades. El termini de conservació s’ajusta a la política i finalitat, sense inventar un nombre universal de dies.</p></article>
