@@ -183,7 +183,7 @@
 <p>Els <strong>W</strong> expressen potència activa i els <strong>VA</strong>, potència aparent. En corrent altern monofàsic, amb valors eficaços, S = V × I i P = S × FP. El factor de potència FP és una propietat de la càrrega. No s’ha de deduir simplement de la gamma comercial del SAI.</p>
 <div class="formula">S (VA) = P (W) / FP<br>P (W) = V × I × FP</div>
 <p>Cal comprovar <strong>tots dos límits de sortida</strong> del SAI. Un model de 1.000 VA i 600 W no admet una càrrega de 700 W encara que la càrrega aparent sigui inferior a 1.000 VA. La potència màxima escrita a una font d’alimentació tampoc és necessàriament el consum real de l’ordinador.</p>
-<h3>Exemple resolt · AEA1</h3>
+<h3>Exemple resolt · Dimensionament del SAI</h3>
 <div>
 <p><strong>Situació:</strong> sis persones treballen amb portàtils i comparteixen fitxers en un NAS. El NAS és un petit servidor d’emmagatzematge connectat a la xarxa. El switch uneix els equips per cable; el router connecta xarxes i proporciona accés a Internet.</p>
 <figure class="scheme"><svg viewbox="0 0 760 130" role="img" aria-label="Connexió de dades: el SAI ha d’alimentar els equips necessaris per al servei"><title>Connexió de dades: el SAI ha d’alimentar els equips necessaris per al servei</title>
@@ -292,7 +292,7 @@ getfacl /srv/ra1/projecte</pre>
 <p>Els permisos efectius depenen de totes les pertinences i entrades aplicables. Les denegacions i l’ordre de les entrades poden alterar el resultat; és preferible evitar denegacions innecessàries i verificar amb «Accés efectiu» i una prova real. En un recurs SMB també intervenen els permisos de compartició: l’accés ha de ser possible en les dues capes.</p>
 <p><strong>Permís i dret:</strong> llegir un fitxer és un permís sobre un objecte. Iniciar sessió localment o fer determinades tasques administratives són drets o privilegis del sistema. Ser capaç d’iniciar sessió no garanteix accés a totes les carpetes.</p>
 <div>
-<h3>Exemple resolt · AEA2 · Una carpeta compartida</h3>
+<h3>Exemple resolt · Una carpeta compartida</h3>
 <p>Al Taller Bit, la Laia consulta els manuals, en Pau els actualitza i l’Àlex administra els permisos. Volem donar a cadascú només l’accés necessari.</p>
 <div class="table-wrap"><table>
 <thead><tr>
