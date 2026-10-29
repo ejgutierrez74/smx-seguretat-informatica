@@ -7,6 +7,13 @@
 <meta name="description" content="RA1 · Seguretat passiva · M0226. Apunts, pràctiques i criteris del currículum actual de primer curs de CFGM SMX.">
 <link rel="stylesheet" href="style.css?v=20260920-access">
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Crect%20width='64'%20height='64'%20rx='12'%20fill='%23102c3b'/%3E%3Ctext%20x='32'%20y='43'%20text-anchor='middle'%20font-size='38'%20fill='white'%20font-family='sans-serif'%3ES%3C/text%3E%3C/svg%3E">
+<style>
+/* Presentació del codi i les imatges del RA1. */
+#teoria pre, #practiques pre { font-family: Consolas, "Liberation Mono", monospace; font-size: 16px; font-weight: 700; line-height: 1.5; }
+#teoria code, #practiques code { font-family: Consolas, "Liberation Mono", monospace; font-weight: 700; }
+#teoria article img[src^="images/ra1-"], #teoria article img[src^="images/part-v-"] { max-width: 430px !important; height: auto; }
+#teoria article figure.scheme svg { max-width: 540px; height: auto; }
+</style>
 </head>
 <body data-default-panel="ra1">
 <a class="skip" href="#ra1">Ves al contingut</a><aside><div class="brand">CFGM · SMX<strong>Seguretat<br>informàtica</strong>
@@ -285,12 +292,12 @@
 <h4>El significat de r, w i x</h4><div class="table-wrap"><table><thead><tr><th>Permís</th><th>Sobre un fitxer</th><th>Sobre un directori</th></tr></thead><tbody><tr><td><code>r</code> · lectura</td><td>Llegir-ne el contingut.</td><td>Llistar-ne els noms.</td></tr><tr><td><code>w</code> · escriptura</td><td>Modificar-ne el contingut.</td><td>Modificar les entrades, com crear o canviar noms.</td></tr><tr><td><code>x</code> · execució</td><td>Executar-lo com a programa o script.</td><td>Entrar-hi o travessar-lo per accedir als elements.</td></tr></tbody></table></div>
 <p>Per crear, canviar de nom o eliminar entrades dins d’un directori normalment calen <code>w</code> i <code>x</code> sobre aquell directori. Per tant, <strong>esborrar un fitxer depèn principalment dels permisos del directori que el conté</strong>, no només dels permisos del fitxer; també poden existir restriccions addicionals.</p>
 <h3>Com llegir <code>ls -l</code> i <code>id</code></h3>
-<pre>ls -l
+<pre>$ ls -l
 -rw-r--r-- 1 eduard eduard 177 Apr 13 13:52 document.txt</pre>
 <p>El primer caràcter indica el tipus: <code>-</code> és un fitxer, <code>d</code> un directori i <code>l</code> un enllaç. Després hi ha tres blocs de tres caràcters: <code>rw-</code> per al propietari, <code>r--</code> per al grup i <code>r--</code> per als altres. En aquest exemple, el propietari pot llegir i escriure; el grup i els altres només poden llegir.</p>
 <figure class="scheme"><svg viewBox="0 0 800 180" role="img" aria-labelledby="permisos-titol permisos-desc"><title id="permisos-titol">Com llegir drwxrwxrwx</title><desc id="permisos-desc">d indica un directori; els tres blocs rwx corresponen a propietari, grup i altres. En cada bloc r és lectura, w escriptura i x execució o accés.</desc><rect x="10" y="10" width="780" height="155" rx="12" fill="#eaf3f8"/><text x="100" y="55" text-anchor="middle" font-family="monospace" font-size="32" fill="#102c3b">d</text><text x="300" y="55" text-anchor="middle" font-family="monospace" font-size="32" fill="#102c3b">rwx</text><text x="500" y="55" text-anchor="middle" font-family="monospace" font-size="32" fill="#102c3b">rwx</text><text x="700" y="55" text-anchor="middle" font-family="monospace" font-size="32" fill="#102c3b">rwx</text><text x="100" y="96" text-anchor="middle" font-size="16" fill="#102c3b">directori</text><text x="300" y="96" text-anchor="middle" font-size="16" fill="#102c3b">propietari</text><text x="500" y="96" text-anchor="middle" font-size="16" fill="#102c3b">grup</text><text x="700" y="96" text-anchor="middle" font-size="16" fill="#102c3b">altres</text><text x="400" y="140" text-anchor="middle" font-size="17" fill="#102c3b">r = lectura · w = escriptura · x = execució / accés</text></svg><figcaption>Lectura de <code>drwxrwxrwx</code>: primer el tipus i després els tres blocs de permisos.</figcaption></figure>
 <p>La resta de la línia mostra el nombre d’enllaços, el propietari, el grup, la mida en bytes, la data de modificació i el nom. Un signe <code>+</code> al final dels permisos pot indicar ACL addicionals, que es consulten amb <code>getfacl</code>.</p>
-<pre>id
+<pre>$ id
 uid=1000(archie) gid=1000(web) groups=1000(web),4(adm),20(dialout)</pre>
 <p><code>id</code> mostra el <strong>UID</strong> de l’usuari, el <strong>GID</strong> del grup primari i els grups primari i secundaris. Un fitxer té un propietari i un grup propietari; els permisos tradicionals no permeten donar excepcions diferents a diversos usuaris o grups. Per a això es poden utilitzar ACL, que estudiaràs a la <a href="#teoria/acl">Part VI</a>.</p>
 <h3>Canviar permisos amb <code>chmod</code></h3>
@@ -302,21 +309,22 @@ uid=1000(archie) gid=1000(web) groups=1000(web),4(adm),20(dialout)</pre>
 <p><code>chmod 755 carpeta</code> canvia la carpeta indicada. Amb <code>chmod -R 755 carpeta</code> el canvi és recursiu i afecta també el contingut i les subcarpetes: revisa’l abans d’aplicar-lo, perquè pot modificar molts permisos alhora.</p>
 <h4>Mètode simbòlic</h4>
 <p>En notació simbòlica, <code>u</code> és el propietari, <code>g</code> el grup, <code>o</code> els altres i <code>a</code> totes les categories. L’operador <code>+</code> afegeix permisos, <code>-</code> els retira i <code>=</code> fixa exactament els permisos indicats.</p>
-<pre>chmod u+x script.sh       # afegeix execució al propietari
-chmod g-w document.txt    # retira escriptura al grup
-chmod o=r arxiu.conf      # deixa els altres només amb lectura
-chmod a+r arxiu.zip       # afegeix lectura a tothom
-chmod u+rwx,g+rx script.sh</pre>
+<pre>$ chmod u+x script.sh       # afegeix execució al propietari
+$ chmod g-w document.txt    # retira escriptura al grup
+$ chmod o=r arxiu.conf      # deixa els altres només amb lectura
+$ chmod a+r arxiu.zip       # afegeix lectura a tothom
+$ chmod u+rwx,g+rx script.sh</pre>
 <p>Amb <code>+</code> i <code>-</code> es conserven els altres permisos del bloc; amb <code>=</code> se substitueixen. Si no hi ha cap lletra després de <code>=</code>, el bloc queda sense permisos:</p>
-<pre>chmod g= Documents        # retira tots els permisos del grup
-chmod o= Documents        # retira tots els permisos dels altres
-chmod g=rx Documents     # restaura lectura i execució al grup
-chmod o=rw Documents     # fixa lectura i escriptura per als altres</pre>
+<pre>$ chmod g= Documents        # retira tots els permisos del grup
+$ chmod o= Documents        # retira tots els permisos dels altres
+$ chmod g=rx Documents     # restaura lectura i execució al grup
+$ chmod o=rw Documents     # fixa lectura i escriptura per als altres</pre>
+<p>Per veure el resultat d’aquest exemple, imagina que <code>Documents</code> comença amb <code>drwxr-xrw-</code>. Després de <code>chmod g=</code> i <code>chmod o=</code>, queda <code>drwx------</code>. Les dues ordres de restauració tornen a establir <code>drwxr-xrw-</code>: el propietari conserva <code>rwx</code>, el grup recupera <code>r-x</code> i els altres reben <code>rw-</code>.</p>
 <p>La notació simbòlica és còmoda per canviar un permís concret. La numèrica és útil quan vols establir un estat exacte dels tres blocs.</p>
 <h3>Canviar el propietari i el grup</h3>
-<pre>sudo chown joan document.txt
-sudo chown joan:desenvolupament document.txt
-chgrp desenvolupament document.txt</pre>
+<pre>$ sudo chown joan document.txt
+$ sudo chown joan:desenvolupament document.txt
+$ chgrp desenvolupament document.txt</pre>
 <p>La primera ordre canvia el propietari; la segona, propietari i grup; la tercera canvia el grup. Algunes operacions requereixen <code>sudo</code>, que permet executar una ordre amb privilegis administratius si l’usuari està autoritzat. <code>chmod</code> modifica permisos; <code>chown</code> i <code>chgrp</code> modifiquen la propietat.</p>
 <h3>Permisos inicials: <code>umask</code></h3>
 <p>La <code>umask</code> retira permisos dels valors de creació habituals: <strong>666</strong> per als fitxers i <strong>777</strong> per als directoris. Amb <code>umask</code> consultes el valor actual i amb <code>umask 027</code> el canvies per a la sessió. Sense ACL per defecte, els resultats habituals són:</p>
@@ -335,13 +343,13 @@ chgrp desenvolupament document.txt</pre>
 <p>A Ubuntu, obre <strong>Configuració → Usuaris</strong>, desbloqueja l’eina amb un compte autoritzat i afegeix l’usuari. Tria un compte estàndard o administrador, configura la contrasenya i comprova l’accés. Els noms dels menús poden variar segons la distribució.</p>
 <div style="display:flex;flex-wrap:wrap;gap:1rem;align-items:start"><figure style="flex:1 1 220px;max-width:360px;margin:0"><img src="images/ra1-v-46-2.png" alt="Configuració d’Ubuntu amb l’apartat d’usuaris" loading="lazy" style="display:block;width:100%;height:auto;border-radius:8px"><figcaption>Obre la configuració d’usuaris.</figcaption></figure><figure style="flex:1 1 220px;max-width:360px;margin:0"><img src="images/ra1-v-47-2.png" alt="Pantalla de gestió de comptes a Ubuntu" loading="lazy" style="display:block;width:100%;height:auto;border-radius:8px"><figcaption>Desbloqueja l’eina per gestionar els comptes.</figcaption></figure></div>
 <p>En una màquina de pràctiques Debian/Ubuntu també pots gestionar comptes i grups des del terminal:</p>
-<pre>sudo adduser joan
-id joan
-getent passwd joan
-sudo groupadd desenvolupament
-sudo usermod -aG desenvolupament joan
-sudo gpasswd -d joan desenvolupament
-id joan</pre>
+<pre>$ sudo adduser joan
+$ id joan
+$ getent passwd joan
+$ sudo groupadd desenvolupament
+$ sudo usermod -aG desenvolupament joan
+$ sudo gpasswd -d joan desenvolupament
+$ id joan</pre>
 <p><code>adduser</code> facilita la creació d’un compte a Ubuntu; també es pot utilitzar <code>useradd -m</code> i després <code>passwd</code>. L’opció <code>-a</code> de <code>usermod -aG</code> afegeix el grup sense substituir els grups secundaris existents. <code>deluser joan</code> elimina el compte; <code>deluser --remove-home joan</code> també elimina la carpeta personal. <code>groupdel</code> elimina un grup: fes aquestes proves només amb comptes i grups de laboratori.</p>
 <p>A Windows Pro, Enterprise i Education, <code>lusrmgr.msc</code> permet administrar usuaris i grups locals; no està disponible a l’edició Home.</p>
 <div style="display:flex;flex-wrap:wrap;gap:1rem;align-items:start"><figure style="flex:1 1 220px;max-width:360px;margin:0"><img src="images/ra1-v-50-2.png" alt="Consola de gestió local d’usuaris i grups de Windows" loading="lazy" style="display:block;width:100%;height:auto;border-radius:8px"><figcaption>Eina d’usuaris i grups locals a Windows.</figcaption></figure><figure style="flex:1 1 220px;max-width:360px;margin:0"><img src="images/ra1-v-51-1.png" alt="Llista de grups locals de Windows" loading="lazy" style="display:block;width:100%;height:auto;border-radius:8px"><figcaption>Consulta o administra els grups locals.</figcaption></figure></div>
@@ -364,26 +372,26 @@ group::r--
 group:alumnat:r--
 mask::r--
 other::---</pre></div></div>
-<p>La màscara limita els permisos efectius dels usuaris i grups amb nom i del grup propietari; no limita el propietari ni els altres. El signe <code>+</code> a <code>ls -l</code> indica habitualment una ACL addicional. <code>getfacl</code> en mostra les entrades completes:</p><pre>ls -l informe.txt
-getfacl informe.txt</pre>
+<p>La màscara limita els permisos efectius dels usuaris i grups amb nom i del grup propietari; no limita el propietari ni els altres. El signe <code>+</code> a <code>ls -l</code> indica habitualment una ACL addicional. <code>getfacl</code> en mostra les entrades completes:</p><pre>$ ls -l informe.txt
+$ getfacl informe.txt</pre>
 <p>Si una entrada diu <code>user:marc:rwx</code> i la màscara és <code>r-x</code>, els permisos efectius de Marc són <code>r-x</code>: es conserven els permisos presents en totes dues entrades. Una màscara fixada per l’administrador pot tornar a calcular-se en afegir una entrada amb <code>setfacl</code>; <code>-n</code> evita aquest recàlcul. Comprova sempre el resultat amb <code>getfacl</code>.</p>
-<h3>Modificar ACL a Linux</h3><p><code>setfacl -m</code> afegeix o modifica una entrada. <code>u</code> i <code>user</code> són equivalents; <code>g</code> i <code>group</code> també. Dues dues-punts sense nom indiquen l’entrada del propietari o del grup propietari.</p><pre>setfacl -m u:joan:r informe.txt
-setfacl -m user:joan:r informe.txt
-setfacl -m u::r informe.txt
-setfacl -m g:profes:rw informe.txt
-setfacl -m g::r informe.txt
-getfacl informe.txt</pre><p>En un directori, <code>r</code> i <code>x</code> permeten consultar-ne el contingut i entrar-hi; per crear o eliminar entrades normalment calen <code>w</code> i <code>x</code>.</p><pre>setfacl -m u:joan:rx projecte/
-setfacl -m g:profes:rwx projecte/
-setfacl -x u:joan informe.txt
-setfacl -b informe.txt</pre><p><code>-x</code> retira una entrada concreta i <code>-b</code> elimina les entrades ACL addicionals del fitxer, conservant els permisos bàsics. Per definir una ACL per defecte per als elements nous d’un directori:</p><pre>setfacl -m d:g:profes:rwx projecte/
-getfacl projecte/</pre><p>Els elements nous hereten aquesta base amb els límits del mode de creació; no canvia retroactivament els existents. <code>chmod</code> i les ACL conviuen: amb ACL estesa, canviar els bits de grup també pot modificar la màscara.</p>
+<h3>Modificar ACL a Linux</h3><p><code>setfacl -m</code> afegeix o modifica una entrada. <code>u</code> i <code>user</code> són equivalents; <code>g</code> i <code>group</code> també. Dues dues-punts sense nom indiquen l’entrada del propietari o del grup propietari.</p><pre>$ setfacl -m u:joan:r informe.txt
+$ setfacl -m user:joan:r informe.txt
+$ setfacl -m u::r informe.txt
+$ setfacl -m g:profes:rw informe.txt
+$ setfacl -m g::r informe.txt
+$ getfacl informe.txt</pre><p>En un directori, <code>r</code> i <code>x</code> permeten consultar-ne el contingut i entrar-hi; per crear o eliminar entrades normalment calen <code>w</code> i <code>x</code>.</p><pre>$ setfacl -m u:joan:rx projecte/
+$ setfacl -m g:profes:rwx projecte/
+$ setfacl -x u:joan informe.txt
+$ setfacl -b informe.txt</pre><p><code>-x</code> retira una entrada concreta i <code>-b</code> elimina les entrades ACL addicionals del fitxer, conservant els permisos bàsics. Per definir una ACL per defecte per als elements nous d’un directori:</p><pre>$ setfacl -m d:g:profes:rwx projecte/
+$ getfacl projecte/</pre><p>Els elements nous hereten aquesta base amb els límits del mode de creació; no canvia retroactivament els existents. <code>chmod</code> i les ACL conviuen: amb ACL estesa, canviar els bits de grup també pot modificar la màscara.</p>
 <h3>Ordres bàsiques a Linux, PowerShell i CMD</h3><div class="table-wrap"><table><thead><tr><th>Acció</th><th>Linux</th><th>PowerShell</th><th>CMD</th></tr></thead><tbody><tr><td>Directori actual</td><td><code>pwd</code></td><td><code>pwd</code></td><td><code>cd</code></td></tr><tr><td>Llistar</td><td><code>ls</code></td><td><code>ls</code></td><td><code>dir</code></td></tr><tr><td>Entrar</td><td><code>cd carpeta</code></td><td><code>cd carpeta</code></td><td><code>cd carpeta</code></td></tr><tr><td>Pujar un nivell</td><td><code>cd ..</code></td><td><code>cd ..</code></td><td><code>cd ..</code></td></tr><tr><td>Crear carpeta</td><td><code>mkdir prova</code></td><td><code>mkdir prova</code></td><td><code>mkdir prova</code></td></tr><tr><td>Eliminar fitxer</td><td><code>rm a.txt</code></td><td><code>rm a.txt</code></td><td><code>del a.txt</code></td></tr><tr><td>Netejar pantalla</td><td><code>clear</code></td><td><code>clear</code></td><td><code>cls</code></td></tr></tbody></table></div><p>PowerShell reconeix diverses ordres amb noms familiars, encara que internament funcionin de manera diferent.</p>
 <h3>ACL a Windows</h3><p>A Windows, les ACL NTFS es consulten des de <strong>Propietats → Seguretat</strong> o amb <code>icacls</code> a CMD i PowerShell. PowerShell també disposa de <code>Get-Acl</code> i <code>Set-Acl</code>. Dins de WSL, <code>getfacl</code> i <code>setfacl</code> s’utilitzen sobre el sistema Linux; les ACL NTFS es gestionen amb les eines de Windows.</p>
 <div class="table-wrap"><table><thead><tr><th>Codi</th><th>Permís</th></tr></thead><tbody><tr><td>F</td><td>Control total</td></tr><tr><td>M</td><td>Modificar</td></tr><tr><td>RX</td><td>Lectura i execució</td></tr><tr><td>R</td><td>Lectura</td></tr><tr><td>W</td><td>Escriptura</td></tr><tr><td>D</td><td>Eliminar</td></tr><tr><td>N</td><td>Sense accés</td></tr></tbody></table></div>
-<pre>icacls C:\Dades
-icacls C:\Dades /grant "alumnes:(OI)(CI)M"
-icacls C:\Dades /remove alumnes
-icacls C:\Dades /reset</pre><p><code>/grant</code> concedeix una entrada; <code>/remove</code> retira entrades del subjecte; <code>/reset</code> restableix l’ACL heretada i pot eliminar entrades explícites. <strong>(OI)</strong> indica herència als fitxers i <strong>(CI)</strong> a les subcarpetes. Les cometes permeten escriure l’exemple tant a PowerShell com a CMD.</p>
+<pre>$ icacls C:\Dades
+$ icacls C:\Dades /grant "alumnes:(OI)(CI)M"
+$ icacls C:\Dades /remove alumnes
+$ icacls C:\Dades /reset</pre><p><code>/grant</code> concedeix una entrada; <code>/remove</code> retira entrades del subjecte; <code>/reset</code> restableix l’ACL heretada i pot eliminar entrades explícites. <strong>(OI)</strong> indica herència als fitxers i <strong>(CI)</strong> a les subcarpetes. Les cometes permeten escriure l’exemple tant a PowerShell com a CMD.</p>
 <pre>Practica PC\maria:(OI)(CI)(M)
          PC\alumnat:(OI)(CI)(RX)
          BUILTIN\Administradors:(I)(OI)(CI)(F)
@@ -401,13 +409,13 @@ icacls C:\Dades /reset</pre><p><code>/grant</code> concedeix una entrada; <code>
 <p>En un exemple de possible força bruta, el registre mostra errors d’accés al compte <code>admin</code> a les 10.00, 10.01 i 10.02; a les 10.03 el compte queda bloquejat i a les 10.05 s’envia una alarma. Cal revisar l’origen, el compte, l’horari i si hi ha més intents semblants.</p>
 <p>Per exemple, l’esdeveniment de Seguretat <strong>1102</strong> de l’equip AULA-PC04 pot indicar que s’ha esborrat el registre d’auditoria. Pot ser una actuació de manteniment legítima o un intent d’eliminar pistes; cal comprovar el context i l’autorització.</p>
 <h3>Registres a Linux</h3><p>A Ubuntu i altres sistemes Linux hi pot haver fitxers a <code>/var/log</code>; els fitxers disponibles depenen de la configuració i dels serveis instal·lats.</p><div class="table-wrap"><table><thead><tr><th>Ruta</th><th>Informació habitual</th></tr></thead><tbody><tr><td><code>/var/log/auth.log</code></td><td>Autenticacions, intents fallits, sudo i SSH.</td></tr><tr><td><code>/var/log/syslog</code></td><td>Missatges generals del sistema i serveis.</td></tr><tr><td><code>/var/log/kern.log</code></td><td>Missatges del nucli, maquinari i controladors.</td></tr><tr><td><code>/var/log/apt/history.log</code></td><td>Instal·lacions i actualitzacions.</td></tr><tr><td><code>/var/log/apache2/</code></td><td>Accessos i errors d’Apache, si està instal·lat.</td></tr></tbody></table></div>
-<p>El <strong>nucli</strong> o kernel és la part central del sistema operatiu que gestiona processos, memòria i comunicació amb el maquinari. Per consultar registres pots utilitzar <code>cat</code> per llegir un fitxer, <code>less</code> per veure’l pantalla a pantalla —surt amb <code>q</code>—, <code>tail</code> per veure les últimes línies i <code>grep</code> per cercar text.</p><pre>cat /var/log/apt/history.log
-sudo tail -n 20 /var/log/auth.log
-sudo grep "sudo" /var/log/auth.log
-journalctl -n 50
-who
-w
-last -n 10</pre><p><code>journalctl</code> consulta el diari del sistema; <code>who</code> i <code>w</code> mostren sessions actuals, i <code>last</code>, sessions recents. GNOME també pot disposar de l’aplicació gràfica Registres.</p>
+<p>El <strong>nucli</strong> o kernel és la part central del sistema operatiu que gestiona processos, memòria i comunicació amb el maquinari. Per consultar registres pots utilitzar <code>cat</code> per llegir un fitxer, <code>less</code> per veure’l pantalla a pantalla —surt amb <code>q</code>—, <code>tail</code> per veure les últimes línies i <code>grep</code> per cercar text.</p><pre>$ cat /var/log/apt/history.log
+$ sudo tail -n 20 /var/log/auth.log
+$ sudo grep "sudo" /var/log/auth.log
+$ journalctl -n 50
+$ who
+$ w
+$ last -n 10</pre><p><code>journalctl</code> consulta el diari del sistema; <code>who</code> i <code>w</code> mostren sessions actuals, i <code>last</code>, sessions recents. GNOME també pot disposar de l’aplicació gràfica Registres.</p>
 <figure><img src="images/part-vii-diapositiva-14-1.png" alt="Aplicació Registres de GNOME" loading="lazy" style="max-width:100%;height:auto"><figcaption>Consulta gràfica de registres a GNOME. Imatge de la presentació.</figcaption></figure>
 <h3>Registres a Windows</h3><p>El <strong>Visor d’esdeveniments</strong> permet consultar els registres d’Aplicació, Seguretat i Sistema i filtrar per data, nivell o identificador. Els nivells inclouen informació, advertiment, error, crític i auditories correctes o fallides. El <strong>Gestor de tasques</strong> mostra, en canvi, què passa ara, com els processos i el consum de CPU i memòria.</p>
 <figure><img src="images/part-vii-diapositiva-17-1.png" alt="Visor d’esdeveniments de Windows, amb registres, llista i detalls" loading="lazy" style="max-width:100%;height:auto"><figcaption>Visor d’esdeveniments: registres, llista d’esdeveniments i detalls. Imatge de la presentació.</figcaption></figure>
@@ -650,21 +658,21 @@ last -n 10</pre><p><code>journalctl</code> consulta el diari del sistema; <code>
 <h2>Permisos Linux, NTFS i política de contrasenyes</h2>
 <h3>S12 · Linux, 25 minuts</h3>
 <p>Utilitzeu exclusivament una VM de laboratori amb instantània. Si els noms següents ja existeixen, el docent assigna un prefix nou. Els usuaris no necessiten contrasenya per a les proves amb <code>sudo -u</code>. El paquet d’eines ACL ha d’estar preparat.</p>
-<pre>sudo groupadd ra1equip
-sudo useradd -m -s /bin/bash ra1editor
-sudo useradd -m -s /bin/bash ra1lectora
-sudo usermod -aG ra1equip ra1editor
-sudo mkdir -p /srv/ra1/projecte
-sudo chown root:ra1equip /srv/ra1/projecte
-sudo chmod 2770 /srv/ra1/projecte
-sudo setfacl -m u:ra1lectora:rx /srv/ra1/projecte
-sudo -u ra1editor sh -c 'echo "Dades fictícies" &gt; /srv/ra1/projecte/info.txt'
-sudo chmod 640 /srv/ra1/projecte/info.txt
-sudo setfacl -m u:ra1lectora:r /srv/ra1/projecte/info.txt
-getfacl /srv/ra1/projecte/info.txt
-sudo -u ra1lectora cat /srv/ra1/projecte/info.txt
-sudo -u ra1lectora touch /srv/ra1/projecte/prova-lectora.txt
-sudo -u ra1editor touch /srv/ra1/projecte/prova-editor.txt</pre>
+<pre>$ sudo groupadd ra1equip
+$ sudo useradd -m -s /bin/bash ra1editor
+$ sudo useradd -m -s /bin/bash ra1lectora
+$ sudo usermod -aG ra1equip ra1editor
+$ sudo mkdir -p /srv/ra1/projecte
+$ sudo chown root:ra1equip /srv/ra1/projecte
+$ sudo chmod 2770 /srv/ra1/projecte
+$ sudo setfacl -m u:ra1lectora:rx /srv/ra1/projecte
+$ sudo -u ra1editor sh -c 'echo "Dades fictícies" &gt; /srv/ra1/projecte/info.txt'
+$ sudo chmod 640 /srv/ra1/projecte/info.txt
+$ sudo setfacl -m u:ra1lectora:r /srv/ra1/projecte/info.txt
+$ getfacl /srv/ra1/projecte/info.txt
+$ sudo -u ra1lectora cat /srv/ra1/projecte/info.txt
+$ sudo -u ra1lectora touch /srv/ra1/projecte/prova-lectora.txt
+$ sudo -u ra1editor touch /srv/ra1/projecte/prova-editor.txt</pre>
 <p>El 2 de 2770 activa setgid al directori perquè els nous elements heretin el grup. Aquest guió dona l’ACL al fitxer existent i no estableix una ACL per defecte. Registreu els resultats esperats i observats de les tres últimes ordres.</p>
 <h3>S12 · Windows, 20 minuts</h3>
 <ol>
@@ -710,47 +718,47 @@ sudo -u ra1editor touch /srv/ra1/projecte/prova-editor.txt</pre>
 <p>Determineu què és un fet i què és una hipòtesi, quin accés s’ha denegat correctament i què cal investigar. Proposeu prioritat, responsable, actuació i comprovació de tancament. El fitxer fictici és una representació didàctica, no el format literal d’un registre del sistema.</p>
 <p><strong>Lliurament:</strong> inventari de dos comptes, evidència inicial/final d’una mesura de protecció i fitxa d’incidència sense dades personals ni secrets.</p></article>
 <article id="practiques-presentacions"><div class="eyebrow">Activitats de les presentacions · Part V</div><h2>Pràctiques de permisos i umask</h2><p>Aquestes activitats provenen de la presentació de permisos. Les solucions serveixen per comprovar la feina i estudiar. Consulta també la <a href="#teoria/permisos">lliçó de permisos</a>.</p>
-<h3>1. Crear fitxers amb diferents umask</h3><p>Estableix <code>umask 022</code>, crea <code>capitol5</code> i, dins, el fitxer <code>fic1</code> i el directori <code>dir1</code>. Canvia a <code>umask 027</code> i crea <code>fic2</code> i <code>dir2</code> al mateix nivell. Compara els permisos i comprova si els primers han canviat.</p><details><summary>Solució per estudiar</summary><pre>umask 022
-mkdir capitol5
-cd capitol5
-touch fic1
-mkdir dir1
-umask 027
-touch fic2
-mkdir dir2
-ls -l
-ls -ld dir1 dir2</pre><p>Sense ACL per defecte, fic1 és 644 i dir1 755; fic2 és 640 i dir2 750. Canviar la umask no modifica els elements ja creats. <code>ls -ld dir1</code> mostra el directori, mentre que <code>ls -l dir1</code> mostra el contingut.</p></details>
-<h3>2. Permisos d’un directori i fitxer ocult</h3><p>Afegeix <code>rwx</code> a altres usuaris sobre dir1 amb notació simbòlica i prova una assignació octal a dir2. Crea una carpeta de prova i un fitxer ocult <code>.secret</code>; deixa-li només lectura per al propietari. Amb un altre compte de prova, comprova si el pot llegir o eliminar i justifica el resultat.</p><details><summary>Solució per estudiar</summary><pre>chmod o=rwx dir1
-chmod 007 dir2
-mkdir /tmp/usuari-prova
-touch /tmp/usuari-prova/.secret
-chmod 400 /tmp/usuari-prova/.secret
-ls -la /tmp/usuari-prova</pre><p>El valor 007 és una de les solucions de l’exemple: deixa propietari i grup sense permisos i dona rwx als altres. El 400 impedeix als altres llegir el fitxer, però eliminar-lo depèn dels permisos d’escriptura i execució del directori que el conté, així com de possibles restriccions addicionals. Comprova-ho amb comptes de laboratori.</p></details>
-<h3>3. Directoris i fitxers</h3><p>Amb <code>umask 002</code>, crea <code>docpersonal</code> amb permisos 700 i les subcarpetes fica, ficb, ficc i ficd. Assigna’ls, respectivament, 755, 700, 750 i 777. A fica crea <code>prova.txt</code> i compara els permisos 600 i 644.</p><details><summary>Solució per estudiar</summary><pre>umask 002
-mkdir docpersonal
-chmod 700 docpersonal
-cd docpersonal
-mkdir fica ficb ficc ficd
-chmod 755 fica
-chmod 700 ficb
-chmod 750 ficc
-chmod 777 ficd
-ls -ld fica ficb ficc ficd
-touch fica/prova.txt
-chmod 600 fica/prova.txt
-ls -l fica/prova.txt
-chmod 644 fica/prova.txt
-ls -l fica/prova.txt</pre><p>600 dona lectura i escriptura només al propietari; 644 afegeix lectura al grup i als altres. El directori pare <code>docpersonal</code> té 700, de manera que els altres no el poden travessar encara que una subcarpeta o fitxer mostri permisos més amplis.</p></details></article>
+<h3>1. Crear fitxers amb diferents umask</h3><p>Estableix <code>umask 022</code>, crea <code>capitol5</code> i, dins, el fitxer <code>fic1</code> i el directori <code>dir1</code>. Canvia a <code>umask 027</code> i crea <code>fic2</code> i <code>dir2</code> al mateix nivell. Compara els permisos i comprova si els primers han canviat.</p><details><summary>Solució per estudiar</summary><pre>$ umask 022
+$ mkdir capitol5
+$ cd capitol5
+$ touch fic1
+$ mkdir dir1
+$ umask 027
+$ touch fic2
+$ mkdir dir2
+$ ls -l
+$ ls -ld dir1 dir2</pre><p>Sense ACL per defecte, fic1 és 644 i dir1 755; fic2 és 640 i dir2 750. Canviar la umask no modifica els elements ja creats. <code>ls -ld dir1</code> mostra el directori, mentre que <code>ls -l dir1</code> mostra el contingut.</p></details>
+<h3>2. Permisos d’un directori i fitxer ocult</h3><p>Afegeix <code>rwx</code> a altres usuaris sobre dir1 amb notació simbòlica i prova una assignació octal a dir2. Crea una carpeta de prova i un fitxer ocult <code>.secret</code>; deixa-li només lectura per al propietari. Amb un altre compte de prova, comprova si el pot llegir o eliminar i justifica el resultat.</p><details><summary>Solució per estudiar</summary><pre>$ chmod o=rwx dir1
+$ chmod 007 dir2
+$ mkdir /tmp/usuari-prova
+$ touch /tmp/usuari-prova/.secret
+$ chmod 400 /tmp/usuari-prova/.secret
+$ ls -la /tmp/usuari-prova</pre><p>El valor 007 és una de les solucions de l’exemple: deixa propietari i grup sense permisos i dona rwx als altres. El 400 impedeix als altres llegir el fitxer, però eliminar-lo depèn dels permisos d’escriptura i execució del directori que el conté, així com de possibles restriccions addicionals. Comprova-ho amb comptes de laboratori.</p></details>
+<h3>3. Directoris i fitxers</h3><p>Amb <code>umask 002</code>, crea <code>docpersonal</code> amb permisos 700 i les subcarpetes fica, ficb, ficc i ficd. Assigna’ls, respectivament, 755, 700, 750 i 777. A fica crea <code>prova.txt</code> i compara els permisos 600 i 644.</p><details><summary>Solució per estudiar</summary><pre>$ umask 002
+$ mkdir docpersonal
+$ chmod 700 docpersonal
+$ cd docpersonal
+$ mkdir fica ficb ficc ficd
+$ chmod 755 fica
+$ chmod 700 ficb
+$ chmod 750 ficc
+$ chmod 777 ficd
+$ ls -ld fica ficb ficc ficd
+$ touch fica/prova.txt
+$ chmod 600 fica/prova.txt
+$ ls -l fica/prova.txt
+$ chmod 644 fica/prova.txt
+$ ls -l fica/prova.txt</pre><p>600 dona lectura i escriptura només al propietari; 644 afegeix lectura al grup i als altres. El directori pare <code>docpersonal</code> té 700, de manera que els altres no el poden travessar encara que una subcarpeta o fitxer mostri permisos més amplis.</p></details></article>
 <article id="exercicis-sai"><div class="eyebrow">Part III · SAI</div><h2>Exercicis resolts de SAI</h2><p>Relacionats amb la <a href="#teoria/sai">lliçó de SAI</a>. Els resultats d’autonomia són estimacions teòriques; la durada real es comprova amb la fitxa del fabricant.</p>
 <h3>Energia i autonomia</h3><p>Una bateria de 12 V i 9 Ah alimenta una càrrega de 500 W. Suposem un factor d’energia útil del 90 % i que el SAI admet la càrrega en W i VA. Calcula l’energia teòrica, l’energia útil i els minuts.</p><details><summary>Solució per estudiar</summary><p>Energia teòrica: 1 × 12 × 9 = <strong>108 Wh</strong>. Energia útil estimada: 108 × 0,90 = <strong>97,2 Wh</strong>. Autonomia: (97,2 ÷ 500) × 60 = <strong>11,7 minuts</strong> aproximadament.</p></details>
 <h3>Un lloc de treball</h3><p>Un ordinador consumeix 220 W, el monitor 30 W i el router 10 W. Amb marge del 25 % i FP 0,7, tria entre A: 500 VA / 300 W i B: 650 VA / 360 W.</p><details><summary>Solució per estudiar</summary><p>Consum real: 220 + 30 + 10 = <strong>260 W</strong>. Amb marge: 260 × 1,25 = <strong>325 W</strong>. Potència aparent: 325 ÷ 0,7 ≈ <strong>464,3 VA</strong>. A no compleix perquè només admet 300 W; B compleix tots dos límits. Per estimar autonomia s’utilitzen els 260 W reals, no els 325 W amb marge.</p></details>
 <h3>Comparar models</h3><p>Busca tres SAI per a 350 W reals, amb marge del 25 %, FP suposat 0,7, autonomia mínima de 10 minuts i tres preses compatibles amb bateria. Anota marca, model, tecnologia, W, VA, minuts a 350 W, preses, preu, data i font del fabricant. Justifica quins compleixen i què queda pendent de confirmar.</p><details><summary>Criteri de correcció</summary><p>El mínim de potència és 350 × 1,25 = <strong>437,5 W</strong> i 437,5 ÷ 0,7 = <strong>625 VA</strong>. A més, cal comprovar almenys 10 minuts a la càrrega real i les tres preses amb bateria: complir només W i VA no acredita l’autonomia.</p></details></article>
-<article id="exercicis-acl"><div class="eyebrow">Part VI · ACL</div><h2>Exercicis resolts d’ACL</h2><p>Relacionats amb la <a href="#teoria/acl">lliçó d’ACL i polítiques</a>.</p><h3>Una excepció per a Laia</h3><p>La carpeta Projecte és del grup desenvolupament. Laia ha d’entrar i veure’n el contingut, sense crear, modificar ni eliminar, i sense afegir-la al grup.</p><details><summary>Solució per estudiar</summary><pre>setfacl -m u:laia:rx Projecte
-getfacl Projecte</pre><p>En un directori, <code>r</code> permet llistar i <code>x</code> travessar. Cal comprovar la màscara i els permisos efectius. A Windows podem concedir lectura i execució amb:</p><pre>icacls C:\Projecte /grant laia:RX
-icacls C:\Projecte</pre><p>Si també s’ha d’heretar als fitxers i subcarpetes: <code>icacls C:\Projecte /grant "laia:(OI)(CI)RX"</code>. Comprova que altres entrades no concedeixen drets més amplis.</p></details>
-<h3>Una excepció per a Maria</h3><p>El grup alumnat només llegeix <code>treball.txt</code>, però Maria necessita modificar-ne el contingut. Com ho faries sense donar aquest dret a tot el grup?</p><details><summary>Solució per estudiar</summary><pre>setfacl -m u:maria:rw /projecte/treball.txt
-getfacl /projecte/treball.txt</pre><p>Cal comprovar que la màscara permet l’escriptura. A Windows, si Maria ja rep lectura del grup, una entrada específica pot afegir escriptura sense concedir-li modificar complet:</p><pre>icacls C:\Projecte\treball.txt /grant Maria:W
-icacls C:\Projecte\treball.txt</pre><p>Comprova l’accés efectiu i les entrades existents amb un compte de prova.</p></details>
+<article id="exercicis-acl"><div class="eyebrow">Part VI · ACL</div><h2>Exercicis resolts d’ACL</h2><p>Relacionats amb la <a href="#teoria/acl">lliçó d’ACL i polítiques</a>.</p><h3>Una excepció per a Laia</h3><p>La carpeta Projecte és del grup desenvolupament. Laia ha d’entrar i veure’n el contingut, sense crear, modificar ni eliminar, i sense afegir-la al grup.</p><details><summary>Solució per estudiar</summary><pre>$ setfacl -m u:laia:rx Projecte
+$ getfacl Projecte</pre><p>En un directori, <code>r</code> permet llistar i <code>x</code> travessar. Cal comprovar la màscara i els permisos efectius. A Windows podem concedir lectura i execució amb:</p><pre>$ icacls C:\Projecte /grant laia:RX
+$ icacls C:\Projecte</pre><p>Si també s’ha d’heretar als fitxers i subcarpetes: <code>icacls C:\Projecte /grant "laia:(OI)(CI)RX"</code>. Comprova que altres entrades no concedeixen drets més amplis.</p></details>
+<h3>Una excepció per a Maria</h3><p>El grup alumnat només llegeix <code>treball.txt</code>, però Maria necessita modificar-ne el contingut. Com ho faries sense donar aquest dret a tot el grup?</p><details><summary>Solució per estudiar</summary><pre>$ setfacl -m u:maria:rw /projecte/treball.txt
+$ getfacl /projecte/treball.txt</pre><p>Cal comprovar que la màscara permet l’escriptura. A Windows, si Maria ja rep lectura del grup, una entrada específica pot afegir escriptura sense concedir-li modificar complet:</p><pre>$ icacls C:\Projecte\treball.txt /grant Maria:W
+$ icacls C:\Projecte\treball.txt</pre><p>Comprova l’accés efectiu i les entrades existents amb un compte de prova.</p></details>
 <h3>Matriu d’accés d’un institut</h3><p>Els recursos són Notes, Material d’aula, Secretaria i Web. El professorat edita notes i material; l’alumnat consulta material i web; secretaria edita documents administratius; direcció consulta notes i material i edita secretaria i web. Identifica subjectes, recursos i permisos.</p><details><summary>Solució orientativa</summary><div class="table-wrap"><table><thead><tr><th>Subjecte</th><th>Notes</th><th>Material</th><th>Secretaria</th><th>Web</th></tr></thead><tbody><tr><td>Professorat</td><td>L/E</td><td>L/E</td><td>—</td><td>L</td></tr><tr><td>Alumnat</td><td>—</td><td>L</td><td>—</td><td>L</td></tr><tr><td>Secretaria</td><td>—</td><td>—</td><td>L/E</td><td>L</td></tr><tr><td>Direcció</td><td>L</td><td>L</td><td>L/E</td><td>L/E</td></tr></tbody></table></div><p>L és lectura, L/E lectura i escriptura i — cap accés. Una ACL pot donar a un delegat permís d’edició en una carpeta concreta sense ampliar l’accés a tot l’alumnat.</p></details>
 <h3>Política d’una empresa</h3><p>Una empresa té els grups direcció, comptabilitat, comercial, informàtica i personal general, i les carpetes Nòmines, Factures, CRM, Còpies i Comuns. Proposa permisos per funció i una excepció temporal perquè un comercial consulti una factura concreta.</p><details><summary>Solució orientativa</summary><div class="table-wrap"><table><thead><tr><th>Grup</th><th>Nòmines</th><th>Factures</th><th>CRM</th><th>Còpies</th><th>Comuns</th></tr></thead><tbody><tr><td>Direcció</td><td>L</td><td>L</td><td>L</td><td>—</td><td>L/E</td></tr><tr><td>Comptabilitat</td><td>L/E</td><td>L/E</td><td>—</td><td>—</td><td>L/E</td></tr><tr><td>Comercial</td><td>—</td><td>—</td><td>L/E</td><td>—</td><td>L/E</td></tr><tr><td>Informàtica</td><td>—</td><td>—</td><td>—</td><td>L/E</td><td>L</td></tr><tr><td>Personal general</td><td>—</td><td>—</td><td>—</td><td>—</td><td>L/E</td></tr></tbody></table></div><p>La política aplica mínim privilegi, permisos per grups i revisió periòdica. L’excepció de lectura s’atorga al recurs concret, es documenta i es retira o revisa en acabar la necessitat.</p></details></article>
 <article id="exercicis-registres"><div class="eyebrow">Part VII · Registres</div><h2>Exercicis resolts de registres</h2><p>Relacionats amb la <a href="#teoria/registres">lliçó de registres, incidències i alarmes</a>.</p><h3>1. Registres d’autenticació a Linux</h3><pre>09:12 sshd: Accepted password for pau
@@ -758,9 +766,9 @@ icacls C:\Projecte\treball.txt</pre><p>Comprova l’accés efectiu i les entrade
 10:02 sshd: Failed password for admin from 185.x.x.x
 10:03 sshd: Failed password for admin from 185.x.x.x
 10:04 sshd: Failed password for admin from 185.x.x.x
-10:06 sudo: anna : COMMAND=/usr/sbin/useradd test</pre><p>Classifica els fets, indica quines ordres utilitzaries, quines dades falten i quina resposta proposaries.</p><details><summary>Solució orientativa</summary><p>La connexió de Pau pot ser normal. Els quatre intents fallits sobre admin són una incidència que pot generar una alarma segons la política; la creació d’un usuari amb sudo s’ha de comprovar. Cal revisar l’origen, l’equip, l’hora, el compte afectat i si la creació estava autoritzada. Si el procediment ho preveu, es pot bloquejar temporalment l’accés i avisar l’administració.</p><pre>sudo tail -50 /var/log/auth.log
-sudo grep "Failed password" /var/log/auth.log
-sudo grep "sudo" /var/log/auth.log</pre><p>Les rutes poden variar segons la configuració del sistema.</p></details><h3>2. Esdeveniments de Windows</h3><pre>09:45  ID 4624  Inici correcte: carla
+10:06 sudo: anna : COMMAND=/usr/sbin/useradd test</pre><p>Classifica els fets, indica quines ordres utilitzaries, quines dades falten i quina resposta proposaries.</p><details><summary>Solució orientativa</summary><p>La connexió de Pau pot ser normal. Els quatre intents fallits sobre admin són una incidència que pot generar una alarma segons la política; la creació d’un usuari amb sudo s’ha de comprovar. Cal revisar l’origen, l’equip, l’hora, el compte afectat i si la creació estava autoritzada. Si el procediment ho preveu, es pot bloquejar temporalment l’accés i avisar l’administració.</p><pre>$ sudo tail -50 /var/log/auth.log
+$ sudo grep "Failed password" /var/log/auth.log
+$ sudo grep "sudo" /var/log/auth.log</pre><p>Les rutes poden variar segons la configuració del sistema.</p></details><h3>2. Esdeveniments de Windows</h3><pre>09:45  ID 4624  Inici correcte: carla
 10:12  ID 4625  Inici fallit: admin
 10:13  ID 4625  Inici fallit: admin
 10:14  ID 4625  Inici fallit: admin
