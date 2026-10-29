@@ -173,7 +173,11 @@
 <div class="formula">Energia útil estimada (Wh) = energia teòrica × factor útil</div>
 <p>Per exemple, si suposem un 90 %, 100 Wh × 0,90 = <strong>90 Wh útils</strong>. Els 90 % o 95 % dels exemples són hipòtesis de càlcul, no valors universals. En un cas real cal consultar les dades del fabricant.</p>
 <h4>Exemple: dues bateries de 12 V i 7 Ah</h4>
-<p>Un SAI de 1.000 VA / 600 W té dues bateries iguals de 12 V i 7 Ah. Connectades en sèrie sumen 24 V. La seva energia teòrica és 2 × 12 × 7 = <strong>168 Wh</strong>. Amb un factor hipotètic del 95 %, l’energia útil estimada és 168 × 0,95 = <strong>159,6 Wh</strong>.</p>
+<p>Un SAI de <strong>1.000 VA / 600 W</strong> té dues bateries iguals de <strong>12 V i 7 Ah</strong>, connectades en sèrie. Suposem un factor d’energia aprofitable del <strong>95 %</strong>.</p>
+<div class="notice"><strong>Pas 1 · Calcular la tensió total</strong><p>Com que les dues bateries estan connectades en sèrie, sumem les tensions:</p><div class="formula">2 × 12 V = <strong>24 V</strong></div></div>
+<div class="notice"><strong>Pas 2 · Calcular l’energia teòrica</strong><p>Multipliquem la tensió total per la capacitat de la bateria:</p><div class="formula">24 V × 7 Ah = <strong>168 Wh teòrics</strong></div><p>També ho podem calcular així: 2 bateries × 12 V × 7 Ah = 168 Wh.</p></div>
+<div class="notice"><strong>Pas 3 · Aplicar el factor aprofitable</strong><p>Una part de l’energia es perd durant la conversió. Si suposem que podem aprofitar-ne el 95 %, multipliquem per 0,95:</p><div class="formula">168 Wh × 0,95 = <strong>159,6 Wh útils estimats</strong></div></div>
+<p><strong>Resultat:</strong> el SAI té 168 Wh teòrics i, amb la hipòtesi del 95 %, 159,6 Wh útils estimats. El 95 % és un <strong>factor d’energia aprofitable</strong>; no és el marge de potència que afegim quan seleccionem el SAI.</p>
 <h3>Autonomia: de què depèn i com s’estima?</h3>
 <p>L’autonomia és el temps que el SAI manté els equips en marxa durant un tall. Alguns equips ofereixen uns 5–10 minuts per superar talls breus i apagar-se; sistemes de continuïtat poden disposar de 30 minuts o més, segons el disseny. En instal·lacions crítiques, el SAI pot mantenir el servei mentre arrenca un generador.</p>
 <p>No és un valor fix. Si augmenta el consum, l’autonomia acostuma a disminuir. També hi influeixen l’energia i l’antiguitat de la bateria i les pèrdues del sistema. En un exercici simplificat:</p>
