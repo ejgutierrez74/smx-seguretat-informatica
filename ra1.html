@@ -93,68 +93,41 @@
 <p>La presentació cita la <strong>ISO 22301:2019</strong> per a la continuïtat del negoci, la <strong>ISO/IEC 27031:2025</strong> per a la continuïtat dels serveis TIC i la guia <strong>NIST SP 800-34 Rev. 1</strong> per elaborar i mantenir plans de contingència informàtica. La idea comuna és planificar, provar i revisar la resposta abans que es produeixi una interrupció.</p>
 <p><a href="#practiques/e1">Practica els conceptes i la classificació de la Part I</a> · <a href="#materials">Consulta la presentació original</a>.</p>
 </article>
-<article id="fisica"><div class="eyebrow">S3–S5 · Criteris 1.c, 1.d · Continguts 1.1–1.2</div>
-<h2>02 · Ubicació i protecció física</h2>
-<p>Un CPD és un espai preparat per allotjar equips que processen o emmagatzemen dades i la infraestructura que els dona servei. En una empresa petita pot ser una sala amb un rack. La mida no elimina la necessitat de controlar l’entorn i les persones que hi entren.</p>
-<h3>Amenaces i errors humans</h3>
-<p>Una avaria de maquinari pot interrompre el servei i també comprometre la integritat de les dades. Els riscos inclouen sabotatges, robatoris, pèrdues, esborrats accidentals i desastres naturals. La calor, la humitat, l’electricitat i el magnetisme també poden afectar els equips.</p>
-<p>Molts incidents són accidents: una mala instal·lació o configuració, un oblit o no seguir els procediments. La formació ajuda a evitar-los; per exemple, no s’han de tapar les reixetes de ventilació ni deixar begudes al costat dels equips. L’accés físic facilita els atacs, encara que no garanteix per si sol l’accés a les dades.</p>
-<h3>Escollir la ubicació</h3>
-<p>Primer s’identifiquen riscos de l’edifici: aigua, incendi, accés des del carrer, obres, vibracions i serveis propers. Després es comproven l’alimentació elèctrica, la ventilació, la resistència del terra i l’espai de manteniment. S’eviten zones inundables, pas innecessari de persones i emmagatzematge de materials combustibles. La planta adequada depèn de l’avaluació de l’edifici, no d’una regla universal.</p>
-<p>El rack s’ha de situar de manera que es puguin obrir portes, retirar equips i accedir al cablejat. Cal identificar els cables, protegir-los del pas de persones i separar adequadament les canalitzacions de dades i energia. El terra tècnic pot ser útil, però no és imprescindible en qualsevol CPD.</p>
+<article id="fisica"><div class="eyebrow">Part II · Criteris 1.c i 1.d · Continguts 1.1 i 1.2</div>
+<h2>02 · Seguretat física</h2>
+<p>La seguretat física protegeix els equips, les instal·lacions i les condicions que permeten que els sistemes informàtics funcionin. En aquesta part estudiarem per què és necessària, quines amenaces poden afectar el maquinari i quines condicions ambientals i mesures de protecció cal tenir en compte.</p>
+<h3>Per què és necessària?</h3>
+<p>Imaginem que un sistema fos invulnerable als atacs informàtics. Tot i així, una avaria, un robatori, un incendi o un tall elèctric podrien impedir que funcionés. Si falla el maquinari, es pot interrompre el servei i fins i tot es poden perdre dades.</p>
+<p>Una avaria afecta especialment la <strong>disponibilitat</strong>, perquè els usuaris no poden utilitzar el sistema quan el necessiten. També pot comprometre la <strong>integritat</strong> si es fan malbé o es modifiquen les dades. Per això, protegir els programes i els accessos no és suficient: també hem de protegir físicament el maquinari.</p>
+<h3>Quines amenaces poden afectar els equips?</h3>
+<p>Els equips i les dades poden resultar afectats per sabotatges, robatoris, accidents, esborrats de dades o pèrdues. Les causes es poden agrupar en tres grans categories: <strong>accions humanes</strong>, <strong>condicions ambientals</strong> i <strong>desastres naturals</strong>. La calor, la humitat, l’electricitat i el magnetisme són exemples de factors que poden posar en risc els equips.</p>
+<h3>Accions humanes i formació</h3>
+<p>Molts incidents no són atacs intencionats, sinó conseqüència d’errors: una instal·lació o configuració incorrecta, no seguir els procediments de seguretat, un oblit o el desconeixement de l’usuari. La formació és essencial per reduir aquests errors.</p>
+<p>Algunes precaucions són senzilles: evitar begudes al costat de l’ordinador per prevenir vessaments i no tapar les reixetes de ventilació dels equips. Totes dues ajuden a evitar accidents i avaries.</p>
+<h3>Control de l’accés i detecció d’intrusions</h3>
+<p>L’accés físic a un equip facilita molt un possible atac, encara que no sempre permet accedir a les dades. Per això s’ha d’impedir que persones no autoritzades entrin a les zones o accedeixin als sistemes protegits. A més de restringir l’entrada, cal poder detectar intrusos i dissuadir-los.</p>
+<p>Segons les necessitats de l’espai, es poden utilitzar identificació de persones, controls d’accés, càmeres, il·luminació, vigilants o gossos de guarda. Les tanques, els obstacles, els llums i els cartells també poden actuar com a mesures dissuasives.</p>
+<p>Per detectar situacions de risc es poden instal·lar sensors de moviment i alarmes d’intrusió, així com alarmes de foc, gas o inundació. Un sensor detecta una situació; l’avís permet que el personal responsable la comprovi i actuï.</p>
 <h3>Condicions ambientals</h3>
-<div class="table-wrap"><table class="">
-<thead><tr>
-<th>Factor</th>
-<th>Risc</th>
-<th>Mesura i comprovació</th>
-</tr></thead>
-<tbody>
-<tr>
-<td>Temperatura</td>
-<td>Sobreescalfament i apagades.</td>
-<td>Mesurar a l’entrada d’aire dels equips, mantenir ventilació i usar els límits del fabricant.</td>
-</tr>
-<tr>
-<td>Humitat</td>
-<td>Condensació o descàrregues electroestàtiques.</td>
-<td>Monitoratge i control dins del rang dels equips. Evitar canvis bruscos i condensació.</td>
-</tr>
-<tr>
-<td>Pols</td>
-<td>Filtres obstruïts i pitjor refrigeració.</td>
-<td>Neteja planificada, filtres i revisió visual.</td>
-</tr>
-<tr>
-<td>Aigua</td>
-<td>Curtcircuits i pèrdua de servei.</td>
-<td>Evitar conduccions de risc, detectar fuites i elevar equips si l’avaluació ho requereix.</td>
-</tr>
-<tr>
-<td>Vibracions i cops</td>
-<td>Dany físic o connexions despreses.</td>
-<td>Fixació del rack i protecció davant de cops.</td>
-</tr>
-<tr>
-<td>Electricitat estàtica</td>
-<td>Dany de components durant manipulacions.</td>
-<td>Procediment ESD, superfície i polsera adequades quan correspongui.</td>
-</tr>
-</tbody>
-</table></div>
-<p>La temperatura i la humitat s’han de registrar i relacionar amb els manuals. A T1 utilitzarem 22 °C i 45% d’humitat relativa com a dades fictícies d’un cas, no com una exigència normativa. Una única lectura al termòstat no descriu tots els punts calents d’un rack.</p>
-<p>En files de racks, els passadissos freds alimenten les entrades d’aire i els calents recullen les sortides. Evitar que l’aire calent torni a l’entrada millora la refrigeració. Els panells de tancament ajuden a controlar el recorregut de l’aire.</p>
-<h3>Quatre funcions de la protecció física</h3>
-<p>L’IOC diferencia mesures que es complementen. <strong>Dissuadir</strong> és fer visible que l’espai està controlat; <strong>restringir</strong> és permetre l’entrada només a qui correspon; <strong>detectar</strong> és generar un avís davant d’un fet; <strong>valorar</strong> és comprovar què ha passat per decidir la resposta. Una porta amb clau restringeix l’accés, però no substitueix el registre de visites ni l’atenció de les alarmes.</p>
-<p><strong>Cas Taller Bit:</strong> el rack està tancat i les claus tenen responsable. Un sensor avisa que la porta ha quedat oberta. El tècnic comprova si hi ha un manteniment autoritzat, registra el resultat i tanca l’avís quan la situació queda resolta. Instal·lar el sensor sense assignar qui rep l’alarma deixa el procediment incomplet.</p>
-<p>Per dissuadir es poden utilitzar tanques, obstacles, il·luminació o cartells. La identificació, les càmeres i els controls d’accés ajuden a restringir i supervisar l’entrada; sensors de moviment i alarmes de foc, gas o inundació permeten detectar situacions de risc.</p>
-<h3>Accés físic i emergències</h3>
-<p>La protecció es pot organitzar per capes: edifici, sala i rack. Es defineixen persones autoritzades, registre de visites, acompanyament de proveïdors i retorn de claus o targetes en les baixes. Cal evitar que una persona entri darrere d’una altra sense identificar-se.</p>
-<p>La detecció de fum, els sistemes d’extinció i les sortides d’emergència formen part del pla del centre. Les instal·lacions elèctriques i contra incendis les determina personal competent. En classe s’identifiquen i es documenten, sense obrir quadres ni provar sistemes d’extinció. Cap control d’accés pot impedir l’evacuació segura.</p>
-<p>Un incendi pot posar en perill les persones, destruir equips i dades i aturar l’activitat. La calor, el fum i les cendres poden malmetre els sistemes. Per detectar-lo es fan servir detectors de fum, flames o calor; per extingir-lo, segons la instal·lació, ruixadors, extintors o sistemes de gas.</p>
-<p><strong>Disponibilitat:</strong> afegir redundància redueix alguns punts únics de fallada, però no garanteix disponibilitat absoluta. Dos servidors connectats al mateix endoll continuen compartint un risc elèctric.</p>
-<figure class="scheme"><svg viewbox="0 0 760 130" role="img" aria-label="Protecció física: cada mesura respon a un risc i necessita una comprovació"><title>Protecció física: cada mesura respon a un risc i necessita una comprovació</title>
-<rect x="15" y="15" width="215" height="88" rx="10" fill="#eaf3f8" stroke="#22708c"></rect><text x="122" y="48" text-anchor="middle" font-size="19" fill="#102c3b">Calor excessiva</text><text x="122" y="77" text-anchor="middle" font-size="14" fill="#102c3b">Ventilació i climatització</text><path d="M235 58h30m-7-7 7 7-7 7" fill="none" stroke="#22708c" stroke-width="2"></path><rect x="270" y="15" width="215" height="88" rx="10" fill="#eaf3f8" stroke="#22708c"></rect><text x="377" y="48" text-anchor="middle" font-size="19" fill="#102c3b">Control ambiental</text><text x="377" y="77" text-anchor="middle" font-size="14" fill="#102c3b">Sensor i registre</text><path d="M490 58h30m-7-7 7 7-7 7" fill="none" stroke="#22708c" stroke-width="2"></path><rect x="525" y="15" width="215" height="88" rx="10" fill="#eaf3f8" stroke="#22708c"></rect><text x="632" y="48" text-anchor="middle" font-size="19" fill="#102c3b">Alarma</text><text x="632" y="77" text-anchor="middle" font-size="14" fill="#102c3b">Revisar i actuar</text></svg><figcaption>Protecció física: cada mesura respon a un risc i necessita una comprovació</figcaption></figure></article>
+<p>Els valors extrems de temperatura, humitat i pols augmenten el risc d’errors i avaries dels components. Per això és important escollir una ubicació adequada i mantenir les condicions recomanades pels fabricants dels equips.</p>
+<h4>Temperatura i calor</h4>
+<p>Els canvis de temperatura provoquen dilatacions i contraccions dels materials. La calor excessiva pot reduir el rendiment i malmetre els equips. Les conseqüències depenen del component:</p>
+<div class="table-wrap"><table><thead><tr><th>Component</th><th>Conseqüències possibles de l’excés de calor</th></tr></thead><tbody>
+<tr><td>Processador</td><td>Reducció del rendiment o apagada de protecció.</td></tr>
+<tr><td>Discos HDD i SSD</td><td>Errors de funcionament o possibles avaries.</td></tr>
+<tr><td>Servidors i altres equips</td><td>Fallades i interrupcions del servei.</td></tr>
+</tbody></table></div>
+<h4>Humitat i pols</h4>
+<p>Tant l’excés com la falta d’humitat poden ser perjudicials. La <strong>humitat alta</strong> pot afavorir la corrosió i els curtcircuits. La <strong>humitat baixa</strong> pot afavorir les descàrregues electroestàtiques, capaces de danyar components.</p>
+<p>La pols també pot dificultar el funcionament correcte dels sistemes i arribar a malmetre components. La <strong>climatització i la ventilació</strong> ajuden a mantenir unes condicions adequades: regulen la temperatura, ajuden a controlar la humitat i, amb els filtres adequats, retenen part de la pols.</p>
+<h3>Protecció davant d’incendis</h3>
+<p>El foc és un dels desastres que poden causar més danys: posa en perill les persones, pot destruir equips i dades i pot aturar l’activitat de l’empresa. A més de les flames, la calor, el fum i els residus, com la cendra, poden danyar els equips.</p>
+<p>La protecció combina <strong>detecció</strong> i <strong>extinció</strong>. Per detectar un incendi es poden utilitzar detectors de fum, de flames o de calor. Per extingir-lo, segons la instal·lació, es poden emprar ruixadors automàtics, extintors o sistemes d’extinció per gas.</p>
+<h3>Continuïtat de les comunicacions i l’alimentació</h3>
+<p>En algunes empreses, un tall de comunicacions pot impedir que es continuï treballant. Una possible mesura és la <strong>redundància</strong>: disposar d’un sistema de reserva perquè, si un falla, l’altre pugui mantenir el servei.</p>
+<p>Els sistemes informàtics també depenen de l’electricitat. Els problemes principals del subministrament són els <strong>talls</strong>, les <strong>sobretensions</strong>, les <strong>baixades de tensió</strong> i els <strong>microtalls</strong>. Per millorar la continuïtat es poden utilitzar generadors, línies elèctriques de reserva i sistemes d’alimentació ininterrompuda, anomenats <strong>SAI</strong> o <strong>UPS</strong>. A la <a href="#teoria/sai">Part III</a> estudiarem com funciona i com se selecciona un SAI.</p>
+<p><a href="#practiques/t1">Pràctica: disseny d’un espai per als equips</a> · <a href="#practiques/e3">Exercici de repàs de seguretat física</a> · <a href="#materials">Consulta la presentació original</a>.</p>
+</article>
 <article id="sai"><div class="eyebrow">S6–S9 · Criteris 1.e, 1.f · Continguts 1.3–1.4</div>
 <h2>03 · Sistemes d’alimentació ininterrompuda</h2>
 <p>Un SAI proporciona energia temporal quan falla el subministrament i, segons el disseny, també regula o condiciona l’alimentació. Permet mantenir el servei durant talls breus o apagar els equips de forma ordenada. No substitueix una còpia de seguretat ni protegeix de tots els problemes elèctrics.</p>
