@@ -628,6 +628,25 @@ sudo -u ra1laia cat /srv/ra1-demo/informe.txt</pre>
 <h3>Windows i Linux</h3>
 <p>El visor d’esdeveniments de Windows organitza els registres per canals. Amb l’auditoria adequada, el registre de Seguretat pot mostrar l’esdeveniment 4625, corresponent a un inici de sessió fallit. S’han d’interpretar compte, hora, tipus d’inici i causa, i comparar-los amb l’activitat esperada. <a href="https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/security/threat-protection/auditing/event-4625">Documentació de Microsoft</a>.</p>
 <p>A Linux, els registres depenen de la distribució i dels serveis instal·lats. Es poden consultar amb <code>journalctl</code> o en fitxers de <code>/var/log</code>. <code>/var/log/auth.log</code> no existeix en totes les instal·lacions. Si un servei no està instal·lat o no registra l’esdeveniment, el filtre pot no retornar res.</p>
+<h3>Consultar registres a Linux</h3>
+<p>A Ubuntu, segons la configuració, <code>/var/log/auth.log</code> recull autenticacions i ús de sudo; <code>/var/log/syslog</code>, missatges generals; <code>/var/log/kern.log</code>, missatges del nucli; i <code>/var/log/apt/history.log</code>, instal·lacions i actualitzacions. Si Apache està instal·lat, els seus registres poden trobar-se a <code>/var/log/apache2/</code>. El nucli gestiona processos, memòria i comunicació amb el maquinari.</p>
+<p>Per llegir un fitxer complet utilitzem <code>cat</code>; <code>less</code> permet llegir-lo pantalla a pantalla i sortir amb <code>q</code>. <code>tail</code> mostra les últimes línies i <code>grep</code> cerca text. Alguns registres requereixen permisos d’administrador.</p>
+<pre>cat /var/log/apt/history.log
+sudo tail -n 20 /var/log/auth.log
+sudo grep "sudo" /var/log/auth.log
+journalctl -n 50
+who
+w
+last -n 10</pre>
+<p>Les tres primeres ordres consulten instal·lacions, autenticacions recents i ús de sudo. <code>journalctl -n 50</code> mostra els 50 últims missatges del diari; <code>who</code> i <code>w</code> mostren sessions actuals, i <code>last -n 10</code>, sessions recents. GNOME també pot disposar de l’aplicació gràfica Registres.</p>
+<h3>Consultar esdeveniments a Windows</h3>
+<p>Al Visor d’esdeveniments, entra a <strong>Registres de Windows → Seguretat</strong>, selecciona «Filtrar el registre actual» i introdueix l’identificador que vols investigar. Cada resultat inclou data, hora, origen, nivell, identificador i descripció. Els registres principals són Aplicació, Seguretat i Sistema.</p>
+<div class="table-wrap"><table><thead><tr><th>ID</th><th>Registre</th><th>Significat</th></tr></thead><tbody><tr><td>4624</td><td>Seguretat</td><td>Inici de sessió correcte</td></tr><tr><td>4625</td><td>Seguretat</td><td>Inici de sessió fallit</td></tr><tr><td>4740</td><td>Seguretat</td><td>Compte bloquejat</td></tr><tr><td>1102</td><td>Seguretat</td><td>Registre d’auditoria esborrat</td></tr><tr><td>7036</td><td>Sistema</td><td>Servei iniciat o aturat</td></tr></tbody></table></div>
+<p>Per exemple, un 1102 indica que s’ha esborrat el registre d’auditoria: pot ser una operació legítima o un intent d’esborrar pistes. Cal revisar qui, quan i per què. El Visor explica què ha passat; el Gestor de tasques mostra què passa ara, com processos i consum de CPU i memòria.</p>
+<h3>Dels registres a la incidència</h3>
+<p>Antivirus, tallafocs, encaminadors, commutadors, proxies i eines d’accés remot també registren activitat. Una regla pot relacionar diversos esdeveniments: cinc accessos fallits en dos minuts poden generar una incidència i una alarma segons la política definida. Si afecten un compte administrador, pot correspondre una prioritat més alta.</p>
+<p>Una fitxa de tiquet recull l’identificador, la data, l’equip, el problema, la prioritat, la persona responsable, les actuacions i l’estat. Eines com GLPI, Jira Service Management o ServiceNow permeten registrar, assignar, seguir, resoldre i tancar incidències.</p>
+<p>La gestió es complica quan hi ha moltes fonts, formats diferents o hores no sincronitzades. Cal limitar l’accés als registres, protegir-ne la confidencialitat i detectar-ne les modificacions; una eina centralitzada pot facilitar la revisió.</p>
 <h3>Exemple de seguiment d’una alarma</h3>
 <p><strong>Cas simulat:</strong> a les 10.15 h el programari del SAI del NAS registra «alimentació amb bateria»; a les 10.17 h registra el retorn a xarxa. L’alumne relaciona els dos esdeveniments, comprova si el servei ha continuat disponible i anota càrrega, estat de bateria i responsable de revisió. Si l’equip s’ha apagat, obre una incidència i documenta l’impacte observat.</p>
 <p>Els registres necessiten hores coherents, permisos de consulta limitats i una política de conservació. Cal comprovar també l’espai disponible i que el mecanisme de registre funciona. Una alarma sense destinatari o un registre que ningú revisa no completen el control.</p>
