@@ -52,57 +52,47 @@
 <div class="toc">
 <a href="#teoria/fonaments">01 Fonaments</a><a href="#teoria/fisica">02 Entorn físic</a><a href="#teoria/sai">03 SAI</a><a href="#teoria/part4">04 Contrasenyes, biometria i autenticació</a><a href="#teoria/permisos">05 Permisos Linux i Windows</a><a href="#teoria/acl">06 ACL i polítiques</a><a href="#teoria/registres">07 Registres</a>
 </div>
-<article id="fonaments"><div class="eyebrow">S1–S2 · Criteris 1.a, 1.b</div>
-<h2>01 · Què protegim i de què?</h2>
-<p><strong>Cas conductor:</strong> Taller Bit és una empresa fictícia de suport informàtic amb sis persones. Els exemples del RA1 plantegen com protegir-ne els equips i els fitxers. <a href="#ra1">Consulta la presentació del cas</a>.</p>
-<p>La seguretat informàtica busca reduir la probabilitat i les conseqüències dels incidents que afecten els equips, els serveis i la informació. Un ordinador pot funcionar perfectament i, alhora, estar exposant documents privats. Per això protegir només el maquinari és insuficient.</p>
-<h3>La tríada CID</h3>
-<div class="table-wrap"><table class="">
-<thead><tr>
-<th>Propietat</th>
-<th>Significat</th>
-<th>Exemple a Taller Bit</th>
-</tr></thead>
-<tbody>
-<tr>
-<td>Confidencialitat</td>
-<td>Només hi accedeix qui està autoritzat.</td>
-<td>Les nòmines només les llegeixen les persones de gestió autoritzades.</td>
-</tr>
-<tr>
-<td>Integritat</td>
-<td>Les dades es mantenen correctes i els canvis estan autoritzats.</td>
-<td>Un pressupost no canvia sense que el responsable ho aprovi.</td>
-</tr>
-<tr>
-<td>Disponibilitat</td>
-<td>Els usuaris autoritzats poden utilitzar la informació quan la necessiten.</td>
-<td>El servidor continua operatiu durant un tall breu de llum.</td>
-</tr>
-</tbody>
-</table></div>
-<p>Un incident pot afectar més d’una propietat. Si algú roba un portàtil sense xifrar, es pot perdre disponibilitat i confidencialitat. Si també modifica arxius abans de retornar-lo, queda afectada la integritat.</p>
-<h3>Actiu, amenaça, vulnerabilitat i risc</h3>
-<p>Un <strong>actiu</strong> és allò que té valor: el NAS, els pressupostos o el servei de facturació. Una <strong>amenaça</strong> és una possible causa de dany, com un robatori o una fuita d’aigua. Una <strong>vulnerabilitat</strong> és una feblesa que facilita el dany, com una porta sense pany o un servidor sota una canonada. El <strong>risc</strong> combina la probabilitat que passi amb l’impacte que tindria.</p>
-<p>Una matriu senzilla de probabilitat i impacte ajuda a prioritzar. Assignar valors d’1 a 3 a cada dimensió és una eina didàctica, no una mesura exacta. Cal justificar els valors. Una avaria poc probable però capaç d’aturar tota l’empresa pot exigir una actuació prioritària.</p>
-<h3>Física/lògica i activa/passiva</h3>
-<p>La <strong>seguretat física</strong> actua sobre l’entorn i l’accés material: portes, racks, electricitat i climatització. La <strong>seguretat lògica</strong> actua sobre l’accés i el tractament digital: comptes, permisos i autenticació.</p>
-<p>Activa i passiva descriuen una altra dimensió. En la classificació didàctica habitual, les mesures actives prevenen o detecten atacs, i les passives limiten els danys i faciliten la continuïtat o recuperació. Les classificacions poden variar segons el context. Un SAI és físic i protegeix la continuïtat; una ACL és lògica i preventiva. El currículum d’aquest RA inclou explícitament ACL i contrasenyes dins del bloc de seguretat passiva.</p>
-<h3>D’on provenen els incidents?</h3>
-<p>Les amenaces poden venir de fora, com un virus, un cuc o un atac de denegació de servei, però també de dins: un dispositiu infectat, una persona descontenta o algú que entra sense autorització. Els mòbils poden afegir riscos si es connecten a xarxes Wi-Fi públiques, instal·len aplicacions malicioses o introdueixen una infecció a la xarxa de l’organització.</p>
-<p>No tots els incidents són atacs: una configuració incorrecta, un esborrat accidental o un tall elèctric poden afectar les dades o interrompre un servei. A més del maquinari i del programari, cal protegir les dades i tenir en compte les persones que utilitzen el sistema.</p>
-<p>En un <strong>atac</strong> s’aprofita una vulnerabilitat; l’<strong>impacte</strong> és la repercussió que provoca. Un <strong>desastre</strong> és un incident greu amb danys importants o una interrupció considerable. L’enginyeria social busca enganyar les persones perquè facilitin informació o facin una acció perjudicial. La formació i les mesures tècniques ajuden a prevenir-la.</p>
-<h3>Seguretat i risc acceptable</h3>
-<p>No existeix un sistema segur al 100 %. Cal prevenir incidents, reduir-ne els danys i preparar la recuperació. Les mesures tenen un cost i les necessitats varien: cada organització ha de reduir el risc fins a un nivell acceptable per a ella.</p>
-<h3>Legislació i bones pràctiques</h3>
-<p>El <strong>RGPD</strong> és la normativa europea sobre protecció de dades personals i la <strong>LOPDGDD</strong> la complementa a Espanya. Les mesures de seguretat s’adapten als riscos del tractament. La <strong>LSSI-CE</strong> tracta els serveis de la societat de la informació i el comerç electrònic, i la <strong>LPI</strong>, la propietat intel·lectual i els drets d’autor.</p>
-<p>La <strong>ISO/IEC 27002</strong> recull bones pràctiques i controls, com els accessos, les còpies, la seguretat física i la gestió d’incidents. La versió esmentada a la presentació és la de 2022. La 27002 és una guia; la norma certificable és la ISO/IEC 27001. <strong>ITIL</strong> és un marc de bones pràctiques per gestionar serveis de TI, incloent-hi incidències, canvis i disponibilitat.</p>
-<h3>Pla de contingència</h3>
-<p>El pla de contingència estableix què fer davant d’un desastre per recuperar el sistema com més aviat millor i minimitzar la pèrdua de dades. Pot abordar una avaria, un atac, un incendi o un error humà.</p>
-<ol><li><strong>Avaluació:</strong> identificar els riscos i els actius crítics.</li><li><strong>Planificació:</strong> definir el pla i els procediments.</li><li><strong>Proves:</strong> fer simulacres per comprovar-los.</li><li><strong>Execució:</strong> aplicar el pla quan es produeix l’incident.</li><li><strong>Recuperació:</strong> restaurar les dades i els serveis i tornar a la normalitat.</li></ol>
-<p>Perquè el pla sigui eficaç, es poden duplicar components crítics, distribuir recursos o còpies en ubicacions diferents, documentar la recuperació i formar el personal. Per exemple, un RAID aporta redundància, però <strong>no substitueix les còpies de seguretat</strong>. Les guies ISO 22301, ISO/IEC 27031 i NIST SP 800-34 ajuden a preparar, provar i revisar aquests plans.</p>
-<p><a href="https://youtu.be/NPE7i8wuupk">Vídeo: «¿Por qué me vigilan, si no soy nadie?» · Marta Peirano</a>.</p>
-<p><strong>Idea per a classe:</strong> «Una porta tancada protegeix el servidor. Què protegeix els fitxers quan l’usuari ja ha iniciat sessió?» Aquesta pregunta connecta la protecció física amb la protecció lògica.</p></article>
+<article id="fonaments"><div class="eyebrow">Part I · Criteris 1.a i 1.b</div>
+<h2>01 · Introducció a la seguretat informàtica</h2>
+<p>La seguretat informàtica protegeix la informació, els equips, els programes i els serveis davant de situacions que els poden perjudicar. En aquesta lliçó veurem per què és important mantenir la informació segura i distingirem la seguretat física de la lògica.</p>
+<p>Per reflexionar sobre la importància de les dades, la presentació proposa el vídeo <a href="https://youtu.be/NPE7i8wuupk">«¿Por qué me vigilan, si no soy nadie?», de Marta Peirano</a> (TEDxMadrid, uns 10 minuts).</p>
+<h3>Conceptes bàsics de seguretat</h3>
+<p>Un <strong>actiu</strong> és allò que té valor per a una organització i necessita protecció. Poden ser actius la informació, el programari, el maquinari i també el personal. Una <strong>vulnerabilitat</strong> és una debilitat d’un actiu; una <strong>amenaça</strong> és una situació o una acció que pot causar-li un dany.</p>
+<p>El <strong>risc</strong> relaciona la possibilitat que es produeixi un incident amb la gravetat de les seves conseqüències. Un <strong>atac</strong> pot aprofitar una vulnerabilitat; l’<strong>impacte</strong> és la repercussió que provoca. Quan un incident causa danys importants o una interrupció greu, podem parlar d’un <strong>desastre</strong>.</p>
+<h3>Confidencialitat, integritat i disponibilitat</h3>
+<p>La seguretat de la informació es basa en tres propietats que es complementen:</p>
+<div class="table-wrap"><table><thead><tr><th>Propietat</th><th>Què significa?</th><th>Exemple</th></tr></thead><tbody>
+<tr><td><strong>Confidencialitat</strong></td><td>Les dades només són accessibles a les persones autoritzades.</td><td>Una contrasenya ajuda a restringir l’accés a informació privada.</td></tr>
+<tr><td><strong>Integritat</strong></td><td>Les dades no pateixen modificacions no autoritzades o accidentals.</td><td>Cal impedir que algú modifiqui les notes de l’alumnat sense permís.</td></tr>
+<tr><td><strong>Disponibilitat</strong></td><td>Els recursos es poden utilitzar quan són necessaris.</td><td>Si falla el corrent i el servidor s’atura, la informació pot deixar d’estar disponible.</td></tr>
+</tbody></table></div>
+<p>Una mateixa incidència pot afectar més d’una propietat. Per exemple, una modificació indeguda compromet la integritat i una avaria pot impedir que les persones autoritzades accedeixin a les dades.</p>
+<h3>De què hem de protegir els sistemes?</h3>
+<p>Cal protegir-los davant d’intrusions i atacs, aprofitament de vulnerabilitats i ús indegut de contrasenyes. Entre els exemples d’atacs hi ha els <strong>virus</strong>, els <strong>cucs</strong> i les <strong>denegacions de servei</strong>, que poden dificultar o impedir l’ús normal d’un recurs.</p>
+<p>La protecció davant d’Internet és necessària, però no suficient. Els problemes també poden venir de dins: una persona descontenta, un dispositiu infectat o algú que entra a l’organització sense autorització. Els dispositius mòbils poden introduir riscos quan es connecten a xarxes Wi-Fi públiques, tenen aplicacions malicioses o estan infectats i després es connecten a la xarxa de l’organització.</p>
+<p>No tots els danys són fruit d’un atac tècnic. També hi ha accidents i errors humans. Un tall de corrent, per exemple, pot deixar els equips fora de servei; per això s’ha de protegir físicament el sistema. Les parts que poden resultar afectades inclouen el maquinari, el programari, les dades i les persones que utilitzen els equips.</p>
+<h3>Seguretat física i seguretat lògica</h3>
+<p>Segons el que protegim, distingim dues classes de seguretat:</p>
+<ul><li>La <strong>seguretat física</strong> protegeix els equips i les instal·lacions. Té en compte, entre altres riscos, els robatoris, els desastres naturals i les fallades de subministrament. Inclou mesures de prevenció i detecció.</li><li>La <strong>seguretat lògica</strong> protegeix les dades, els programes i els accessos als sistemes. S’ocupa de riscos com el programari maliciós, la pèrdua de dades o els atacs als servidors.</li></ul>
+<p>Una altra manera de classificar les mesures és segons la seva funció. Les mesures <strong>actives</strong> busquen prevenir o detectar incidents: per exemple, un antivirus o un tallafoc. Les mesures <strong>passives</strong> redueixen els danys i faciliten la continuïtat o la recuperació: per exemple, un SAI o les còpies de seguretat. Les dues classificacions descriuen aspectes diferents i es complementen.</p>
+<h3>Enginyeria social i formació</h3>
+<p>En un atac no sempre cal manipular directament un programa: l’<strong>enginyeria social</strong> consisteix a enganyar una persona perquè faci una acció perjudicial o faciliti informació. La presentació ho il·lustra amb un exemple absurd: convèncer algú que vessar cafè sobre l’ordinador farà que una connexió vagi més ràpid.</p>
+<p>La formació ajuda a reconèixer aquests enganys, però també cal aplicar mesures tècniques. Per exemple, les contrasenyes curtes o fàcils d’endevinar dificulten menys els accessos no autoritzats que unes credencials robustes i ben protegides.</p>
+<h3>Existeix la seguretat absoluta?</h3>
+<p>No podem garantir que un sistema sigui segur al 100 %. El professor Gene Spafford va fer servir una exageració —un equip apagat, desconnectat i protegit dins d’un búnquer— per il·lustrar que fins i tot amb moltes barreres és difícil parlar de seguretat absoluta.</p>
+<p>Per això hem de preveure que algun dia es pot produir un incident: la seguretat informàtica intenta prevenir-lo, reduir-ne els danys i preparar la recuperació. Augmentar la protecció té un cost i no totes les organitzacions necessiten les mateixes mesures. L’objectiu és situar el risc en un nivell acceptable per a cada organització.</p>
+<h3>Legislació i estàndards</h3>
+<p>El <strong>RGPD</strong> (Reglament UE 2016/679) és la normativa europea de protecció de dades personals. A Espanya, la <strong>LOPDGDD</strong> (Llei orgànica 3/2018) el complementa. Les mesures de seguretat s’han d’adaptar als riscos del tractament de les dades. També es relacionen amb aquest àmbit la <strong>LSSI-CE</strong>, sobre serveis de la societat de la informació i comerç electrònic, i la <strong>LPI</strong>, sobre propietat intel·lectual i drets d’autor.</p>
+<p>Els estàndards i marcs de bones pràctiques ajuden a organitzar la seguretat i els serveis informàtics. La <strong>ISO/IEC 27002:2022</strong> ofereix una guia de controls, com el control d’accés, les còpies de seguretat, la protecció física i la gestió d’incidents. La 27002 no és una norma de certificació; la <strong>ISO/IEC 27001</strong> sí que és certificable.</p>
+<p><strong>ITIL</strong> és un marc de bones pràctiques per a la gestió dels serveis de tecnologies de la informació. Ajuda a organitzar, entre altres activitats, la gestió d’incidències i de canvis i la disponibilitat dels serveis.</p>
+<h3>El pla de contingència</h3>
+<p>Un <strong>pla de contingència</strong> defineix què cal fer davant d’un desastre per restaurar el sistema com més aviat millor i amb la mínima pèrdua de dades. Pot preparar l’organització davant d’una fallada de maquinari, un atac informàtic, un incendi o un error humà.</p>
+<p>El pla no és només un document: s’ha de preparar, provar, aplicar quan calgui i revisar. La presentació en distingeix cinc fases:</p>
+<ol><li><strong>Avaluació:</strong> analitzar els riscos i identificar els actius crítics.</li><li><strong>Planificació:</strong> dissenyar el pla i els procediments.</li><li><strong>Proves:</strong> fer simulacres per comprovar que funciona.</li><li><strong>Execució:</strong> aplicar el pla quan es produeix l’incident.</li><li><strong>Recuperació:</strong> restaurar les dades i els serveis i tornar a la normalitat.</li></ol>
+<p>Per fer-lo eficaç podem duplicar elements crítics —com servidors o connexions—, distribuir recursos i còpies en llocs diferents, documentar com es recuperen els serveis i formar les persones responsables. El <strong>RAID</strong> pot aportar redundància, però <strong>no substitueix les còpies de seguretat</strong>.</p>
+<p>La presentació cita la <strong>ISO 22301:2019</strong> per a la continuïtat del negoci, la <strong>ISO/IEC 27031:2025</strong> per a la continuïtat dels serveis TIC i la guia <strong>NIST SP 800-34 Rev. 1</strong> per elaborar i mantenir plans de contingència informàtica. La idea comuna és planificar, provar i revisar la resposta abans que es produeixi una interrupció.</p>
+<p><a href="#practiques/e1">Practica els conceptes i la classificació de la Part I</a> · <a href="#materials">Consulta la presentació original</a>.</p>
+</article>
 <article id="fisica"><div class="eyebrow">S3–S5 · Criteris 1.c, 1.d · Continguts 1.1–1.2</div>
 <h2>02 · Ubicació i protecció física</h2>
 <p>Un CPD és un espai preparat per allotjar equips que processen o emmagatzemen dades i la infraestructura que els dona servei. En una empresa petita pot ser una sala amb un rack. La mida no elimina la necessitat de controlar l’entorn i les persones que hi entren.</p>
