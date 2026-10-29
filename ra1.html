@@ -518,6 +518,9 @@ sudo -u ra1laia cat /srv/ra1-demo/informe.txt</pre>
 <h2>05 · Identificació, autenticació i autorització</h2>
 <p><strong>Identificar-se</strong> és declarar qui ets: escriure un nom d’usuari. <strong>Autenticar-se</strong> és aportar una prova que el sistema accepta per verificar aquesta identitat. <strong>Autoritzar</strong> és decidir quines accions et permet el sistema després. Finalment, el registre d’activitat permet revisar què ha passat.</p>
 <p>La Jana introdueix «jana.gestio», completa la comprovació d’accés i obre el servidor. El sistema li permet consultar factures però denega canviar-ne els permisos. Ha superat l’autenticació i una acció concreta ha estat denegada per autorització.</p>
+<h3>Com s’organitzen els accessos?</h3>
+<p>Cada usuari necessita un identificador únic. El compte s’ha de crear, modificar i desactivar quan correspongui; convé evitar identificadors que revelin funcions sensibles, com «admin». Una convenció possible és nom i primer cognom separats per un punt.</p>
+<p>Un <strong>grup</strong> reuneix usuaris amb una característica comuna; un <strong>rol</strong> agrupa permisos d’una funció, i un <strong>permís</strong> és una acció concreta sobre un recurs. Per exemple, el rol d’auditor pot llegir registres sense modificar-los. Una persona pot ser editora en una carpeta i lectora en una altra. L’accés també pot dependre de la ubicació, l’hora o el tipus d’operació.</p>
 <h3>La sessió també s’ha de protegir</h3>
 <p>Un equip desbloquejat pot permetre actuar amb una identitat ja autenticada. El bloqueig de pantalla, la protecció del dispositiu i el tancament de sessions compartides són mesures complementàries. També cal donar de baixa sessions i credencials quan una persona deixa de tenir accés.</p>
 <p>Un mecanisme de recuperació feble pot anul·lar un bon sistema d’accés. La recuperació necessita verificació adequada i codis custodiats. Les preguntes basades en dades personals fàcils d’esbrinar no ofereixen una prova forta.</p>
@@ -527,6 +530,12 @@ sudo -u ra1laia cat /srv/ra1-demo/informe.txt</pre>
 <h2>06 · Política de contrasenyes</h2>
 <p>Una política descriu com es creen, utilitzen, recuperen i substitueixen les contrasenyes. Ha de ser aplicable i comprovable. Les contrasenyes úniques redueixen l’efecte d’una filtració en un altre servei, i una longitud suficient dificulta l’endevinació.</p>
 <p>Com a referència tècnica, NIST SP 800-63B-4 exigeix almenys 15 caràcters quan la contrasenya és l’únic factor, admet un mínim de 8 quan forma part d’MFA, desaconsella regles de composició i no estableix canvis periòdics obligatoris sense indicis de compromís. Demana rebutjar contrasenyes comunes o compromeses. És una guia tècnica, no una obligació legal general per al centre. <a href="https://pages.nist.gov/800-63-4/sp800-63b.html">NIST, apartat de contrasenyes</a>.</p>
+<h3>Crear i protegir una contrasenya</h3>
+<p>Una contrasenya feble pot ser curta, una paraula habitual, una dada personal, un patró previsible o una clau reutilitzada. Una alternativa és combinar diverses paraules sense relació en una frase llarga, com l’exemple didàctic «Núvol-Pedra-Violí-Tren-52». No facis servir aquest exemple real: crea una frase pròpia i diferent per a cada servei.</p>
+<p>No comparteixis la contrasenya, ni la donis per telèfon, ni l’escriguis en formularis sospitosos o en un paper visible. Si algú es fa passar per administrador i te la demana, pot estar utilitzant enginyeria social. Canvia les claus afectades quan sospitis que s’han compromès.</p>
+<h3>Filtracions i gestors</h3>
+<p><a href="https://haveibeenpwned.com/">Have I Been Pwned</a> permet comprovar si una adreça apareix en filtracions conegudes. Això no vol dir necessàriament que el compte estigui sent atacat ara. Si hi apareix, revisa quines dades s’han exposat, canvia la contrasenya del servei afectat i també la d’altres serveis on s’hagi reutilitzat; activa la verificació en dos passos. A classe només es fan servir dades i contrasenyes inventades.</p>
+<p>Un gestor guarda les contrasenyes en un magatzem xifrat, desbloquejat amb una contrasenya mestra. Pot generar claus llargues, emplenar formularis i, segons el producte, sincronitzar-les o avisar de claus repetides o filtrades. Bitwarden, KeePass i 1Password són exemples. La clau mestra ha de ser robusta; convé activar MFA i mantenir una còpia o exportació segura del magatzem.</p>
 <h3>Proposta didàctica per a Taller Bit</h3>
 <ul>
 <li>Contrasenyes llargues i úniques, gestionades amb un gestor aprovat. Objectiu de 15 caràcters o més per als comptes basats en contrasenya.</li>
@@ -544,6 +553,7 @@ sudo -u ra1laia cat /srv/ra1-demo/informe.txt</pre>
 <article id="biometria"><div class="eyebrow">S14–S16 · Criteris 1.i · Continguts 1.6–1.7</div>
 <h2>07 · Biometria i autenticació multifactor</h2>
 <p>La biometria utilitza característiques fisiològiques o de comportament per comparar una mostra amb un patró. Les empremtes, el rostre i l’iris són exemples. Durant l’alta es crea una plantilla; durant la verificació es compara una nova mostra amb la referència. Una verificació 1:1 i una identificació contra moltes persones 1:N són operacions diferents.</p>
+<p>Entre els sistemes físics hi ha l’empremta, la forma o les venes del palmell, la retina, l’iris i el rostre. Els sistemes de comportament poden analitzar, per exemple, la manera d’escriure o caminar; aquests patrons poden canviar amb el temps.</p>
 <p>Pot facilitar l’ús i reduir la necessitat de recordar secrets. També presenta limitacions: errors, lesions, canvis ambientals, possibilitats de suplantació i dificultat de substitució si es compromet la característica. Una mostra no coincident significa que la verificació ha fallat, no que la persona hagi estat autenticada.</p>
 <div class="table-wrap"><table class="">
 <thead><tr>
