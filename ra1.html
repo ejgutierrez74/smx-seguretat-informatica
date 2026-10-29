@@ -128,54 +128,63 @@
 <p>Els sistemes informàtics també depenen de l’electricitat. Els problemes principals del subministrament són els <strong>talls</strong>, les <strong>sobretensions</strong>, les <strong>baixades de tensió</strong> i els <strong>microtalls</strong>. Per millorar la continuïtat es poden utilitzar generadors, línies elèctriques de reserva i sistemes d’alimentació ininterrompuda, anomenats <strong>SAI</strong> o <strong>UPS</strong>. A la <a href="#teoria/sai">Part III</a> estudiarem com funciona i com se selecciona un SAI.</p>
 <p><a href="#practiques/t1">Pràctica: disseny d’un espai per als equips</a> · <a href="#practiques/e3">Exercici de repàs de seguretat física</a> · <a href="#materials">Consulta la presentació original</a>.</p>
 </article>
-<article id="sai"><div class="eyebrow">S6–S9 · Criteris 1.e, 1.f · Continguts 1.3–1.4</div>
+<article id="sai"><div class="eyebrow">Part III · Criteris 1.d, 1.e i 1.f · Continguts 1.2–1.4</div>
 <h2>03 · Sistemes d’alimentació ininterrompuda</h2>
-<p>Un SAI proporciona energia temporal quan falla el subministrament i, segons el disseny, també regula o condiciona l’alimentació. Permet mantenir el servei durant talls breus o apagar els equips de forma ordenada. No substitueix una còpia de seguretat ni protegeix de tots els problemes elèctrics.</p>
-<p>La bateria emmagatzema energia en corrent continu. El carregador la recarrega i l’inversor produeix el corrent altern que necessiten els equips. Els indicadors i el programari informen de càrrega, bateria i alarmes. Un bypass, quan existeix, permet una ruta alternativa, amb protecció diferent segons el mode.</p>
-<div class="table-wrap"><table class="">
-<thead><tr>
-<th>Tipus</th>
-<th>Funcionament</th>
-<th>Aplicació i límit</th>
-</tr></thead>
-<tbody>
-<tr>
-<td>Offline o standby</td>
-<td>Alimenta habitualment des de la xarxa i commuta a bateria quan cal.</td>
-<td>Càrregues compatibles amb el temps de commutació indicat pel fabricant.</td>
-</tr>
-<tr>
-<td>Línia interactiva</td>
-<td>Incorpora regulació de tensió i commuta a bateria quan és necessari.</td>
-<td>Petits servidors, xarxa o llocs de treball segons requisits.</td>
-</tr>
-<tr>
-<td>Online de doble conversió</td>
-<td>Rectifica i torna a generar la sortida en funcionament normal.</td>
-<td>Càrregues exigents; en doble conversió no necessita commutar la sortida en passar a bateria. Els modes bypass/ECO s’han d’analitzar a part.</td>
-</tr>
-</tbody>
-</table></div>
-<p>Un SAI online no té necessàriament més autonomia: aquesta depèn de la bateria, la càrrega, l’estat i les condicions de treball. La topologia descriu com funciona, no quants minuts durarà.</p>
-<h3>Quina anomalia elèctrica observem?</h3>
-<div class="table-wrap"><table><thead><tr><th>Anomalia</th><th>Què passa?</th><th>Què cal revisar?</th></tr></thead><tbody>
-<tr><td>Tall de subministrament</td><td>Desapareix l’alimentació de xarxa.</td><td>Continuïtat amb bateria i temps necessari per aturar el servei.</td></tr>
-<tr><td>Baixada de tensió</td><td>La tensió cau per sota del rang esperat.</td><td>Rang d’entrada, regulació i registre del SAI.</td></tr>
-<tr><td>Sobretensió o pic transitori</td><td>La tensió supera el nivell esperat, durant un interval més llarg o molt breu.</td><td>Proteccions especificades i estat de la instal·lació; no tots els SAI ofereixen la mateixa resposta.</td></tr>
-<tr><td>Pertorbacions de la forma d’ona</td><td>El subministrament presenta soroll o distorsió.</td><td>Requisits dels equips i capacitats de filtratge o condicionament del model.</td></tr>
+<p>Els sistemes informàtics depenen de l’electricitat. Un tall de subministrament, una pujada o baixada de tensió o un microtall poden interrompre el funcionament dels equips. En aquesta lliçó veurem per què es fa servir un SAI, quins tipus hi ha i com triar-ne un segons la càrrega i l’autonomia necessàries.</p>
+<h3>Què és un SAI i com funciona?</h3>
+<p>Un <strong>sistema d’alimentació ininterrompuda</strong> o <strong>SAI</strong> —en anglès, UPS— proporciona energia als equips connectats durant un temps quan falla el subministrament. Segons el model, també pot regular o condicionar l’alimentació. Serveix per mantenir el servei durant talls breus o per guardar la feina i apagar els sistemes de manera ordenada. Altres mesures de continuïtat són els generadors i les línies elèctriques de reserva.</p>
+<p>La xarxa subministra <strong>corrent altern (CA)</strong>. El carregador o rectificador el transforma en <strong>corrent continu (CC)</strong> per mantenir carregada la bateria, que emmagatzema energia química. Quan cal alimentar els equips des de la bateria, l’inversor transforma el corrent continu en altern. Com a exemple, la presentació mostra una xarxa de 230 V CA, una bateria de 12 V CC i una sortida de 230 V CA per als equips.</p>
+<h3>Tipus de SAI</h3>
+<div class="table-wrap"><table><thead><tr><th>Tipus</th><th>Funcionament</th><th>Característica</th></tr></thead><tbody>
+<tr><td><strong>Offline o standby</strong></td><td>Normalment alimenta els equips des de la xarxa; quan hi ha un tall, commuta a la bateria.</td><td>És el més senzill; el canvi necessita uns mil·lisegons.</td></tr>
+<tr><td><strong>Line-interactive o interactiu</strong></td><td>Afegeix regulació automàtica de tensió, o AVR, per corregir variacions moderades sense passar a bateria.</td><td>Quan la xarxa falla, commuta a bateria en uns mil·lisegons.</td></tr>
+<tr><td><strong>Online de doble conversió</strong></td><td>Transforma contínuament CA en CC i de nou en CA; l’inversor alimenta la sortida durant el funcionament normal.</td><td>En doble conversió no necessita commutar la sortida en passar a bateria. Els modes bypass o ECO s’han d’interpretar segons el model.</td></tr>
 </tbody></table></div>
-<p>La comprovació es fa interpretant el manual i els registres, sense provocar sobretensions ni manipular la instal·lació. Davant una alarma, anotem si correspon a entrada elèctrica, sobrecàrrega, bateria o comunicació. «SAI amb alarma» és una descripció insuficient per decidir què fer.</p>
-<h3>Funcionament i continuïtat elèctrica</h3>
-<p>Els equips informàtics necessiten una alimentació elèctrica estable. Els talls, microtalls, pujades i baixades de tensió poden interrompre el treball o afectar el maquinari. La continuïtat es pot reforçar amb línies elèctriques redundants, generadors i SAI. El SAI proporciona energia immediata durant un període limitat; el generador pot mantenir el servei durant més temps, però necessita posar-se en marxa.</p>
-<p>La xarxa proporciona corrent altern (CA). El carregador o rectificador transforma CA en corrent continu (CC) per recarregar la bateria; quan cal energia de bateria, l'inversor transforma CC en CA per als equips. Els models offline, line-interactive amb regulació automàtica de tensió (AVR) i online de doble conversió es diferencien pel recorregut de l'energia i la resposta davant incidències.</p>
-<h3>Conceptes de càrrega, capacitat i autonomia</h3>
-<p>La <strong>càrrega</strong> és la suma dels consums dels equips connectats. La <strong>capacitat</strong> és la potència màxima que el SAI pot subministrar, expressada en W i VA. L'<strong>autonomia</strong> és el temps que pot alimentar la càrrega amb les bateries. Si augmenta el consum, habitualment disminueix l'autonomia; també influeixen l'estat de les bateries i les pèrdues de conversió.</p>
-<h3>Potència: W i VA</h3>
-<p><strong>FP vol dir factor de potència:</strong> FP = P / S. P és la potència activa, en watts (W), i S l’aparent, en voltamperes (VA). Si un equip necessita 100 W i té FP = 0,5, exigeix 200 VA. Amb FP = 1 exigiria 100 VA. El FP no és el rendiment ni el percentatge d’energia perduda: indica la relació entre aquestes dues potències.</p>
-<p>Els <strong>W</strong> expressen potència activa i els <strong>VA</strong>, potència aparent. En corrent altern monofàsic, amb valors eficaços, S = V × I i P = S × FP. El factor de potència FP és una propietat de la càrrega. No s’ha de deduir simplement de la gamma comercial del SAI.</p>
-<div class="formula">S (VA) = P (W) / FP<br>P (W) = V × I × FP</div>
-<p>Cal comprovar <strong>tots dos límits de sortida</strong> del SAI. Un model de 1.000 VA i 600 W no admet una càrrega de 700 W encara que la càrrega aparent sigui inferior a 1.000 VA. La potència màxima escrita a una font d’alimentació tampoc és necessàriament el consum real de l’ordinador.</p>
-<h3>Exemple resolt · Dimensionament del SAI</h3>
+<p>El tipus de SAI descriu com funciona, però no determina per si sol quants minuts durarà: l’autonomia depèn de la bateria, la càrrega i les condicions de treball.</p>
+<h3>Càrrega, capacitat i autonomia</h3>
+<p>La <strong>càrrega</strong> és el conjunt d’equips connectats i el seu consum. La <strong>capacitat</strong> és la potència màxima que el SAI pot subministrar; s’indica en watts i voltampers. L’<strong>autonomia</strong> és el temps que pot alimentar aquella càrrega amb la bateria.</p>
+<div class="table-wrap"><table><thead><tr><th>Unitat</th><th>Què indica?</th><th>Per a què serveix?</th></tr></thead><tbody>
+<tr><td>W · watt</td><td>Potència activa o real.</td><td>Comparar el consum dels equips amb el límit de W del SAI.</td></tr><tr><td>VA · voltamper</td><td>Potència aparent.</td><td>Comprovar també el límit de VA del SAI.</td></tr><tr><td>V · volt</td><td>Tensió de la bateria.</td><td>Una bateria de l’exemple és de 12 V.</td></tr><tr><td>Ah · amper hora</td><td>Capacitat elèctrica de la bateria.</td><td>Juntament amb la tensió, permet estimar-ne l’energia.</td></tr><tr><td>Wh · watt hora</td><td>Energia de la bateria.</td><td>Permet estimar l’autonomia amb el consum i un factor útil.</td></tr>
+</tbody></table></div>
+<p>Per triar la <strong>potència</strong> cal comprovar W i VA. Per estimar l’<strong>autonomia</strong> es treballa amb les dades de les bateries, l’energia útil i el consum real. La bateria es degrada amb el temps, i això pot reduir-ne la durada.</p>
+<h3>Potència i factor de potència</h3>
+<p>Els <strong>W</strong> expressen la potència activa que necessiten els equips; els <strong>VA</strong> expressen la potència aparent. El <strong>factor de potència</strong> o FP relaciona les dues magnituds:</p>
+<div class="formula">W = VA × FP &nbsp;&nbsp;·&nbsp;&nbsp; VA = W ÷ FP</div>
+<p>Per exemple, un ordinador de 300 VA amb FP de 0,98 consumeix 300 × 0,98 = <strong>294 W</strong>. Un SAI pot anunciar-se com 700 VA / 330 W: s’han de respectar tots dos límits, perquè els VA per si sols no indiquen quants watts pot entregar.</p>
+<p>Dos models de 1.000 VA també poden tenir límits diferents: amb una relació de 0,6 el primer admet 600 W, i amb una relació de 0,9 el segon admet 900 W. Disposar de més W amb els mateixos VA no significa necessàriament que el SAI tingui més autonomia o millor rendiment energètic.</p>
+<h3>Energia de les bateries i eficiència</h3>
+<p>Per a bateries iguals, un càlcul simplificat de l’energia teòrica és:</p>
+<div class="formula">Energia teòrica (Wh) = nombre de bateries N × tensió V × capacitat Ah</div>
+<p>Una part de l’energia es perd durant la conversió, entre altres causes en forma de calor. En els exercicis podem aplicar un factor d’energia aprofitable si l’enunciat el proporciona:</p>
+<div class="formula">Energia útil estimada (Wh) = energia teòrica × factor útil</div>
+<p>Per exemple, si suposem un 90 %, 100 Wh × 0,90 = <strong>90 Wh útils</strong>. Els 90 % o 95 % dels exemples són hipòtesis de càlcul, no valors universals. En un cas real cal consultar les dades del fabricant.</p>
+<h4>Exemple: dues bateries de 12 V i 7 Ah</h4>
+<p>Un SAI de 1.000 VA / 600 W té dues bateries iguals de 12 V i 7 Ah. Connectades en sèrie sumen 24 V. La seva energia teòrica és 2 × 12 × 7 = <strong>168 Wh</strong>. Amb un factor hipotètic del 95 %, l’energia útil estimada és 168 × 0,95 = <strong>159,6 Wh</strong>.</p>
+<h3>Autonomia: de què depèn i com s’estima?</h3>
+<p>L’autonomia és el temps que el SAI manté els equips en marxa durant un tall. Alguns equips ofereixen uns 5–10 minuts per superar talls breus i apagar-se; sistemes de continuïtat poden disposar de 30 minuts o més, segons el disseny. En instal·lacions crítiques, el SAI pot mantenir el servei mentre arrenca un generador.</p>
+<p>No és un valor fix. Si augmenta el consum, l’autonomia acostuma a disminuir. També hi influeixen l’energia i l’antiguitat de la bateria i les pèrdues del sistema. En un exercici simplificat:</p>
+<div class="formula">Autonomia estimada (min) = energia útil (Wh) ÷ consum real (W) × 60</div>
+<p>Amb els 159,6 Wh útils de l’exemple i una càrrega real de 350 W, l’estimació és (159,6 ÷ 350) × 60 = <strong>27,4 minuts</strong>. És una aproximació teòrica: l’autonomia real s’ha de confirmar amb la corba o la fitxa del fabricant. Per calcular-la fem servir els <strong>350 W reals</strong>, no la potència amb marge usada per escollir el SAI.</p>
+<p>Si mantenim els mateixos 159,6 Wh estimats, observem com varia el resultat en canviar el consum:</p>
+<div class="table-wrap"><table><thead><tr><th>Consum</th><th>Autonomia teòrica</th></tr></thead><tbody><tr><td>100 W</td><td>95,76 min</td></tr><tr><td>300 W</td><td>31,92 min</td></tr><tr><td>500 W</td><td>19,15 min</td></tr><tr><td>600 W</td><td>15,96 min</td></tr></tbody></table></div>
+<h4>Exemple: estimar el factor aprofitable a partir de la fitxa</h4>
+<p>Un SAI de 1.350 VA / 810 W té dues bateries de 12 V i 9 Ah. La fitxa indica 10 minuts quan treballa al 75 % de la seva capacitat. Les bateries aporten 2 × 12 × 9 = <strong>216 Wh teòrics</strong>, i la càrrega és 0,75 × 810 = <strong>607,5 W</strong>.</p>
+<p>Si anomenem η el factor global aprofitable en aquest punt, 10 = (216 × η ÷ 607,5) × 60. Aïllant-lo, η ≈ <strong>0,469</strong>, és a dir, aproximadament <strong>47 %</strong>. És una estimació global per a aquest model i aquesta càrrega, no necessàriament el rendiment de l’inversor per separat.</p>
+<h3>Com varia el rendiment amb la càrrega?</h3>
+<p>Un SAI també consumeix energia per alimentar els seus circuits, indicadors i, segons el model, ventiladors. Quan la càrrega és molt petita, aquest consum intern pot representar una proporció important. Per exemple, un router de 15 W connectat a un SAI de 1.000 W utilitza una part molt petita de la seva capacitat.</p>
+<p>El rendiment pot millorar amb càrregues intermèdies; a plena càrrega l’autonomia disminueix i augmenta l’exigència sobre els components. La forma de la corba i els percentatges depenen del model: no hi ha una franja o un percentatge universal, i cal consultar la fitxa tècnica.</p>
+<h3>Com triem un SAI?</h3>
+<p>Primer identifiquem els equips essencials i sumem el seu consum. Després afegim el marge acordat i comprovem que el SAI compleixi <strong>tant els W com els VA</strong>. Finalment, verifiquem a la fitxa els minuts disponibles a la càrrega real, les connexions i l’apagada segura.</p>
+<p>També cal considerar l’espai disponible, el format de torre o rack, la tecnologia offline, interactiva o online i la possibilitat de supervisió. Un port <strong>USB o RS-232</strong> permet comunicar el SAI amb un ordinador o un NAS; programes com <strong>NUT</strong> o <strong>PowerChute</strong> poden gestionar l’apagada. En entorns de xarxa es pot utilitzar una targeta <strong>SNMP</strong> per supervisar-lo a distància.</p>
+<h4>Preses i forma d’ona</h4>
+<p>Les preses <strong>Schuko</strong> són les habituals dels endolls domèstics; les <strong>IEC C13/C14</strong> són habituals en equips professionals i requereixen cables compatibles. No totes les sortides del SAI fan el mateix: les preses <strong>amb bateria</strong> continuen alimentant la càrrega durant un tall; les que només protegeixen contra sobretensions no proporcionen autonomia. Cal comptar quantes preses de cada tipus té el model.</p>
+<p>Una sortida d’<strong>ona sinusoïdal pura</strong> ofereix més compatibilitat amb equips sensibles i fonts amb PFC actiu. Una ona <strong>simulada</strong> acostuma a ser més econòmica i pot funcionar amb molts equips, però cal comprovar-ne la compatibilitat. La presentació mostra com a exemple el CyberPower BR700ELCD, amb preses de bateria i preses només de protecció contra sobretensions.</p>
+<h3>Exemple complet: dimensionament d’un lloc de treball</h3>
+<p>Volem protegir un ordinador de 300 W, un monitor de 40 W i un router de 10 W. El consum conjunt és <strong>350 W</strong>. Triem un marge del 25 % i l’enunciat dona un FP de 0,7:</p>
+<ol><li>Potència amb marge: 350 × 1,25 = <strong>437,5 W</strong>, aproximadament 438 W.</li><li>Potència aparent: 437,5 ÷ 0,7 = <strong>625 VA</strong>.</li><li>Autonomia: si suposem dues bateries de 12 V / 7 Ah i un factor útil del 95 %, obtenim 159,6 Wh i una estimació de <strong>27,4 minuts a 350 W reals</strong>. El 95 % és una hipòtesi afegida a l’exercici.</li></ol>
+<p>Comparem els límits de tres models ficticis:</p><div class="table-wrap"><table><thead><tr><th>Model</th><th>Potència</th><th>Compleix la potència?</th></tr></thead><tbody><tr><td>A</td><td>650 VA / 400 W</td><td>No: falten W.</td></tr><tr><td>B</td><td>650 VA / 500 W</td><td>Sí.</td></tr><tr><td>C</td><td>1.000 VA / 600 W</td><td>Sí.</td></tr></tbody></table></div>
+<p>B i C compleixen els dos límits de potència; encara cal confirmar l’autonomia a 350 W i les preses necessàries. Els 437,5 W amb marge serveixen per seleccionar la potència del SAI, mentre que els 350 W serveixen per estimar l’autonomia d’aquesta càrrega.</p>
+<details class="extension"><summary>Exemple complementari · NAS, router i switch</summary>
 <div>
 <p><strong>Situació:</strong> sis persones treballen amb portàtils i comparteixen fitxers en un NAS. El NAS és un petit servidor d’emmagatzematge connectat a la xarxa. El switch uneix els equips per cable; el router connecta xarxes i proporciona accés a Internet.</p>
 <figure class="scheme"><svg viewbox="0 0 760 130" role="img" aria-label="Connexió de dades: el SAI ha d’alimentar els equips necessaris per al servei"><title>Connexió de dades: el SAI ha d’alimentar els equips necessaris per al servei</title>
@@ -218,32 +227,15 @@
 <strong>Comprovem autonomia.</strong> Un SAI fictici de 650 VA / 360 W supera tots dos mínims. Però no podem afirmar que duri 8 minuts: cal consultar la seva corba d’autonomia a 37 W o verificar-ho. W i VA no són minuts.</li>
 </ol>
 </div>
-<div class="calc">
-<label>Càrrega total (W)<input id="watts" type="number" min="1" value="37"></label><label>FP de la càrrega<input id="pf" type="number" min="0.01" max="1" step="0.01" value="0.65"></label><label>Capacitat lliure (%)<input id="reserve" type="number" min="0" max="50" value="30"></label>
-</div>
-<div class="result" id="result" role="status" aria-live="polite"></div>
-<p class="small">Calculadora didàctica de dimensionament. No estima minuts d’autonomia. El marge és una decisió del cas, no una norma universal.</p>
-<h3>Energia de la bateria i càlcul d'autonomia</h3>
-<p>Les dades de les bateries s'expressen en volts (V) i ampers hora (Ah). En un càlcul didàctic simplificat, l'energia teòrica és <strong>Wh = N × V × Ah</strong>, on N és el nombre de bateries iguals. Si l'enunciat proporciona un factor global d'energia aprofitable η, l'energia útil estimada és <strong>Wh útils = N × V × Ah × η</strong>. El temps teòric s'obté dividint aquesta energia pels watts reals consumits i multiplicant per 60 per passar a minuts.</p>
-<div class="formula">Autonomia estimada (min) = (N × V × Ah × η / W de consum real) × 60</div>
-<p><strong>Exemple:</strong> dues bateries de 12 V i 7 Ah aporten 2 × 12 × 7 = 168 Wh teòrics. Amb una eficiència hipotètica del 95 %, queden 159,6 Wh útils. Per a una càrrega real de 350 W, l'autonomia simplificada seria (159,6 / 350) × 60 = <strong>27,4 minuts</strong>. En un equip real la descàrrega de bateria no és lineal; aquest valor no substitueix la corba d'autonomia del fabricant.</p>
-<p>En un altre exercici, un SAI de 810 W treballa al 75 % de càrrega (607,5 W). Disposa de dues bateries de 12 V i 9 Ah, és a dir, 216 Wh teòrics, i la fitxa indica 10 minuts a aquesta càrrega. Desfent la fórmula, η = (10 × 607,5) / (216 × 60) = <strong>0,469</strong>, aproximadament un 47 % d'energia aprofitable en aquestes condicions. Aquest factor és una estimació global del model i del punt de treball, no simplement el rendiment de l'inversor.</p>
-<h3>Eficiència segons la càrrega</h3><p>El SAI necessita energia per al seu propi funcionament: circuits, indicadors i, segons el model, ventilació. Si la càrrega connectada és molt petita respecte a la capacitat, aquest consum intern pot representar una proporció important. Per exemple, un router de 15 W connectat a un SAI de 1.000 W utilitza només una petita part de la capacitat.</p><p>Amb càrregues intermèdies el rendiment pot ser millor; a plena càrrega disminueix l’autonomia i augmenta l’exigència sobre els components i les bateries. Les corbes i els percentatges depenen del model: no hi ha una franja òptima universal. Cal consultar la fitxa del fabricant i mantenir la reserva necessària per als equips.</p>
-<h3>Exemples de potència i autonomia</h3>
-<p>Si un equip consumeix 300 VA amb un factor de potència de 0,98, la seva potència activa és 300 × 0,98 = <strong>294 W</strong>. Dos SAI de 1.000 VA poden tenir límits diferents: si el primer admet 600 W i el segon 900 W, cal respectar el límit de W i el de VA de cadascun.</p>
-<p>Amb els 159,6 Wh útils estimats de l’exemple anterior, la mateixa bateria dona autonomies teòriques diferents segons el consum:</p>
-<div class="table-wrap"><table><thead><tr><th>Consum</th><th>Autonomia estimada</th></tr></thead><tbody><tr><td>100 W</td><td>95,76 min</td></tr><tr><td>300 W</td><td>31,92 min</td></tr><tr><td>500 W</td><td>19,15 min</td></tr><tr><td>600 W</td><td>15,96 min</td></tr></tbody></table></div>
-<p>Aquests valors són orientatius: la durada real s’ha de contrastar amb la corba del fabricant per a la càrrega concreta.</p>
-<h3>Com seleccionar un SAI</h3>
-<p>Primer se sumen els watts dels equips essencials i s'afegeix un marge de reserva. Si els equips consumeixen 350 W i es fixa un marge del 25 %, cal una sortida d'almenys <strong>350 × 1,25 = 437,5 W</strong>. Amb un factor de potència donat de 0,7, la necessitat aparent és <strong>437,5 / 0,7 = 625 VA</strong>. S'ha d'escollir un model que compleixi simultàniament W i VA; per calcular-ne l'autonomia s'utilitzen els 350 W de consum real, no els 437,5 W amb marge.</p>
-<h4>Exemple de la presentació: ordinador, monitor i router</h4><p>L’ordinador consumeix 300 W, el monitor 40 W i el router 10 W: en total, <strong>350 W</strong>. Amb un marge del 25 % necessitem 437,5 W, és a dir, almenys 438 W, i amb FP 0,7 necessitem 625 VA. Comparem tres models ficticis:</p><div class="table-wrap"><table><thead><tr><th>Model</th><th>Potència</th><th>Compleix?</th></tr></thead><tbody><tr><td>A</td><td>650 VA / 400 W</td><td>No: falten W</td></tr><tr><td>B</td><td>650 VA / 500 W</td><td>Sí, per potència</td></tr><tr><td>C</td><td>1.000 VA / 600 W</td><td>Sí, per potència</td></tr></tbody></table></div><p>Encara cal confirmar l’autonomia a 350 W reals i les preses. Amb dues bateries de 12 V i 7 Ah i un factor útil hipotètic del 95 %, l’estimació és 27,4 minuts; aquest 95 % és una hipòtesi de l’exercici i no una dada de la fitxa.</p>
-<p>També es comproven els minuts exigits segons la fitxa tècnica, la tecnologia offline/line-interactive/online, el format de torre o rack i l'espai disponible. Les connexions poden ser Schuko o IEC, i no totes les preses són iguals: algunes ofereixen bateria i protecció de sobretensions, mentre que d'altres només protegeixen contra sobretensions. La sortida sinusoïdal pura és especialment recomanable per a fonts amb PFC actiu i equips sensibles; una sortida simulada pot presentar incompatibilitats.</p>
-<p>La gestió via USB o RS-232 permet que programes com NUT o PowerChute ordenin l'apagada segura del PC o NAS abans que s'esgoti la bateria. En entorns de xarxa es pot utilitzar una targeta SNMP per supervisar el SAI a distància. L'eficiència energètica varia amb el nivell de càrrega i acostuma a ser inferior amb càrregues molt petites; per això tampoc convé sobredimensionar sense criteri.</p>
-<h3>Quins equips hi connectem?</h3>
-<p>Es prioritza la cadena de servei: servidor, emmagatzematge i elements de xarxa necessaris. Mantenir el servidor però deixar el switch sense alimentació pot fer inaccessible el servei. Una impressora làser pot tenir pics elevats: no es connecta a les sortides de bateria d’un SAI informàtic sense comprovar explícitament la compatibilitat i el dimensionament. <a href="https://www.se.com/us/en/faqs/FA158812/">Recomanació del fabricant APC</a>.</p>
-<h3>Autonomia i verificació</h3>
-<p>La selecció es completa amb la corba d’autonomia del model a la càrrega prevista, els connectors, les comunicacions i el temps d’apagada ordenada. Per exemple, si calen quatre minuts per aturar el servei i es decideix un marge operatiu de tres, l’objectiu del cas és almenys set minuts. No es calcula l’autonomia només amb VA.</p>
-<p>La prova comprova estat inicial, càrrega, avís de bateria, continuïtat, ordre d’apagada si correspon i retorn a xarxa. Registrar una prova de tres minuts només acredita que ha suportat aquests tres minuts. No acredita l’autonomia màxima. El manteniment inclou autotests segons manual, alarmes, estat de bateria i substitució autoritzada.</p></article>
+</details>
+<h3>Calculadora de potència</h3>
+<p>La calculadora següent estima els límits de W i VA necessaris segons la <strong>capacitat lliure</strong> que volem deixar. Per exemple, deixar el 30 % lliure vol dir utilitzar com a màxim el 70 % de la capacitat; és un criteri diferent d’afegir un 30 % al consum.</p>
+<div class="calc"><label>Càrrega total (W)<input id="watts" type="number" min="1" value="350"></label><label>FP de la càrrega<input id="pf" type="number" min="0.01" max="1" step="0.01" value="0.7"></label><label>Capacitat lliure (%)<input id="reserve" type="number" min="0" max="50" value="20"></label></div><div class="result" id="result" role="status" aria-live="polite"></div><p class="small">La calculadora no estima minuts: cal verificar l’autonomia del model a la càrrega real.</p>
+<h3>Exercicis i recursos</h3>
+<p>La presentació proposa calcular l’autonomia d’una bateria de 12 V / 9 Ah amb 500 W, dimensionar un altre lloc de treball i comparar tres SAI reals. Tens els enunciats i les solucions a <a href="#practiques/exercicis-sai">Exercicis resolts de SAI</a>. En comparar models, cal revisar potència en W i VA, minuts a la càrrega real, tipus i nombre de preses amb bateria, preu i font de les dades.</p>
+<p>Com a referències orientatives, la presentació cita l’APC Back-UPS Pro BR1500G-GR, el CyberPower CP1500EPFCLCD i l’Eaton 5P1150IG2. Abans de triar-ne un, comprova les dades actuals i les connexions a la fitxa del fabricant; per als connectors IEC poden caldre cables adequats.</p>
+<p>La presentació també inclou un <a href="https://www.laparaups.com/recomendador-de-sais-ups/">selector orientatiu de SAI</a> i un <a href="https://www.youtube.com/watch?v=rp492vPid2E&t=12s">vídeo de resum</a>. <a href="#practiques/t2">Pràctica de comprovació d’un SAI</a> · <a href="#materials">Presentació original</a>.</p>
+</article>
 <article id="part4"><section id="identitat"><div class="eyebrow">S11 · Criteris 1.g · Contingut 1.7</div>
 <h2>04 · Identificació, autenticació i autorització</h2>
 <p><strong>Identificar-se</strong> és declarar qui ets: escriure un nom d’usuari. <strong>Autenticar-se</strong> és aportar una prova que el sistema accepta per verificar aquesta identitat. <strong>Autoritzar</strong> és decidir quines accions et permet el sistema després. Finalment, el registre d’activitat permet revisar què ha passat.</p>
