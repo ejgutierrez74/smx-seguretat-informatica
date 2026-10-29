@@ -691,7 +691,7 @@ last -n 10</pre>
 <h1>Aplicar, comprovar, explicar.</h1>
 <p class="lead">Tres pràctiques avaluables i sis exercicis integrats en les sessions. Els temps formen part del calendari, no s’afegeixen a les 18 hores.</p>
 <div class="toc">
-<a href="#practiques/t1">T1 · CPD</a><a href="#practiques/t2">T2 · SAI</a><a href="#practiques/t3">T3 · MFA i permisos</a><a href="#practiques/e1">E1 · Conceptes</a><a href="#practiques/e2">E2 · Dimensionament</a><a href="#practiques/e3">E3 · Repàs físic</a><a href="#practiques/e4">E4 · Permisos i GPO</a><a href="#practiques/e5">E5 · Biometria</a><a href="#practiques/e6">E6 · Registres</a>
+<a href="#practiques/t1">T1 · CPD</a><a href="#practiques/t2">T2 · SAI</a><a href="#practiques/t3">T3 · MFA i permisos</a><a href="#practiques/e1">E1 · Conceptes</a><a href="#practiques/e2">E2 · Dimensionament</a><a href="#practiques/e3">E3 · Repàs físic</a><a href="#practiques/e4">E4 · Permisos i GPO</a><a href="#practiques/e5">E5 · Biometria</a><a href="#practiques/e6">E6 · Registres</a><a href="#practiques/practiques-presentacions">Permisos · Exercicis resolts</a>
 </div>
 <article id="t1"><div class="eyebrow">T1 · S5 · 60 min · Parelles · Criteris 1.c i 1.d</div>
 <h2>Disseny bàsic del CPD de Taller Bit</h2>
@@ -978,6 +978,38 @@ sudo -u ra1editor touch /srv/ra1/projecte/prova-editor.txt</pre>
 11:49:00 INVENTARI compte_exproveidor actiu revisio_pendent</pre>
 <p>Determineu què és un fet i què és una hipòtesi, quin accés s’ha denegat correctament i què cal investigar. Proposeu prioritat, responsable, actuació i comprovació de tancament. El fitxer fictici és una representació didàctica, no el format literal d’un registre del sistema.</p>
 <p><strong>Lliurament:</strong> inventari de dos comptes, evidència inicial/final d’una mesura de protecció i fitxa d’incidència sense dades personals ni secrets.</p></article>
+<article id="practiques-presentacions"><div class="eyebrow">Activitats de les presentacions · Part V</div><h2>Pràctiques de permisos i umask</h2><p>Aquestes activitats provenen de la presentació de permisos. Les solucions serveixen per comprovar la feina i estudiar. Consulta també la <a href="#teoria/permisos">lliçó de permisos</a>.</p>
+<h3>1. Crear fitxers amb diferents umask</h3><p>Estableix <code>umask 022</code>, crea <code>capitol5</code> i, dins, el fitxer <code>fic1</code> i el directori <code>dir1</code>. Canvia a <code>umask 027</code> i crea <code>fic2</code> i <code>dir2</code> al mateix nivell. Compara els permisos i comprova si els primers han canviat.</p><details><summary>Solució per estudiar</summary><pre>umask 022
+mkdir capitol5
+cd capitol5
+touch fic1
+mkdir dir1
+umask 027
+touch fic2
+mkdir dir2
+ls -l
+ls -ld dir1 dir2</pre><p>Sense ACL per defecte, fic1 és 644 i dir1 755; fic2 és 640 i dir2 750. Canviar la umask no modifica els elements ja creats. <code>ls -ld dir1</code> mostra el directori, mentre que <code>ls -l dir1</code> mostra el contingut.</p></details>
+<h3>2. Permisos d’un directori i fitxer ocult</h3><p>Afegeix <code>rwx</code> a altres usuaris sobre dir1 amb notació simbòlica i prova una assignació octal a dir2. Crea una carpeta de prova i un fitxer ocult <code>.secret</code>; deixa-li només lectura per al propietari. Amb un altre compte de prova, comprova si el pot llegir o eliminar i justifica el resultat.</p><details><summary>Solució per estudiar</summary><pre>chmod o=rwx dir1
+chmod 007 dir2
+mkdir /tmp/usuari-prova
+touch /tmp/usuari-prova/.secret
+chmod 400 /tmp/usuari-prova/.secret
+ls -la /tmp/usuari-prova</pre><p>El valor 007 és una de les solucions de l’exemple: deixa propietari i grup sense permisos i dona rwx als altres. El 400 impedeix als altres llegir el fitxer, però eliminar-lo depèn dels permisos d’escriptura i execució del directori que el conté, així com de possibles restriccions addicionals. Comprova-ho amb comptes de laboratori.</p></details>
+<h3>3. Directoris i fitxers</h3><p>Amb <code>umask 002</code>, crea <code>docpersonal</code> amb permisos 700 i les subcarpetes fica, ficb, ficc i ficd. Assigna’ls, respectivament, 755, 700, 750 i 777. A fica crea <code>prova.txt</code> i compara els permisos 600 i 644.</p><details><summary>Solució per estudiar</summary><pre>umask 002
+mkdir docpersonal
+chmod 700 docpersonal
+cd docpersonal
+mkdir fica ficb ficc ficd
+chmod 755 fica
+chmod 700 ficb
+chmod 750 ficc
+chmod 777 ficd
+ls -ld fica ficb ficc ficd
+touch fica/prova.txt
+chmod 600 fica/prova.txt
+ls -l fica/prova.txt
+chmod 644 fica/prova.txt
+ls -l fica/prova.txt</pre><p>600 dona lectura i escriptura només al propietari; 644 afegeix lectura al grup i als altres. El directori pare <code>docpersonal</code> té 700, de manera que els altres no el poden travessar encara que una subcarpeta o fitxer mostri permisos més amplis.</p></details></article>
 </section>
 <section class="panel" id="avaluacio" data-title="RA1 · Criteris i continguts"><div class="eyebrow">M0226 · Seguretat informàtica</div><h1>RA1 · Criteris i continguts</h1><p>La qualificació segueix la <a href="index.html#programacio">programació del mòdul</a>: Pt 20%, Pe 70% i Gr 10%, amb les condicions de lliurament i notes mínimes establertes.</p><h2>Criteris d’avaluació del mòdul</h2><div class="table-wrap"><table><thead><tr><th>Criteri</th><th>Descripció</th><th>Evidència</th></tr></thead><tbody><tr><td>1.a</td><td>Valora la importància de mantenir la informació segura.</td><td>E1 i Pe1</td></tr><tr><td>1.b</td><td>Descriu les diferències entre seguretat física i lògica.</td><td>E1 i Pe1</td></tr><tr><td>1.c</td><td>Defineix les característiques de la ubicació física i condicions ambientals dels equips i servidors.</td><td>T1</td></tr><tr><td>1.d</td><td>Identifica la necessitat de protegir físicament els sistemes informàtics.</td><td>T1 i E3</td></tr><tr><td>1.e</td><td>Verifica el funcionament dels sistemes d'alimentació ininterrompuda.</td><td>T2: verificació observada</td></tr><tr><td>1.f</td><td>Selecciona els punts d'aplicació dels sistemes d'alimentació ininterrompuda.</td><td>T2 i E2</td></tr><tr><td>1.g</td><td>Esquematitza les característiques d'una política de seguretat basada en llistes de control d'accés.</td><td>T3 i E4</td></tr><tr><td>1.h</td><td>Valora la importància d'establir una política de contrasenyes.</td><td>E4: política de contrasenyes</td></tr><tr><td>1.i</td><td>Valora els avantatges que suposa la utilització de sistemes biomètrics.</td><td>E5 i reflexió T3</td></tr></tbody></table></div><h2>Continguts</h2><div class="table-wrap"><table><thead><tr><th>Contingut</th><th>Descripció</th></tr></thead><tbody><tr><td>1.1</td><td>Ubicació física i condicions ambientals dels equips i servidors.</td></tr><tr><td>1.2</td><td>Protecció física dels sistemes informàtics.</td></tr><tr><td>1.3</td><td>Els sistemes d'alimentació ininterrompuda.</td></tr><tr><td>1.4</td><td>Aplicació dels sistemes d'alimentació ininterrompuda.</td></tr><tr><td>1.5</td><td>Polítiques de seguretat basades en llistes de control d'accés.</td></tr><tr><td>1.6</td><td>Polítiques de contrasenyes; sistemes biomètrics.</td></tr><tr><td>1.7</td><td>Mecanismes de seguretat d'accés al sistema.</td></tr><tr><td>1.8</td><td>Permisos i drets d'usuaris.</td></tr><tr><td>1.9</td><td>Gestió de l'inventari dels registres d'usuaris, incidències i alarmes.</td></tr></tbody></table></div><h2>Criteris del centre · Activitat independent</h2><div class="table-wrap"><table><thead><tr><th>Criteri</th><th>Descripció</th></tr></thead><tbody><tr><td>*1.j</td><td>Aplica els procediments de la competència digital 4.1 Protegir els dispositius.</td></tr><tr><td>*1.k</td><td>Aplica els procediments de la competència digital 4.2 Protegir les dades personals i la privacitat.</td></tr></tbody></table></div><p>Consulta les <a href="index.html#competencia-digital">activitats de competència digital</a>: feina autònoma, lliurament separat i validació pròpia. No formen part de la prova del RA ni dels seus pesos.</p></section>
 
