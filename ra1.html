@@ -277,6 +277,7 @@
 <pre>ls -l
 -rw-r--r-- 1 eduard eduard 177 Apr 13 13:52 document.txt</pre>
 <p>El primer caràcter indica el tipus: <code>-</code> és un fitxer, <code>d</code> un directori i <code>l</code> un enllaç. Després hi ha tres blocs de tres caràcters: <code>rw-</code> per al propietari, <code>r--</code> per al grup i <code>r--</code> per als altres. En aquest exemple, el propietari pot llegir i escriure; el grup i els altres només poden llegir.</p>
+<figure class="scheme"><svg viewBox="0 0 800 180" role="img" aria-labelledby="permisos-titol permisos-desc"><title id="permisos-titol">Com llegir drwxrwxrwx</title><desc id="permisos-desc">d indica un directori; els tres blocs rwx corresponen a propietari, grup i altres. En cada bloc r és lectura, w escriptura i x execució o accés.</desc><rect x="10" y="10" width="780" height="155" rx="12" fill="#eaf3f8"/><text x="400" y="55" text-anchor="middle" font-family="monospace" font-size="32" fill="#102c3b">d | rwx | rwx | rwx</text><text x="120" y="96" text-anchor="middle" font-size="16" fill="#102c3b">d = directori</text><text x="310" y="96" text-anchor="middle" font-size="16" fill="#102c3b">propietari</text><text x="490" y="96" text-anchor="middle" font-size="16" fill="#102c3b">grup</text><text x="670" y="96" text-anchor="middle" font-size="16" fill="#102c3b">altres</text><text x="400" y="140" text-anchor="middle" font-size="17" fill="#102c3b">r = lectura · w = escriptura · x = execució / accés</text></svg><figcaption>Lectura de <code>drwxrwxrwx</code>: primer el tipus i després els tres blocs de permisos.</figcaption></figure>
 <p>La resta de la línia mostra el nombre d’enllaços, el propietari, el grup, la mida en bytes, la data de modificació i el nom. Un signe <code>+</code> al final dels permisos pot indicar ACL addicionals, que es consulten amb <code>getfacl</code>.</p>
 <pre>id
 uid=1000(archie) gid=1000(web) groups=1000(web),4(adm),20(dialout)</pre>
@@ -314,6 +315,7 @@ chgrp desenvolupament document.txt</pre>
 <p>En una unitat formatada amb <strong>NTFS</strong>, els permisos s’assignen a usuaris i grups mitjançant una llista de control d’accés o ACL. Entre els permisos bàsics hi ha:</p>
 <div class="table-wrap"><table><thead><tr><th>Permís</th><th>Què permet?</th></tr></thead><tbody><tr><td>Control total</td><td>Llegir, escriure, eliminar i gestionar permisos i propietat.</td></tr><tr><td>Modificar</td><td>Llegir, escriure i eliminar, sense concedir per això control total.</td></tr><tr><td>Lectura i execució</td><td>Veure contingut i executar programes.</td></tr><tr><td>Mostrar contingut de la carpeta</td><td>Llistar fitxers i subcarpetes.</td></tr><tr><td>Lectura</td><td>Consultar contingut i atributs.</td></tr><tr><td>Escriptura</td><td>Escriure dades i crear elements quan correspon.</td></tr></tbody></table></div>
 <p>Per consultar o modificar els permisos, fes clic dret sobre el recurs i segueix <strong>Propietats → Seguretat → Edita</strong>. Selecciona o afegeix l’usuari o grup, ajusta els permisos i aplica els canvis. A <strong>Seguretat → Opcions avançades</strong> pots revisar permisos especials, propietari i herència.</p>
+<div class="table-wrap"><table><thead><tr><th>Pas</th><th>Captura de la presentació</th></tr></thead><tbody><tr><td>1. Fes clic dret i selecciona Propietats.</td><td><img src="images/part-v-diapositiva-29-1.png" alt="Menú contextual de Windows amb l’opció Propietats" loading="lazy" style="max-width:100%;height:auto"></td></tr><tr><td>2. Obre la pestanya Seguretat.</td><td><img src="images/part-v-diapositiva-30-1.png" alt="Pestanya Seguretat amb grups, usuaris i permisos" loading="lazy" style="max-width:100%;height:auto"></td></tr><tr><td>3. Prem Edita i ajusta els permisos de l’usuari o grup.</td><td><img src="images/part-v-diapositiva-31-1.png" alt="Finestres de seguretat i edició dels permisos" loading="lazy" style="max-width:100%;height:auto"></td></tr><tr><td>4. A Opcions avançades revisa el propietari i l’herència.</td><td><img src="images/part-v-diapositiva-32-1.png" alt="Configuració de seguretat avançada i entrades de permisos" loading="lazy" style="max-width:100%;height:auto"></td></tr></tbody></table></div><p class="small">Captures de les diapositives de la Part V.</p>
 <p>Els fitxers i subcarpetes poden <strong>heretar</strong> permisos de la carpeta pare. Les entrades de permetre i denegar, les pertinences a grups i la seva procedència explícita o heretada influeixen en l’accés efectiu. Si accedeixes per xarxa, també intervenen els permisos de compartició; cal que les dues capes permetin l’operació.</p>
 <h3>Comparació entre Linux i Windows</h3>
 <div class="table-wrap"><table><thead><tr><th>Aspecte</th><th>Linux</th><th>Windows · NTFS</th></tr></thead><tbody><tr><td>Model</td><td>Propietari, grup i altres; es poden afegir ACL POSIX.</td><td>ACL amb entrades per a usuaris i grups.</td></tr><tr><td>Permisos</td><td><code>r</code>, <code>w</code> i <code>x</code>.</td><td>Lectura, escriptura, modificar, control total i altres.</td></tr><tr><td>Denegació explícita</td><td>Les ACL POSIX no tenen entrades de denegar.</td><td>Hi pot haver entrades Permetre i Denegar.</td></tr><tr><td>Herència</td><td>La umask i les ACL per defecte influeixen en els nous elements.</td><td>Les entrades es poden heretar de la carpeta pare.</td></tr><tr><td>Eines</td><td><code>chmod</code>, <code>chown</code>, <code>chgrp</code>, <code>umask</code> i <code>setfacl</code>.</td><td>Interfície gràfica, <code>icacls</code>, <code>takeown</code> i PowerShell.</td></tr></tbody></table></div>
@@ -333,309 +335,75 @@ id joan</pre>
 <h3>Practica el que has après</h3>
 <p>Les tres activitats de la presentació treballen la umask, els permisos dels directoris i els permisos de fitxers i carpetes. Pots consultar els enunciats i les solucions a <a href="#practiques/practiques-presentacions">pràctiques resoltes de permisos</a>. També tens l’<a href="#practiques/e4">exercici de permisos Linux i Windows</a> i la <a href="#materials">presentació original</a>.</p>
 </article>
-<article id="acl"><div class="eyebrow">S10 i S12 · Criteris 1.g · Continguts 1.5 i 1.8</div>
-<h2>06 · Polítiques d’accés i ACL</h2>
-<p>Una política d’accés defineix quins subjectes poden fer quines accions sobre quins recursos i qui aprova els canvis. Una ACL és una llista associada a un recurs que concreta permisos per a usuaris o grups. La política s’escriu abans de configurar-la: si no sabem qui necessita llegir una carpeta, una ordre tècnica no resol el problema.</p>
-<p>El <strong>mínim privilegi</strong> consisteix a donar només els permisos necessaris per a la feina. El criteri de partida és no concedir accés fins que existeixi una necessitat autoritzada. Els grups permeten gestionar rols sense repetir permisos per a cada persona. Les altes, canvis de funció i baixes han de revisar aquests permisos.</p>
-<div class="table-wrap"><table class="">
-<thead><tr>
-<th>Grup</th>
-<th>Projectes</th>
-<th>Facturació</th>
-<th>Administració del sistema</th>
-</tr></thead>
-<tbody>
-<tr>
-<td>Tècnics</td>
-<td>Llegir i modificar</td>
-<td>Sense accés</td>
-<td>No</td>
-</tr>
-<tr>
-<td>Gestió</td>
-<td>Llegir</td>
-<td>Llegir i modificar</td>
-<td>No</td>
-</tr>
-<tr>
-<td>Administradors</td>
-<td>Segons tasca autoritzada</td>
-<td>Segons tasca autoritzada</td>
-<td>Sí, amb compte específic</td>
-</tr>
-</tbody>
-</table></div>
-<p>Administrar el sistema no implica una autorització organitzativa per consultar qualsevol dada. Les capacitats tècniques elevades exigeixen responsabilitat, traçabilitat i comptes separats per a tasques quotidianes i administratives.</p>
-<h3>Linux: permisos bàsics</h3>
-<p>Els permisos POSIX distingeixen propietari, grup i altres. En un fitxer, <code>r</code> permet llegir, <code>w</code> escriure i <code>x</code> executar. En un directori, <code>r</code> permet llistar noms, <code>w</code> modificar les entrades i <code>x</code> travessar-lo o accedir a elements coneguts. Per accedir a un fitxer també cal poder travessar els directoris del camí.</p>
-<p><code>chmod 750 carpeta</code> dona rwx al propietari, r-x al grup i cap permís als altres. <code>chmod 640 fitxer</code> dona rw- al propietari i r-- al grup. <code>chown</code> canvia propietari i, opcionalment, grup. Esborrar un fitxer depèn principalment dels permisos del directori que el conté i d’altres restriccions, no només del permís d’escriptura del fitxer.</p>
-<h3>ACL en una xarxa</h3><p>Una ACL també pot filtrar trànsit en encaminadors i tallafocs. En aquest context, les regles poden identificar adreces IP, xarxes, serveis, ports o protocols i decidir si permeten o bloquegen el trànsit. Per exemple, es pot permetre HTTPS cap a un servidor web i bloquejar altres ports des d’Internet. L’ordre de les regles pot ser decisiu, perquè sovint s’avaluen de dalt a baix.</p>
-<h3>De la matriu d’accés a l’ACL</h3><p>En una matriu d’accés, les files representen els subjectes, les columnes els recursos i cada cel·la els drets. Una ACL organitza aquesta informació per recurs: cada fitxer o carpeta té la llista de qui pot fer què. Una llista de capacitats organitza la informació per subjecte.</p><p>Una <strong>ACL</strong> és la llista de control d’accés; una <strong>ACE</strong> és cadascuna de les seves entrades. Per exemple, a la carpeta Pràctica es podria autoritzar Joan a llegir, Maria a llegir i escriure i el grup alumnat a llegir. En NTFS hi pot haver entrades de permetre i denegar; les ACL POSIX de Linux expressen permisos, sense entrades explícites de denegació.</p><p>El model tradicional de Linux té propietari, grup i altres. Si Anna és propietària d’un fitxer i el grup profes el pot llegir, donar lectura a Joan amb <code>chmod o+r</code> també obriria el fitxer a tots els altres. Una entrada ACL per a Joan permet una excepció concreta sense canviar el propietari ni obrir-lo a tothom.</p>
-<h3>ACL POSIX</h3>
-<p>Una ACL afegeix permisos per a usuaris o grups concrets. La màscara limita els permisos efectius dels usuaris amb nom i dels grups, sense limitar el propietari ni «altres». Una ACL per defecte d’un directori serveix de base als nous elements, amb els límits del mode de creació. No modifica retroactivament els elements existents. <a href="https://man7.org/linux/man-pages/man5/acl.5.html">Manual Linux d’ACL</a>.</p>
-<pre>getfacl /srv/ra1/projecte
-sudo setfacl -m u:ra1lectora:rx /srv/ra1/projecte
-getfacl /srv/ra1/projecte</pre>
-<p>La comprovació final es fa amb el compte destinatari, mai només amb root. Veure una ACL configurada és una evidència parcial: també hem de demostrar una operació permesa i una altra de denegada.</p>
-<h3>Windows: permisos NTFS</h3>
-<p>Des de Propietats → Seguretat es consulten usuaris, grups i permisos. «Modificar» i «Control total» no són equivalents: el segon també permet gestionar permisos i propietat. L’herència propaga entrades des de les carpetes pare. Abans de trencar-la, cal entendre quines entrades es mantindran.</p>
-<p>Els permisos efectius depenen de totes les pertinences i entrades aplicables. Les denegacions i l’ordre de les entrades poden alterar el resultat; és preferible evitar denegacions innecessàries i verificar amb «Accés efectiu» i una prova real. En un recurs SMB també intervenen els permisos de compartició: l’accés ha de ser possible en les dues capes.</p>
-<p><strong>Permís i dret:</strong> llegir un fitxer és un permís sobre un objecte. Iniciar sessió localment o fer determinades tasques administratives són drets o privilegis del sistema. Ser capaç d’iniciar sessió no garanteix accés a totes les carpetes.</p>
-<div>
-<h3>Exemple resolt · Una carpeta compartida</h3>
-<p>Al Taller Bit, la Laia consulta els manuals, en Pau els actualitza i l’Àlex administra els permisos. Volem donar a cadascú només l’accés necessari.</p>
-<div class="table-wrap"><table>
-<thead><tr>
-<th>Persona / grup</th>
-<th>Llegir</th>
-<th>Modificar fitxers</th>
-<th>Canviar permisos</th>
-</tr></thead>
-<tbody>
-<tr>
-<td>Laia · Consulta</td>
-<td>Sí</td>
-<td>No</td>
-<td>No</td>
-</tr>
-<tr>
-<td>Pau · Edició</td>
-<td>Sí</td>
-<td>Sí</td>
-<td>No</td>
-</tr>
-<tr>
-<td>Àlex · Administració</td>
-<td>Sí</td>
-<td>Sí</td>
-<td>Sí</td>
-</tr>
-</tbody>
-</table></div>
-<ol>
-<li>
-<strong>Escrivim la política.</strong> Consulta només llegeix; Edició pot treballar amb els fitxers; Administració gestiona l’accés. Una ACL és la llista d’entrades que concreta aquests permisos.</li>
-<li>
-<strong>Creem grups i hi assignem comptes.</strong> Això evita repetir la política persona per persona. Comprovem que la Laia no pertanyi també al grup Edició.</li>
-<li>
-<strong>Apliquem permisos en una carpeta NTFS de prova.</strong> A «Seguretat», Consulta rep «Lectura i execució»; Edició, «Modificar»; Administració, «Control total». Conservem SYSTEM i Administradors. Revisem les entrades heretades que podrien donar més accés.</li>
-<li>
-<strong>Provem amb cada compte.</strong> La Laia obre un manual però no en pot crear ni canviar un. En Pau el pot modificar però no administrar-ne els permisos. L’Àlex pot gestionar els permisos.</li>
-<li>
-<strong>Si el resultat no coincideix, revisem.</strong> Mirem grups, herència i permisos efectius. Si l’accés és per xarxa, també intervenen els permisos de compartició. Provar-ho com a administrador no demostra què pot fer la Laia.</li>
-</ol>
-<p><strong>Evidència:</strong> matriu de permisos i una taula amb l’acció, el resultat esperat i el resultat observat. En Linux, <code>r</code> és lectura, <code>w</code> escriptura i <code>x</code> execució; en un directori, <code>x</code> permet travessar-lo. A E4 ho comprovarem amb ordres.</p>
-</div>
-<div id="windows-guia"><h3>Windows: permisos NTFS i compartició</h3><p>Els permisos s’assignen a usuaris o grups sobre fitxers i carpetes. <strong>Lectura</strong> permet consultar el contingut; <strong>Modificar</strong> permet treballar amb els fitxers i eliminar-los; <strong>Control total</strong> també permet gestionar-ne els permisos. Un compte editor no necessita control total per editar documents.</p>
-<h4>Herència i permisos efectius</h4><p>Una carpeta pot heretar entrades de la carpeta pare. Abans d’afegir permisos revisa les entrades existents i els grups del compte: una altra pertinença pot donar més accés del previst. Les denegacions, les entrades explícites i les heretades influeixen en el resultat. Utilitza la pestanya <strong>Accés efectiu</strong> i una prova real amb l’usuari, en lloc de deduir-lo d’una sola entrada.</p>
-<p>Per accedir per xarxa, s’han de permetre l’operació tant als permisos de compartició com als NTFS. Si la compartició només dona lectura i NTFS dona modificació, l’accés a través d’aquella compartició queda limitat a lectura. L’accés local no passa pels permisos de compartició.</p>
-<h4>Demostració guiada</h4><ol><li>En una màquina de laboratori, crea <code>C:\RA1-Lab</code> en un volum NTFS i un fitxer <code>manual.txt</code>. Prepara els grups locals <code>RA1_Consulta</code> i <code>RA1_Edicio</code>, amb comptes de prova diferents.</li><li>A Propietats → Seguretat → Opcions avançades, revisa l’herència. Si cal aïllar la carpeta de prova, converteix els permisos heretats en explícits i ajusta només les entrades que donen accés excessiu. Conserva SYSTEM i Administradors.</li><li>Assigna «Lectura i execució» a Consulta i «Modificar» a Edició, amb aplicació a aquesta carpeta, subcarpetes i fitxers.</li><li>Consulta Accés efectiu per a cada usuari. Si acabes de modificar els grups, inicia una sessió nova amb el compte de prova.</li><li>Comprova que el lector pot obrir el fitxer però no desar-hi canvis, i que l’editor pot crear i modificar un fitxer sense administrar els permisos. Fes les proves en sessions no elevades.</li><li>Si comparteixes la carpeta, repeteix-les a través de la ruta de xarxa i anota també els permisos de compartició.</li></ol>
-<h4>Concedir i retirar permisos amb icacls</h4><p>En una carpeta de prova, les ordres següents mostren l’ACL, concedeixen modificació a un grup i retiren les seves entrades. <code>(OI)</code> indica herència als fitxers i <code>(CI)</code>, a les subcarpetes. Les cometes permeten utilitzar aquesta expressió també a PowerShell.</p><pre>icacls C:\Dades
-icacls C:\Dades /grant "alumnes:(OI)(CI)M"
-icacls C:\Dades /remove alumnes</pre><p><code>R</code> és lectura, <code>W</code> escriptura, <code>RX</code> lectura i execució, <code>M</code> modificar i <code>F</code> control total. <code>/reset</code> restableix les ACL heretades i pot eliminar entrades explícites; només s’ha d’utilitzar quan aquesta sigui la intenció.</p>
-<h4>Consulta amb icacls</h4><p>Al símbol del sistema, aquestes ordres mostren les ACL sense modificar-les:</p><pre>icacls "C:\RA1-Lab"
-icacls "C:\RA1-Lab\manual.txt"</pre><p><code>(I)</code> indica una entrada heretada; <code>(OI)</code> i <code>(CI)</code> indiquen herència cap a fitxers i carpetes; <code>F</code>, <code>M</code> i <code>RX</code> són control total, modificació i lectura/execució. Registra la configuració i el resultat observat per a cada compte.</p><p class="small">Fonts: <a href="https://learn.microsoft.com/en-us/windows/security/identity-protection/access-control/access-control">Microsoft · Control d’accés</a> i <a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/icacls">icacls</a>. Aquesta guia amplia l’exemple de permisos dins les 18 hores del RA1.</p></div>
-<div id="linux-guia">
-<h3>Linux: primer els permisos bàsics, després les ACL</h3>
-<p>Treballarem amb fitxers de prova de <strong>Taller Bit</strong>. En Pau redacta informes; el grup <code>ra1equip</code> els consulta. La Laia és una col·laboradora que després necessitarà llegir un informe concret sense formar part del grup.</p>
-<h4>1 · Propietari, grup i altres</h4>
-<p>Cada fitxer té un <strong>propietari</strong> (un usuari) i un <strong>grup propietari</strong>. Els permisos bàsics distingeixen tres classes. «Altres» no és un grup que haguem de crear.</p>
-<div class="table-wrap"><table>
-<thead><tr>
-<th>Classe</th>
-<th>Lletra</th>
-<th>A qui correspon?</th>
-</tr></thead>
-<tbody>
-<tr>
-<td>Propietari</td>
-<td><code>u</code></td>
-<td>L’usuari propietari del fitxer.</td>
-</tr>
-<tr>
-<td>Grup</td>
-<td><code>g</code></td>
-<td>Els membres del grup propietari, si no són el propietari.</td>
-</tr>
-<tr>
-<td>Altres</td>
-<td><code>o</code></td>
-<td>Els usuaris que no encaixen en les dues classes anteriors.</td>
-</tr>
-</tbody>
-</table></div>
-<p>Sense ACL estesa, el sistema selecciona la classe que correspon a l’usuari. Els permisos de les tres classes <strong>no se sumen</strong>. Un compte pot pertànyer a diversos grups; ho veiem amb <code>id nom_usuari</code>.</p>
-<h4>2 · Lectura, escriptura i execució</h4>
-<div class="table-wrap"><table>
-<thead><tr>
-<th>Permís</th>
-<th>Valor</th>
-<th>En un fitxer</th>
-<th>En un directori</th>
-</tr></thead>
-<tbody>
-<tr>
-<td>
-<code>r</code> · lectura</td>
-<td>4</td>
-<td>Llegir-ne el contingut.</td>
-<td>Llistar-ne els noms.</td>
-</tr>
-<tr>
-<td>
-<code>w</code> · escriptura</td>
-<td>2</td>
-<td>Modificar-ne el contingut.</td>
-<td>Afegir o eliminar entrades, habitualment amb x.</td>
-</tr>
-<tr>
-<td>
-<code>x</code> · execució</td>
-<td>1</td>
-<td>Executar-lo si és un programa vàlid.</td>
-<td>Travessar-lo i accedir als elements coneguts.</td>
-</tr>
-<tr>
-<td>
-<code>-</code> · absent</td>
-<td>0</td>
-<td>No concedeix aquell permís.</td>
-<td>No concedeix aquell permís.</td>
-</tr>
-</tbody>
-</table></div>
-<p>Per llegir un fitxer cal poder travessar <strong>tots els directoris del camí</strong>. Esborrar un fitxer depèn principalment dels permisos del directori que el conté, no del permís w del fitxer; hi poden intervenir restriccions com el sticky bit. No cal donar x a un document de text.</p>
-<div class="formula">rwx = 4 + 2 + 1 = 7 · rw- = 6 · r-x = 5 · r-- = 4 · --- = 0</div>
-<p>Un mode de tres xifres segueix l’ordre <strong>propietari / grup / altres</strong>. Per exemple, <code>640</code> significa <code>rw- / r-- / ---</code>: el propietari llegeix i escriu, el grup només llegeix i els altres no tenen accés.</p>
-<h4>3 · Preparar el laboratori</h4>
-<p>Utilitza una VM Linux amb instantània i un compte amb sudo. Els noms següents han de ser nous; si ja existeixen, el docent prepararà un altre prefix. <code>sudo</code> executa una ordre amb privilegis d’administració; <code>sudo -u</code> executa la prova com un altre usuari. A Debian/Ubuntu, si falten getfacl i setfacl, el docent instal·larà el paquet <code>acl</code>.</p>
-<pre>sudo groupadd ra1equip
-sudo useradd -m -s /bin/bash ra1pau
-sudo useradd -m -s /bin/bash ra1laia
-sudo usermod -aG ra1equip ra1pau
-id ra1pau
-sudo mkdir /srv/ra1-demo
-sudo chmod 755 /srv/ra1-demo
-sudo sh -c 'printf "Informe de prova\n" &gt; /srv/ra1-demo/informe.txt'</pre>
-<p>Hem creat el grup, dos comptes i un fitxer. <code>-aG</code> afegeix un grup suplementari sense substituir els anteriors. El mode 755 del directori de prova permet travessar-lo; aquí preparem l’exemple del <em>fitxer</em>, no una carpeta confidencial completa. Si es canvien els grups d’una sessió ja oberta, cal tornar a iniciar sessió per actualitzar-los.</p>
-<h4>4 · chown: qui és el propietari?</h4>
-<pre>sudo chown ra1pau:ra1equip /srv/ra1-demo/informe.txt
-ls -l /srv/ra1-demo/informe.txt</pre>
-<p><code>chown</code> canvia la propietat. Abans dels dos punts hi ha l’usuari; després, el grup. La sortida de <code>ls -l</code> ha de mostrar <code>ra1pau ra1equip</code> en les columnes de propietari i grup. Si volguéssim canviar només el grup, utilitzaríem <code>sudo chown :ra1equip /srv/ra1-demo/informe.txt</code>.</p>
-<h4>5 · chmod: què pot fer cadascú?</h4>
-<pre>sudo chmod 640 /srv/ra1-demo/informe.txt
-ls -l /srv/ra1-demo/informe.txt</pre>
-<p>El començament serà <code>-rw-r-----</code>. El primer signe indica el tipus: <code>-</code> és un fitxer ordinari; <code>d</code> seria un directori. Després venen tres blocs: <code>rw-</code> per a en Pau, <code>r--</code> per al grup i <code>---</code> per als altres.</p>
-<p>També podem expressar els canvis amb lletres:</p>
-<pre>sudo chmod g+w /srv/ra1-demo/informe.txt
-# Afegim escriptura al grup: ara és 660.
-sudo chmod g-w /srv/ra1-demo/informe.txt
-# La retirem: tornem a 640.</pre>
-<p><code>+</code> afegeix i <code>-</code> retira un permís. <code>chmod u=rw,g=r,o= fitxer</code> fixa els permisos de les tres classes. <strong>chmod no canvia el propietari; chown no substitueix la política de permisos.</strong></p>
-<h4>6 · Comprovar el resultat</h4>
-<pre>sudo -u ra1pau cat /srv/ra1-demo/informe.txt
-sudo -u ra1pau sh -c 'printf "Revisat\n" &gt;&gt; /srv/ra1-demo/informe.txt'
-sudo -u ra1laia cat /srv/ra1-demo/informe.txt</pre>
-<p>En Pau pot llegir i afegir text. La Laia rep «Permís denegat»: no és propietària ni membre de ra1equip i «altres» té 0. Fem la redirecció dins de <code>sh -c</code> perquè també s’executi amb la identitat que volem provar.</p>
-<h4>7 · getfacl: consultar la llista de control d’accés</h4>
-<p>Ara la Laia necessita llegir <strong>només aquest informe</strong>. Donar lectura a «altres» l’obriria a més persones; afegir-la al grup podria donar-li accés a altres recursos. Una ACL permet afegir una entrada específica.</p>
-<pre>getfacl /srv/ra1-demo/informe.txt</pre>
-<p>Abans d’afegir entrades, la part de permisos mostra:</p>
-<pre>user::rw-
+<article id="acl"><div class="eyebrow">Part VI · Criteri 1.g · Contingut 1.5</div><h2>06 · Llistes de control d’accés i polítiques de seguretat</h2>
+<p>El control d’accés respon una pregunta: <strong>qui pot fer què sobre quin recurs?</strong> Després d’identificar i autenticar una persona, el sistema comprova si està autoritzada a llegir, modificar o utilitzar el recurs. Una llista de control d’accés permet expressar aquestes decisions amb regles concretes.</p>
+<h3>Per què necessitem ACL?</h3><p>A Linux, els permisos tradicionals distingeixen propietari, grup i altres. Són útils, però una excepció per a un usuari concret pot ser difícil de representar sense ampliar l’accés a més persones.</p>
+<p>Per exemple, Anna és propietària d’<code>informe.txt</code> i pot llegir-lo i escriure-hi; el grup <code>profes</code> el pot llegir i els altres no hi tenen accés. Joan no és Anna ni pertany al grup, però necessita llegir aquest fitxer. <code>chmod o+r</code> donaria lectura a tots els altres, no només a Joan. Una ACL permet afegir-hi una entrada concreta per a ell.</p>
+<p>En un altre cas, el professor és propietari de la carpeta Pràctica i el grup alumnat només la pot consultar. Maria pertany al grup, però necessita modificar la carpeta. Donar escriptura a tot el grup ampliaria els drets de tots els alumnes; una entrada específica permet definir l’excepció per a Maria.</p>
+<h3>Matriu d’accés, ACL i ACE</h3><p>Una <strong>matriu d’accés</strong> organitza els subjectes en files, els recursos en columnes i els drets a les cel·les. Una <strong>ACL</strong> (<em>Access Control List</em>) organitza les regles per recurs. Una <strong>ACE</strong> és cadascuna de les entrades de la llista. Una llista de capacitats, en canvi, organitza els drets per subjecte.</p>
+<div class="table-wrap"><table><thead><tr><th>ACE</th><th>Subjecte</th><th>Acció</th><th>Permisos a Pràctica</th></tr></thead><tbody><tr><td>1</td><td>Joan</td><td>Permetre</td><td>Llegir</td></tr><tr><td>2</td><td>Maria</td><td>Permetre</td><td>Llegir i escriure</td></tr><tr><td>3</td><td>Alumnat</td><td>Permetre</td><td>Llegir</td></tr></tbody></table></div>
+<p>A Windows NTFS les ACE poden permetre o denegar. Les ACL POSIX de Linux amplien propietari, grup i altres amb entrades per a usuaris o grups concrets; no tenen entrades explícites de denegació. Si els permisos efectius no permeten l’acció, l’accés es denega.</p>
+<h3>ACL mínima i ACL estesa a Linux</h3><p>Una ACL mínima equival als permisos bàsics. Quan s’afegeixen entrades amb nom apareix una ACL estesa amb una <strong>màscara</strong>:</p><div style="display:flex;flex-wrap:wrap;gap:1rem"><div style="flex:1 1 240px"><strong>ACL mínima</strong><pre>user::rw-
 group::r--
-other::---</pre>
-<p><code>user::</code> és el propietari; <code>group::</code>, el grup propietari; <code>other::</code>, els altres. <code>getfacl</code> consulta els permisos; no els modifica. El nom de l’ordre acaba en <strong>facl</strong>.</p>
-<h4>8 · setfacl: afegir una excepció concreta</h4>
-<pre>sudo setfacl -m u:ra1laia:r /srv/ra1-demo/informe.txt
-getfacl /srv/ra1-demo/informe.txt</pre>
-<p><code>-m</code> modifica o afegeix una entrada; <code>u:ra1laia:r</code> dona lectura a aquest usuari. La sortida esperada inclou:</p>
-<pre>user::rw-
-user:ra1laia:r--
+other::---</pre></div><div style="flex:1 1 240px"><strong>ACL estesa</strong><pre>user::rw-
+user:joan:r--
 group::r--
+group:alumnat:r--
 mask::r--
-other::---</pre>
-<p>La <strong>màscara</strong> limita els permisos efectius dels usuaris amb nom i de les entrades de grup. No limita el propietari ni «altres». Aquí permet lectura. Amb ACL estesa, els bits de grup de ls -l representen la màscara i apareix un <code>+</code>: per interpretar el detall cal getfacl.</p>
-<pre>sudo -u ra1laia cat /srv/ra1-demo/informe.txt
-sudo -u ra1laia sh -c 'printf "Canvi\n" &gt;&gt; /srv/ra1-demo/informe.txt'</pre>
-<p>La lectura funciona i l’escriptura es denega. Aquesta parella de proves demostra la política; una captura de l’ACL, tota sola, no comprova l’ús real.</p>
-<h4>Com es calcula i es modifica la màscara ACL?</h4>
-<p>En una ACL estesa, la màscara limita el grup propietari, els usuaris amb nom i els grups amb nom. El permís efectiu és la intersecció lògica AND entre l’entrada i la màscara. Per exemple, <code>user:marc:rwx</code> amb <code>mask::r-x</code> té efectivament <code>r-x</code>.</p>
-<p>Si s’afegeix una entrada amb <code>setfacl -m</code> sense indicar una màscara, habitualment <code>setfacl</code> la recalcula amb la unió dels permisos de les entrades afectades. Una màscara fixada abans per l’administrador no queda immutable: una modificació posterior la pot tornar a calcular. Per conservar-la, es pot emprar <code>-n</code>; després cal consultar <code>getfacl</code> i comprovar els permisos efectius.</p>
-<pre>setfacl -m m::r-x fitxer.txt
-setfacl -n -m u:eduard:rw fitxer.txt
-getfacl fitxer.txt</pre>
-<p>En aquest exemple, l’entrada d’Eduard és <code>rw-</code>, però la màscara conservada <code>r-x</code> només li deixa lectura efectiva. Si es canvia la màscara, també poden canviar els permisos efectius d’altres entrades.</p>
-<details class="extension"><summary>Ampliació guiada · màscara i retirada de l’entrada</summary>
-<pre>sudo setfacl -m u:ra1laia:rw,m::r /srv/ra1-demo/informe.txt
-getfacl /srv/ra1-demo/informe.txt</pre>
-<p>Tot i haver indicat rw a la Laia, la màscara només permet r. getfacl indica els permisos efectius. Per permetre realment l’escriptura:</p>
-<pre>sudo setfacl -m m::rw /srv/ra1-demo/informe.txt
-sudo -u ra1laia sh -c 'printf "Canvi autoritzat\n" &gt;&gt; /srv/ra1-demo/informe.txt'</pre>
-<p>La màscara és un límit compartit: reviseu totes les entrades després de canviar-la. Si volem retirar l’excepció i tornar al punt inicial:</p>
-<pre>sudo setfacl -x u:ra1laia /srv/ra1-demo/informe.txt
-sudo chmod 640 /srv/ra1-demo/informe.txt
-getfacl /srv/ra1-demo/informe.txt
-sudo -u ra1laia cat /srv/ra1-demo/informe.txt</pre>
-<p>La Laia torna a tenir l’accés denegat. Amb ACL estesa, chmod sobre els bits de grup també pot canviar la màscara. No apliquis chmod sense tornar a revisar getfacl.</p></details>
-<p>Per definir una ACL per defecte al directori compartit i consultar-la:</p><pre>setfacl -m d:g:profes:rwx projecte/
-getfacl projecte/</pre><p>Aquesta ACL serveix de base per als elements nous creats dins del directori, amb els límits del mode de creació. Per retirar una entrada concreta es pot usar <code>setfacl -x u:joan informe.txt</code>; <code>setfacl -b informe.txt</code> elimina les entrades ACL addicionals i conserva els permisos bàsics.</p>
-<p><strong>Fitxers nous:</strong> una ACL aplicada a un fitxer no s’estén automàticament als futurs fitxers. Les ACL per defecte s’estableixen en directoris; el setgid d’un directori permet heretar-ne el grup. Són mecanismes diferents. A la pràctica E4 es treballa amb ACL de fitxers existents.</p>
-<p class="small">Consulta: <a href="https://man7.org/linux/man-pages/man1/chmod.1.html">chmod</a>, <a href="https://man7.org/linux/man-pages/man1/chown.1.html">chown</a>, <a href="https://man7.org/linux/man-pages/man1/getfacl.1.html">getfacl</a>, <a href="https://man7.org/linux/man-pages/man1/setfacl.1.html">setfacl</a> i <a href="https://man7.org/linux/man-pages/man5/acl.5.html">ACL de Linux</a>.</p>
-<p><strong>Temps del RA1:</strong> els passos són una demostració de referència per a S10–S12 i la pràctica E4. L’ampliació és opcional; no s’afegeixen hores a les 18 previstes.</p>
-</div></article>
-<article id="registres"><div class="eyebrow">Contingut 1.9 · Registres, incidències i alarmes</div>
-<h2>07 · Inventari, incidències i alarmes</h2>
-<p>L’inventari de comptes respon qui té accés, per què i fins quan. Els registres d’activitat documenten esdeveniments. Una alarma assenyala una condició que cal revisar. Una incidència és una situació que requereix gestió. Un avís o un inici de sessió fallit no prova per si sol que existeixi un atac.</p>
-<div class="table-wrap"><table class="">
-<thead><tr>
-<th>Document</th>
-<th>Camps mínims del cas</th>
-</tr></thead>
-<tbody>
-<tr>
-<td>Inventari de comptes</td>
-<td>Identificador, responsable, rol, estat, data d’alta, revisió i data de baixa prevista. No conté contrasenyes.</td>
-</tr>
-<tr>
-<td>Registre d’esdeveniments</td>
-<td>Data i hora amb zona, equip, compte, origen, acció, resultat i identificador.</td>
-</tr>
-<tr>
-<td>Fitxa d’incidència</td>
-<td>ID, detecció, fets, impacte, prioritat, responsable, actuacions, evidències, estat i verificació de tancament.</td>
-</tr>
-</tbody>
-</table></div>
-<p>El cicle de vida del compte inclou alta aprovada, assignació a grups, revisió periòdica, canvi de rol i baixa. Un compte inactiu amb privilegis pot mantenir una porta d’accés. La retirada de permisos s’ha de provar, sense eliminar precipitadament evidències o dades que el centre hagi de conservar.</p>
-<h3>Windows i Linux</h3>
-<p>El visor d’esdeveniments de Windows organitza els registres per canals. Amb l’auditoria adequada, el registre de Seguretat pot mostrar l’esdeveniment 4625, corresponent a un inici de sessió fallit. S’han d’interpretar compte, hora, tipus d’inici i causa, i comparar-los amb l’activitat esperada. <a href="https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/security/threat-protection/auditing/event-4625">Documentació de Microsoft</a>.</p>
-<p>A Linux, els registres depenen de la distribució i dels serveis instal·lats. Es poden consultar amb <code>journalctl</code> o en fitxers de <code>/var/log</code>. <code>/var/log/auth.log</code> no existeix en totes les instal·lacions. Si un servei no està instal·lat o no registra l’esdeveniment, el filtre pot no retornar res.</p>
-<h3>Consultar registres a Linux</h3>
-<p>A Ubuntu, segons la configuració, <code>/var/log/auth.log</code> recull autenticacions i ús de sudo; <code>/var/log/syslog</code>, missatges generals; <code>/var/log/kern.log</code>, missatges del nucli; i <code>/var/log/apt/history.log</code>, instal·lacions i actualitzacions. Si Apache està instal·lat, els seus registres poden trobar-se a <code>/var/log/apache2/</code>. El nucli gestiona processos, memòria i comunicació amb el maquinari.</p>
-<p>Per llegir un fitxer complet utilitzem <code>cat</code>; <code>less</code> permet llegir-lo pantalla a pantalla i sortir amb <code>q</code>. <code>tail</code> mostra les últimes línies i <code>grep</code> cerca text. Alguns registres requereixen permisos d’administrador.</p>
-<pre>cat /var/log/apt/history.log
+other::---</pre></div></div>
+<p>La màscara limita els permisos efectius dels usuaris i grups amb nom i del grup propietari; no limita el propietari ni els altres. El signe <code>+</code> a <code>ls -l</code> indica habitualment una ACL addicional. <code>getfacl</code> en mostra les entrades completes:</p><pre>ls -l informe.txt
+getfacl informe.txt</pre>
+<p>Si una entrada diu <code>user:marc:rwx</code> i la màscara és <code>r-x</code>, els permisos efectius de Marc són <code>r-x</code>: es conserven els permisos presents en totes dues entrades. Una màscara fixada per l’administrador pot tornar a calcular-se en afegir una entrada amb <code>setfacl</code>; <code>-n</code> evita aquest recàlcul. Comprova sempre el resultat amb <code>getfacl</code>.</p>
+<h3>Modificar ACL a Linux</h3><p><code>setfacl -m</code> afegeix o modifica una entrada. <code>u</code> i <code>user</code> són equivalents; <code>g</code> i <code>group</code> també. Dues dues-punts sense nom indiquen l’entrada del propietari o del grup propietari.</p><pre>setfacl -m u:joan:r informe.txt
+setfacl -m user:joan:r informe.txt
+setfacl -m u::r informe.txt
+setfacl -m g:profes:rw informe.txt
+setfacl -m g::r informe.txt
+getfacl informe.txt</pre><p>En un directori, <code>r</code> i <code>x</code> permeten consultar-ne el contingut i entrar-hi; per crear o eliminar entrades normalment calen <code>w</code> i <code>x</code>.</p><pre>setfacl -m u:joan:rx projecte/
+setfacl -m g:profes:rwx projecte/
+setfacl -x u:joan informe.txt
+setfacl -b informe.txt</pre><p><code>-x</code> retira una entrada concreta i <code>-b</code> elimina les entrades ACL addicionals del fitxer, conservant els permisos bàsics. Per definir una ACL per defecte per als elements nous d’un directori:</p><pre>setfacl -m d:g:profes:rwx projecte/
+getfacl projecte/</pre><p>Els elements nous hereten aquesta base amb els límits del mode de creació; no canvia retroactivament els existents. <code>chmod</code> i les ACL conviuen: amb ACL estesa, canviar els bits de grup també pot modificar la màscara.</p>
+<h3>Ordres bàsiques a Linux, PowerShell i CMD</h3><div class="table-wrap"><table><thead><tr><th>Acció</th><th>Linux</th><th>PowerShell</th><th>CMD</th></tr></thead><tbody><tr><td>Directori actual</td><td><code>pwd</code></td><td><code>pwd</code></td><td><code>cd</code></td></tr><tr><td>Llistar</td><td><code>ls</code></td><td><code>ls</code></td><td><code>dir</code></td></tr><tr><td>Entrar</td><td><code>cd carpeta</code></td><td><code>cd carpeta</code></td><td><code>cd carpeta</code></td></tr><tr><td>Pujar un nivell</td><td><code>cd ..</code></td><td><code>cd ..</code></td><td><code>cd ..</code></td></tr><tr><td>Crear carpeta</td><td><code>mkdir prova</code></td><td><code>mkdir prova</code></td><td><code>mkdir prova</code></td></tr><tr><td>Eliminar fitxer</td><td><code>rm a.txt</code></td><td><code>rm a.txt</code></td><td><code>del a.txt</code></td></tr><tr><td>Netejar pantalla</td><td><code>clear</code></td><td><code>clear</code></td><td><code>cls</code></td></tr></tbody></table></div><p>PowerShell reconeix diverses ordres amb noms familiars, encara que internament funcionin de manera diferent.</p>
+<h3>ACL a Windows</h3><p>A Windows, les ACL NTFS es consulten des de <strong>Propietats → Seguretat</strong> o amb <code>icacls</code> a CMD i PowerShell. PowerShell també disposa de <code>Get-Acl</code> i <code>Set-Acl</code>. Dins de WSL, <code>getfacl</code> i <code>setfacl</code> s’utilitzen sobre el sistema Linux; les ACL NTFS es gestionen amb les eines de Windows.</p>
+<div class="table-wrap"><table><thead><tr><th>Codi</th><th>Permís</th></tr></thead><tbody><tr><td>F</td><td>Control total</td></tr><tr><td>M</td><td>Modificar</td></tr><tr><td>RX</td><td>Lectura i execució</td></tr><tr><td>R</td><td>Lectura</td></tr><tr><td>W</td><td>Escriptura</td></tr><tr><td>D</td><td>Eliminar</td></tr><tr><td>N</td><td>Sense accés</td></tr></tbody></table></div>
+<pre>icacls C:\Dades
+icacls C:\Dades /grant "alumnes:(OI)(CI)M"
+icacls C:\Dades /remove alumnes
+icacls C:\Dades /reset</pre><p><code>/grant</code> concedeix una entrada; <code>/remove</code> retira entrades del subjecte; <code>/reset</code> restableix l’ACL heretada i pot eliminar entrades explícites. <strong>(OI)</strong> indica herència als fitxers i <strong>(CI)</strong> a les subcarpetes. Les cometes permeten escriure l’exemple tant a PowerShell com a CMD.</p>
+<pre>Practica PC\maria:(OI)(CI)(M)
+         PC\alumnat:(OI)(CI)(RX)
+         BUILTIN\Administradors:(I)(OI)(CI)(F)
+         NT AUTHORITY\SYSTEM:(I)(OI)(CI)(F)</pre><p>En aquesta sortida, <code>(I)</code> indica una entrada heretada; <code>M</code>, modificar; <code>RX</code>, lectura i execució; i <code>F</code>, control total. Administradors i SYSTEM són entrades habituals: no les eliminis sense entendre’n la funció. El resultat efectiu depèn de totes les entrades aplicables, incloses les explícites, heretades i de denegació.</p>
+<h3>Comparació d’operacions ACL</h3><div class="table-wrap"><table><thead><tr><th>Acció</th><th>Linux</th><th>Windows</th></tr></thead><tbody><tr><td>Consultar ACL</td><td><code>getfacl Practica</code></td><td><code>icacls Practica</code></td></tr><tr><td>Donar una excepció a Maria</td><td><code>setfacl -m u:maria:rwx Practica</code></td><td><code>icacls Practica /grant maria:M</code></td></tr><tr><td>Donar lectura a Joan</td><td><code>setfacl -m u:joan:r informe.txt</code></td><td><code>icacls informe.txt /grant joan:R</code></td></tr><tr><td>Retirar una entrada</td><td><code>setfacl -x u:joan informe.txt</code></td><td><code>icacls informe.txt /remove joan</code></td></tr></tbody></table></div><p>Les equivalències són orientatives: els models i els permisos efectius dels dos sistemes no són idèntics.</p>
+<h3>Política d’accés i ACL de xarxa</h3><p>Una política identifica els recursos, els usuaris o grups, els drets necessaris, les excepcions i qui revisa els permisos. Aplica el <strong>mínim privilegi</strong>, prefereix grups i rols, revisa altes i baixes i evita donar escriptura a tothom en recursos importants. Les excepcions s’han de justificar i revisar.</p><p>En encaminadors i tallafocs, les ACL també poden filtrar trànsit segons adreces IP, xarxes, ports o protocols. Per exemple, podem permetre HTTPS cap al servidor web i bloquejar altres ports des d’Internet. L’ordre de les regles pot ser decisiu.</p>
+<p><a href="#practiques/exercicis-acl">Practica amb les excepcions de Laia i Maria i les matrius d’accés resoltes</a> · <a href="#materials">Presentació original</a>.</p></article>
+<article id="registres"><div class="eyebrow">Part VII · Contingut 1.9</div><h2>07 · Registres d’usuaris, incidències i alarmes</h2>
+<p>Després d’identificar un usuari, autenticar-lo i decidir què pot fer, els <strong>registres</strong> ajuden a saber què ha passat. No eviten per si sols un incident, però permeten detectar-lo, reconstruir els fets i millorar la resposta.</p>
+<div class="table-wrap"><table><thead><tr><th>Concepte</th><th>Significat</th><th>Exemple</th></tr></thead><tbody><tr><td>Registre o log</td><td>Constància d’un esdeveniment: qui, què, quan, des d’on i amb quin resultat.</td><td>Un inici de sessió fallit.</td></tr><tr><td>Incidència</td><td>Situació que necessita revisió o gestió.</td><td>Diversos errors d’accés al mateix compte.</td></tr><tr><td>Alarma</td><td>Avís quan es compleix una condició definida.</td><td>Correu a administració per intents repetits.</td></tr></tbody></table></div>
+<p>Una dada registrada no és necessàriament un atac. Per exemple, cinc intents fallits en dos minuts poden constituir una incidència i generar una alarma, segons la política. Si afecten un compte administrador, se’ls pot assignar una prioritat més alta.</p>
+<h3>Què registrem i qui ho revisa?</h3><p>No es tracta de guardar-ho tot sense criteri. Cal prioritzar els sistemes crítics i la informació útil per a la seguretat. La política ha de definir qui revisa els registres i amb quina freqüència, quins fets generen incidències o alarmes, quant temps es conserven i qui els pot consultar, modificar o esborrar.</p>
+<h3>Inventari d’usuaris i grups</h3><p>Cal documentar les altes, baixes o bloquejos, els canvis de grup o rol, els permisos especials i els comptes administradors. Per a cada canvi convé registrar l’usuari afectat, qui l’autoritza, la data i hora, el motiu o tiquet i el sistema afectat.</p><p>Per exemple, si la Marta passa d’alumna a treballar en pràctiques, revisem i actualitzem els seus grups i permisos i anotem el canvi. L’inventari ajuda a detectar comptes oblidats i privilegis excessius.</p>
+<h3>Quins esdeveniments podem trobar?</h3><p>El sistema pot registrar arrencades i apagades, inici o parada de serveis, errors, canvis de configuració i problemes de rendiment. També pot registrar inicis de sessió correctes o fallits, bloquejos de comptes, ús d’eines administratives i canvis de contrasenya o grup.</p><p>Per interpretar un registre pregunta’t: <strong>què ha passat, quan, amb quin usuari o equip, des d’on i amb quin resultat?</strong> Després valora si el fet era esperat o si cal obrir una incidència.</p>
+<p>En un exemple de possible força bruta, el registre mostra errors d’accés al compte <code>admin</code> a les 10.00, 10.01 i 10.02; a les 10.03 el compte queda bloquejat i a les 10.05 s’envia una alarma. Cal revisar l’origen, el compte, l’horari i si hi ha més intents semblants.</p>
+<p>Per exemple, l’esdeveniment de Seguretat <strong>1102</strong> de l’equip AULA-PC04 pot indicar que s’ha esborrat el registre d’auditoria. Pot ser una actuació de manteniment legítima o un intent d’eliminar pistes; cal comprovar el context i l’autorització.</p>
+<h3>Registres a Linux</h3><p>A Ubuntu i altres sistemes Linux hi pot haver fitxers a <code>/var/log</code>; els fitxers disponibles depenen de la configuració i dels serveis instal·lats.</p><div class="table-wrap"><table><thead><tr><th>Ruta</th><th>Informació habitual</th></tr></thead><tbody><tr><td><code>/var/log/auth.log</code></td><td>Autenticacions, intents fallits, sudo i SSH.</td></tr><tr><td><code>/var/log/syslog</code></td><td>Missatges generals del sistema i serveis.</td></tr><tr><td><code>/var/log/kern.log</code></td><td>Missatges del nucli, maquinari i controladors.</td></tr><tr><td><code>/var/log/apt/history.log</code></td><td>Instal·lacions i actualitzacions.</td></tr><tr><td><code>/var/log/apache2/</code></td><td>Accessos i errors d’Apache, si està instal·lat.</td></tr></tbody></table></div>
+<p>El <strong>nucli</strong> o kernel és la part central del sistema operatiu que gestiona processos, memòria i comunicació amb el maquinari. Per consultar registres pots utilitzar <code>cat</code> per llegir un fitxer, <code>less</code> per veure’l pantalla a pantalla —surt amb <code>q</code>—, <code>tail</code> per veure les últimes línies i <code>grep</code> per cercar text.</p><pre>cat /var/log/apt/history.log
 sudo tail -n 20 /var/log/auth.log
 sudo grep "sudo" /var/log/auth.log
 journalctl -n 50
 who
 w
-last -n 10</pre>
-<p>Les tres primeres ordres consulten instal·lacions, autenticacions recents i ús de sudo. <code>journalctl -n 50</code> mostra els 50 últims missatges del diari; <code>who</code> i <code>w</code> mostren sessions actuals, i <code>last -n 10</code>, sessions recents. GNOME també pot disposar de l’aplicació gràfica Registres.</p>
-<h3>Consultar esdeveniments a Windows</h3>
-<p>Al Visor d’esdeveniments, entra a <strong>Registres de Windows → Seguretat</strong>, selecciona «Filtrar el registre actual» i introdueix l’identificador que vols investigar. Cada resultat inclou data, hora, origen, nivell, identificador i descripció. Els registres principals són Aplicació, Seguretat i Sistema.</p>
-<div class="table-wrap"><table><thead><tr><th>ID</th><th>Registre</th><th>Significat</th></tr></thead><tbody><tr><td>4624</td><td>Seguretat</td><td>Inici de sessió correcte</td></tr><tr><td>4625</td><td>Seguretat</td><td>Inici de sessió fallit</td></tr><tr><td>4740</td><td>Seguretat</td><td>Compte bloquejat</td></tr><tr><td>1102</td><td>Seguretat</td><td>Registre d’auditoria esborrat</td></tr><tr><td>7036</td><td>Sistema</td><td>Servei iniciat o aturat</td></tr></tbody></table></div>
-<p>Per exemple, un 1102 indica que s’ha esborrat el registre d’auditoria: pot ser una operació legítima o un intent d’esborrar pistes. Cal revisar qui, quan i per què. El Visor explica què ha passat; el Gestor de tasques mostra què passa ara, com processos i consum de CPU i memòria.</p>
-<h3>Dels registres a la incidència</h3>
-<p>Antivirus, tallafocs, encaminadors, commutadors, proxies i eines d’accés remot també registren activitat. Una regla pot relacionar diversos esdeveniments: cinc accessos fallits en dos minuts poden generar una incidència i una alarma segons la política definida. Si afecten un compte administrador, pot correspondre una prioritat més alta.</p>
-<p>Una fitxa de tiquet recull l’identificador, la data, l’equip, el problema, la prioritat, la persona responsable, les actuacions i l’estat. Eines com GLPI, Jira Service Management o ServiceNow permeten registrar, assignar, seguir, resoldre i tancar incidències.</p>
-<p>La gestió es complica quan hi ha moltes fonts, formats diferents o hores no sincronitzades. Cal limitar l’accés als registres, protegir-ne la confidencialitat i detectar-ne les modificacions; una eina centralitzada pot facilitar la revisió.</p>
-<h3>Exemple de seguiment d’una alarma</h3>
-<p><strong>Cas simulat:</strong> a les 10.15 h el programari del SAI del NAS registra «alimentació amb bateria»; a les 10.17 h registra el retorn a xarxa. L’alumne relaciona els dos esdeveniments, comprova si el servei ha continuat disponible i anota càrrega, estat de bateria i responsable de revisió. Si l’equip s’ha apagat, obre una incidència i documenta l’impacte observat.</p>
-<p>Els registres necessiten hores coherents, permisos de consulta limitats i una política de conservació. Cal comprovar també l’espai disponible i que el mecanisme de registre funciona. Una alarma sense destinatari o un registre que ningú revisa no completen el control.</p>
-<p class="small">Revisió amb IOC · Unitat 1, <em>Seguretat passiva</em>, apartats de protecció física, SAI i seguretat lògica. Els continguts 1.1–1.9 i els criteris de la programació actual determinen el treball del RA1. <a href="index.html#fonts">Fonts i correspondència entre RA i UF</a>.</p>
-<h3>Resposta ordenada</h3>
-<p>Primer es recullen els fets i es confirma l’abast. Després es determina la prioritat segons impacte i urgència i s’aplica el procediment autoritzat. Finalment es comprova la recuperació i es documenta el tancament. No s’esborren registres per «netejar l’error» ni es dona per resolt només perquè ha desaparegut una alarma.</p>
-<p><strong>A4C1:</strong> comprovar actualitzacions, bloqueig de pantalla, compte de treball sense privilegis innecessaris i proteccions del dispositiu. <strong>A4C2:</strong> limitar accés a les dades, minimitzar els camps registrats, ocultar informació personal de les evidències i compartir-les només amb les persones autoritzades. El termini de conservació s’ajusta a la política i finalitat, sense inventar un nombre universal de dies.</p></article>
+last -n 10</pre><p><code>journalctl</code> consulta el diari del sistema; <code>who</code> i <code>w</code> mostren sessions actuals, i <code>last</code>, sessions recents. GNOME també pot disposar de l’aplicació gràfica Registres.</p>
+<figure><img src="images/part-vii-diapositiva-14-1.png" alt="Aplicació Registres de GNOME" loading="lazy" style="max-width:100%;height:auto"><figcaption>Consulta gràfica de registres a GNOME. Imatge de la presentació.</figcaption></figure>
+<h3>Registres a Windows</h3><p>El <strong>Visor d’esdeveniments</strong> permet consultar els registres d’Aplicació, Seguretat i Sistema i filtrar per data, nivell o identificador. Els nivells inclouen informació, advertiment, error, crític i auditories correctes o fallides. El <strong>Gestor de tasques</strong> mostra, en canvi, què passa ara, com els processos i el consum de CPU i memòria.</p>
+<figure><img src="images/part-vii-diapositiva-17-1.png" alt="Visor d’esdeveniments de Windows, amb registres, llista i detalls" loading="lazy" style="max-width:100%;height:auto"><figcaption>Visor d’esdeveniments: registres, llista d’esdeveniments i detalls. Imatge de la presentació.</figcaption></figure>
+<figure><img src="images/part-vii-diapositiva-18-1.png" alt="Gestor de tasques de Windows" loading="lazy" style="max-width:100%;height:auto"><figcaption>El Gestor de tasques mostra l’activitat actual. Imatge de la presentació.</figcaption></figure>
+<div class="table-wrap"><table><thead><tr><th>ID</th><th>Registre</th><th>Què pot indicar?</th></tr></thead><tbody><tr><td>4624</td><td>Seguretat</td><td>Inici de sessió correcte.</td></tr><tr><td>4625</td><td>Seguretat</td><td>Inici de sessió fallit.</td></tr><tr><td>4740</td><td>Seguretat</td><td>Compte bloquejat.</td></tr><tr><td>1102</td><td>Seguretat</td><td>Registre d’auditoria esborrat.</td></tr><tr><td>7036</td><td>Sistema</td><td>Un servei s’ha iniciat o aturat.</td></tr></tbody></table></div><p>Per cercar el 4625, obre el Visor → Registres de Windows → Seguretat, selecciona <strong>Filtrar el registre actual</strong>, introdueix 4625 i obre un resultat per consultar-ne els detalls.</p>
+<h3>Altres fonts i gestió d’incidències</h3><p>Els antivirus registren deteccions i quarantenes; els tallafocs, tràfic permès o bloquejat; els routers i switches, connexions i errors; els proxies, peticions web; i les eines d’accés remot, intents d’entrada. Una regla pot convertir una sèrie de registres en una incidència i generar una alarma.</p><p>Un <strong>tiquet</strong> conserva el número d’incidència, la data, l’equip, el problema, la prioritat, la persona responsable, les accions i l’estat. El procés habitual és registrar, assignar, fer seguiment, resoldre i tancar. GLPI, Jira Service Management i ServiceNow són exemples d’eines de gestió.</p>
+<p>Exemple de fitxa: <strong>INC-001</strong>, 26/10/2026 a les 10.30, equip AULA-PC04, diversos intents fallits, prioritat mitjana, responsable tècnic informàtic, acció de revisar el Visor d’esdeveniments i estat pendent de resolució. Aquest registre permet seguir qui fa què i quan.</p>
+<h3>Dificultats i protecció dels registres</h3><p>Els registres poden estar dispersos, tenir formats diferents o hores no sincronitzades, cosa que dificulta reconstruir l’ordre dels fets. També poden contenir dades personals. Una eina centralitzada pot facilitar-ne la revisió.</p><p>Cal limitar qui els pot veure, modificar o esborrar, protegir-ne la confidencialitat i poder detectar-ne les alteracions. Si les dades són sensibles, pot ser adequat xifrar-les o conservar-les en suports protegits. La conservació i els permisos depenen de la política establerta.</p>
+<p><a href="#practiques/exercicis-registres">Practica amb els casos resolts de Linux i Windows</a> · <a href="#materials">Presentació original</a>.</p></article>
 </section>
 <section class="panel" id="practiques" data-title="Pràctiques i exercicis"><div class="eyebrow">Laboratori i treball a classe</div>
 <h1>Aplicar, comprovar, explicar.</h1>
