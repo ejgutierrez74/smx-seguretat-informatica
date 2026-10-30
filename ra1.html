@@ -317,6 +317,10 @@ $ pwd
 $ cd ..
 $ pwd
 /home/alumne</pre></div>
+<p>Per practicar la creació d’una carpeta i un fitxer buit dins d’ella, pots escriure:</p><pre>$ mkdir proves
+$ cd proves
+$ touch hola.txt
+$ ls</pre>
 <p>Una <strong>ruta absoluta</strong> comença a l’arrel, com <code>/home/alumne/Descarregues</code>. Una <strong>ruta relativa</strong> depèn de la carpeta actual: si ja ets a <code>/home/alumne</code>, n’hi ha prou amb <code>cd Descarregues</code>. També pots treballar gràficament; si Nautilus està instal·lat, <code>nautilus .</code> obre la carpeta actual a l’explorador.</p>
 <h3>Els permisos bàsics de Linux</h3>
 <p>Linux diferencia tres categories: <strong>propietari</strong> (<code>u</code>), <strong>grup propietari</strong> (<code>g</code>) i <strong>altres usuaris</strong> (<code>o</code>). Cada bloc pot tenir lectura (<code>r</code>), escriptura (<code>w</code>) i execució (<code>x</code>).</p>
@@ -334,12 +338,14 @@ $ pwd
 uid=1000(archie) gid=1000(web) groups=1000(web),4(adm),20(dialout)</pre>
 <p><code>id</code> mostra el <strong>UID</strong> de l’usuari, el <strong>GID</strong> del grup primari i els grups primari i secundaris. Un fitxer té un propietari i un grup propietari; els permisos tradicionals no permeten donar excepcions diferents a diversos usuaris o grups. Per a això es poden utilitzar ACL, que estudiaràs a la <a href="#teoria/acl">Part VI</a>.</p>
 <h3>Canviar permisos amb <code>chmod</code></h3>
+<p>Els grups secundaris permeten accedir a recursos compartits quan els permisos ho permeten. Per exemple, en alguns sistemes pertànyer al grup <code>sudo</code> permet utilitzar aquesta ordre, sempre que la configuració ho autoritzi. El grup efectiu del procés sol coincidir amb el grup primari, però la configuració del directori pot afectar el grup d’un fitxer nou.</p>
 <h4>Mètode numèric o octal</h4>
 <p>Cada permís té un valor: <code>r = 4</code>, <code>w = 2</code> i <code>x = 1</code>. Se sumen els valors de cada bloc. Per exemple, <code>rwx = 4 + 2 + 1 = 7</code>; <code>r-x = 4 + 1 = 5</code>; i <code>r-- = 4</code>. En binari, cada posició és un bit: 1 indica que el permís està activat i 0 que no ho està.</p>
 <div class="table-wrap"><table><thead><tr><th>Valor</th><th>Permisos</th><th>Valor</th><th>Permisos</th></tr></thead><tbody><tr><td>0</td><td><code>---</code></td><td>4</td><td><code>r--</code></td></tr><tr><td>1</td><td><code>--x</code></td><td>5</td><td><code>r-x</code></td></tr><tr><td>2</td><td><code>-w-</code></td><td>6</td><td><code>rw-</code></td></tr><tr><td>3</td><td><code>-wx</code></td><td>7</td><td><code>rwx</code></td></tr></tbody></table></div>
+<p>Cada bloc de tres permisos també es pot llegir en binari. La posició val 1 si el permís està activat i 0 si està desactivat:</p><div class="table-wrap"><table><thead><tr><th>Permís</th><th>Bits</th><th>Càlcul</th><th>Valor octal</th></tr></thead><tbody><tr><td><code>rwx</code></td><td>111</td><td>4 + 2 + 1</td><td>7</td></tr><tr><td><code>rw-</code></td><td>110</td><td>4 + 2 + 0</td><td>6</td></tr><tr><td><code>r-x</code></td><td>101</td><td>4 + 0 + 1</td><td>5</td></tr><tr><td><code>r--</code></td><td>100</td><td>4 + 0 + 0</td><td>4</td></tr></tbody></table></div>
 <div class="notice"><strong>Exemple · Interpretar chmod 754</strong><p>Les tres xifres corresponen, en ordre, al propietari, al grup i als altres:</p><ol><li><strong>7</strong> = 4 + 2 + 1 → <code>rwx</code> per al propietari.</li><li><strong>5</strong> = 4 + 1 → <code>r-x</code> per al grup.</li><li><strong>4</strong> = 4 → <code>r--</code> per als altres.</li></ol><pre>$ chmod 754 fitxer</pre></div>
 <div class="table-wrap"><table><thead><tr><th>Ordre</th><th>Resultat</th><th>Interpretació</th></tr></thead><tbody><tr><td><code>chmod 755 script.sh</code></td><td><code>rwxr-xr-x</code></td><td>Tothom el pot executar; només el propietari hi té escriptura.</td></tr><tr><td><code>chmod 644 document.txt</code></td><td><code>rw-r--r--</code></td><td>Tothom pot llegir; només el propietari pot escriure.</td></tr><tr><td><code>chmod 600 arxiu_private.key</code></td><td><code>rw-------</code></td><td>Lectura i escriptura només per al propietari.</td></tr></tbody></table></div>
-<p><code>chmod 755 carpeta</code> canvia la carpeta indicada. Amb <code>chmod -R 755 carpeta</code> el canvi és recursiu i afecta també el contingut i les subcarpetes: revisa’l abans d’aplicar-lo, perquè pot modificar molts permisos alhora.</p>
+<p><code>chmod 755 carpeta</code> canvia la carpeta indicada. Amb <code>chmod -R 755 carpeta</code> el canvi és recursiu i afecta també el contingut i les subcarpetes: revisa’l abans d’aplicar-lo, perquè pot modificar molts permisos alhora. A més, aplicar 755 recursivament també dona execució als fitxers, no només als directoris.</p>
 <h4>Mètode simbòlic</h4>
 <p>En notació simbòlica, <code>u</code> és el propietari, <code>g</code> el grup, <code>o</code> els altres i <code>a</code> totes les categories. L’operador <code>+</code> afegeix permisos, <code>-</code> els retira i <code>=</code> fixa exactament els permisos indicats.</p>
 <pre>$ chmod u+x script.sh       # afegeix execució al propietari
@@ -373,7 +379,7 @@ $ ls -ld dir2</pre><p>Comprova els permisos amb les ordres de l’exemple. Aques
 <div class="table-wrap"><table><thead><tr><th>Permís</th><th>Què permet?</th></tr></thead><tbody><tr><td>Control total</td><td>Llegir, escriure, eliminar i gestionar permisos i propietat.</td></tr><tr><td>Modificar</td><td>Llegir, escriure i eliminar, sense concedir per això control total.</td></tr><tr><td>Lectura i execució</td><td>Veure contingut i executar programes.</td></tr><tr><td>Mostrar contingut de la carpeta</td><td>Llistar fitxers i subcarpetes.</td></tr><tr><td>Lectura</td><td>Consultar contingut i atributs.</td></tr><tr><td>Escriptura</td><td>Escriure dades i crear elements quan correspon.</td></tr></tbody></table></div>
 <p>Per consultar o modificar els permisos, fes clic dret sobre el recurs i segueix <strong>Propietats → Seguretat → Edita</strong>. Selecciona o afegeix l’usuari o grup, ajusta els permisos i aplica els canvis. A <strong>Seguretat → Opcions avançades</strong> pots revisar permisos especials, propietari i herència.</p>
 <div class="table-wrap"><table><thead><tr><th>Pas</th><th>Captura de la presentació</th></tr></thead><tbody><tr><td>1. Fes clic dret i selecciona Propietats.</td><td><img src="images/part-v-diapositiva-29-1.png" alt="Menú contextual de Windows amb l’opció Propietats" loading="lazy" style="max-width:100%;height:auto"></td></tr><tr><td>2. Obre la pestanya Seguretat.</td><td><img src="images/part-v-diapositiva-30-1.png" alt="Pestanya Seguretat amb grups, usuaris i permisos" loading="lazy" style="max-width:100%;height:auto"></td></tr><tr><td>3. Prem Edita i ajusta els permisos de l’usuari o grup.</td><td><img src="images/part-v-diapositiva-31-1.png" alt="Finestres de seguretat i edició dels permisos" loading="lazy" style="max-width:100%;height:auto"></td></tr><tr><td>4. A Opcions avançades revisa el propietari i l’herència.</td><td><img src="images/part-v-diapositiva-32-1.png" alt="Configuració de seguretat avançada i entrades de permisos" loading="lazy" style="max-width:100%;height:auto"></td></tr></tbody></table></div><p class="small">Captures de les diapositives de la Part V.</p>
-<p>Els fitxers i subcarpetes poden <strong>heretar</strong> permisos de la carpeta pare. Les entrades de permetre i denegar, les pertinences a grups i la seva procedència explícita o heretada influeixen en l’accés efectiu. Si accedeixes per xarxa, també intervenen els permisos de compartició; cal que les dues capes permetin l’operació.</p>
+<p>Els fitxers i subcarpetes poden <strong>heretar</strong> permisos de la carpeta pare. A <strong>Opcions avançades</strong> es pot desactivar l’herència, si cal, i revisar el propietari. Cada objecte té propietari i un administrador autoritzat pot prendre’n la propietat amb eines com <code>takeown</code>. Els permisos dels grups es poden combinar; les entrades de permetre i denegar i la seva procedència explícita o heretada influeixen en l’accés efectiu. Si accedeixes per xarxa, també intervenen els permisos de compartició; cal que les dues capes permetin l’operació.</p>
 <h3>Comparació entre Linux i Windows</h3>
 <div class="table-wrap"><table><thead><tr><th>Aspecte</th><th>Linux</th><th>Windows · NTFS</th></tr></thead><tbody><tr><td>Model</td><td>Propietari, grup i altres; es poden afegir ACL POSIX.</td><td>ACL amb entrades per a usuaris i grups.</td></tr><tr><td>Permisos</td><td><code>r</code>, <code>w</code> i <code>x</code>.</td><td>Lectura, escriptura, modificar, control total i altres.</td></tr><tr><td>Denegació explícita</td><td>Les ACL POSIX no tenen entrades de denegar.</td><td>Hi pot haver entrades Permetre i Denegar.</td></tr><tr><td>Herència</td><td>La umask i les ACL per defecte influeixen en els nous elements.</td><td>Les entrades es poden heretar de la carpeta pare.</td></tr><tr><td>Eines</td><td><code>chmod</code>, <code>chown</code>, <code>chgrp</code>, <code>umask</code> i <code>setfacl</code>.</td><td>Interfície gràfica, <code>icacls</code>, <code>takeown</code> i PowerShell.</td></tr></tbody></table></div>
 <p>En tots dos sistemes aplica el <strong>mínim privilegi</strong>: concedeix només els permisos necessaris i, quan sigui possible, gestiona’ls mitjançant grups.</p>
@@ -386,9 +392,11 @@ $ id joan
 $ getent passwd joan
 $ sudo groupadd desenvolupament
 $ sudo usermod -aG desenvolupament joan
+$ id joan
 $ sudo gpasswd -d joan desenvolupament
 $ id joan</pre>
-<p><code>adduser</code> facilita la creació d’un compte a Ubuntu; també es pot utilitzar <code>useradd -m</code> i després <code>passwd</code>. L’opció <code>-a</code> de <code>usermod -aG</code> afegeix el grup sense substituir els grups secundaris existents. <code>deluser joan</code> elimina el compte; <code>deluser --remove-home joan</code> també elimina la carpeta personal. <code>groupdel</code> elimina un grup: fes aquestes proves només amb comptes i grups de laboratori.</p>
+<p><code>adduser</code> facilita la creació d’un compte a Ubuntu. Com a alternativa, <code>useradd -m</code> crea el compte amb carpeta personal i després <code>passwd</code> permet assignar-li una contrasenya:</p><pre>$ sudo useradd -m joan
+$ sudo passwd joan</pre><p>Fes servir aquesta alternativa en lloc de <code>adduser joan</code>, no després de crear el mateix compte. L’opció <code>-a</code> de <code>usermod -aG</code> afegeix el grup sense substituir els grups secundaris existents.</p>
 <p>Per eliminar un compte de prova, pots fer servir <code>sudo deluser joan</code>. Si també vols eliminar-ne la carpeta personal, utilitza <code>sudo deluser --remove-home joan</code>. Per eliminar el grup de prova, executa <code>sudo groupdel desenvolupament</code>. A Debian/Ubuntu també pots afegir i treure un usuari d’un grup amb:</p>
 <pre>$ sudo adduser joan desenvolupament
 $ sudo deluser joan desenvolupament
@@ -769,20 +777,27 @@ $ sudo -u ra1editor touch /srv/ra1/projecte/prova-editor.txt</pre>
 <h3>1. Crear fitxers amb diferents umask</h3><p>Estableix <code>umask 022</code>, crea <code>capitol5</code> i, dins, el fitxer <code>fic1</code> i el directori <code>dir1</code>. Canvia a <code>umask 027</code> i crea <code>fic2</code> i <code>dir2</code> al mateix nivell. Compara els permisos i comprova si els primers han canviat.</p><details><summary>Solució per estudiar</summary><pre>$ umask 022
 $ mkdir capitol5
 $ cd capitol5
+$ ls -l
+$ ls -ld .
+$ umask
 $ touch fic1
 $ mkdir dir1
+$ ls -l
 $ umask 027
 $ touch fic2
 $ mkdir dir2
 $ ls -l
-$ ls -ld dir1 dir2</pre><p>Sense ACL per defecte, fic1 és 644 i dir1 755; fic2 és 640 i dir2 750. Canviar la umask no modifica els elements ja creats. <code>ls -ld dir1</code> mostra el directori, mentre que <code>ls -l dir1</code> mostra el contingut.</p></details>
+$ ls -ld dir1 dir2</pre><p>Sense ACL per defecte, fic1 és 644 i dir1 755; fic2 és 640 i dir2 750. Canviar la umask no modifica els elements ja creats. <code>ls -ld .</code> mostra els permisos de la carpeta actual; <code>ls -ld dir1</code> mostra els de dir1, mentre que <code>ls -l dir1</code> mostra el contingut.</p></details>
 <h3>2. Permisos d’un directori i fitxer ocult</h3><p>Afegeix <code>rwx</code> a altres usuaris sobre dir1 amb notació simbòlica i prova una assignació octal a dir2. Crea una carpeta de prova i un fitxer ocult <code>.secret</code>; deixa-li només lectura per al propietari. Amb un altre compte de prova, comprova si el pot llegir o eliminar i justifica el resultat.</p><details><summary>Solució per estudiar</summary><pre>$ chmod o=rwx dir1
 $ chmod 007 dir2
 $ mkdir /tmp/usuari-prova
+$ ls -ld /tmp/usuari-prova
 $ touch /tmp/usuari-prova/.secret
 $ chmod 400 /tmp/usuari-prova/.secret
-$ ls -la /tmp/usuari-prova</pre><p>El valor 007 és una de les solucions de l’exemple: deixa propietari i grup sense permisos i dona rwx als altres. El 400 impedeix als altres llegir el fitxer, però eliminar-lo depèn dels permisos d’escriptura i execució del directori que el conté, així com de possibles restriccions addicionals. Comprova-ho amb comptes de laboratori.</p></details>
-<h3>3. Directoris i fitxers</h3><p>Amb <code>umask 002</code>, crea <code>docpersonal</code> amb permisos 700 i les subcarpetes fica, ficb, ficc i ficd. Assigna’ls, respectivament, 755, 700, 750 i 777. A fica crea <code>prova.txt</code> i compara els permisos 600 i 644.</p><details><summary>Solució per estudiar</summary><pre>$ umask 002
+$ ls -la /tmp/usuari-prova</pre><p>El valor 007 és una de les solucions de l’exemple: deixa propietari i grup sense permisos i dona rwx als altres. El 400 impedeix als altres llegir el fitxer, però eliminar-lo depèn dels permisos d’escriptura i execució del directori que el conté, així com de possibles restriccions addicionals. Si la carpeta <code>/tmp/usuari-prova</code> s’ha creat amb <code>umask 027</code> i no té ACL per defecte, habitualment queda amb 750: un segon usuari que no pertanyi al grup no pot travessar-la, llegir el fitxer ni eliminar-lo. Amb una carpeta que sí que li permeti travessar-la, el permís 400 continua impedint-li llegir el fitxer; si a més té <code>w</code> i <code>x</code> a la carpeta, podria eliminar-lo, subjecte a restriccions com el bit <em>sticky</em>. Comprova els permisos reals amb comptes de laboratori.</p></details>
+<h3>3. Directoris i fitxers</h3><p>Amb <code>umask 002</code>, crea <code>docpersonal</code> amb permisos 700 i les subcarpetes fica, ficb, ficc i ficd. Assigna’ls, respectivament, 755, 700, 750 i 777. A fica crea <code>prova.txt</code> i compara els permisos 600 i 644.</p><details><summary>Solució per estudiar</summary><pre>$ cd ~/capitol5
+$ pwd
+$ umask 002
 $ mkdir docpersonal
 $ chmod 700 docpersonal
 $ cd docpersonal
@@ -793,10 +808,11 @@ $ chmod 750 ficc
 $ chmod 777 ficd
 $ ls -ld fica ficb ficc ficd
 $ touch fica/prova.txt
+$ ls -l fica/prova.txt
 $ chmod 600 fica/prova.txt
 $ ls -l fica/prova.txt
 $ chmod 644 fica/prova.txt
-$ ls -l fica/prova.txt</pre><p>600 dona lectura i escriptura només al propietari; 644 afegeix lectura al grup i als altres. El directori pare <code>docpersonal</code> té 700, de manera que els altres no el poden travessar encara que una subcarpeta o fitxer mostri permisos més amplis.</p></details></article>
+$ ls -l fica/prova.txt</pre><p>Amb <code>umask 002</code> i sense ACL per defecte, el fitxer acabat de crear és habitualment 664. Després, 600 dona lectura i escriptura només al propietari; 644 afegeix lectura al grup i als altres. El directori pare <code>docpersonal</code> té 700, de manera que els altres no el poden travessar encara que una subcarpeta o fitxer mostri permisos més amplis.</p></details></article>
 <article id="exercicis-sai"><div class="eyebrow">Part III · SAI</div><h2>Exercicis resolts de SAI</h2><p>Relacionats amb la <a href="#teoria/sai">lliçó de SAI</a>. Els resultats d’autonomia són estimacions teòriques; la durada real es comprova amb la fitxa del fabricant.</p>
 <h3>Energia i autonomia</h3><p>Una bateria de 12 V i 9 Ah alimenta una càrrega de 500 W. Suposem un factor d’energia útil del 90 % i que el SAI admet la càrrega en W i VA. Calcula l’energia teòrica, l’energia útil i els minuts.</p><details><summary>Solució per estudiar</summary><div class="notice"><strong>Pas 1 · Energia teòrica</strong><div class="formula">1 × 12 V × 9 Ah = <strong>108 Wh</strong></div></div><div class="notice"><strong>Pas 2 · Energia útil estimada</strong><div class="formula">108 Wh × 0,90 = <strong>97,2 Wh</strong></div></div><div class="notice"><strong>Pas 3 · Autonomia teòrica</strong><div class="formula">(97,2 Wh ÷ 500 W) × 60 ≈ <strong>11,7 minuts</strong></div></div><p>És una estimació, no una durada garantida.</p></details>
 <h3>Un lloc de treball</h3><p>Un ordinador consumeix 220 W, el monitor 30 W i el router 10 W. Amb marge del 25 % i FP 0,7, tria entre A: 500 VA / 300 W i B: 650 VA / 360 W.</p><details><summary>Solució per estudiar</summary><div class="notice"><strong>Pas 1 · Consum real</strong><div class="formula">220 + 30 + 10 = <strong>260 W</strong></div></div><div class="notice"><strong>Pas 2 · Aplicar el marge del 25 %</strong><div class="formula">260 × 1,25 = <strong>325 W</strong></div></div><div class="notice"><strong>Pas 3 · Calcular els VA</strong><div class="formula">325 ÷ 0,7 ≈ <strong>464,3 VA</strong></div></div><div class="notice"><strong>Pas 4 · Comparar els models</strong><p>El model A no compleix perquè 300 W és inferior a 325 W. El model B compleix els dos límits de potència; cal verificar-ne també l’autonomia.</p></div><p>Per estimar l’autonomia s’utilitzen els 260 W reals, no els 325 W amb marge.</p></details>
