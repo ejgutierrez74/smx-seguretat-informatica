@@ -26,6 +26,94 @@
 #teoria > article figure.ra1-visual figcaption { color: #506375; font-size: .88em; margin-top: .55rem; line-height: 1.45; }
 #teoria > article .ra1-passos { display: flex; flex-wrap: wrap; gap: .65rem; margin: 1.5rem 0; padding: 0; list-style: none; }
 #teoria > article .ra1-passos li { flex: 1 1 150px; background: #eef7f6; border-left: 3px solid #006b69; border-radius: 5px; padding: .75rem .9rem; margin: 0; }
+/* Apunts RA1 · format llibre de text (2026-11). */
+#teoria .ra1-ca { background:#f3f6f9; border:1px solid #d6dee6; border-radius:8px; padding:.6rem 1rem; font-size:.95em; }
+#teoria .ra1-ca p { margin:.35rem 0 !important; }
+#teoria .ra1-clau { background:#eef7f6; border-left:4px solid #006b69; border-radius:6px; padding:.75rem 1rem; margin:1.3rem 0; }
+#teoria .ra1-alerta { background:#fff5e6; border-left:4px solid #c46a00; border-radius:6px; padding:.75rem 1rem; margin:1.3rem 0; }
+#teoria .ra1-exemple { background:#f6f4fb; border-left:4px solid #5b4a9e; border-radius:6px; padding:.75rem 1rem; margin:1.3rem 0; }
+#teoria .ra1-clau ol, #teoria .ra1-exemple ul { margin:.4rem 0; }
+#teoria .ra1-cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:.8rem; margin:1.3rem 0; }
+#teoria .ra1-cards > div { background:#fff; border:1px solid #d6dee6; border-top:4px solid #24475c; border-radius:8px; padding:.8rem 1rem; }
+#teoria .ra1-cards h4 { margin:0 0 .4rem !important; }
+#teoria .ra1-cards p { margin:.3rem 0 !important; }
+#teoria .ra1-cards img { display:block; max-width:100%; max-height:150px; margin:0 auto .5rem; border-radius:6px; }
+#teoria figure.ra1-fig-r { float:right; width:190px; margin:.3rem 0 1rem 1.3rem; text-align:center; }
+#teoria figure.ra1-fig-r img { width:100%; height:auto; max-height:200px; object-fit:contain; }
+#teoria figure.ra1-fig-r figcaption, #teoria .ra1-figs figcaption { color:#506375; font-size:.85em; line-height:1.4; margin-top:.35rem; }
+#teoria > article h3 { clear:both; }
+#teoria .ra1-figs { display:flex; flex-wrap:wrap; gap:1rem; justify-content:center; margin:1.3rem 0; clear:both; }
+#teoria .ra1-figs figure { flex:0 1 180px; margin:0; text-align:center; }
+#teoria .ra1-figs figure img { width:100%; height:150px; object-fit:contain; }
+#teoria .ra1-figs-2 figure { flex:1 1 300px; }
+#teoria .ra1-figs-2 figure img { height:auto; max-height:320px; }
+#teoria > article figure.ra1-visual.ra1-wide { max-width:720px; }
+#teoria > article figure.ra1-visual.ra1-wide img { max-height:none; }
+#teoria .ra1-video { max-width:720px; aspect-ratio:16/9; margin:1rem 0; }
+#teoria .ra1-video iframe { width:100%; height:100%; border:0; border-radius:8px; }
+#teoria pre.ra1-formula { background:#f3f6f9; border:1px solid #d6dee6; border-radius:8px; padding:.8rem 1rem; white-space:pre-wrap; }
+#teoria blockquote { margin:1.2rem 0; padding:.6rem 1.2rem; border-left:4px solid #8aa0b2; color:#33495c; font-style:italic; }
+#teoria .ra1-exercicis { clear:both; margin-top:2.5rem; padding-top:.5rem; border-top:3px solid #24475c; }
+#teoria .ra1-ex { border:1px solid #d6dee6; border-radius:8px; padding:.4rem 1.1rem 1rem; margin:1.2rem 0; background:#fbfcfd; }
+#teoria .ra1-ex details summary, #teoria details.ra1-annex summary { cursor:pointer; font-weight:700; color:#006b69; }
+#teoria details.ra1-annex { border:1px dashed #8aa0b2; border-radius:8px; padding:.7rem 1rem; }
+#teoria .ra1-credits { clear:both; margin-top:2.5rem; padding:.8rem 1rem; border-top:1px solid #d6dee6; font-size:.88em; color:#41566a; background:#f7f9fb; border-radius:6px; }
+#teoria .ra1-credits p { margin:.25rem 0 !important; }
+#teoria table td[rowspan] { vertical-align:middle; background:#f3f6f9; }
+@media (max-width:640px){ #teoria figure.ra1-fig-r { float:none; width:auto; max-width:220px; margin:1rem auto; } }
+@media print { #teoria details { display:block; } #teoria .ra1-video { display:none; } }
+/* Més aire als apunts nous */
+#teoria > article.ra1-llibre { line-height:1.85; font-size:1.02rem; }
+#teoria > article.ra1-llibre p { margin-block:1.15rem; }
+#teoria > article.ra1-llibre h3 { margin-top:3.4rem; margin-bottom:1.1rem; padding-bottom:.4rem; border-bottom:1px solid #e1e7ed; }
+#teoria > article.ra1-llibre h4 { margin-top:2.2rem; margin-bottom:.8rem; }
+#teoria > article.ra1-llibre ul, #teoria > article.ra1-llibre ol { margin-block:1.1rem; }
+#teoria > article.ra1-llibre li { margin-block:.6rem; }
+#teoria > article.ra1-llibre .table-wrap { margin-block:1.8rem; }
+#teoria > article.ra1-llibre td, #teoria > article.ra1-llibre th { padding:.75rem 1rem; line-height:1.6; }
+#teoria > article.ra1-llibre .ra1-cards { gap:1.2rem; margin-block:1.8rem; }
+#teoria > article.ra1-llibre .ra1-cards > div { padding:1.1rem 1.25rem; }
+#teoria > article.ra1-llibre .ra1-cards p { margin:.55rem 0 !important; }
+#teoria > article.ra1-llibre .ra1-clau, #teoria > article.ra1-llibre .ra1-alerta, #teoria > article.ra1-llibre .ra1-exemple { padding:1rem 1.3rem; margin-block:1.8rem; }
+#teoria > article.ra1-llibre .ra1-ca { padding:.9rem 1.2rem; margin-bottom:2rem; }
+#teoria > article.ra1-llibre .ra1-ca p { margin:.5rem 0 !important; }
+#teoria > article.ra1-llibre .ra1-figs { gap:1.6rem; margin-block:2rem; }
+#teoria > article.ra1-llibre figure.ra1-fig-r { margin:.4rem 0 1.4rem 1.8rem; }
+#teoria > article.ra1-llibre .ra1-passos { gap:.9rem; margin-block:1.8rem; }
+#teoria > article.ra1-llibre .ra1-passos li { padding:1rem 1.1rem; line-height:1.55; }
+#teoria > article.ra1-llibre blockquote { margin-block:1.8rem; padding:.9rem 1.4rem; }
+#teoria > article.ra1-llibre .ra1-video { margin-block:1.5rem .5rem; }
+#teoria > article.ra1-llibre pre { margin-block:1.5rem; padding:1rem 1.2rem; }
+/* Índex de cada apartat */
+#teoria .ra1-index { background:#fff; border:1px solid #d6dee6; border-left:4px solid #006b69; border-radius:8px; padding:.9rem 1.3rem 1rem; margin:1.5rem 0 2.5rem; }
+#teoria .ra1-index p { margin:0 0 .5rem !important; }
+#teoria .ra1-index ol { list-style:none; padding:0; margin:0; columns:2 260px; column-gap:2rem; }
+#teoria .ra1-index li { margin:.3rem 0 !important; break-inside:avoid; }
+#teoria .ra1-index a { text-decoration:none; color:#163447; }
+#teoria .ra1-index a:hover { color:#006b69; text-decoration:underline; }
+#teoria .ra1-index a span, #teoria .ra1-num { display:inline-block; min-width:2.4em; font-weight:700; color:#006b69; }
+#teoria h3 { scroll-margin-top:1rem; }
+#teoria .ra1-amunt { float:right; font-size:.72rem; font-weight:400; color:#8aa0b2; text-decoration:none; margin-top:.4rem; }
+#teoria .ra1-amunt:hover { color:#006b69; }
+@media print { #teoria .ra1-amunt { display:none; } }
+/* Imatges centrades entre paràgrafs */
+#teoria figure.ra1-fig-c { margin:1.8rem auto; max-width:240px; text-align:center; }
+#teoria figure.ra1-fig-c img { width:100%; height:auto; max-height:210px; object-fit:contain; }
+#teoria figure.ra1-fig-c figcaption { color:#506375; font-size:.85em; line-height:1.4; margin-top:.4rem; }
+/* Índex lateral enganxós en pantalles amples */
+
+@media (min-width:1300px){
+ #teoria > article.ra1-llibre { display:grid; grid-template-columns:minmax(0,1fr) 230px; column-gap:2.2rem; align-items:start; }
+ #teoria > article.ra1-llibre > * { grid-column:1; }
+ #teoria > article.ra1-llibre > .ra1-index { grid-column:2; grid-row:1 / span 400; position:sticky; top:1rem; margin:0; max-height:calc(100vh - 2rem); overflow:auto; font-size:.88rem; padding:.8rem 1rem; }
+ #teoria .ra1-index ol { columns:auto; }
+ #teoria .ra1-amunt { display:none; }
+}
+#teoria > article.ra1-llibre .ra1-ca + .ra1-index + h3, #teoria > article.ra1-llibre .ra1-index + h3 { margin-top:2rem; }
+#teoria h3 { scroll-margin-top:1.2rem; }
+#teoria .ra1-index .ra1-index-top { margin:.8rem 0 0 !important; padding-top:.6rem; border-top:1px solid #e1e7ed; font-size:.85em; }
+#teoria .ra1-index li a.actiu { color:#006b69; font-weight:700; }
+#teoria .ra1-index li a.actiu span { color:#c46a00; }
 </style>
 </head>
 <body data-default-panel="ra1">
@@ -57,67 +145,147 @@
 <h2>Organització del contingut</h2>
 <p>El RA1 es desenvolupa en set parts: I. Introducció a la seguretat informàtica; II. Seguretat física; III. Sistemes d’alimentació ininterrompuda (SAI); IV. Contrasenyes, biometria i autenticació; V. Permisos a Linux i Windows; VI. ACL i polítiques de seguretat; VII. Registres d’usuaris, incidències i alarmes.</p>
 <p>Els apunts expliquen els conceptes amb exemples i procediments. Les activitats es recullen a <a href="#practiques">Pràctiques RA1</a>, i els <a href="#avaluacio">criteris i continguts</a> es poden consultar abans de començar el temari.</p></section><section class="panel" id="materials" data-title="Materials i presentacions RA1"><div class="eyebrow">M0226 · Seguretat informàtica</div><h1>Materials i presentacions RA1</h1><p>Les set presentacions definitives inclouen exemples i exercicis resolts per estudiar. Els solucionaris independents es reserven al professorat.</p><ol>
-<li><a href="#" id="descarrega-part1">Part I · Introducció a la seguretat informàtica</a> · <a href="#teoria/fonaments">Apunts</a></li>
+<li><a href="materials-ra1/part-i.pptx" download>Part I · Introducció a la seguretat informàtica</a> · <a href="#teoria/fonaments">Apunts</a></li>
 <li><a href="materials-ra1/part-ii.pptx" download>Part II · Seguretat física</a> · <a href="#teoria/fisica">Apunts</a></li>
 <li><a href="materials-ra1/part-iii.pptx" download>Part III · SAI</a> · <a href="#teoria/sai">Apunts</a></li>
 <li><a href="materials-ra1/part-iv.pptx" download>Part IV · Contrasenyes, biometria i autenticació</a> · <a href="#teoria/part4">Apunts</a></li>
 <li><a href="materials-ra1/part-v.pptx" download>Part V · Permisos Linux i Windows</a> · <a href="#teoria/permisos">Apunts</a></li>
 <li><a href="materials-ra1/part-vi.pptx" download>Part VI · ACL i polítiques de seguretat</a> · <a href="#teoria/acl">Apunts</a></li>
 <li><a href="materials-ra1/part-vii.pptx" download>Part VII · Registres, usuaris, incidències i alarmes</a> · <a href="#teoria/registres">Apunts</a></li></ol><p class="small">Crèdits de les presentacions: parts I–III, idea original de Xavier Sala Pujolar i modificació d’Amanda Fontana; parts IV–VII, idea original d’Ivan Basart Carrillo, Carles Caño Valls i Carles Franquesa, i modificació d’Amanda Fontana. Adaptació i reorganització: Eduard Gutiérrez. Llicència del material: <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ca">CC BY-NC-SA 4.0</a>.</p>
-<p id="material-estat" role="status"></p><p>Consulta també les <a href="#practiques">pràctiques i exercicis</a>.</p></section>
-<script>document.getElementById('descarrega-part1').addEventListener('click',async function(e){e.preventDefault();const status=document.getElementById('material-estat');status.textContent='Preparant la descàrrega…';try{const responses=await Promise.all(['materials-ra1/part-i-1.bin','materials-ra1/part-i-2.bin'].map(url=>fetch(url)));if(responses.some(r=>!r.ok))throw Error();const parts=await Promise.all(responses.map(r=>r.arrayBuffer()));const url=URL.createObjectURL(new Blob(parts,{type:'application/vnd.openxmlformats-officedocument.presentationml.presentation'}));const a=document.createElement('a');a.href=url;a.download='RA1-Introduccio_seguretat_PartI.pptx';a.click();setTimeout(()=>URL.revokeObjectURL(url),60000);status.textContent='Descàrrega preparada.'}catch(error){status.textContent='No s’ha pogut descarregar la presentació. Torna-ho a provar.'}});</script>
+<p>Consulta també les <a href="#practiques">pràctiques i exercicis</a>.</p></section>
 <section class="panel" id="teoria" data-title="Apunts de teoria"><div class="eyebrow">Apunts per explicar i estudiar</div>
 <h1>La teoria del RA1.</h1>
 <p class="lead">Conceptes, exemples i decisions tècniques al nivell de CFGM. Cada bloc s’enllaça amb les sessions i els criteris que treballa.</p>
 <div class="toc">
 <a href="#teoria/fonaments">01 Fonaments</a><a href="#teoria/fisica">02 Entorn físic</a><a href="#teoria/sai">03 SAI</a><a href="#teoria/part4">04 Contrasenyes, biometria i autenticació</a><a href="#teoria/permisos">05 Permisos Linux i Windows</a><a href="#teoria/acl">06 ACL i polítiques</a><a href="#teoria/registres">07 Registres</a>
 </div>
-<article id="fonaments"><div class="eyebrow">Part I · Criteris 1.a i 1.b</div>
+<article id="fonaments" class="ra1-llibre"><div class="eyebrow">Part I · Criteris 1.a i 1.b</div>
 <h2>01 · Introducció a la seguretat informàtica</h2>
-<p>La seguretat informàtica protegeix la informació, els equips, els programes i els serveis davant de situacions que els poden perjudicar. En aquesta lliçó veurem per què és important mantenir la informació segura i distingirem la seguretat física de la lògica.</p>
-<p>Pots mirar el vídeo <a href="https://youtu.be/NPE7i8wuupk">«¿Por qué me vigilan, si no soy nadie?», de Marta Peirano</a> per reflexionar sobre l’impacte de les nostres dades en la vida quotidiana (TEDxMadrid, uns 10 minuts).</p>
-<div style="max-width:720px;aspect-ratio:16/9"><iframe src="https://www.youtube-nocookie.com/embed/NPE7i8wuupk" title="Marta Peirano: ¿Por qué me vigilan, si no soy nadie?" loading="lazy" allowfullscreen style="width:100%;height:100%;border:0"></iframe></div>
-<h3>Conceptes bàsics de seguretat</h3>
-<p>Per parlar de seguretat hem de distingir els elements que volem protegir, els problemes que els amenacen i les conseqüències que poden tenir.</p>
-<div class="table-wrap"><table><thead><tr><th>Concepte</th><th>Significat</th><th>Exemple</th></tr></thead><tbody><tr><td><strong>Actiu</strong></td><td>Element valuós que necessita protecció: informació, programari, maquinari o personal.</td><td>El servidor que guarda les notes.</td></tr><tr><td><strong>Vulnerabilitat</strong></td><td>Debilitat d’un actiu que pot facilitar un incident.</td><td>Una contrasenya fàcil d’endevinar.</td></tr><tr><td><strong>Amenaça</strong></td><td>Situació o acció que pot provocar danys.</td><td>Una persona que intenta accedir sense permís.</td></tr><tr><td><strong>Risc</strong></td><td>Relació entre la possibilitat d’un incident i la gravetat de les conseqüències.</td><td>Que algú accedeixi a les notes i les modifiqui.</td></tr><tr><td><strong>Atac</strong></td><td>Acció que pot aprofitar una vulnerabilitat.</td><td>Provar contrasenyes fins a entrar al compte.</td></tr><tr><td><strong>Impacte</strong></td><td>Repercussions de l’incident o atac.</td><td>Notes alterades o informació exposada.</td></tr><tr><td><strong>Desastre</strong></td><td>Incident greu que provoca danys importants o una interrupció.</td><td>Un incendi que inutilitza el servidor.</td></tr></tbody></table></div>
-<p>En aquest exemple, protegim el servidor i les seves dades: una contrasenya feble és la vulnerabilitat que pot facilitar un atac. El risc depèn tant de la possibilitat que passi com del dany que causaria.</p>
-<figure class="ra1-visual"><img src="images/ra1-i-actiu-servidor.png" alt="Il·lustració d’un servidor informàtic" loading="lazy"><figcaption>Un servidor és un exemple d’actiu que cal protegir. Imatge de la presentació.</figcaption></figure>
-<h3>Confidencialitat, integritat i disponibilitat</h3>
-<p>La seguretat de la informació es basa en tres propietats que es complementen:</p>
-<div class="table-wrap"><table><thead><tr><th>Propietat</th><th>Què significa?</th><th>Exemple</th></tr></thead><tbody>
-<tr><td><strong>Confidencialitat</strong></td><td>Les dades només són accessibles a les persones autoritzades.</td><td>Una contrasenya ajuda a restringir l’accés a informació privada.</td></tr>
-<tr><td><strong>Integritat</strong></td><td>Les dades no pateixen modificacions no autoritzades o accidentals.</td><td>Cal impedir que algú modifiqui les notes de l’alumnat sense permís.</td></tr>
-<tr><td><strong>Disponibilitat</strong></td><td>Els recursos es poden utilitzar quan són necessaris.</td><td>Si falla el corrent i el servidor s’atura, la informació pot deixar d’estar disponible.</td></tr>
+<div class="ra1-ca"><p><strong>Criteris d’avaluació:</strong> 1.a Valora la importància de mantenir la informació segura · 1.b Descriu les diferències entre seguretat física i lògica.</p><p><strong>Objectiu:</strong> introduir els conceptes bàsics de seguretat informàtica i diferenciar entre seguretat física i lògica.</p></div>
+<div class="ra1-index" id="fonaments-index" role="navigation" aria-label="Índex de l’apartat"><p><strong>En aquest apartat</strong></p><ol><li><a href="#teoria/fonaments" data-goto="fonaments-1-1"><span>1.1</span> Què és la seguretat informàtica?</a></li><li><a href="#teoria/fonaments" data-goto="fonaments-1-2"><span>1.2</span> Glossari de seguretat</a></li><li><a href="#teoria/fonaments" data-goto="fonaments-1-3"><span>1.3</span> Confidencialitat, integritat i disponibilitat</a></li><li><a href="#teoria/fonaments" data-goto="fonaments-1-4"><span>1.4</span> De què s’encarrega la seguretat informàtica?</a></li><li><a href="#teoria/fonaments" data-goto="fonaments-1-5"><span>1.5</span> Cal saber informàtica per fer un atac?</a></li><li><a href="#teoria/fonaments" data-goto="fonaments-1-6"><span>1.6</span> Classificació de la seguretat</a></li><li><a href="#teoria/fonaments" data-goto="fonaments-1-7"><span>1.7</span> Enginyeria social i formació</a></li><li><a href="#teoria/fonaments" data-goto="fonaments-1-8"><span>1.8</span> Es pot protegir un sistema informàtic al 100 %?</a></li><li><a href="#teoria/fonaments" data-goto="fonaments-1-9"><span>1.9</span> Legislació i estàndards</a></li><li><a href="#teoria/fonaments" data-goto="fonaments-1-10"><span>1.10</span> El pla de contingència</a></li></ol><p class="ra1-index-top"><a href="#teoria/fonaments" data-goto="fonaments">↑ Inici de l’apartat</a></p></div>
+
+<h3 id="fonaments-1-1"><span class="ra1-num">1.1</span> Què és la seguretat informàtica?<a class="ra1-amunt" href="#teoria/fonaments" data-goto="fonaments-index" title="Torna a l’índex">↑ índex</a></h3>
+<p>La seguretat informàtica és el conjunt de mesures que protegeixen la informació, els equips, els programes i les persones que els utilitzen davant de qualsevol situació que els pugui perjudicar: un atac, un accident, una avaria o un error humà.</p>
+<p>Sovint pensem que les nostres dades no interessen a ningú. La xerrada de Marta Peirano <em>«¿Por qué me vigilan, si no soy nadie?»</em> (TEDxMadrid, uns 10 minuts) explica per què sí que és important protegir-les.</p>
+<div class="ra1-video"><iframe src="https://www.youtube-nocookie.com/embed/NPE7i8wuupk" title="Marta Peirano: ¿Por qué me vigilan, si no soy nadie?" loading="lazy" allowfullscreen></iframe></div>
+<p class="small">Si el vídeo no es carrega, <a href="https://youtu.be/NPE7i8wuupk">obre’l a YouTube</a>.</p>
+<p>En aquest apartat veurem primer el vocabulari bàsic i les tres propietats que volem garantir. Després veurem de què ens hem de protegir i com es classifiquen les mesures de seguretat. Acabarem amb les lleis, els estàndards i el pla de contingència, que ajuden a organitzar-ho tot.</p>
+
+<h3 id="fonaments-1-2"><span class="ra1-num">1.2</span> Glossari de seguretat<a class="ra1-amunt" href="#teoria/fonaments" data-goto="fonaments-index" title="Torna a l’índex">↑ índex</a></h3>
+<p>Abans de començar, cal tenir clar el vocabulari bàsic. Fixa’t que tots els termes estan relacionats: un <strong>atac</strong> aprofita una <strong>vulnerabilitat</strong> d’un <strong>actiu</strong>, i l’<strong>impacte</strong> són les conseqüències que provoca.</p>
+<div class="table-wrap"><table><thead><tr><th>Terme</th><th>Significat</th></tr></thead><tbody>
+<tr><td><strong>Actius</strong></td><td>Allò que té valor i necessita protecció: informació, programari, maquinari i personal.</td></tr>
+<tr><td><strong>Vulnerabilitat</strong></td><td>Debilitat d’un actiu.</td></tr>
+<tr><td><strong>Amenaça</strong></td><td>Situació o acció que pot provocar danys.</td></tr>
+<tr><td><strong>Risc</strong></td><td>Possibilitat que es produeixi un incident i gravetat de les seves conseqüències.</td></tr>
+<tr><td><strong>Atac</strong></td><td>Aprofitament d’una vulnerabilitat d’un actiu.</td></tr>
+<tr><td><strong>Impacte</strong></td><td>Repercussions d’un atac.</td></tr>
+<tr><td><strong>Desastre</strong></td><td>Incident greu que provoca danys importants o interrupcions.</td></tr>
 </tbody></table></div>
-<div class="notice"><strong>Exemple · Les notes d’una classe</strong><ol><li><strong>Confidencialitat:</strong> només les persones autoritzades poden consultar les notes.</li><li><strong>Integritat:</strong> una modificació no autoritzada de les notes comprometria que les dades fossin correctes.</li><li><strong>Disponibilitat:</strong> una avaria del servidor pot impedir consultar-les quan cal.</li></ol><p>Una mateixa incidència pot afectar més d’una propietat.</p></div>
-<h3>De què hem de protegir els sistemes?</h3>
-<p>Cal protegir-los davant d’intrusions i atacs, aprofitament de vulnerabilitats i ús indegut de contrasenyes. Entre els exemples d’atacs hi ha els <strong>virus</strong>, els <strong>cucs</strong> i les <strong>denegacions de servei</strong>, que poden dificultar o impedir l’ús normal d’un recurs.</p>
-<p>La protecció davant d’Internet és necessària, però no suficient. Els problemes també poden venir de dins: una persona descontenta, un dispositiu infectat o algú que entra a l’organització sense autorització. Els dispositius mòbils poden introduir riscos quan es connecten a xarxes Wi-Fi públiques, tenen aplicacions malicioses o estan infectats i després es connecten a la xarxa de l’organització.</p>
-<p>Per provocar un dany no sempre cal saber informàtica: una persona pot fer malbé físicament un equip o deixar-se enganyar. No tots els danys són intencionats. També hi ha accidents i errors humans. Un tall de corrent, per exemple, pot deixar els equips fora de servei; per això s’ha de protegir físicament el sistema. Les parts que poden resultar afectades inclouen el maquinari, el programari, les dades i les persones que utilitzen els equips.</p>
-<figure style="max-width:260px;margin:1.2rem auto"><img src="images/ra1-i-27-1.png" alt="Càmera de vigilància per detectar intrusions" loading="lazy" style="display:block;width:100%;height:auto;border-radius:8px"><figcaption>Una càmera és una mesura de detecció física. Imatge de la presentació.</figcaption></figure>
-<p>Els exemples següents relacionen els incidents de la presentació amb les propietats de la informació. Les conseqüències concretes poden variar segons l’incident:</p>
-<div class="table-wrap"><table><thead><tr><th>Situació</th><th>Propietats que pot afectar</th></tr></thead><tbody><tr><td>Una persona obté una contrasenya i consulta dades privades.</td><td><strong>Confidencialitat</strong>: les dades arriben a algú no autoritzat.</td></tr><tr><td>Un virus o un cuc modifica dades o impedeix fer servir el sistema.</td><td><strong>Integritat</strong> i/o <strong>disponibilitat</strong>, segons l’efecte.</td></tr><tr><td>Una persona fa malbé un equip, intencionadament o per accident.</td><td>Pot afectar la <strong>disponibilitat</strong> i, si es fan malbé dades, la <strong>integritat</strong>.</td></tr><tr><td>Es talla el corrent i el servidor s’apaga.</td><td><strong>Disponibilitat</strong>: no podem accedir al servei mentre estigui aturat.</td></tr></tbody></table></div>
-<h3>Seguretat física i seguretat lògica</h3>
-<p>Segons el que protegim, distingim dues classes de seguretat:</p>
-<ul><li>La <strong>seguretat física</strong> protegeix els equips i les instal·lacions. Té en compte, entre altres riscos, els robatoris, els desastres naturals i les fallades de subministrament. Inclou mesures de prevenció i detecció.</li><li>La <strong>seguretat lògica</strong> protegeix les dades, els programes i els accessos als sistemes. S’ocupa de riscos com el programari maliciós, la pèrdua de dades o els atacs als servidors.</li></ul>
-<p>També podem classificar les mesures segons la seva funció:</p><div class="table-wrap"><table><thead><tr><th>Mesura</th><th>Funció</th><th>Exemples</th></tr></thead><tbody><tr><td><strong>Activa</strong></td><td>Prevenir o detectar incidents.</td><td>Antivirus i tallafoc.</td></tr><tr><td><strong>Passiva</strong></td><td>Reduir els danys i facilitar la continuïtat o la recuperació.</td><td>SAI i còpies de seguretat.</td></tr></tbody></table></div><p>Les dues classificacions es complementen: física o lògica indica <em>què protegim</em>; activa o passiva indica <em>quina funció fa la mesura</em>.</p>
-<h3>Enginyeria social i formació</h3>
-<p>En un atac no sempre cal manipular directament un programa: l’<strong>enginyeria social</strong> consisteix a enganyar una persona perquè faci una acció perjudicial o faciliti informació. Per exemple, algú podria intentar convèncer un usuari que vessar cafè sobre l’ordinador farà que la connexió a Facebook vagi més ràpid. És una afirmació absurda: si l’usuari la creu i ho fa, pot fer malbé l’equip sense que l’atacant necessiti coneixements tècnics avançats.</p>
-<p>La formació ajuda a reconèixer aquests enganys, però també cal aplicar mesures tècniques. Per exemple, les contrasenyes curtes o fàcils d’endevinar dificulten menys els accessos no autoritzats que unes credencials robustes i ben protegides.</p>
-<h3>Existeix la seguretat absoluta?</h3>
-<p>No podem garantir que un sistema sigui segur al 100 %. El professor Gene Spafford va fer servir una exageració —un equip apagat, desconnectat i protegit dins d’un búnquer— per il·lustrar que fins i tot amb moltes barreres és difícil parlar de seguretat absoluta.</p>
-<p>Per això hem de preveure que algun dia es pot produir un incident: la seguretat informàtica intenta prevenir-lo, reduir-ne els danys i preparar la recuperació. Augmentar la protecció té un cost i no totes les organitzacions necessiten les mateixes mesures. L’objectiu és situar el risc en un nivell acceptable per a cada organització.</p>
-<h3>Legislació i estàndards</h3>
-<p>El <strong>RGPD</strong> (Reglament UE 2016/679) és la normativa europea de protecció de dades personals. A Espanya, la <strong>LOPDGDD</strong> (Llei orgànica 3/2018) el complementa. Les mesures de seguretat s’han d’adaptar als riscos del tractament de les dades. També es relacionen amb aquest àmbit la <strong>LSSI-CE</strong>, sobre serveis de la societat de la informació i comerç electrònic, i la <strong>LPI</strong>, sobre propietat intel·lectual i drets d’autor.</p>
-<p>Els estàndards i marcs de bones pràctiques ajuden a organitzar la seguretat i els serveis informàtics. La <strong>ISO/IEC 27002:2022</strong> ofereix una guia de controls, com el control d’accés, les còpies de seguretat, la protecció física i la gestió d’incidents. La 27002 no és una norma de certificació; la <strong>ISO/IEC 27001</strong> sí que és certificable.</p>
-<p><strong>ITIL</strong> és un marc de bones pràctiques per a la gestió dels serveis de tecnologies de la informació. Ajuda a organitzar, entre altres activitats, la gestió d’incidències i de canvis i la disponibilitat dels serveis.</p>
-<h3>El pla de contingència</h3>
-<p>Un <strong>pla de contingència</strong> defineix què cal fer davant d’un desastre per restaurar el sistema com més aviat millor i amb la mínima pèrdua de dades. Pot preparar l’organització davant d’una fallada de maquinari, un atac informàtic, un incendi o un error humà.</p>
-<p>El pla no és només un document: s’ha de preparar, provar, aplicar quan calgui i revisar. Podem organitzar-lo en cinc fases:</p>
-<ol><li><strong>Avaluació:</strong> analitzar els riscos i identificar els actius crítics.</li><li><strong>Planificació:</strong> dissenyar el pla i els procediments.</li><li><strong>Proves:</strong> fer simulacres per comprovar que funciona.</li><li><strong>Execució:</strong> aplicar el pla quan es produeix l’incident.</li><li><strong>Recuperació:</strong> restaurar les dades i els serveis i tornar a la normalitat.</li></ol>
-<p>Per fer-lo eficaç podem duplicar elements crítics —com servidors o connexions—, distribuir recursos i còpies en llocs diferents, documentar com es recuperen els serveis i formar les persones responsables. El <strong>RAID</strong> pot aportar redundància, però <strong>no substitueix les còpies de seguretat</strong>.</p>
-<p>Per preparar aquests plans podem consultar la <strong>ISO 22301:2019</strong> per a la continuïtat del negoci, la <strong>ISO/IEC 27031:2025</strong> per a la continuïtat dels serveis TIC i la guia <strong>NIST SP 800-34 Rev. 1</strong> per elaborar i mantenir plans de contingència informàtica. La idea comuna és planificar, provar i revisar la resposta abans que es produeixi una interrupció.</p>
-<p><a href="#practiques/e1">Practica els conceptes i la classificació de la Part I</a> · <a href="#materials">Consulta la presentació original</a>.</p>
+<div class="ra1-exemple"><strong>Exemple:</strong> el servidor de notes d’un institut és un <strong>actiu</strong>. Si té una contrasenya fàcil d’endevinar, aquesta és la seva <strong>vulnerabilitat</strong>. Un alumne que vol canviar-se les notes és una <strong>amenaça</strong>; si endevina la contrasenya i entra, fa un <strong>atac</strong>. El <strong>risc</strong> depèn de com de probable és que passi i del dany que faria, i l’<strong>impacte</strong> serien les notes modificades.</div>
+
+<h3 id="fonaments-1-3"><span class="ra1-num">1.3</span> Confidencialitat, integritat i disponibilitat<a class="ra1-amunt" href="#teoria/fonaments" data-goto="fonaments-index" title="Torna a l’índex">↑ índex</a></h3>
+<p>Amb aquest vocabulari ja podem explicar què vol dir que una informació sigui «segura». La seguretat de la informació es basa a garantir tres propietats. Les trobaràs al llarg de tot el mòdul, perquè qualsevol incident en pot afectar una o més.</p>
+<div class="ra1-cards">
+<div><h4>Confidencialitat</h4><p>Les dades han de ser accessibles <strong>només</strong> per les persones autoritzades.</p><p class="small">Exemple: no es pot llegir sense saber la contrasenya.</p></div>
+<div><h4>Integritat</h4><p>Les dades no han de patir modificacions no autoritzades o accidentals.</p><p class="small">Exemple: algú ha modificat les notes dels alumnes!</p></div>
+<div><h4>Disponibilitat</h4><p>S’han de poder fer servir els recursos quan faci falta.</p><p class="small">Exemple: el servidor s’ha aturat i no podem accedir a les dades.</p></div>
+</div>
+<p>Una mateixa incidència pot afectar més d’una propietat. Per exemple, si algú entra al servidor i esborra les notes, n’afecta la integritat (les dades ja no són correctes) i la disponibilitat (no es poden consultar).</p>
+
+<h3 id="fonaments-1-4"><span class="ra1-num">1.4</span> De què s’encarrega la seguretat informàtica?<a class="ra1-amunt" href="#teoria/fonaments" data-goto="fonaments-index" title="Torna a l’índex">↑ índex</a></h3>
+<p>Ara que sabem què volem garantir, vegem de què ens hem de protegir. La seguretat informàtica ha de protegir el sistema de dos grans tipus de perills:</p>
+<ul>
+<li>Les <strong>intrusions</strong>: persones (hackers) que entren al sistema sense permís aprofitant <strong>vulnerabilitats</strong> o un mal ús de les <strong>contrasenyes</strong>.</li>
+<li>Els <strong>atacs</strong>: <strong>virus</strong>, <strong>cucs</strong> o <strong>denegacions de servei</strong>, que poden impedir l’ús normal d’un recurs.</li>
+</ul>
+<figure class="ra1-fig-c"><img src="images/ra1-p1-s12-d7d0.webp" alt="Pantalla d’inici de sessió amb usuari i contrasenya" loading="lazy"><figcaption>L’ús indegut de contrasenyes és una amenaça habitual.</figcaption></figure>
+<p>Segons el cas, aquests atacs afecten la confidencialitat, la integritat o la disponibilitat.</p>
+<p>Ara bé, <strong>protegir el sistema de l’exterior (Internet) no és suficient</strong>. Els atacs també poden venir <strong>des de dintre</strong> de l’organització:</p>
+<ul>
+<li>treballadors descontents;</li>
+<li>dispositius infectats;</li>
+<li>algú que es cola a l’organització.</li>
+</ul>
+<div class="ra1-figs">
+<figure><img src="images/ra1-p1-s14-0d16.webp" alt="Castell emmurallat" loading="lazy"><figcaption>Protegir l’exterior…</figcaption></figure>
+<figure><img src="images/ra1-p1-s15-22bf.webp" alt="Monstre dins de l’organització" loading="lazy"><figcaption>…no evita els atacs des de dintre</figcaption></figure>
+<figure><img src="images/ra1-p1-s16-f13e.webp" alt="Espia amb gavardina" loading="lazy"><figcaption>Algú que es cola a l’organització</figcaption></figure>
+</div>
+<p>Els <strong>dispositius mòbils</strong> també poden comportar riscos:</p>
+<ul>
+<li>aplicacions malicioses;</li>
+<li>connexions a xarxes Wi-Fi públiques;</li>
+<li>dispositius infectats que, en connectar-se, poden posar en risc la xarxa de l’organització.</li>
+</ul>
+
+<h3 id="fonaments-1-5"><span class="ra1-num">1.5</span> Cal saber informàtica per fer un atac?<a class="ra1-amunt" href="#teoria/fonaments" data-goto="fonaments-index" title="Torna a l’índex">↑ índex</a></h3>
+<p>Fins ara hem parlat sobretot d’atacs informàtics, però la resposta és que no sempre cal saber informàtica. Per fer malbé un equip n’hi ha prou amb un cop o amb destrossar-lo, i això afecta la disponibilitat i potser la integritat de les dades. A més, no tots els danys són intencionats: <strong>també poden ser accidents</strong>, com vessar un líquid o ensopegar amb un cable.</p>
+<p>Per tant, <strong>s’han de protegir físicament els sistemes informàtics</strong>. Per exemple, sense corrent elèctric els sistemes s’aturen i la informació deixa d’estar disponible.</p>
+<figure class="ra1-fig-c"><img src="images/ra1-p1-s22-5290.webp" alt="Mà que desendolla un cable" loading="lazy"><figcaption>Sense corrent, els sistemes deixen de funcionar.</figcaption></figure>
+<p>En un sistema informàtic és vulnerable tot allò que el forma: el <strong>maquinari</strong>, el <strong>programari</strong>, <strong>les dades</strong> i <strong>els usuaris</strong>.</p>
+
+<h3 id="fonaments-1-6"><span class="ra1-num">1.6</span> Classificació de la seguretat<a class="ra1-amunt" href="#teoria/fonaments" data-goto="fonaments-index" title="Torna a l’índex">↑ índex</a></h3>
+<p>Hem vist que els problemes poden ser físics (un cop, un tall de corrent, un accident) o informàtics (un virus, una contrasenya robada). Per organitzar les mesures de protecció, podem classificar la seguretat de dues maneres. Les dues classificacions es complementen: una diu <em>què</em> protegim i l’altra <em>quina funció</em> fa la mesura.</p>
+<div class="table-wrap"><table><thead><tr><th>Criteri</th><th>Tipus</th><th>Què fa</th><th>Exemples</th></tr></thead><tbody>
+<tr><td rowspan="2"><strong>Segons què protegim</strong></td><td><strong>Física</strong></td><td>Protegeix els equips i les instal·lacions.</td><td>Desastres naturals, robatoris, fallades de subministrament…</td></tr>
+<tr><td><strong>Lògica</strong></td><td>Protegeix les dades, els programes i els accessos.</td><td>Virus, troians, malware, pèrdua de dades, atacs a servidors…</td></tr>
+<tr><td rowspan="2"><strong>Segons la funció</strong></td><td><strong>Activa</strong> (per protegir-nos)</td><td>Prevé o detecta incidents.</td><td>Antivirus, tallafocs…</td></tr>
+<tr><td><strong>Passiva</strong> (per recuperar-nos)</td><td>Redueix els danys i facilita la recuperació.</td><td>SAI, còpies de seguretat…</td></tr>
+</tbody></table></div>
+<p>La <strong>seguretat física</strong> comprèn els procediments i mecanismes de protecció del maquinari, tant de <strong>prevenció</strong> com de <strong>detecció</strong>. La <strong>seguretat lògica</strong> protegeix les dades, els programes i els accessos als sistemes informàtics.</p>
+<figure class="ra1-fig-c"><img src="images/ra1-p1-s27-8d7e.webp" alt="Càmera de vigilància" loading="lazy"><figcaption>Una càmera és una mesura de detecció.</figcaption></figure>
+
+<h3 id="fonaments-1-7"><span class="ra1-num">1.7</span> Enginyeria social i formació<a class="ra1-amunt" href="#teoria/fonaments" data-goto="fonaments-index" title="Torna a l’índex">↑ índex</a></h3>
+<p>Sovint el punt més feble d’un sistema no és la tecnologia, sinó les persones. En el món del hacking es fa servir l’<strong>enginyeria social</strong>: enganyar els usuaris perquè facin alguna cosa perjudicial o donin informació. L’exemple de la imatge és absurd, però si l’usuari s’ho creu, l’atacant aconsegueix fer malbé l’equip sense cap coneixement tècnic.</p>
+<figure class="ra1-fig-c"><img src="images/ra1-p1-s29-27b2.webp" alt="Usuari enganyat" loading="lazy"><figcaption>«Tirant cafè sobre l’ordinador, la connexió a Facebook va més ràpida.» «Ah, sí?»</figcaption></figure>
+<p>La <strong>formació és fonamental</strong> per prevenir l’enginyeria social (per exemple: «no feu servir contrasenyes curtes!»), però també cal aplicar <strong>mesures tècniques</strong> de protecció.</p>
+
+<h3 id="fonaments-1-8"><span class="ra1-num">1.8</span> Es pot protegir un sistema informàtic al 100 %?<a class="ra1-amunt" href="#teoria/fonaments" data-goto="fonaments-index" title="Torna a l’índex">↑ índex</a></h3>
+<p>Amb totes aquestes mesures, podem dir que un sistema és totalment segur? La resposta és <strong>no</strong>. A finals dels anys 80, el professor Gene Spafford, de la Universitat de Purdue, ho va il·lustrar amb aquesta frase:</p>
+<blockquote>«L’únic sistema veritablement segur és aquell que està apagat, desconnectat, tancat en una caixa forta de titani, enterrat en un búnquer de formigó, envoltat de gas nerviós i vigilat per guàrdies armats i molt ben pagats… i fins i tot així, tinc els meus dubtes.»</blockquote>
+<p>La seguretat absoluta no existeix. Per això <strong>s’ha de suposar que en algun moment es produirà un incident de seguretat</strong>. La seguretat informàtica intenta prevenir incidents, reduir-ne els danys i estar preparats per recuperar-se’n.</p>
+<p>A més, <strong>incrementar la seguretat costa diners</strong> i no totes les empreses necessiten un nivell alt de seguretat. L’objectiu és portar el risc a un <strong>nivell acceptable per a l’organització</strong>.</p>
+
+<h3 id="fonaments-1-9"><span class="ra1-num">1.9</span> Legislació i estàndards<a class="ra1-amunt" href="#teoria/fonaments" data-goto="fonaments-index" title="Torna a l’índex">↑ índex</a></h3>
+<p>La seguretat no és només una qüestió tècnica: també és una <strong>obligació legal</strong>. Quan una empresa o un institut guarda dades de persones (noms, adreces, telèfons, notes…), la llei l’obliga a protegir-les i a respondre’n si es perden o es filtren. També hi ha lleis que regulen els serveis per Internet i els drets d’autor dels programes i continguts.</p>
+<div class="ra1-cards">
+<div><h4>Protecció de dades personals</h4><p><strong>RGPD</strong> (UE 2016/679): normativa europea.</p><p><strong>LOPDGDD</strong> (LO 3/2018): complementa el RGPD a Espanya.</p><p class="small">Les mesures de seguretat s’adapten als riscos del tractament de les dades.</p></div>
+<div><h4>Altres lleis relacionades</h4><p><strong>LSSI-CE</strong>: serveis de la societat de la informació i comerç electrònic.</p><p><strong>LPI</strong>: propietat intel·lectual i drets d’autor.</p></div>
+</div>
+<p>A més de complir la llei, les organitzacions necessiten saber <em>com</em> organitzar la seguretat a la pràctica. Per això existeixen els <strong>estàndards</strong>: documents elaborats per organismes internacionals (com ISO) que recullen bones pràctiques. No són lleis, sinó guies que expliquen què convé fer per organitzar la seguretat i els serveis de TI:</p>
+<div class="table-wrap"><table><thead><tr><th>Estàndard</th><th>Què és</th><th>Exemples del que tracta</th></tr></thead><tbody>
+<tr><td><strong>ISO/IEC 27002</strong></td><td>Guia de bones pràctiques amb controls de seguretat de la informació.</td><td>Control d’accessos, còpies de seguretat, seguretat física, gestió d’incidents.</td></tr>
+<tr><td><strong>ITIL</strong></td><td>Marc de bones pràctiques per a la gestió de serveis de TI.</td><td>Gestió d’incidències, gestió de canvis, disponibilitat dels serveis, funcionament ordenat i fiable.</td></tr>
+</tbody></table></div>
+<div class="ra1-clau"><strong>Recorda:</strong> la ISO/IEC 27002 <strong>no</strong> és certificable; la ISO/IEC 27001 <strong>sí</strong>. La versió vigent de la 27002 és la del 2022.<br><span class="small">Que una norma sigui <em>certificable</em> vol dir que una entitat externa pot revisar (auditar) l’organització i donar-li un certificat que acredita que la compleix.</span></div>
+
+<h3 id="fonaments-1-10"><span class="ra1-num">1.10</span> El pla de contingència<a class="ra1-amunt" href="#teoria/fonaments" data-goto="fonaments-index" title="Torna a l’índex">↑ índex</a></h3>
+<p>Com que la seguretat absoluta no existeix (ho hem vist a l’apartat 1.8), cal estar preparats per quan passi un incident. Un <strong>pla de contingència</strong> defineix què cal fer quan hi ha un desastre per restaurar el sistema com més aviat millor i amb la mínima pèrdua de dades. Pot cobrir situacions com una <strong>fallada de maquinari</strong>, un <strong>atac informàtic</strong>, un <strong>incendi</strong> o un <strong>error humà</strong>.</p>
+<p>Un pla de contingència no és només un document: s’ha de preparar, provar, executar i revisar. Té cinc fases:</p>
+<ol class="ra1-passos">
+<li><strong>1 · Avaluació</strong><br>Analitzar riscos i actius crítics.</li>
+<li><strong>2 · Planificació</strong><br>Dissenyar el pla i els procediments.</li>
+<li><strong>3 · Proves</strong><br>Simulacres per comprovar que funciona.</li>
+<li><strong>4 · Execució</strong><br>Aplicar el pla quan hi ha l’incident.</li>
+<li><strong>5 · Recuperació</strong><br>Tornar a la normalitat i restaurar serveis.</li>
+</ol>
+<p>Perquè el pla funcioni de debò quan arribi el moment, cal aplicar aquestes mesures:</p>
+<div class="table-wrap"><table><thead><tr><th>Mesura</th><th>En què consisteix</th></tr></thead><tbody>
+<tr><td><strong>Redundància</strong></td><td>Duplicar elements crítics: RAID, servidors o connexions de reserva.</td></tr>
+<tr><td><strong>Distribució</strong></td><td>No concentrar-ho tot en un sol lloc: còpies externes o al núvol.</td></tr>
+<tr><td><strong>Pla de recuperació</strong></td><td>Procediments documentats per restaurar dades i serveis.</td></tr>
+<tr><td><strong>Personal preparat</strong></td><td>Gent formada que sap què fer quan apareix la incidència.</td></tr>
+</tbody></table></div>
+<div class="ra1-alerta"><strong>Important:</strong> el RAID <strong>no substitueix</strong> les còpies de seguretat. Un RAID fa treballar diversos discos junts perquè, si se n’espatlla un, les dades no es perdin. Però si esborres un fitxer per error o un virus el fa malbé, el canvi es fa a tots els discos alhora. Per això també calen còpies de seguretat.</div>
+<p>Igual que passa amb la seguretat en general, per elaborar un pla de contingència no cal començar de zero: ens podem basar en normes i guies reconegudes:</p>
+<ul>
+<li><a href="https://www.iso.org/standard/75106.html"><strong>ISO 22301:2019</strong></a>: continuïtat del negoci, preparar l’organització davant d’interrupcions.</li>
+<li><a href="https://committee.iso.org/standard/27031"><strong>ISO/IEC 27031:2025</strong></a>: continuïtat dels sistemes informàtics i dels serveis TIC.</li>
+<li><a href="https://csrc.nist.gov/pubs/sp/800/34/r1/upd1/final"><strong>NIST SP 800-34 Rev. 1</strong></a>: guia pràctica per elaborar i mantenir plans de contingència informàtica.</li>
+</ul>
+<div class="ra1-clau"><strong>Idea clau:</strong> els plans de contingència no s’improvisen: es planifiquen, es proven i es revisen seguint bones pràctiques reconegudes.</div>
+<div class="ra1-credits"><p><strong>Autors i crèdits</strong></p><p>Idea original: Xavier Sala Pujolar · Modificació: Amanda Fontana · Adaptació i reorganització: Eduard Gutiérrez.</p><p>Llicència del material: <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ca">Creative Commons BY-NC-SA 4.0</a>. Algunes imatges són d’OpenClipart.org i d’altres de X. Sala. <a href="#materials">Descarrega la presentació original</a>.</p></div>
 </article>
 <article id="fisica"><div class="eyebrow">Part II · Criteris 1.c i 1.d · Continguts 1.1 i 1.2</div>
 <h2>02 · Seguretat física</h2>
@@ -904,6 +1072,11 @@ $ sudo grep "sudo" /var/log/auth.log</pre><p>Les rutes poden variar segons la co
 </section>
 <section class="panel" id="avaluacio" data-title="RA1 · Criteris i continguts"><div class="eyebrow">M0226 · Seguretat informàtica</div><h1>RA1 · Criteris i continguts</h1><p>La qualificació segueix la <a href="index.html#programacio">programació del mòdul</a>: Pt 20%, Pe 70% i Gr 10%, amb les condicions de lliurament i notes mínimes establertes.</p><h2>Criteris d’avaluació del mòdul</h2><div class="table-wrap"><table><thead><tr><th>Criteri</th><th>Descripció</th><th>Evidència</th></tr></thead><tbody><tr><td>1.a</td><td>Valora la importància de mantenir la informació segura.</td><td>E1 i Pe1</td></tr><tr><td>1.b</td><td>Descriu les diferències entre seguretat física i lògica.</td><td>E1 i Pe1</td></tr><tr><td>1.c</td><td>Defineix les característiques de la ubicació física i condicions ambientals dels equips i servidors.</td><td>T1</td></tr><tr><td>1.d</td><td>Identifica la necessitat de protegir físicament els sistemes informàtics.</td><td>T1 i E3</td></tr><tr><td>1.e</td><td>Verifica el funcionament dels sistemes d'alimentació ininterrompuda.</td><td>T2: verificació observada</td></tr><tr><td>1.f</td><td>Selecciona els punts d'aplicació dels sistemes d'alimentació ininterrompuda.</td><td>T2 i E2</td></tr><tr><td>1.g</td><td>Esquematitza les característiques d'una política de seguretat basada en llistes de control d'accés.</td><td>T3 i E4</td></tr><tr><td>1.h</td><td>Valora la importància d'establir una política de contrasenyes.</td><td>E4: política de contrasenyes</td></tr><tr><td>1.i</td><td>Valora els avantatges que suposa la utilització de sistemes biomètrics.</td><td>E5 i reflexió T3</td></tr></tbody></table></div><h2>Continguts</h2><div class="table-wrap"><table><thead><tr><th>Contingut</th><th>Descripció</th></tr></thead><tbody><tr><td>1.1</td><td>Ubicació física i condicions ambientals dels equips i servidors.</td></tr><tr><td>1.2</td><td>Protecció física dels sistemes informàtics.</td></tr><tr><td>1.3</td><td>Els sistemes d'alimentació ininterrompuda.</td></tr><tr><td>1.4</td><td>Aplicació dels sistemes d'alimentació ininterrompuda.</td></tr><tr><td>1.5</td><td>Polítiques de seguretat basades en llistes de control d'accés.</td></tr><tr><td>1.6</td><td>Polítiques de contrasenyes; sistemes biomètrics.</td></tr><tr><td>1.7</td><td>Mecanismes de seguretat d'accés al sistema.</td></tr><tr><td>1.8</td><td>Permisos i drets d'usuaris.</td></tr><tr><td>1.9</td><td>Gestió de l'inventari dels registres d'usuaris, incidències i alarmes.</td></tr></tbody></table></div><h2>Criteris del centre · Activitat independent</h2><div class="table-wrap"><table><thead><tr><th>Criteri</th><th>Descripció</th></tr></thead><tbody><tr><td>*1.j</td><td>Aplica els procediments de la competència digital 4.1 Protegir els dispositius.</td></tr><tr><td>*1.k</td><td>Aplica els procediments de la competència digital 4.2 Protegir les dades personals i la privacitat.</td></tr></tbody></table></div><p>Consulta les <a href="index.html#competencia-digital">activitats de competència digital</a>: feina autònoma, lliurament separat i validació pròpia. No formen part de la prova del RA ni dels seus pesos.</p></section>
 
-<footer id="site-license"><p>Material docent de <a href="https://github.com/ejgutierrez74/smx-seguretat-informatica">SMX · Seguretat informàtica · ejgutierrez74</a>, sota <a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.ca">CC BY 4.0</a>, excepte materials de tercers amb condicions pròpies. <a href="https://github.com/ejgutierrez74/smx-seguretat-informatica/blob/a850f37bd72888fe9e8c61b226cece54fc98d5ca/LICENSE.md">LICENSE.md</a> · <a href="index.html#fonts/llicencia">Autoria i reutilització</a>.</p></footer></main><script>if (["#teoria/identitat", "#teoria/contrasenyes", "#teoria/biometria"].includes(location.hash)) history.replaceState(null, "", "#teoria/part4");</script><script src="app.js?v=20260920-access"></script>
+<footer id="site-license"><p>Material docent de <a href="https://github.com/ejgutierrez74/smx-seguretat-informatica">SMX · Seguretat informàtica · ejgutierrez74</a>, sota <a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.ca">CC BY 4.0</a>, excepte materials de tercers amb condicions pròpies. <a href="https://github.com/ejgutierrez74/smx-seguretat-informatica/blob/a850f37bd72888fe9e8c61b226cece54fc98d5ca/LICENSE.md">LICENSE.md</a> · <a href="index.html#fonts/llicencia">Autoria i reutilització</a>.</p></footer></main><script>if (["#teoria/identitat", "#teoria/contrasenyes", "#teoria/biometria"].includes(location.hash)) history.replaceState(null, "", "#teoria/part4");</script><script>(function(){
+function go(id){const el=document.getElementById(id);if(!el)return;el.scrollIntoView({block:'start'});setTimeout(()=>el.scrollIntoView({block:'start'}),350);}
+document.addEventListener('click',function(e){const a=e.target.closest('a[data-goto]');if(!a||!document.getElementById(a.dataset.goto))return;e.preventDefault();if(location.hash!==a.getAttribute('href'))history.replaceState(null,'',a.getAttribute('href'));go(a.dataset.goto);});
+function marca(){document.querySelectorAll('#teoria article.ra1-llibre').forEach(art=>{if(art.hidden)return;const nav=art.querySelector('.ra1-index');if(!nav)return;let cur=null;art.querySelectorAll('h3[id]').forEach(h=>{if(h.getBoundingClientRect().top<=140)cur=h.id;});nav.querySelectorAll('li a').forEach(a=>a.classList.toggle('actiu',a.dataset.goto===cur));});}
+window.addEventListener('scroll',marca,{passive:true});window.addEventListener('hashchange',()=>setTimeout(marca,50));setTimeout(marca,300);
+})();</script><script src="app.js?v=20260920-access"></script>
 </body>
 </html>
