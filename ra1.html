@@ -411,6 +411,120 @@
 @media print { #teoria .ra1-ex details > summary::before { content:""; } }
 #teoria pre.ra1-formula { color:#163447 !important; background:#f3f6f9 !important; }
 #teoria .ra1-cards pre { font-size:12.5px; white-space:pre-wrap; padding:.7rem .8rem; }
+/* Apunts RA1 · format llibre de text (2026-11). */
+#teoria .ra1-ca { background:#f3f6f9; border:1px solid #d6dee6; border-radius:8px; padding:.6rem 1rem; font-size:.95em; }
+#teoria .ra1-ca p { margin:.35rem 0 !important; }
+#teoria .ra1-clau { background:#eef7f6; border-left:4px solid #006b69; border-radius:6px; padding:.75rem 1rem; margin:1.3rem 0; }
+#teoria .ra1-alerta { background:#fff5e6; border-left:4px solid #c46a00; border-radius:6px; padding:.75rem 1rem; margin:1.3rem 0; }
+#teoria .ra1-exemple { background:#f6f4fb; border-left:4px solid #5b4a9e; border-radius:6px; padding:.75rem 1rem; margin:1.3rem 0; }
+#teoria .ra1-clau ol, #teoria .ra1-exemple ul { margin:.4rem 0; }
+#teoria .ra1-cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:.8rem; margin:1.3rem 0; }
+#teoria .ra1-cards > div { background:#fff; border:1px solid #d6dee6; border-top:4px solid #24475c; border-radius:8px; padding:.8rem 1rem; }
+#teoria .ra1-cards h4 { margin:0 0 .4rem !important; }
+#teoria .ra1-cards p { margin:.3rem 0 !important; }
+#teoria .ra1-cards img { display:block; max-width:100%; max-height:150px; margin:0 auto .5rem; border-radius:6px; }
+#teoria figure.ra1-fig-r { float:right; width:190px; margin:.3rem 0 1rem 1.3rem; text-align:center; }
+#teoria figure.ra1-fig-r img { width:100%; height:auto; max-height:200px; object-fit:contain; }
+#teoria figure.ra1-fig-r figcaption, #teoria .ra1-figs figcaption { color:#506375; font-size:.85em; line-height:1.4; margin-top:.35rem; }
+#teoria > article h3 { clear:both; }
+#teoria .ra1-figs { display:flex; flex-wrap:wrap; gap:1rem; justify-content:center; margin:1.3rem 0; clear:both; }
+#teoria .ra1-figs figure { flex:0 1 180px; margin:0; text-align:center; }
+#teoria .ra1-figs figure img { width:100%; height:150px; object-fit:contain; }
+#teoria .ra1-figs-2 figure { flex:1 1 300px; }
+#teoria .ra1-figs-2 figure img { height:auto; max-height:320px; }
+#teoria > article figure.ra1-visual.ra1-wide { max-width:720px; }
+#teoria > article figure.ra1-visual.ra1-wide img { max-height:none; }
+#teoria .ra1-video { max-width:720px; aspect-ratio:16/9; margin:1rem 0; }
+#teoria .ra1-video iframe { width:100%; height:100%; border:0; border-radius:8px; }
+#teoria pre.ra1-formula { background:#f3f6f9; border:1px solid #d6dee6; border-radius:8px; padding:.8rem 1rem; white-space:pre-wrap; }
+#teoria blockquote { margin:1.2rem 0; padding:.6rem 1.2rem; border-left:4px solid #8aa0b2; color:#33495c; font-style:italic; }
+#teoria .ra1-exercicis { clear:both; margin-top:2.5rem; padding-top:.5rem; border-top:3px solid #24475c; }
+#teoria .ra1-ex { border:1px solid #d6dee6; border-radius:8px; padding:.4rem 1.1rem 1rem; margin:1.2rem 0; background:#fbfcfd; }
+#teoria .ra1-ex details summary, #teoria details.ra1-annex summary { cursor:pointer; font-weight:700; color:#006b69; }
+#teoria details.ra1-annex { border:1px dashed #8aa0b2; border-radius:8px; padding:.7rem 1rem; }
+#teoria .ra1-credits { clear:both; margin-top:2.5rem; padding:.8rem 1rem; border-top:1px solid #d6dee6; font-size:.88em; color:#41566a; background:#f7f9fb; border-radius:6px; }
+#teoria .ra1-credits p { margin:.25rem 0 !important; }
+#teoria table td[rowspan] { vertical-align:middle; background:#f3f6f9; }
+@media (max-width:640px){ #teoria figure.ra1-fig-r { float:none; width:auto; max-width:220px; margin:1rem auto; } }
+@media print { #teoria details { display:block; } #teoria .ra1-video { display:none; } }
+/* Més aire als apunts nous */
+#teoria > article.ra1-llibre { line-height:1.85; font-size:1.02rem; }
+#teoria > article.ra1-llibre p { margin-block:1.15rem; }
+#teoria > article.ra1-llibre h3 { margin-top:3.4rem; margin-bottom:1.1rem; padding-bottom:.4rem; border-bottom:1px solid #e1e7ed; }
+#teoria > article.ra1-llibre h4 { margin-top:2.2rem; margin-bottom:.8rem; }
+#teoria > article.ra1-llibre ul, #teoria > article.ra1-llibre ol { margin-block:1.1rem; }
+#teoria > article.ra1-llibre li { margin-block:.6rem; }
+#teoria > article.ra1-llibre .table-wrap { margin-block:1.8rem; }
+#teoria > article.ra1-llibre td, #teoria > article.ra1-llibre th { padding:.75rem 1rem; line-height:1.6; }
+#teoria > article.ra1-llibre .ra1-cards { gap:1.2rem; margin-block:1.8rem; }
+#teoria > article.ra1-llibre .ra1-cards > div { padding:1.1rem 1.25rem; }
+#teoria > article.ra1-llibre .ra1-cards p { margin:.55rem 0 !important; }
+#teoria > article.ra1-llibre .ra1-clau, #teoria > article.ra1-llibre .ra1-alerta, #teoria > article.ra1-llibre .ra1-exemple { padding:1rem 1.3rem; margin-block:1.8rem; }
+#teoria > article.ra1-llibre .ra1-ca { padding:.9rem 1.2rem; margin-bottom:2rem; }
+#teoria > article.ra1-llibre .ra1-ca p { margin:.5rem 0 !important; }
+#teoria > article.ra1-llibre .ra1-figs { gap:1.6rem; margin-block:2rem; }
+#teoria > article.ra1-llibre figure.ra1-fig-r { margin:.4rem 0 1.4rem 1.8rem; }
+#teoria > article.ra1-llibre .ra1-passos { gap:.9rem; margin-block:1.8rem; }
+#teoria > article.ra1-llibre .ra1-passos li { padding:1rem 1.1rem; line-height:1.55; }
+#teoria > article.ra1-llibre blockquote { margin-block:1.8rem; padding:.9rem 1.4rem; }
+#teoria > article.ra1-llibre .ra1-video { margin-block:1.5rem .5rem; }
+#teoria > article.ra1-llibre pre { margin-block:1.5rem; padding:1rem 1.2rem; }
+/* Índex de cada apartat */
+#teoria .ra1-index { background:#fff; border:1px solid #d6dee6; border-left:4px solid #006b69; border-radius:8px; padding:.9rem 1.3rem 1rem; margin:1.5rem 0 2.5rem; }
+#teoria .ra1-index p { margin:0 0 .5rem !important; }
+#teoria .ra1-index ol { list-style:none; padding:0; margin:0; columns:2 260px; column-gap:2rem; }
+#teoria .ra1-index li { margin:.3rem 0 !important; break-inside:avoid; }
+#teoria .ra1-index a { text-decoration:none; color:#163447; }
+#teoria .ra1-index a:hover { color:#006b69; text-decoration:underline; }
+#teoria .ra1-index a span, #teoria .ra1-num { display:inline-block; min-width:2.4em; font-weight:700; color:#006b69; }
+#teoria h3 { scroll-margin-top:1rem; }
+#teoria .ra1-amunt { float:right; font-size:.72rem; font-weight:400; color:#8aa0b2; text-decoration:none; margin-top:.4rem; }
+#teoria .ra1-amunt:hover { color:#006b69; }
+@media print { #teoria .ra1-amunt { display:none; } }
+/* Imatges centrades entre paràgrafs */
+#teoria figure.ra1-fig-c { margin:1.8rem auto; max-width:240px; text-align:center; }
+#teoria figure.ra1-fig-c img { width:100%; height:auto; max-height:210px; object-fit:contain; }
+#teoria figure.ra1-fig-c figcaption { color:#506375; font-size:.85em; line-height:1.4; margin-top:.4rem; }
+/* Índex lateral enganxós en pantalles amples */
+
+@media (min-width:1300px){
+ #teoria > article.ra1-llibre { display:grid; grid-template-columns:minmax(0,1fr) 230px; column-gap:2.2rem; align-items:start; }
+ #teoria > article.ra1-llibre > * { grid-column:1; }
+ #teoria > article.ra1-llibre > .ra1-index { grid-column:2; grid-row:1 / span 400; position:sticky; top:1rem; margin:0; max-height:calc(100vh - 2rem); overflow:auto; font-size:.88rem; padding:.8rem 1rem; }
+ #teoria .ra1-index ol { columns:auto; }
+ #teoria .ra1-amunt { display:none; }
+}
+#teoria > article.ra1-llibre .ra1-ca + .ra1-index + h3, #teoria > article.ra1-llibre .ra1-index + h3 { margin-top:2rem; }
+#teoria h3 { scroll-margin-top:1.2rem; }
+#teoria .ra1-index .ra1-index-top { margin:.8rem 0 0 !important; padding-top:.6rem; border-top:1px solid #e1e7ed; font-size:.85em; }
+#teoria .ra1-index li a.actiu { color:#006b69; font-weight:700; }
+#teoria .ra1-index li a.actiu span { color:#c46a00; }
+/* Solucions plegables */
+#teoria details.ra1-sol, #teoria .ra1-ex details { margin-top:1rem; border:1px solid #cfe3e1; border-radius:8px; background:#f4faf9; }
+#teoria .ra1-ex details > summary { list-style:none; cursor:pointer; padding:.6rem 1rem; font-weight:700; color:#006b69; user-select:none; }
+#teoria .ra1-ex details > summary::-webkit-details-marker { display:none; }
+#teoria .ra1-ex details > summary::before { content:"▶"; display:inline-block; margin-right:.55rem; font-size:.8em; transition:transform .2s; }
+#teoria .ra1-ex details[open] > summary::before { transform:rotate(90deg); }
+#teoria .ra1-ex details > summary:hover { background:#e7f3f1; border-radius:8px; }
+#teoria .ra1-ex details > :not(summary) { margin-left:1rem; margin-right:1rem; }
+#teoria .ra1-ex details[open] { padding-bottom:.6rem; }
+@media print { #teoria .ra1-ex details > summary::before { content:""; } }
+#teoria pre.ra1-formula { color:#163447 !important; background:#f3f6f9 !important; }
+#teoria .ra1-cards pre { font-size:12.5px; white-space:pre-wrap; padding:.7rem .8rem; }
+/* Taula de criteris i continguts */
+#teoria > article.ra1-llibre .ra1-ca { background:none; border:0; padding:0; }
+#teoria .ra1-ca-tit { font-weight:700; color:#24475c; margin:0 0 .4rem !important; font-size:.95em; }
+#teoria .ra1-ca .table-wrap { margin:0 0 .8rem !important; border-top:3px solid #006b69; }
+#teoria .ra1-ca td.ra1-cod { font-weight:700; color:#006b69; white-space:nowrap; width:3.2em; text-align:center; }
+#teoria .ra1-ca th { background:#eef7f6; }
+#teoria .ra1-obj { font-size:.95em; }
+/* Pantalles molt amples: centrar l'apartat i no deixar buit a la dreta */
+@media (min-width:1800px){
+ main { max-width:none; padding-left:4vw; padding-right:4vw; }
+ #teoria > .eyebrow, #teoria > h1, #teoria > .lead, #teoria > .toc, #teoria > article.ra1-llibre { max-width:1380px; margin-left:auto; margin-right:auto; }
+ #teoria > article.ra1-llibre { grid-template-columns:minmax(0,1fr) 270px; column-gap:3rem; }
+ #teoria > article.ra1-llibre p, #teoria > article.ra1-llibre li { max-width:none; }
+}
 </style>
 </head>
 <body data-default-panel="ra1">
@@ -458,7 +572,7 @@
 </div>
 <article id="fonaments" class="ra1-llibre"><div class="eyebrow">Part I · Criteris 1.a i 1.b</div>
 <h2>01 · Introducció a la seguretat informàtica</h2>
-<div class="ra1-ca"><p><strong>Criteris d’avaluació:</strong> 1.a Valora la importància de mantenir la informació segura · 1.b Descriu les diferències entre seguretat física i lògica.</p><p><strong>Objectiu:</strong> introduir els conceptes bàsics de seguretat informàtica i diferenciar entre seguretat física i lògica.</p></div>
+<div class="ra1-ca"><p class="ra1-ca-tit">RA1 · Seguretat passiva en equips informàtics · Part I</p><div class="table-wrap"><table><thead><tr><th colspan="2">Criteris d’avaluació</th><th colspan="2">Continguts</th></tr></thead><tbody><tr><td class="ra1-cod">1.a</td><td>Valora la importància de mantenir la informació segura.</td><td class="ra1-cod">—</td><td></td></tr><tr><td class="ra1-cod">1.b</td><td>Descriu les diferències entre seguretat física i lògica.</td><td class="ra1-cod">—</td><td></td></tr></tbody></table></div><p class="ra1-obj"><strong>Objectiu:</strong> Introduir els conceptes bàsics de seguretat informàtica i diferenciar entre seguretat física i lògica.</p></div>
 <div class="ra1-index" id="fonaments-index" role="navigation" aria-label="Índex de l’apartat"><p><strong>En aquest apartat</strong></p><ol><li><a href="#teoria/fonaments" data-goto="fonaments-1-1"><span>1.1</span> Què és la seguretat informàtica?</a></li><li><a href="#teoria/fonaments" data-goto="fonaments-1-2"><span>1.2</span> Glossari de seguretat</a></li><li><a href="#teoria/fonaments" data-goto="fonaments-1-3"><span>1.3</span> Confidencialitat, integritat i disponibilitat</a></li><li><a href="#teoria/fonaments" data-goto="fonaments-1-4"><span>1.4</span> De què s’encarrega la seguretat informàtica?</a></li><li><a href="#teoria/fonaments" data-goto="fonaments-1-5"><span>1.5</span> Cal saber informàtica per fer un atac?</a></li><li><a href="#teoria/fonaments" data-goto="fonaments-1-6"><span>1.6</span> Classificació de la seguretat</a></li><li><a href="#teoria/fonaments" data-goto="fonaments-1-7"><span>1.7</span> Enginyeria social i formació</a></li><li><a href="#teoria/fonaments" data-goto="fonaments-1-8"><span>1.8</span> Es pot protegir un sistema informàtic al 100 %?</a></li><li><a href="#teoria/fonaments" data-goto="fonaments-1-9"><span>1.9</span> Legislació i estàndards</a></li><li><a href="#teoria/fonaments" data-goto="fonaments-1-10"><span>1.10</span> El pla de contingència</a></li></ol><p class="ra1-index-top"><a href="#teoria/fonaments" data-goto="fonaments">↑ Inici de l’apartat</a></p></div>
 
 <h3 id="fonaments-1-1"><span class="ra1-num">1.1</span> Què és la seguretat informàtica?<a class="ra1-amunt" href="#teoria/fonaments" data-goto="fonaments-index" title="Torna a l’índex">↑ índex</a></h3>
@@ -586,7 +700,7 @@
 </article>
 <article id="fisica" class="ra1-llibre"><div class="eyebrow">Part II · Criteris 1.c i 1.d · Continguts 1.1 i 1.2</div>
 <h2>02 · Seguretat física</h2>
-<div class="ra1-ca"><p><strong>1.c</strong> Defineix les característiques de la ubicació física i les condicions ambientals dels equips i servidors → <strong>1.1</strong> Ubicació física i condicions ambientals dels equips i servidors.</p><p><strong>1.d</strong> Identifica la necessitat de protegir físicament els sistemes informàtics → <strong>1.2</strong> Protecció física dels sistemes informàtics.</p></div>
+<div class="ra1-ca"><p class="ra1-ca-tit">RA1 · Seguretat passiva en equips informàtics · Part II</p><div class="table-wrap"><table><thead><tr><th colspan="2">Criteris d’avaluació</th><th colspan="2">Continguts</th></tr></thead><tbody><tr><td class="ra1-cod">1.c</td><td>Defineix les característiques de la ubicació física i les condicions ambientals dels equips i servidors.</td><td class="ra1-cod">1.1</td><td>Ubicació física i condicions ambientals dels equips i servidors.</td></tr><tr><td class="ra1-cod">1.d</td><td>Identifica la necessitat de protegir físicament els sistemes informàtics.</td><td class="ra1-cod">1.2</td><td>Protecció física dels sistemes informàtics.</td></tr></tbody></table></div></div>
 <div class="ra1-index" id="fisica-index" role="navigation" aria-label="Índex de l’apartat"><p><strong>En aquest apartat</strong></p><ol><li><a href="#teoria/fisica" data-goto="fisica-2-1"><span>2.1</span> Per què és important la seguretat física?</a></li><li><a href="#teoria/fisica" data-goto="fisica-2-2"><span>2.2</span> Què pot posar en risc els equips i les dades?</a></li><li><a href="#teoria/fisica" data-goto="fisica-2-3"><span>2.3</span> Amenaces per accions humanes</a></li><li><a href="#teoria/fisica" data-goto="fisica-2-4"><span>2.4</span> Condicions ambientals i ubicació dels equips</a></li><li><a href="#teoria/fisica" data-goto="fisica-2-5"><span>2.5</span> Desastres</a></li></ol><p class="ra1-index-top"><a href="#teoria/fisica" data-goto="fisica">↑ Inici de l’apartat</a></p></div>
 <figure class="ra1-visual"><img src="images/ra1-p2-s01-109e.webp" alt="Sala de servidors amb control d’accés, càmera, alarma i extintor" loading="lazy"></figure>
 
@@ -671,7 +785,7 @@
 </article>
 <article id="sai" class="ra1-llibre"><div class="eyebrow">Part III · Criteris 1.d, 1.e i 1.f · Continguts 1.2, 1.3 i 1.4</div>
 <h2>03 · Sistemes d’alimentació ininterrompuda (SAI)</h2>
-<div class="ra1-ca"><p><strong>1.d</strong> Identifica la necessitat de protegir físicament els sistemes informàtics → <strong>1.2</strong> Protecció física dels sistemes informàtics.</p><p><strong>1.e</strong> Verifica el funcionament dels sistemes d’alimentació ininterrompuda → <strong>1.3</strong> Els sistemes d’alimentació ininterrompuda.</p><p><strong>1.f</strong> Selecciona els punts d’aplicació dels sistemes d’alimentació ininterrompuda → <strong>1.4</strong> Aplicació dels sistemes d’alimentació ininterrompuda.</p></div>
+<div class="ra1-ca"><p class="ra1-ca-tit">RA1 · Seguretat passiva en equips informàtics · Part III</p><div class="table-wrap"><table><thead><tr><th colspan="2">Criteris d’avaluació</th><th colspan="2">Continguts</th></tr></thead><tbody><tr><td class="ra1-cod">1.d</td><td>Identifica la necessitat de protegir físicament els sistemes informàtics.</td><td class="ra1-cod">1.2</td><td>Protecció física dels sistemes informàtics.</td></tr><tr><td class="ra1-cod">1.e</td><td>Verifica el funcionament dels sistemes d’alimentació ininterrompuda.</td><td class="ra1-cod">1.3</td><td>Els sistemes d’alimentació ininterrompuda.</td></tr><tr><td class="ra1-cod">1.f</td><td>Selecciona els punts d’aplicació dels sistemes d’alimentació ininterrompuda.</td><td class="ra1-cod">1.4</td><td>Aplicació dels sistemes d’alimentació ininterrompuda.</td></tr></tbody></table></div></div>
 <div class="ra1-index" id="sai-index" role="navigation" aria-label="Índex de l’apartat"><p><strong>En aquest apartat</strong></p><ol><li><a href="#teoria/sai" data-goto="sai-3-1"><span>3.1</span> Per què necessitem un SAI?</a></li><li><a href="#teoria/sai" data-goto="sai-3-2"><span>3.2</span> Com funciona: del corrent altern a la bateria</a></li><li><a href="#teoria/sai" data-goto="sai-3-3"><span>3.3</span> Característiques bàsiques d’un SAI</a></li><li><a href="#teoria/sai" data-goto="sai-3-4"><span>3.4</span> Tipus de SAI segons la protecció</a></li><li><a href="#teoria/sai" data-goto="sai-3-5"><span>3.5</span> Càrrega, autonomia i capacitat</a></li><li><a href="#teoria/sai" data-goto="sai-3-6"><span>3.6</span> Potència aparent (VA) i potència real (W)</a></li><li><a href="#teoria/sai" data-goto="sai-3-7"><span>3.7</span> El factor de potència (FP)</a></li><li><a href="#teoria/sai" data-goto="sai-3-8"><span>3.8</span> Eficiència: una part es perd en calor</a></li><li><a href="#teoria/sai" data-goto="sai-3-9"><span>3.9</span> Capacitat energètica</a></li><li><a href="#teoria/sai" data-goto="sai-3-10"><span>3.10</span> L’autonomia</a></li><li><a href="#teoria/sai" data-goto="sai-3-11"><span>3.11</span> Com triar un SAI</a></li><li><a href="#teoria/sai" data-goto="sai-3-12"><span>3.12</span> Exemple pràctic complet: quin SAI hem de comprar?</a></li><li><a href="#teoria/sai" data-goto="sai-3-13"><span>3.13</span> Exercicis i pràctiques</a></li></ol><p class="ra1-index-top"><a href="#teoria/sai" data-goto="sai">↑ Inici de l’apartat</a></p></div>
 <p><strong>Què aprendrem?</strong> A identificar la necessitat d’un SAI per protegir els equips dels problemes del subministrament elèctric, a conèixer els diferents tipus de SAI, a calcular quin SAI s’adapta a les nostres necessitats i a aplicar criteris per triar-lo.</p>
 <figure class="ra1-visual"><img src="images/ra1-p3-s01-144e.webp" alt="SAI que protegeix un ordinador i un router durant una tempesta" loading="lazy"></figure>
@@ -892,7 +1006,7 @@ Energia real (Wh)    = Wh teòrics × eficiència = N × V × Ah × eficiència<
 </article>
 <article id="part4" class="ra1-llibre"><div class="eyebrow">Part IV · Criteris 1.h i 1.i · Continguts 1.6 i 1.7</div>
 <h2>04 · Contrasenyes, biometria i autenticació</h2>
-<div class="ra1-ca"><p><strong>1.h</strong> Valora la importància d’establir una política de contrasenyes → <strong>1.6</strong> Polítiques de contrasenyes i sistemes biomètrics.</p><p><strong>1.i</strong> Valora la importància dels sistemes biomètrics → <strong>1.7</strong> Mecanismes de seguretat d’accés al sistema.</p></div>
+<div class="ra1-ca"><p class="ra1-ca-tit">RA1 · Seguretat passiva en equips informàtics · Part IV</p><div class="table-wrap"><table><thead><tr><th colspan="2">Criteris d’avaluació</th><th colspan="2">Continguts</th></tr></thead><tbody><tr><td class="ra1-cod">1.h</td><td>Valora la importància d’establir una política de contrasenyes.</td><td class="ra1-cod">1.6</td><td>Polítiques de contrasenyes i sistemes biomètrics.</td></tr><tr><td class="ra1-cod">1.i</td><td>Valora la importància dels sistemes biomètrics.</td><td class="ra1-cod">1.7</td><td>Mecanismes de seguretat d’accés al sistema.</td></tr></tbody></table></div></div>
 <div class="ra1-index" id="part4-index" role="navigation" aria-label="Índex de l’apartat"><p><strong>En aquest apartat</strong></p><ol><li><a href="#teoria/part4" data-goto="part4-4-1"><span>4.1</span> Què és una política de contrasenyes?</a></li><li><a href="#teoria/part4" data-goto="part4-4-2"><span>4.2</span> Contrasenyes febles i robustes</a></li><li><a href="#teoria/part4" data-goto="part4-4-3"><span>4.3</span> Bones pràctiques per protegir les contrasenyes</a></li><li><a href="#teoria/part4" data-goto="part4-4-4"><span>4.4</span> Crear una contrasenya robusta i fàcil de recordar</a></li><li><a href="#teoria/part4" data-goto="part4-4-5"><span>4.5</span> Protecció de les contrasenyes</a></li><li><a href="#teoria/part4" data-goto="part4-4-6"><span>4.6</span> El meu correu ha aparegut en alguna filtració?</a></li><li><a href="#teoria/part4" data-goto="part4-4-7"><span>4.7</span> Gestors de contrasenyes</a></li><li><a href="#teoria/part4" data-goto="part4-4-8"><span>4.8</span> Sistemes biomètrics</a></li><li><a href="#teoria/part4" data-goto="part4-4-9"><span>4.9</span> Errors dels sistemes biomètrics</a></li><li><a href="#teoria/part4" data-goto="part4-4-10"><span>4.10</span> Autenticació d’usuaris</a></li><li><a href="#teoria/part4" data-goto="part4-4-11"><span>4.11</span> Identificació: tres aspectes clau</a></li><li><a href="#teoria/part4" data-goto="part4-4-12"><span>4.12</span> Els tres factors d’autenticació</a></li><li><a href="#teoria/part4" data-goto="part4-4-13"><span>4.13</span> Autorització: què pot fer cada usuari?</a></li><li><a href="#teoria/part4" data-goto="part4-4-14"><span>4.14</span> Criteris d’accés</a></li><li><a href="#teoria/part4" data-goto="part4-4-15"><span>4.15</span> Què són els rols?</a></li><li><a href="#teoria/part4" data-goto="part4-4-16"><span>4.16</span> Rols, grups i permisos: no és el mateix</a></li><li><a href="#teoria/part4" data-goto="part4-4-17"><span>4.17</span> Resum: idees clau</a></li></ol><p class="ra1-index-top"><a href="#teoria/part4" data-goto="part4">↑ Inici de l’apartat</a></p></div>
 
 <section id="contrasenyes">
@@ -1056,7 +1170,7 @@ Energia real (Wh)    = Wh teòrics × eficiència = N × V × Ah × eficiència<
 </article>
 <article id="permisos" class="ra1-llibre"><div class="eyebrow">Part V · Contingut 1.8</div>
 <h2>05 · Permisos a Linux i Windows</h2>
-<div class="ra1-ca"><p><strong>Contingut 1.8</strong> Permisos i drets d’usuaris. <span class="small">(No té criteri d’avaluació específic.)</span></p><p><strong>Objectiu:</strong> entendre com controlar qui pot llegir, modificar o executar fitxers i carpetes, a Linux (propietari, grup i altres; chmod, chown, chgrp i umask) i a Windows (permisos NTFS, herència, pestanya Seguretat).</p></div>
+<div class="ra1-ca"><p class="ra1-ca-tit">RA1 · Seguretat passiva en equips informàtics · Part V</p><div class="table-wrap"><table><thead><tr><th colspan="2">Criteris d’avaluació</th><th colspan="2">Continguts</th></tr></thead><tbody><tr><td class="ra1-cod">—</td><td>Sense criteri d’avaluació específic.</td><td class="ra1-cod">1.8</td><td>Permisos i drets d’usuaris.</td></tr></tbody></table></div><p class="ra1-obj"><strong>Objectiu:</strong> Entendre com controlar qui pot llegir, modificar o executar fitxers i carpetes a Linux (propietari, grup i altres; chmod, chown, chgrp i umask) i a Windows (permisos NTFS, herència, pestanya Seguretat).</p></div>
 <div class="ra1-index" id="permisos-index" role="navigation" aria-label="Índex de l’apartat"><p><strong>En aquest apartat</strong></p><ol><li><a href="#teoria/permisos" data-goto="permisos-5-1"><span>5.1</span> Linux des de zero</a></li><li><a href="#teoria/permisos" data-goto="permisos-5-2"><span>5.2</span> Permisos a Linux</a></li><li><a href="#teoria/permisos" data-goto="permisos-5-3"><span>5.3</span> chmod: canviar els permisos</a></li><li><a href="#teoria/permisos" data-goto="permisos-5-4"><span>5.4</span> Canvi de propietari i grup</a></li><li><a href="#teoria/permisos" data-goto="permisos-5-5"><span>5.5</span> Permisos per defecte: umask</a></li><li><a href="#teoria/permisos" data-goto="permisos-5-6"><span>5.6</span> Permisos a Windows (NTFS)</a></li><li><a href="#teoria/permisos" data-goto="permisos-5-7"><span>5.7</span> Linux i Windows: comparativa</a></li><li><a href="#teoria/permisos" data-goto="permisos-5-8"><span>5.8</span> Pràctiques</a></li></ol><p class="ra1-index-top"><a href="#teoria/permisos" data-goto="permisos">↑ Inici de l’apartat</a></p></div>
 <figure class="ra1-visual"><img src="images/ra1-p5-s01-25b2.webp" alt="Terminal de Linux amb la sortida de ls -l" loading="lazy"></figure>
 
@@ -1416,7 +1530,7 @@ sudo deluser joan desenvolupament</pre>
 </article>
 <article id="acl" class="ra1-llibre"><div class="eyebrow">Part VI · Criteri 1.g · Contingut 1.5</div>
 <h2>06 · Llistes de control d’accés (ACL) i polítiques de seguretat</h2>
-<div class="ra1-ca"><p><strong>1.g</strong> Esquematitza les característiques d’una política de seguretat basada en llistes de control d’accés → <strong>1.5</strong> Polítiques de seguretat basades en llistes de control d’accés.</p></div>
+<div class="ra1-ca"><p class="ra1-ca-tit">RA1 · Seguretat passiva en equips informàtics · Part VI</p><div class="table-wrap"><table><thead><tr><th colspan="2">Criteris d’avaluació</th><th colspan="2">Continguts</th></tr></thead><tbody><tr><td class="ra1-cod">1.g</td><td>Esquematitza les característiques d’una política de seguretat basada en llistes de control d’accés.</td><td class="ra1-cod">1.5</td><td>Polítiques de seguretat basades en llistes de control d’accés.</td></tr></tbody></table></div></div>
 <div class="ra1-index" id="acl-index" role="navigation" aria-label="Índex de l’apartat"><p><strong>En aquest apartat</strong></p><ol><li><a href="#teoria/acl" data-goto="acl-6-1"><span>6.1</span> Control d’accés: la idea base</a></li><li><a href="#teoria/acl" data-goto="acl-6-2"><span>6.2</span> Recordatori: permisos tradicionals</a></li><li><a href="#teoria/acl" data-goto="acl-6-3"><span>6.3</span> Per què no sempre n’hi ha prou amb chmod?</a></li><li><a href="#teoria/acl" data-goto="acl-6-4"><span>6.4</span> De la matriu d’accés a les ACL</a></li><li><a href="#teoria/acl" data-goto="acl-6-5"><span>6.5</span> Què és una ACL? I què és una ACE?</a></li><li><a href="#teoria/acl" data-goto="acl-6-6"><span>6.6</span> ACL mínima i ACL estesa a Linux</a></li><li><a href="#teoria/acl" data-goto="acl-6-7"><span>6.7</span> La màscara (mask)</a></li><li><a href="#teoria/acl" data-goto="acl-6-8"><span>6.8</span> Linux: veure les ACL</a></li><li><a href="#teoria/acl" data-goto="acl-6-9"><span>6.9</span> Linux: donar permisos amb setfacl</a></li><li><a href="#teoria/acl" data-goto="acl-6-10"><span>6.10</span> Permisos tradicionals i ACL: com conviuen</a></li><li><a href="#teoria/acl" data-goto="acl-6-11"><span>6.11</span> El terminal a Windows: PowerShell i CMD</a></li><li><a href="#teoria/acl" data-goto="acl-6-12"><span>6.12</span> Les ACL a Windows 11</a></li><li><a href="#teoria/acl" data-goto="acl-6-13"><span>6.13</span> icacls: gestionar ACL des del terminal</a></li><li><a href="#teoria/acl" data-goto="acl-6-14"><span>6.14</span> Equivalències entre Linux i Windows</a></li><li><a href="#teoria/acl" data-goto="acl-6-15"><span>6.15</span> Llegir la sortida d’icacls</a></li><li><a href="#teoria/acl" data-goto="acl-6-16"><span>6.16</span> Com s’interpreta una ACL?</a></li><li><a href="#teoria/acl" data-goto="acl-6-17"><span>6.17</span> Política de seguretat basada en ACL</a></li><li><a href="#teoria/acl" data-goto="acl-6-18"><span>6.18</span> ACL de xarxa: mateixa idea, altre context</a></li><li><a href="#teoria/acl" data-goto="acl-6-19"><span>6.19</span> Idees clau</a></li><li><a href="#teoria/acl" data-goto="acl-6-20"><span>6.20</span> Pràctiques i activitats</a></li></ol><p class="ra1-index-top"><a href="#teoria/acl" data-goto="acl">↑ Inici de l’apartat</a></p></div>
 
 <h3 id="acl-6-1"><span class="ra1-num">6.1</span> Control d’accés: la idea base<a class="ra1-amunt" href="#teoria/acl" data-goto="acl-index" title="Torna a l’índex">↑ índex</a></h3>
@@ -1828,7 +1942,7 @@ icacls C:\Projecte\treball.txt</pre>
 </article>
 <article id="registres" class="ra1-llibre"><div class="eyebrow">Part VII · Contingut 1.9</div>
 <h2>07 · Registres d’usuaris, incidències i alarmes</h2>
-<div class="ra1-ca"><p><strong>Contingut 1.9</strong> Gestió i inventari: registres d’usuaris, incidències i alarmes. <span class="small">(No té criteri d’avaluació específic.)</span></p></div>
+<div class="ra1-ca"><p class="ra1-ca-tit">RA1 · Seguretat passiva en equips informàtics · Part VII</p><div class="table-wrap"><table><thead><tr><th colspan="2">Criteris d’avaluació</th><th colspan="2">Continguts</th></tr></thead><tbody><tr><td class="ra1-cod">—</td><td>Sense criteri d’avaluació específic.</td><td class="ra1-cod">1.9</td><td>Gestió i inventari: registres d’usuaris, incidències i alarmes.</td></tr></tbody></table></div></div>
 <div class="ra1-index" id="registres-index" role="navigation" aria-label="Índex de l’apartat"><p><strong>En aquest apartat</strong></p><ol><li><a href="#teoria/registres" data-goto="registres-7-1"><span>7.1</span> On encaixen els registres?</a></li><li><a href="#teoria/registres" data-goto="registres-7-2"><span>7.2</span> Registre, incidència i alarma</a></li><li><a href="#teoria/registres" data-goto="registres-7-3"><span>7.3</span> No cal revisar-ho tot</a></li><li><a href="#teoria/registres" data-goto="registres-7-4"><span>7.4</span> Gestió i inventari d’usuaris</a></li><li><a href="#teoria/registres" data-goto="registres-7-5"><span>7.5</span> Registres dels sistemes operatius</a></li><li><a href="#teoria/registres" data-goto="registres-7-6"><span>7.6</span> Linux: registres habituals a Ubuntu</a></li><li><a href="#teoria/registres" data-goto="registres-7-7"><span>7.7</span> Windows: el Visor d’esdeveniments</a></li><li><a href="#teoria/registres" data-goto="registres-7-8"><span>7.8</span> Registres del programari de seguretat</a></li><li><a href="#teoria/registres" data-goto="registres-7-9"><span>7.9</span> De registre a incidència i alarma</a></li><li><a href="#teoria/registres" data-goto="registres-7-10"><span>7.10</span> Gestió de registres: dificultats habituals</a></li><li><a href="#teoria/registres" data-goto="registres-7-11"><span>7.11</span> Protecció dels registres</a></li><li><a href="#teoria/registres" data-goto="registres-7-12"><span>7.12</span> Idees essencials</a></li><li><a href="#teoria/registres" data-goto="registres-7-13"><span>7.13</span> Exercicis i pràctiques</a></li></ol><p class="ra1-index-top"><a href="#teoria/registres" data-goto="registres">↑ Inici de l’apartat</a></p></div>
 
 <h3 id="registres-7-1"><span class="ra1-num">7.1</span> On encaixen els registres?<a class="ra1-amunt" href="#teoria/registres" data-goto="registres-index" title="Torna a l’índex">↑ índex</a></h3>
