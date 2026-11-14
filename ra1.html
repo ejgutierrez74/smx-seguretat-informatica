@@ -525,6 +525,7 @@
  #teoria > article.ra1-llibre { grid-template-columns:minmax(0,1fr) 270px; column-gap:3rem; }
  #teoria > article.ra1-llibre p, #teoria > article.ra1-llibre li { max-width:none; }
 }
+#practiques .ra1-boto-pdf{display:inline-block;padding:.55rem 1rem;border-radius:6px;background:#006b69;color:#fff;text-decoration:none;font-weight:700}#practiques .ra1-boto-pdf:hover{background:#00524f}#practiques h2.ra1-pr-tit{margin-top:2.5rem;padding-bottom:.4rem;border-bottom:2px solid #24475c}
 </style>
 </head>
 <body data-default-panel="ra1">
@@ -2218,10 +2219,33 @@ $ sudo grep "failure" /var/log/auth.log</pre>
 <p>Mentrestant, pots repassar els <a href="#teoria">apunts del RA1</a> i fer els exercicis que hi ha al final de cada apartat.</p></section>
 <section class="panel" id="practiques" data-title="Pràctiques i exercicis"><div class="eyebrow">Laboratori i treball a classe</div>
 <h1>Aplicar, comprovar, explicar.</h1>
-<p class="lead">Tres pràctiques avaluables i sis exercicis integrats en les sessions. Els temps formen part del calendari, no s’afegeixen a les 18 hores.</p>
+<p class="lead">Pràctiques avaluables del RA1 (1.1, 1.2 i 1.3) i, més avall, altres activitats i exercicis de les sessions.</p>
 <div class="toc">
-<a href="#practiques/t1">T1 · CPD</a><a href="#practiques/t2">T2 · SAI</a><a href="#practiques/t3">T3 · MFA i permisos</a><a href="#practiques/e1">E1 · Conceptes</a><a href="#practiques/e2">E2 · Dimensionament</a><a href="#practiques/e3">E3 · Repàs físic</a><a href="#practiques/e4">E4 · Permisos i GPO</a><a href="#practiques/e5">E5 · Biometria</a><a href="#practiques/e6">E6 · Registres</a><a href="#practiques/practiques-presentacions">Permisos · Exercicis resolts</a><a href="#practiques/exercicis-sai">SAI · Exercicis resolts</a><a href="#practiques/exercicis-acl">ACL · Exercicis resolts</a><a href="#practiques/exercicis-registres">Registres · Exercicis resolts</a>
+<a href="#practiques/p11">1.1 · Escollim un SAI</a><a href="#practiques/p12">1.2 · Bitwarden</a><a href="#practiques/p13">1.3 · Problemes de SAI</a><a href="#practiques/t1">T1 · CPD</a><a href="#practiques/t2">T2 · SAI</a><a href="#practiques/t3">T3 · MFA i permisos</a><a href="#practiques/e1">E1 · Conceptes</a><a href="#practiques/e2">E2 · Dimensionament</a><a href="#practiques/e3">E3 · Repàs físic</a><a href="#practiques/e4">E4 · Permisos i GPO</a><a href="#practiques/e5">E5 · Biometria</a><a href="#practiques/e6">E6 · Registres</a><a href="#practiques/practiques-presentacions">Permisos · Exercicis resolts</a><a href="#practiques/exercicis-sai">SAI · Exercicis resolts</a><a href="#practiques/exercicis-acl">ACL · Exercicis resolts</a><a href="#practiques/exercicis-registres">Registres · Exercicis resolts</a>
 </div>
+<h2 class="ra1-pr-tit">Pràctiques avaluables del RA1</h2>
+<article id="p11"><div class="eyebrow">Pràctica 1.1 · 20 minuts · En parelles · Criteris 1.e i 1.f</div>
+<h2>Escollim un SAI</h2>
+<p>Cerqueu per internet tres models reals de SAI, compareu-los i decidiu quin escolliríeu per protegir un lloc de treball.</p><p><strong>Dades de partida:</strong> ordinador, monitor i router amb un consum total de 350 W; marge de reserva del 25 %; FP suposat de 0,7; calen 3 preses amb bateria; autonomia mínima de 10 minuts a 350 W.</p>
+<ul><li><strong>Part A · Càlculs previs:</strong> W necessaris amb el marge i VA necessaris amb el FP.</li><li><strong>Part B · Cerca de models:</strong> tres models, dades confirmades al web del fabricant, tipus de SAI, font i data de consulta.</li><li><strong>Part C · Fitxa de comparació:</strong> taula amb els tres models.</li><li><strong>Part D · Conclusió:</strong> model escollit i justificació en 3 frases (potència, autonomia i preses).</li><li><strong>Lliurament:</strong> taula + enllaços o captures + justificació de 3 frases.</li></ul>
+<p><a class="ra1-boto-pdf" href="materials-ra1/practica-1-1-escollim-un-sai.pdf" download>⬇ Descarrega l’enunciat (PDF)</a></p>
+<p class="small">L’entrega es fa a Moodle. La solució es publicarà quan s’acabi el termini de lliurament.</p>
+</article>
+<article id="p12"><div class="eyebrow">Pràctica 1.2 · 1 sessió (≈ 90 minuts) · Individual · 10 punts · Criteri 1.h</div>
+<h2>Gestió de contrasenyes amb Bitwarden</h2>
+<p>Instal·laràs i configuraràs Bitwarden, un gestor de contrasenyes gratuït, multiplataforma i de codi obert, seguint la guia de PantallasAmigas.</p><div class="notice amber"><strong>Normes de seguretat:</strong> no comparteixis mai la contrasenya mestra ni l’escriguis al lliurament; fes servir només dades fictícies o comptes de prova; tapa les contrasenyes i les dades personals a les captures.</div>
+<ul><li><strong>Part A · Abans de començar:</strong> preguntes sobre la guia.</li><li><strong>Part B · Crear el compte</strong> i la caixa forta.</li><li><strong>Part C · Instal·lar l’extensió</strong> del navegador i sincronitzar.</li><li><strong>Part D · Desar i utilitzar contrasenyes:</strong> carpetes, entrades manuals i automàtiques.</li><li><strong>Part E · El generador de contrasenyes.</strong></li><li><strong>Part F · Reflexió.</strong></li><li><strong>Lliurament:</strong> un PDF <code>Cognom_Nom_Bitwarden.pdf</code> amb les respostes i les captures numerades.</li></ul>
+<p><a class="ra1-boto-pdf" href="materials-ra1/practica-1-2-bitwarden.pdf" download>⬇ Descarrega l’enunciat (PDF)</a></p>
+<p class="small">L’entrega es fa a Moodle. La solució es publicarà quan s’acabi el termini de lliurament.</p>
+</article>
+<article id="p13"><div class="eyebrow">Pràctica 1.3 · Criteris 1.e i 1.f</div>
+<h2>Problemes de SAI</h2>
+<p>Problemes per calcular la potència mínima d’un SAI per alimentar diversos equips, seguint sempre el mateix ordre: convertir a watts, sumar, aplicar el marge o el límit de càrrega i calcular els VA.</p>
+<ul><li>Exercicis amb equips en W, en VA i en amperes (220 V, FP indicat a cada enunciat).</li><li>Distingir un marge (multiplicar, p. ex. × 1,25) d’un límit de càrrega (dividir, p. ex. ÷ 0,70).</li></ul>
+<p><a class="ra1-boto-pdf" href="materials-ra1/practica-1-3-problemes-sai.pdf" download>⬇ Descarrega l’enunciat (PDF)</a></p>
+<p class="small">L’entrega es fa a Moodle. La solució es publicarà quan s’acabi el termini de lliurament.</p>
+</article>
+<h2 class="ra1-pr-tit">Altres activitats i exercicis</h2>
 <article id="t1"><div class="eyebrow">T1 · S5 · 60 min · Parelles · Criteris 1.c i 1.d</div>
 <h2>Disseny bàsic del CPD de Taller Bit</h2>
 <p><strong>Encàrrec:</strong> ubicar un rack amb servidor, NAS, switch i SAI per a una empresa de sis persones. Cal poder fer manteniment sense interrompre el pas ni exposar els equips a visites.</p>
