@@ -2399,10 +2399,10 @@ Nov 10 09:16:40 aula-pc04 sudo: marc : COMMAND=/usr/bin/ls /root</pre>
 <p class="small"><strong>Criteri de correcció:</strong> Calen les dues idees: els 3 intents fallits de sudo de marc i l’execució correcta final.</p>
 </details>
 </div>
-<h2 class="pe-tit" id="sim2">Simulacre 2 · nivell alt</h2><p>Més passos de càlcul, preguntes amb parany i continguts que el simulacre 1 no toca (legislació, pla de contingència, RAID, NTFS, tiquets…).</p>
+<h2 class="pe-tit" id="sim2">Simulacre 2 · nivell alt</h2><p>Dos problemes de SAI, preguntes amb parany i continguts que el simulacre 1 no toca (LOPDGDD, pla de contingència, NTFS, tiquets…).</p>
 <p><a class="ra1-boto-pdf" href="materials-ra1/simulacre-ra1-nivell-alt.pdf" target="_blank" rel="noopener">⬇ Enunciat (PDF per imprimir)</a> &nbsp; <a href="materials-ra1/simulacre-ra1-nivell-alt-solucionari.pdf" target="_blank" rel="noopener">Enunciat amb solució (PDF)</a></p>
 <details class="pe-instr"><summary>Instruccions de l’examen</summary><ul><li>Es permet un únic full DIN A4 escrit íntegrament a mà i només per una cara. No s’admeten impressions, fotocòpies ni altres apunts. Cal mostrar-lo al professor abans de començar i lliurar-lo amb la prova. <strong>Sense aquest full no es pot fer la prova.</strong></li><li>Calculadora senzilla permesa. No es permeten altres dispositius electrònics.</li><li>Pots demanar <strong>fulls en blanc per a esborranys</strong>. No es corregeixen: només compta el que escriguis en aquest examen. S’han de lliurar amb la prova.</li><li><strong>Puntuació: cada pregunta o apartat es puntua sencer o amb 0.</strong> Només puntua si la resposta és completa i correcta. No hi ha puntuació parcial.</li><li><strong>Càlculs:</strong> cal escriure l’operació, el resultat i les unitats (W, VA, Wh, min). Un resultat sense operació o sense unitats val 0. Arrodoneix a dues xifres decimals.</li><li><strong>Apartats independents:</strong> si un apartat et dona una dada de partida, fes servir aquesta dada encara que a l’apartat anterior t’hagi sortit un altre resultat.</li><li>Només cal justificar quan la pregunta ho demana (<strong>Justifica</strong>).</li><li><strong>Respostes:</strong> escriu a l’espai de cada pregunta, amb bolígraf (blau o negre) i <strong>lletra clara i llegible</strong>. El que no es pugui llegir, o es pugui llegir de dues maneres (per exemple, un 1 que sembla un 7, o una r que sembla una n en uns permisos), es considera incorrecte.</li><li><strong>Una sola resposta per pregunta.</strong> Si dones dues respostes o una resposta ambigua, es considera incorrecta. Si et vols corregir, ratlla clarament el que no vols que es corregeixi.</li></ul></details>
-<h3 class="pe-sec">Fonaments, seguretat física, legislació i pla de contingència · 1,5 punts</h3>
+<h3 class="pe-sec">Fonaments, seguretat física, legislació i pla de contingència · 1 punt</h3>
 <div class="pe-q"><p><strong>1 (0,25 p)</strong> Un tall de corrent deixa el servidor web de l’empresa aturat durant 3 hores. No es perd ni es filtra cap dada. Quin principi de la CID es vulnera?</p>
 <details class="pe-sol"><summary>Solució</summary>
 <p>Disponibilitat.</p>
@@ -2418,34 +2418,33 @@ Nov 10 09:16:40 aula-pc04 sudo: marc : COMMAND=/usr/bin/ls /root</pre>
 <p>LOPDGDD (Llei orgànica 3/2018).</p>
 </details>
 </div>
-<div class="pe-q"><p><strong>4 (0,25 p)</strong> Certa o falsa? «La ISO/IEC 27002 és una norma certificable.» Si és falsa, escriu quina norma de la família sí que ho és. Només puntua si les dues parts són correctes.</p>
-<details class="pe-sol"><summary>Solució</summary>
-<p>Falsa. La certificable és la ISO/IEC 27001.</p>
-</details>
-</div>
-<div class="pe-q"><p><strong>5 (0,25 p)</strong> Ordena les cinc fases d’un pla de contingència: Execució · Avaluació · Recuperació · Proves · Planificació.</p>
+<div class="pe-q"><p><strong>4 (0,25 p)</strong> Ordena les cinc fases d’un pla de contingència: Execució · Avaluació · Recuperació · Proves · Planificació.</p>
 <details class="pe-sol"><summary>Solució</summary>
 <p>Avaluació → Planificació → Proves → Execució → Recuperació.</p>
 </details>
 </div>
-<div class="pe-q"><p><strong>6 (0,25 p)</strong> Per què un RAID no substitueix les còpies de seguretat? Respon en una frase.</p>
-<details class="pe-sol"><summary>Solució</summary>
-<p>Perquè si s’esborra un fitxer per error o un virus el fa malbé, el canvi es fa a tots els discos alhora i la dada es perd igualment.</p>
-<p class="small"><strong>Criteri de correcció:</strong> Cal dir que l’esborrat, l’error o el dany es copia a tots els discos. «Perquè el RAID pot fallar» no és vàlid.</p>
-</details>
-</div>
-<h3 class="pe-sec">Sistemes d’alimentació ininterrompuda (SAI) · 3 punts</h3>
-<div class="pe-q"><p><strong>7 (0,25 p)</strong> Quin component del SAI converteix el corrent continu de la bateria en corrent altern per als equips?</p>
+<h3 class="pe-sec">Sistemes d’alimentació ininterrompuda (SAI) · 4 punts</h3>
+<div class="pe-q"><p><strong>5 (0,25 p)</strong> Quin component del SAI converteix el corrent continu de la bateria en corrent altern per als equips?</p>
 <details class="pe-sol"><summary>Solució</summary>
 <p>L’inversor.</p>
 </details>
 </div>
-<div class="pe-q"><p><strong>8 (0,25 p)</strong> Un SAI té preses amb bateria i preses només contra sobretensions. En quin tipus de presa has de connectar el router perquè continuï funcionant durant un tall de corrent?</p>
+<div class="pe-q"><p><strong>6 (0,25 p)</strong> Un SAI té preses amb bateria i preses només contra sobretensions. En quin tipus de presa has de connectar el router perquè continuï funcionant durant un tall de corrent?</p>
 <details class="pe-sol"><summary>Solució</summary>
 <p>En una presa amb bateria.</p>
 </details>
 </div>
-<div class="pe-q"><p><strong>9 (1,50 p total)</strong> Una oficina té 2 torres de 180 W cadascuna, 2 monitors de 0,15 A cadascun a 230 V (FP = 1), 1 switch de 0,1 A a 230 V (FP = 1) i 1 impressora de 150 VA (FP = 0,8). Calcula:</p>
+<div class="pe-q"><p><strong>7 (0,25 p)</strong> Un SAI és de 900 VA / 540 W. Calcula el seu factor de potència.</p>
+<details class="pe-sol"><summary>Solució</summary>
+<p>FP = W ÷ VA = 540 ÷ 900 = 0,6.</p>
+</details>
+</div>
+<div class="pe-q"><p><strong>8 (0,25 p)</strong> Quina forma d’ona de sortida és la recomanada per a ordinadors amb fonts d’alimentació amb PFC actiu?</p>
+<details class="pe-sol"><summary>Solució</summary>
+<p>Ona sinusoïdal pura.</p>
+</details>
+</div>
+<div class="pe-q"><p><strong>9 (1,50 p total) Problema 1 · Dimensionar un SAI.</strong> Una oficina té 2 torres de 180 W cadascuna, 2 monitors de 0,15 A cadascun a 230 V (FP = 1), 1 switch de 0,1 A a 230 V (FP = 1) i 1 impressora de 150 VA (FP = 0,8). Calcula:</p>
 </div>
 <div class="pe-q pe-sub"><p><strong>a) (0,50 p)</strong> La potència en W dels 2 monitors (en total), del switch i de la impressora. Calen els tres valors.</p>
 <details class="pe-sol"><summary>Solució</summary>
@@ -2476,85 +2475,91 @@ Nov 10 09:16:40 aula-pc04 sudo: marc : COMMAND=/usr/bin/ls /root</pre>
 <p class="small"><strong>Criteri de correcció:</strong> Cal escriure exactament els dos models. A no arriba als W (700 &lt; 715) i D no arriba als VA (1000 &lt; 1100).</p>
 </details>
 </div>
-<div class="pe-q"><p><strong>10 (0,50 p)</strong> Un SAI té 2 bateries de 12 V i 9 Ah i una eficiència del 90 %. Calcula l’energia útil en Wh i la potència màxima en W que poden consumir els equips perquè l’autonomia estimada sigui de <strong>30 minuts</strong>. Calen els dos resultats.</p>
+<div class="pe-q"><p><strong>10 (1,50 p total) Problema 2 · Bateries, eficiència i autonomia.</strong> Un SAI té 2 bateries de 12 V i 9 Ah. Segons la fitxa del fabricant, amb una càrrega de 648 W té una autonomia de 10 minuts. Calcula:</p>
+</div>
+<div class="pe-q pe-sub"><p><strong>a) (0,25 p)</strong> L’energia teòrica de les bateries, en Wh.</p>
 <details class="pe-sol"><summary>Solució</summary>
-<p>Energia útil = 2 × 12 × 9 × 0,90 = 194,4 Wh.</p>
+<p>Wh teòrics = 2 × 12 × 9 = 216 Wh.</p>
+</details>
+</div>
+<div class="pe-q pe-sub"><p><strong>b) (0,50 p)</strong> L’eficiència (η) del SAI amb aquesta càrrega de 648 W, en tant per cent.</p>
+<details class="pe-sol"><summary>Solució</summary>
+<p>10 = (216 × η ÷ 648) × 60 → η = 10 × 648 ÷ (216 × 60) = 0,5 → 50 %.</p>
+</details>
+</div>
+<div class="pe-q pe-sub"><p><strong>c) (0,25 p)</strong> Amb una càrrega més baixa, l’eficiència és del <strong>90 %</strong>. Calcula l’energia útil en Wh.</p>
+<details class="pe-sol"><summary>Solució</summary>
+<p>Energia útil = 216 × 0,90 = 194,4 Wh.</p>
+</details>
+</div>
+<div class="pe-q pe-sub"><p><strong>d) (0,50 p)</strong> Partint de <strong>194,4 Wh</strong> útils, calcula la potència màxima en W que poden consumir els equips perquè l’autonomia estimada sigui de <strong>30 minuts</strong>.</p>
+<details class="pe-sol"><summary>Solució</summary>
 <p>Autonomia = Wh ÷ P × 60 → P = 194,4 × 60 ÷ 30 = 388,8 W.</p>
 </details>
 </div>
-<div class="pe-q"><p><strong>11 (0,25 p)</strong> Un SAI és de 900 VA / 540 W. Calcula el seu factor de potència.</p>
-<details class="pe-sol"><summary>Solució</summary>
-<p>FP = W ÷ VA = 540 ÷ 900 = 0,6.</p>
-</details>
-</div>
-<div class="pe-q"><p><strong>12 (0,25 p)</strong> Quina forma d’ona de sortida és la recomanada per a ordinadors amb fonts d’alimentació amb PFC actiu?</p>
-<details class="pe-sol"><summary>Solució</summary>
-<p>Ona sinusoïdal pura.</p>
-</details>
-</div>
 <h3 class="pe-sec">Permisos Linux i Windows · 1,75 punts</h3>
-<div class="pe-q"><p><strong>13 (0,25 p)</strong> Ets a /home/anna/Documents. Escriu una ordre cd amb <strong>ruta relativa</strong> per anar a /home/anna/Imatges.</p>
+<div class="pe-q"><p><strong>11 (0,25 p)</strong> Ets a /home/anna/Documents. Escriu una ordre cd amb <strong>ruta relativa</strong> per anar a /home/anna/Imatges.</p>
 <details class="pe-sol"><summary>Solució</summary>
 <p>cd ../Imatges</p>
 <p class="small"><strong>Criteri de correcció:</strong> Una ruta absoluta (cd /home/anna/Imatges) no és vàlida.</p>
 </details>
 </div>
-<div class="pe-q"><p><strong>14 (0,25 p)</strong> ls -l mostra: -rwxr-x--- 1 pere vendes 220 Nov 10 09:00 informe.sh. L’usuari joan no és pere però pertany al grup vendes. Escriu els permisos que té joan sobre el fitxer, en lletres.</p>
+<div class="pe-q"><p><strong>12 (0,25 p)</strong> ls -l mostra: -rwxr-x--- 1 pere vendes 220 Nov 10 09:00 informe.sh. L’usuari joan no és pere però pertany al grup vendes. Escriu els permisos que té joan sobre el fitxer, en lletres.</p>
 <details class="pe-sol"><summary>Solució</summary>
 <p>r-x</p>
 </details>
 </div>
-<div class="pe-q"><p><strong>15 (0,25 p)</strong> Un fitxer té els permisos rwxr-xr-x. Escriu en lletres els permisos que té després d’executar chmod g-x,o=r fitxer.</p>
+<div class="pe-q"><p><strong>13 (0,25 p)</strong> Un fitxer té els permisos rwxr-xr-x. Escriu en lletres els permisos que té després d’executar chmod g-x,o=r fitxer.</p>
 <details class="pe-sol"><summary>Solució</summary>
 <p>rwxr--r--</p>
 </details>
 </div>
-<div class="pe-q"><p><strong>16 (0,25 p)</strong> Escriu una ordre chmod en format octal per assignar rwx--x--x al fitxer prog.</p>
+<div class="pe-q"><p><strong>14 (0,25 p)</strong> Escriu una ordre chmod en format octal per assignar rwx--x--x al fitxer prog.</p>
 <details class="pe-sol"><summary>Solució</summary>
 <p>chmod 711 prog</p>
 </details>
 </div>
-<div class="pe-q"><p><strong>17 (0,25 p)</strong> Amb umask 027, escriu en lletres els permisos d’un fitxer nou i d’un directori nou. Calen els dos.</p>
+<div class="pe-q"><p><strong>15 (0,25 p)</strong> Amb umask 027, escriu en lletres els permisos d’un fitxer nou i d’un directori nou. Calen els dos.</p>
 <details class="pe-sol"><summary>Solució</summary>
 <p>Fitxer: rw-r----- (640). Directori: rwxr-x--- (750).</p>
 </details>
 </div>
-<div class="pe-q"><p><strong>18 (0,25 p)</strong> Quins dos permisos cal tenir sobre el <strong>directori</strong> /dades per poder esborrar el fitxer /dades/a.txt?</p>
+<div class="pe-q"><p><strong>16 (0,25 p)</strong> Quins dos permisos cal tenir sobre el <strong>directori</strong> /dades per poder esborrar el fitxer /dades/a.txt?</p>
 <details class="pe-sol"><summary>Solució</summary>
 <p>w i x.</p>
 </details>
 </div>
-<div class="pe-q"><p><strong>19 (0,25 p)</strong> A Windows, l’usuari Marta pertany al grup G1, amb una entrada explícita «Permetre Modificar» sobre una carpeta, i al grup G2, amb una entrada explícita «Denegar Escriptura» sobre la mateixa carpeta. Pot escriure-hi? <strong>Justifica</strong> en una frase.</p>
+<div class="pe-q"><p><strong>17 (0,25 p)</strong> A Windows, l’usuari Marta pertany al grup G1, amb una entrada explícita «Permetre Modificar» sobre una carpeta, i al grup G2, amb una entrada explícita «Denegar Escriptura» sobre la mateixa carpeta. Pot escriure-hi? <strong>Justifica</strong> en una frase.</p>
 <details class="pe-sol"><summary>Solució</summary>
 <p>No: l’entrada Denegar té prioritat sobre Permetre.</p>
 </details>
 </div>
-<h3 class="pe-sec">ACL Linux, Windows i matrius d’accés · 2,25 punts</h3>
-<div class="pe-q"><p><strong>20 (0,50 p)</strong> Un fitxer té aquestes entrades ACL: user::rw-, user:laia:rwx, group::r--, group:tec:r-x, other::---. Calcula la màscara automàtica. Escriu l’operació binària i el resultat en binari i en lletres.</p>
+<h3 class="pe-sec">ACL Linux, Windows i matrius d’accés · 1,75 punts</h3>
+<div class="pe-q"><p><strong>18 (0,25 p)</strong> Un fitxer té aquestes entrades ACL: user::rw-, user:laia:rwx, group::r--, group:tec:r-x, other::---. Calcula la màscara automàtica. Escriu l’operació binària i el resultat en binari i en lletres.</p>
 <details class="pe-sol"><summary>Solució</summary>
 <p>111 OR 100 OR 101 = 111 → mask::rwx</p>
 <p class="small"><strong>Criteri de correcció:</strong> La màscara es calcula amb user:laia, group:: i group:tec. user:: i other:: no hi entren.</p>
 </details>
 </div>
-<div class="pe-q"><p><strong>21 (0,50 p)</strong> Sobre el mateix fitxer s’executa setfacl -m m::r-- fitxer. Escriu en lletres els permisos efectius de laia i del grup tec. Calen els dos.</p>
+<div class="pe-q"><p><strong>19 (0,25 p)</strong> Sobre el mateix fitxer s’executa setfacl -m m::r-- fitxer. Escriu en lletres els permisos efectius de laia i del grup tec. Calen els dos.</p>
 <details class="pe-sol"><summary>Solució</summary>
 <p>laia: 111 AND 100 = r--.</p>
 <p>tec: 101 AND 100 = r--.</p>
 </details>
 </div>
-<div class="pe-q"><p><strong>22 (0,25 p)</strong> Escriu una ordre setfacl que elimini <strong>només</strong> l’entrada ACL de l’usuari laia sobre informe.txt.</p>
+<div class="pe-q"><p><strong>20 (0,25 p)</strong> Escriu una ordre setfacl que elimini <strong>només</strong> l’entrada ACL de l’usuari laia sobre informe.txt.</p>
 <details class="pe-sol"><summary>Solució</summary>
 <p>setfacl -x u:laia informe.txt</p>
 <p class="small"><strong>Criteri de correcció:</strong> També és vàlid user:laia. setfacl -b no és vàlid: elimina totes les entrades addicionals.</p>
 </details>
 </div>
-<div class="pe-q"><p><strong>23 (0,25 p)</strong> Escriu una ordre icacls que concedeixi el permís de modificació al grup alumnes sobre C:\Dades i que s’hereti als fitxers i a les subcarpetes.</p>
+<div class="pe-q"><p><strong>21 (0,25 p)</strong> Escriu una ordre icacls que concedeixi el permís de modificació al grup alumnes sobre C:\Dades i que s’hereti als fitxers i a les subcarpetes.</p>
 <details class="pe-sol"><summary>Solució</summary>
 <p>icacls C:\Dades /grant "alumnes:(OI)(CI)M"</p>
 <p class="small"><strong>Criteri de correcció:</strong> També és vàlid sense cometes.</p>
 </details>
 </div>
-<div class="pe-q"><p><strong>24 (0,75 p)</strong> <strong>Clínica veterinària.</strong> Recursos: Historials clínics, Facturació i Agenda de visites.</p>
+<div class="pe-q"><p><strong>22 (0,75 p)</strong> <strong>Clínica veterinària.</strong> Recursos: Historials clínics, Facturació i Agenda de visites.</p>
 <ul class="pe-extra"><li>Veterinaris: consulten i modifiquen els historials clínics, i consulten l’agenda.</li><li>Recepció: crea i modifica l’agenda i consulta la facturació.</li><li>Gerència: crea i modifica la facturació i consulta l’agenda.</li><li>La resta d’accessos no són necessaris i han d’estar restringits.</li><li>Omple la matriu amb L/E (lectura i escriptura), L (només lectura) o — (sense accés). Cada fila val 0,25 p i només puntua si les tres cel·les de la fila són correctes.</li></ul>
 <div class="table-wrap"><table><thead><tr><th>Subjecte / objecte</th><th>Historials clínics</th><th>Facturació</th><th>Agenda de visites</th></tr></thead><tbody><tr><td><strong>Veterinaris</strong></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td><strong>Recepció</strong></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td><strong>Gerència</strong></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr></tbody></table></div>
 <details class="pe-sol"><summary>Solució</summary>
@@ -2563,33 +2568,33 @@ Nov 10 09:16:40 aula-pc04 sudo: marc : COMMAND=/usr/bin/ls /root</pre>
 </details>
 </div>
 <h3 class="pe-sec">Contrasenyes i biometria · 0,75 punts</h3>
-<div class="pe-q"><p><strong>25 (0,25 p)</strong> Segons els criteris vistos a classe, classifica cada contrasenya com a «feble» o «robusta»: (1) Barcelona2026! (2) gat-escala-taronja-pluja-73. Només puntua si les dues són correctes.</p>
+<div class="pe-q"><p><strong>23 (0,25 p)</strong> Segons els criteris vistos a classe, classifica cada contrasenya com a «feble» o «robusta»: (1) Barcelona2026! (2) gat-escala-taronja-pluja-73. Només puntua si les dues són correctes.</p>
 <details class="pe-sol"><summary>Solució</summary>
 <p>(1) Feble. (2) Robusta.</p>
 </details>
 </div>
-<div class="pe-q"><p><strong>26 (0,25 p)</strong> Un servei demana una contrasenya i, després, un PIN. És autenticació multifactor (MFA)? <strong>Justifica</strong> en una frase.</p>
+<div class="pe-q"><p><strong>24 (0,25 p)</strong> Un servei demana una contrasenya i, després, un PIN. És autenticació multifactor (MFA)? <strong>Justifica</strong> en una frase.</p>
 <details class="pe-sol"><summary>Solució</summary>
 <p>No: la contrasenya i el PIN són del mateix factor (el que saps).</p>
 </details>
 </div>
-<div class="pe-q"><p><strong>27 (0,25 p)</strong> En un sistema biomètric s’apuja el llindar de similitud. Quina taxa augmenta: la FAR o la FRR?</p>
+<div class="pe-q"><p><strong>25 (0,25 p)</strong> En un sistema biomètric s’apuja el llindar de similitud. Quina taxa augmenta: la FAR o la FRR?</p>
 <details class="pe-sol"><summary>Solució</summary>
 <p>La FRR (augmenten els falsos rebutjos / falsos negatius).</p>
 </details>
 </div>
 <h3 class="pe-sec">Registres i incidències · 0,75 punts</h3>
-<div class="pe-q"><p><strong>28 (0,25 p)</strong> Quin ID de Windows indica que s’ha esborrat el registre d’auditoria?</p>
+<div class="pe-q"><p><strong>26 (0,25 p)</strong> Quin ID de Windows indica que s’ha esborrat el registre d’auditoria?</p>
 <details class="pe-sol"><summary>Solució</summary>
 <p>1102.</p>
 </details>
 </div>
-<div class="pe-q"><p><strong>29 (0,25 p)</strong> Escriu una ordre Linux que mostri els 30 últims missatges del diari del sistema.</p>
+<div class="pe-q"><p><strong>27 (0,25 p)</strong> Escriu una ordre Linux que mostri els 30 últims missatges del diari del sistema.</p>
 <details class="pe-sol"><summary>Solució</summary>
 <p>journalctl -n 30</p>
 </details>
 </div>
-<div class="pe-q"><p><strong>30 (0,25 p)</strong> Ordena les fases de la gestió d’una incidència en un sistema de tiquets: Tancar · Assignar · Registrar · Resoldre · Fer seguiment.</p>
+<div class="pe-q"><p><strong>28 (0,25 p)</strong> Ordena les fases de la gestió d’una incidència en un sistema de tiquets: Tancar · Assignar · Registrar · Resoldre · Fer seguiment.</p>
 <details class="pe-sol"><summary>Solució</summary>
 <p>Registrar → Assignar → Fer seguiment → Resoldre → Tancar.</p>
 </details>
