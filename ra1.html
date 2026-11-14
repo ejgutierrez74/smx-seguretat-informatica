@@ -2250,6 +2250,7 @@ $ sudo grep "failure" /var/log/auth.log</pre>
 <div class="pe-q"><p><strong>3 (0,25 p)</strong> Escriu les sigles de la llei espanyola que complementa el RGPD en la protecció de dades personals.</p>
 <details class="pe-sol"><summary>Solució</summary>
 <p>LOPDGDD (Llei orgànica 3/2018).</p>
+<p class="small"><strong>Criteri de correcció:</strong> També és vàlid «Llei orgànica 3/2018» o LOPD-GDD.</p>
 </details>
 </div>
 <div class="pe-q"><p><strong>4 (0,25 p)</strong> Ordena les cinc fases d’un pla de contingència: Execució · Avaluació · Recuperació · Proves · Planificació.</p>
@@ -2376,7 +2377,7 @@ $ sudo grep "failure" /var/log/auth.log</pre>
 <div class="pe-q"><p><strong>18 (0,25 p)</strong> Un fitxer té aquestes entrades ACL: user::rw-, user:laia:rwx, group::r--, group:tec:r-x, other::---. Calcula la màscara automàtica. Escriu l’operació binària i el resultat en binari i en lletres.</p>
 <details class="pe-sol"><summary>Solució</summary>
 <p>111 OR 100 OR 101 = 111 → mask::rwx</p>
-<p class="small"><strong>Criteri de correcció:</strong> La màscara es calcula amb user:laia, group:: i group:tec. user:: i other:: no hi entren.</p>
+<p class="small"><strong>Criteri de correcció:</strong> La màscara es calcula amb user:laia, group:: i group:tec; user:: i other:: no hi entren. L’ordre dels operands de l’OR no importa.</p>
 </details>
 </div>
 <div class="pe-q"><p><strong>19 (0,25 p)</strong> Sobre el mateix fitxer s’executa setfacl -m m::r-- fitxer. Escriu en lletres els permisos efectius de laia i del grup tec. Calen els dos.</p>
@@ -2391,7 +2392,7 @@ $ sudo grep "failure" /var/log/auth.log</pre>
 <p class="small"><strong>Criteri de correcció:</strong> També és vàlid user:laia. setfacl -b no és vàlid: elimina totes les entrades addicionals.</p>
 </details>
 </div>
-<div class="pe-q"><p><strong>21 (0,25 p)</strong> Escriu una ordre icacls que concedeixi el permís de modificació al grup alumnes sobre C:\Dades i que s’hereti als fitxers i a les subcarpetes.</p>
+<div class="pe-q"><p><strong>21 (0,25 p)</strong> Escriu una ordre icacls que concedeixi el permís de modificació al grup alumnes sobre la carpeta C:\⁠Dades. El permís s’ha d’heretar als fitxers i a les subcarpetes.</p>
 <details class="pe-sol"><summary>Solució</summary>
 <p>icacls C:\Dades /grant "alumnes:(OI)(CI)M"</p>
 <p class="small"><strong>Criteri de correcció:</strong> També és vàlid sense cometes.</p>
@@ -2410,6 +2411,7 @@ $ sudo grep "failure" /var/log/auth.log</pre>
 <div class="pe-q"><p><strong>23 (0,25 p)</strong> Segons els criteris vistos a classe, classifica cada contrasenya com a «feble» o «robusta»: (1) Barcelona2026! (2) gat-escala-taronja-pluja-73. Només puntua si les dues són correctes.</p>
 <details class="pe-sol"><summary>Solució</summary>
 <p>(1) Feble. (2) Robusta.</p>
+<p class="small"><strong>Criteri de correcció:</strong> (1) és una paraula del diccionari amb un any i un símbol, i té menys de 15 caràcters. (2) són diverses paraules sense relació, llarga (27 caràcters), com l’exemple vist a classe.</p>
 </details>
 </div>
 <div class="pe-q"><p><strong>24 (0,25 p)</strong> Un servei demana una contrasenya i, després, un PIN. És autenticació multifactor (MFA)? <strong>Justifica</strong> en una frase.</p>
