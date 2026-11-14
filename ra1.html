@@ -526,6 +526,20 @@
  #teoria > article.ra1-llibre p, #teoria > article.ra1-llibre li { max-width:none; }
 }
 #practiques .ra1-boto-pdf{display:inline-block;padding:.55rem 1rem;border-radius:6px;background:#006b69;color:#fff;text-decoration:none;font-weight:700}#practiques .ra1-boto-pdf:hover{background:#00524f}#practiques h2.ra1-pr-tit{margin-top:2.5rem;padding-bottom:.4rem;border-bottom:2px solid #24475c}
+#prova-examen .ra1-boto-pdf{display:inline-block;padding:.55rem 1rem;border-radius:6px;background:#006b69;color:#fff;text-decoration:none;font-weight:700}
+#prova-examen h2.pe-sec{margin-top:2.6rem;padding-bottom:.4rem;border-bottom:2px solid #24475c}
+#prova-examen .pe-q{background:#fff;border:1px solid #d6dee6;border-radius:8px;padding:.6rem 1.1rem .8rem;margin:1rem 0;line-height:1.7}
+#prova-examen .pe-sub{margin-left:2rem}
+#prova-examen pre{white-space:pre-wrap;font-size:13px}
+#prova-examen details>summary{list-style:none;cursor:pointer;font-weight:700;color:#006b69;padding:.45rem .8rem;user-select:none}
+#prova-examen details>summary::-webkit-details-marker{display:none}
+#prova-examen details>summary::before{content:"▶";display:inline-block;margin-right:.55rem;font-size:.8em;transition:transform .2s}
+#prova-examen details[open]>summary::before{transform:rotate(90deg)}
+#prova-examen details.pe-sol{border:1px solid #cfe3e1;border-radius:8px;background:#f4faf9;margin-top:.6rem}
+#prova-examen details.pe-sol>:not(summary){margin-left:1rem;margin-right:1rem}
+#prova-examen details.pe-instr{border:1px solid #d6dee6;border-radius:8px;margin:1rem 0}
+#prova-examen details.pe-instr ul{margin:.3rem 1rem .8rem}
+@media print{#prova-examen details>summary::before{content:""}}
 </style>
 </head>
 <body data-default-panel="ra1">
@@ -2214,9 +2228,175 @@ $ sudo grep "failure" /var/log/auth.log</pre>
 </article>
 </section>
 <section class="panel" id="prova-examen" data-title="Prova d’examen RA1"><div class="eyebrow">M0226 · Seguretat informàtica</div><h1>Prova d’examen RA1</h1>
-<p class="lead">Un examen de pràctica amb el mateix format que la prova real, per entrenar-te abans de l’examen.</p>
-<div class="notice"><p><strong>Properament.</strong> Aquí es publicarà una prova d’examen del RA1 amb les respostes. Les respostes estaran amagades: fes primer l’examen i, quan acabis, prem <strong>▶ Solució</strong> a cada pregunta per comprovar-la.</p></div>
-<p>Mentrestant, pots repassar els <a href="#teoria">apunts del RA1</a> i fer els exercicis que hi ha al final de cada apartat.</p></section>
+<p class="lead">Un simulacre amb la mateixa estructura, durada (50 minuts), puntuació (10 punts) i tipus de preguntes que l’examen real.</p>
+<div class="notice"><p><strong>Com fer-lo servir:</strong> descarrega el PDF, fes l’examen en 50 minuts només amb el teu full de resum i la calculadora, i després comprova cada resposta prement <strong>▶ Solució</strong>. No compta per a la nota.</p></div>
+<p><a class="ra1-boto-pdf" href="materials-ra1/simulacre-ra1.pdf" target="_blank" rel="noopener">⬇ Descarrega el simulacre (PDF per imprimir)</a> &nbsp; <a href="materials-ra1/simulacre-ra1-solucionari.pdf" target="_blank" rel="noopener">Solucionari en PDF</a></p>
+<details class="pe-instr"><summary>Instruccions de l’examen</summary><ul><li>Es permet un únic full DIN A4 escrit íntegrament a mà i només per una cara. No s’admeten impressions, fotocòpies ni altres apunts. Cal mostrar-lo al professor abans de començar i lliurar-lo amb la prova. <strong>Sense aquest full no es pot fer la prova.</strong></li><li>Calculadora senzilla permesa. No es permeten altres dispositius electrònics.</li><li>Pots demanar <strong>fulls en blanc per a esborranys</strong>. No es corregeixen: només compta el que escriguis en aquest examen. S’han de lliurar amb la prova.</li><li><strong>Puntuació: cada pregunta o apartat es puntua sencer o amb 0.</strong> Només puntua si la resposta és completa i correcta. No hi ha puntuació parcial.</li><li><strong>Càlculs:</strong> cal escriure l’operació, el resultat i les unitats (W, VA, Wh, min). Un resultat sense operació o sense unitats val 0. Arrodoneix a dues xifres decimals.</li><li><strong>Apartats independents:</strong> si un apartat et dona una dada de partida, fes servir aquesta dada encara que a l’apartat anterior t’hagi sortit un altre resultat.</li><li>Només cal justificar quan la pregunta ho demana (<strong>Justifica</strong>).</li><li><strong>Respostes:</strong> escriu a l’espai de cada pregunta, amb bolígraf (blau o negre) i <strong>lletra clara i llegible</strong>. El que no es pugui llegir, o es pugui llegir de dues maneres (per exemple, un 1 que sembla un 7, o una r que sembla una n en uns permisos), es considera incorrecte.</li><li><strong>Una sola resposta per pregunta.</strong> Si dones dues respostes o una resposta ambigua, es considera incorrecta. Si et vols corregir, ratlla clarament el que no vols que es corregeixi.</li></ul></details>
+<h2 class="pe-sec">Fonaments i seguretat física · 1 punt</h2>
+<div class="pe-q"><p><strong>1 (0,25 p)</strong> Un atacant modifica les notes d’un alumne a la base de dades de l’institut. Quin principi de la CID es vulnera?</p>
+<details class="pe-sol"><summary>Solució</summary>
+<p>Integritat.</p>
+</details>
+</div>
+<div class="pe-q"><p><strong>2 (0,25 p)</strong> Classifica com a seguretat «física» o «lògica»: (1) un SAI que alimenta el servidor; (2) una llista de control d’accés sobre una carpeta. Només puntua si les dues són correctes.</p>
+<details class="pe-sol"><summary>Solució</summary>
+<p>(1) Física. (2) Lògica.</p>
+</details>
+</div>
+<div class="pe-q"><p><strong>3 (0,25 p)</strong> Escriu una mesura concreta de detecció o d’extinció d’incendis en una sala de servidors.</p>
+<details class="pe-sol"><summary>Solució</summary>
+<p>Detecció: detectors de fum, de flames o de calor. Extinció: ruixadors automàtics, extintors o sistemes d’extinció per gas.</p>
+<p class="small"><strong>Criteri de correcció:</strong> Qualsevol mesura concreta de detecció o d’extinció. «Protegir-se del foc» no és una mesura concreta.</p>
+</details>
+</div>
+<div class="pe-q"><p><strong>4 (0,25 p)</strong> Com s’anomena un augment brusc i breu de la tensió per sobre del valor normal?</p>
+<details class="pe-sol"><summary>Solució</summary>
+<p>Sobretensió (pic de tensió).</p>
+</details>
+</div>
+<h2 class="pe-sec">Sistemes d’alimentació ininterrompuda (SAI) · 3 punts</h2>
+<div class="pe-q"><p><strong>5 (0,25 p)</strong> Quin tipus de SAI alimenta sempre els equips a través de l’inversor (doble conversió) i no té temps de commutació?</p>
+<details class="pe-sol"><summary>Solució</summary>
+<p>SAI online (de doble conversió).</p>
+</details>
+</div>
+<div class="pe-q"><p><strong>6 (1,25 p total)</strong> Tenim una torre de 150 W, un monitor de 30 W, un switch de 0,1 A connectat a 230 V (FP = 1) i una impressora de 200 VA (FP = 0,75). Calcula:</p>
+</div>
+<div class="pe-q pe-sub"><p><strong>a) (0,50 p)</strong> La potència en W del switch i de la impressora (calen les dues).</p>
+<details class="pe-sol"><summary>Solució</summary>
+<p>Switch: W = 230 × 0,1 × 1 = 23 W.</p>
+<p>Impressora: W = 200 × 0,75 = 150 W.</p>
+</details>
+</div>
+<div class="pe-q pe-sub"><p><strong>b) (0,25 p)</strong> El consum total dels quatre equips, en W.</p>
+<details class="pe-sol"><summary>Solució</summary>
+<p>150 + 30 + 23 + 150 = 353 W.</p>
+</details>
+</div>
+<div class="pe-q pe-sub"><p><strong>c) (0,25 p)</strong> Partint d’un consum total de <strong>360 W</strong>, calcula la potència en W necessària afegint un marge del 25 %.</p>
+<details class="pe-sol"><summary>Solució</summary>
+<p>360 × 1,25 = 450 W.</p>
+</details>
+</div>
+<div class="pe-q pe-sub"><p><strong>d) (0,25 p)</strong> Partint de <strong>450 W</strong>, calcula els VA necessaris si el FP global és 0,75.</p>
+<details class="pe-sol"><summary>Solució</summary>
+<p>VA = 450 ÷ 0,75 = 600 VA.</p>
+</details>
+</div>
+<div class="pe-q"><p><strong>7 (0,50 p)</strong> Una càrrega consumeix 420 W. Volem utilitzar com a màxim el 70 % de la capacitat nominal en W del SAI. Calcula la potència nominal mínima necessària.</p>
+<details class="pe-sol"><summary>Solució</summary>
+<p>420 ÷ 0,70 = 600 W.</p>
+<p class="small"><strong>Criteri de correcció:</strong> Si es multiplica per 1,30 (546 W), és incorrecte.</p>
+</details>
+</div>
+<div class="pe-q"><p><strong>8 (0,50 p)</strong> Necessitem un SAI d’almenys 600 W i 800 VA. Només un d’aquests models compleix: A = 800 VA / 480 W · B = 1000 VA / 600 W · C = 750 VA / 650 W. Quin és? <strong>Justifica</strong> per què els altres dos no compleixen.</p>
+<details class="pe-sol"><summary>Solució</summary>
+<p>B (1000 VA ≥ 800 VA i 600 W ≥ 600 W).</p>
+<p>A no compleix perquè 480 W &lt; 600 W. C no compleix perquè 750 VA &lt; 800 VA (els W sí que hi arriben).</p>
+</details>
+</div>
+<div class="pe-q"><p><strong>9 (0,50 p)</strong> Un SAI té 2 bateries de 12 V i 7 Ah. L’eficiència és del 95 % i els equips consumeixen realment 266 W. Calcula l’autonomia estimada en minuts.</p>
+<details class="pe-sol"><summary>Solució</summary>
+<p>Energia útil = 2 × 12 × 7 × 0,95 = 159,6 Wh.</p>
+<p>Autonomia = 159,6 ÷ 266 × 60 = 36 min.</p>
+</details>
+</div>
+<h2 class="pe-sec">Permisos Linux i umask · 1,75 punts</h2>
+<div class="pe-q"><p><strong>10 (0,50 p)</strong> Escriu en format simbòlic els permisos octals 751 (propietari / grup / altres).</p>
+<details class="pe-sol"><summary>Solució</summary>
+<p>rwxr-x--x</p>
+</details>
+</div>
+<div class="pe-q"><p><strong>11 (0,50 p)</strong> Escriu una ordre chmod en format octal per assignar rwxr-x--- al fitxer script.sh.</p>
+<details class="pe-sol"><summary>Solució</summary>
+<p>chmod 750 script.sh</p>
+</details>
+</div>
+<div class="pe-q"><p><strong>12 (0,50 p)</strong> Escriu una ordre chmod en format simbòlic que afegeixi només el permís d’execució al propietari de script.sh sense canviar la resta.</p>
+<details class="pe-sol"><summary>Solució</summary>
+<p>chmod u+x script.sh</p>
+</details>
+</div>
+<div class="pe-q"><p><strong>13 (0,25 p)</strong> Certa o falsa? «Amb umask 027, la resta d’usuaris (altres) no tenen cap permís sobre els fitxers nous». <strong>Justifica</strong> en una frase.</p>
+<details class="pe-sol"><summary>Solució</summary>
+<p>Certa: el 7 de la umask treu r, w i x a «altres».</p>
+</details>
+</div>
+<h2 class="pe-sec">ACL Linux, Windows i matrius d’accés · 2,25 punts</h2>
+<div class="pe-q"><p><strong>14 (0,50 p)</strong> Calcula la màscara automàtica d’aquestes entrades: group::r--, user:pau:r--, group:profes:-w-. Escriu l’operació binària i el resultat en binari i en lletres.</p>
+<details class="pe-sol"><summary>Solució</summary>
+<p>100 OR 100 OR 010 = 110 → mask::rw-</p>
+</details>
+</div>
+<div class="pe-q"><p><strong>15 (0,50 p)</strong> L’usuari pau té user:pau:rw- i mask::r-- (màscara establerta manualment). Calcula els permisos efectius en binari i en lletres.</p>
+<details class="pe-sol"><summary>Solució</summary>
+<p>110 AND 100 = 100 → r--</p>
+</details>
+</div>
+<div class="pe-q"><p><strong>16 (0,25 p)</strong> Escriu una ordre setfacl que assigni només lectura al grup profes sobre informe.txt.</p>
+<details class="pe-sol"><summary>Solució</summary>
+<p>setfacl -m g:profes:r informe.txt</p>
+<p class="small"><strong>Criteri de correcció:</strong> També és vàlid group:profes:r o r--.</p>
+</details>
+</div>
+<div class="pe-q"><p><strong>17 (0,25 p)</strong> Escriu una ordre icacls que concedeixi el permís de modificació a l’usuari maria sobre C:\Projecte.</p>
+<details class="pe-sol"><summary>Solució</summary>
+<p>icacls C:\Projecte /grant maria:M</p>
+</details>
+</div>
+<div class="pe-q"><p><strong>18 (0,75 p)</strong> <strong>Botiga en línia.</strong> Recursos: Comandes, Nòmines i Web de la botiga.</p>
+<ul class="pe-extra"><li>Venedors: consulten i modifiquen les comandes, i consulten la web.</li><li>Administració: consulta les comandes i crea i modifica les nòmines.</li><li>Màrqueting: consulta i modifica la web de la botiga.</li><li>La resta d’accessos no són necessaris i han d’estar restringits.</li><li>Omple la matriu amb L/E (lectura i escriptura), L (només lectura) o — (sense accés). Cada fila val 0,25 p i només puntua si les tres cel·les de la fila són correctes.</li></ul>
+<div class="table-wrap"><table><thead><tr><th>Subjecte / objecte</th><th>Comandes</th><th>Nòmines</th><th>Web botiga</th></tr></thead><tbody><tr><td><strong>Venedors</strong></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td><strong>Administració</strong></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td><strong>Màrqueting</strong></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr></tbody></table></div>
+<details class="pe-sol"><summary>Solució</summary>
+<div class="table-wrap"><table><thead><tr><th>Subjecte / objecte</th><th>Comandes</th><th>Nòmines</th><th>Web botiga</th></tr></thead><tbody><tr><td><strong>Venedors</strong></td><td>L/E</td><td>—</td><td>L</td></tr><tr><td><strong>Administració</strong></td><td>L</td><td>L/E</td><td>—</td></tr><tr><td><strong>Màrqueting</strong></td><td>—</td><td>—</td><td>L/E</td></tr></tbody></table></div>
+<p class="small"><strong>Criteri de correcció:</strong> 0,25 p per fila. Una fila amb alguna cel·la incorrecta val 0.</p>
+</details>
+</div>
+<h2 class="pe-sec">Contrasenyes i biometria · 1 punt</h2>
+<div class="pe-q"><p><strong>19 (0,25 p)</strong> Segons la guia NIST vista a classe, quina longitud mínima ha de tenir una contrasenya quan és l’únic factor d’autenticació?</p>
+<details class="pe-sol"><summary>Solució</summary>
+<p>15 caràcters.</p>
+</details>
+</div>
+<div class="pe-q"><p><strong>20 (0,25 p)</strong> Posa un exemple concret de factor d’autenticació del tipus «el que tens».</p>
+<details class="pe-sol"><summary>Solució</summary>
+<p>El mòbil amb una app d’autenticació, una clau de seguretat USB (token), una targeta…</p>
+</details>
+</div>
+<div class="pe-q"><p><strong>21 (0,25 p)</strong> Què mesura la FRR en un sistema biomètric?</p>
+<details class="pe-sol"><summary>Solució</summary>
+<p>Taxa de falsos rebutjos: la proporció d’intents d’usuaris legítims que el sistema rebutja.</p>
+</details>
+</div>
+<div class="pe-q"><p><strong>22 (0,25 p)</strong> Un gimnàs fa servir l’empremta digital per entrar. Si la FRR és alta, quin problema notaran els socis? <strong>Justifica</strong>.</p>
+<details class="pe-sol"><summary>Solució</summary>
+<p>Socis que sí que tenen permís no podran entrar o hauran de repetir la lectura moltes vegades, perquè el sistema els rebutja.</p>
+</details>
+</div>
+<h2 class="pe-sec">Registres i incidències · 1 punt</h2>
+<div class="pe-q"><p><strong>23 (0,25 p)</strong> Escriu una ordre Linux que mostri només les línies de /var/log/auth.log que contenen el text «incorrect».</p>
+<details class="pe-sol"><summary>Solució</summary>
+<p>grep "incorrect" /var/log/auth.log</p>
+<p class="small"><strong>Criteri de correcció:</strong> També és vàlid amb sudo davant (sudo grep "incorrect" /var/log/auth.log) i amb el text sense cometes.</p>
+</details>
+</div>
+<div class="pe-q"><p><strong>24 (0,25 p)</strong> Quin ID de Windows correspon a un inici de sessió correcte: 4624 o 4625?</p>
+<details class="pe-sol"><summary>Solució</summary>
+<p>4624.</p>
+</details>
+</div>
+<div class="pe-q"><p><strong>25 (0,50 p)</strong> Al fitxer /var/log/auth.log de l’equip aula-pc04 apareixen aquestes línies. Explica què ha passat: què indiquen les tres primeres línies i què indica la darrera.</p>
+<pre>Nov 10 09:14:02 aula-pc04 sudo: pam_unix(sudo:auth): authentication failure; user=marc
+Nov 10 09:14:09 aula-pc04 sudo: pam_unix(sudo:auth): authentication failure; user=marc
+Nov 10 09:14:15 aula-pc04 sudo: marc : 3 incorrect password attempts ; COMMAND=/usr/bin/ls /root
+Nov 10 09:16:40 aula-pc04 sudo: marc : COMMAND=/usr/bin/ls /root</pre>
+<details class="pe-sol"><summary>Solució</summary>
+<p>L’usuari marc ha intentat fer servir sudo per executar ls /root i s’ha equivocat de contrasenya 3 vegades (intents fallits).</p>
+<p>La darrera línia indica que, més tard, marc ha posat bé la contrasenya i ha executat l’ordre amb sudo correctament.</p>
+<p class="small"><strong>Criteri de correcció:</strong> Calen les dues idees: els 3 intents fallits de sudo de marc i l’execució correcta final.</p>
+</details>
+</div>
+<p class="small">Simulacre elaborat a partir de les presentacions del RA1 i del material de l’IOC. Llicència <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ca">CC BY-NC-SA 4.0</a>.</p></section>
 <section class="panel" id="practiques" data-title="Pràctiques i exercicis"><div class="eyebrow">Laboratori i treball a classe</div>
 <h1>Aplicar, comprovar, explicar.</h1>
 <p class="lead">Pràctiques avaluables del RA1 (1.1, 1.2 i 1.3) i, més avall, altres activitats i exercicis de les sessions.</p>
